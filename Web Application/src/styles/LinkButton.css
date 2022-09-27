@@ -1,0 +1,24 @@
+@import url('themes/color-scheme.css');
+
+.btn {
+    font-weight: bold;
+    text-decoration: none;
+    padding: 1em;
+    border-radius: 0.5em;
+    text-align: center;
+    margin: 2em;
+    font-size: 1.5rem;
+    color: hsl(0, 0%, 100%);
+    background-color: var(--primary-color);
+
+    display: block;
+}
+
+.btn:hover {
+    color: var(--primary-color);
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* .btn + .btn {
+    margin-bottom: 2rem;
+} */
