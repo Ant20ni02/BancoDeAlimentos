@@ -92,3 +92,17 @@ module.exports.login = (req, res) => {
 
     Fun(password_);
 }
+
+module.exports.getUsersData = (req,res) =>{
+    const idUser = req.params.idUser;
+    const sql = `SELECT * FROM User_ WHERE idUser = ?`;
+
+    conexion.query(sql, [idUser],(error, results, fields) =>{
+        if(error)
+            res.send(error);
+
+        else{
+            res.json(results);
+        }
+    })
+}
