@@ -1,9 +1,9 @@
 # Banco de Alimentos
 
-## Aplicación web 💻
+## Web app 💻
 
-## Aplicación móvil 📱
+## Mobile app 📱
 
-## API ⚙️
+## REST API ⚙️
 
 ## Database 💾
