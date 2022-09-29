@@ -1,6 +1,6 @@
 @import url('themes/color-scheme.css');
 
-h1.form {
+h1.form-header {
     font-size: 2.5em;
     font-weight: 400;
     color: var(--primary-color);
@@ -8,7 +8,7 @@ h1.form {
     margin-bottom: 1em;
 }
 
-button {
+button.form-btn {
     border: none;
     color: hsl(0, 0%, 100%);
     cursor: pointer;
@@ -23,7 +23,7 @@ button {
     display: block;
 }
 
-button:hover {
+button.form-btn:hover {
     color: var(--primary-color);
     background-color: hsl(0, 0%, 100%);
 }
@@ -42,14 +42,18 @@ input:focus {
     border: 1px solid var(--quaternary-color);
 }
 
-/* input:focus:is(:valid) {
+input:is(:not(:placeholder-shown):valid) {
     border: 1px solid var(--secondary-color);
 }
 
-input:focus:is(:invalid) {
+input:is(:not(:placeholder-shown):invalid) {
+    border: 1px solid var(--tertiary-color);
+}
+
+input:is(:not(:focus)):invalid:not(:placeholder-shown) {
     border: 1px solid var(--tertiary-color);
     animation: shake 0.5s;
-} */
+}
 
 @keyframes shake {
     25% {

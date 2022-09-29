@@ -26,11 +26,11 @@ function LogIn() {
     }
     return (
         <>
-            <h1 className="form">Iniciar sesión</h1>
-            <form ref={form} onSubmit={handleSubmit}>
+            <h1 className="form-header">Iniciar sesión</h1>
+            <form className="form" ref={form} onSubmit={handleSubmit}>
                 <input type="email" name="email" placeholder="Correo electrónico"  required/>
                 <input type="password" name="password" placeholder="Contraseña"  required/>
-                <button type="submit">Continuar</button>
+                <button className="form-btn" type="submit">Continuar</button>
             </form>
         </>
     );

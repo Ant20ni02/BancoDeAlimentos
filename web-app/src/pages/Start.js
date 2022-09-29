@@ -1,8 +1,7 @@
 import React from 'react';
 import LinkButton from '../components/LinkButton';
-import TextHeader from '../components/TextHeader';
 import '../styles/Start.css';
-import logo from '../images/logo.png';
+import logo from '../images/logo-recurso-3.png';
 
 function Start() {
     return (

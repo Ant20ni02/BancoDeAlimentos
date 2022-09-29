@@ -1,12 +1,14 @@
 import React, { useRef} from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/form.css';
+import DialogModal from '../components/DialogModal';
 
 const options = [
     'Masculino', 'Femenino'
   ];
 
 function SignUp() {
+
     const form = useRef();
     const navigate = useNavigate();
 
@@ -42,26 +44,25 @@ function SignUp() {
                     alert('Error al registrarse');
                 }
             } else {
-                
                 alert('Error al registrarse');
             }
         }
     }
     return (
         <>
-            <h1 className="form">Registrarse</h1>
-            <form ref={form} onSubmit={handleSubmit}>
+            <h1 className="form-header">Registrarse</h1>
+            <form className="form" ref={form} onSubmit={handleSubmit}>
                 <input name="firstName" placeholder="Nombres" required/>
                 <input name="lastName" placeholder="Apellidos" required/>
                 <input type="email" name="email" placeholder="Correo electrónico" required/>
-                <input name="phoneNumber" placeholder="Número de teléfono" pattern="[0-9]" required/>
+                <input name="phoneNumber" placeholder="Número de teléfono" /* pattern=""  */required/>
                 <select name="sex">
                     <option value="m">Masculino</option>
                     <option value="f">Femenino</option>
                 </select>
                 <input type="password" name="password" placeholder="Contraseña" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" required/>
                 <input type="password" name="passwordConfirm" placeholder="Confirmar contraseña" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" required/>
-                <button type="submit">Continuar</button>
+                <button className="form-btn" type="submit">Continuar</button>
             </form>
         </>
     );
