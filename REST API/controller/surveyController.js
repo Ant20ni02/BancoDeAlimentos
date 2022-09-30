@@ -15,9 +15,9 @@ module.exports.addSurvey = (req, res) =>{
     const idFamily = req.body.idFamily;
     const idQuestionList = req.body.idQuestionList;
 
-    const sql = `INSERT INTO Survey (idUser, idFamily, idQuestionList) VALUES(? ,?,?)`
+    const sql = `INSERT INTO Survey (idUser, idFamily) VALUES(? ,?,?)`
 
-    conexion.query(sql, [idUser,idFamily, idQuestionList], (error, results, fields)=>{
+    conexion.query(sql, [idUser,idFamily], (error, results, fields)=>{
         if(error)
             res.send(error)
         else{
