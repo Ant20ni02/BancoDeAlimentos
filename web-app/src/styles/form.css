@@ -67,8 +67,15 @@ input:is(:not(:focus)):invalid:not(:placeholder-shown) {
     }
 }
 
-form {
+.form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    border: 1px solid var(--primary-color);
+    border-radius: 0.5em;
+    width: fit-content;
+    height: fit-content;
+    margin: 2em auto;
+    padding: 0 3em;
 }

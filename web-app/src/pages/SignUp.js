@@ -37,21 +37,24 @@ function SignUp() {
     }
     return (
         <>
-            <h1 className="form">Registrarse</h1>
-            <form ref={form} onSubmit={handleSubmit}>
+            <h1 className="form-header">Registrarse</h1>
+            <form className="form" ref={form} onSubmit={handleSubmit}>
                 <input name="firstName" placeholder="Nombres" required/>
                 <input name="lastName" placeholder="Apellidos" required/>
                 <input name="age" placeholder="Edad" required/>
-                <input type="email" name="email" placeholder="Correo electrónico" required/>
+
+                {/* <input type="number" name="age" size="2" min="1" max="100" data-maxlength="2" pattern="[0-9]{1,100}" onInput="this.value=this.value.slice(0,this.dataset.maxlength);" required/> */}
+
+                <input type="email" name="email" placeholder="Correo electrónico" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" required/>
                 <input name="phoneNumber" placeholder="Número de teléfono" required/>
                 <select name="sex">
                     <option value="m">Masculino</option>
                     <option value="f">Femenino</option>
                     <option value="o">No especificar</option>
                 </select>
-                <input type="password" name="password" placeholder="Contraseña"  required/>
-                <input type="password" name="passwordConfirm" placeholder="Confirmar contraseña"  required/>
-                <button type="submit">Continuar</button>
+                <input type="password" name="password" placeholder="Contraseña" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" required/>
+                <input type="password" name="passwordConfirm" placeholder="Confirmar contraseña" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" required/>
+                <button className="form-btn" type="submit">Continuar</button>
             </form>
         </>
     );
