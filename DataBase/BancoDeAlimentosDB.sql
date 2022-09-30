@@ -4,7 +4,7 @@ use BancoDeAlimentos;
 -- drop database BancoDeAlimentos;
 
 CREATE TABLE User_(
- idUser int auto_increment,
+ idUser int auto_increment NOT NULL,
  firstName varchar(25),
  lastName varchar(25),
  email varchar(50),
@@ -17,50 +17,42 @@ CREATE TABLE User_(
 );
 
 CREATE TABLE Family(
- idFamily int auto_increment,
+ idFamily varchar(100) NOT NULL,
  familyMembers int,
  familyLastName varchar(25),
+ latitude double,
+ longitude double,
  pregnancy int,
  primary key(idFamily)
 );
 
 CREATE TABLE MedicalCondition(
- name varchar(25),
+ medicalConditionName varchar(25),
  medicalConditionNumber int,
- idFamily int,
+ idFamily varchar(100),
  CONSTRAINT fk_Family_MedicalCondition1
 			FOREIGN KEY (idFamily) REFERENCES Family(idFamily)
-);
-
-CREATE TABLE QuestionList(
- idQuestionList int auto_increment,
- primary key(idQuestionList)
-);
-
-CREATE TABLE Question(
- idQuestion int,
- idQuestionList int,
- answer varchar(10),
- CONSTRAINT fk_QuestionList_Question1
-			FOREIGN KEY (idQuestionList) REFERENCES QuestionList(idQuestionList),
-primary key(idQuestion)
 );
 
 CREATE TABLE Survey(
  idSurvey int auto_increment NOT NULL,
  idUser int NOT NULL,
- idFamily int NOT NULL,
+ idFamily varchar(100) NOT NULL,
  date_ date,
- latitude double,
- longitude double,
- idQuestionList int NOT NULL,
  CONSTRAINT fk_User_Survey1
 			FOREIGN KEY (idUser) REFERENCES User_(idUser),
 CONSTRAINT fk_Family_Survey2
 			FOREIGN KEY (idFamily) REFERENCES Family(idFamily),
-CONSTRAINT fk_QuestionList_Survey3
-			FOREIGN KEY (idQuestionList) REFERENCES QuestionList(idQuestionList),
  primary key (idSurvey)
+);
+
+CREATE TABLE Question(
+ idQuestion int,
+ idSurvey int,
+ answer varchar(10),
+ CONSTRAINT fk_Survey_Question1
+			FOREIGN KEY (idSurvey) REFERENCES Survey(idSurvey),
+primary key(idQuestion)
 );
 
 CREATE TABLE FoodAvailable(
@@ -71,18 +63,15 @@ CREATE TABLE FoodAvailable(
 );
 
 CREATE TABLE FoodSuggested(
- idFamily int,
+ idFamily varchar(100),
  idFoodAvailable int,
  foodName varchar(50),
  quantity int,
  CONSTRAINT fk_Family_FoodSuggested1
 			FOREIGN KEY (idFamily) REFERENCES Family(idFamily),
-CONSTRAINT fk_FoodAvailable_FoodSuggested2
+ CONSTRAINT fk_FoodAvailable_FoodSuggested2
 			FOREIGN KEY (idFoodAvailable) REFERENCES FoodAvailable(idFoodAvailable)
 );
-
-use BancoDeAlimentos;
-select * from User_;
 
 
 
