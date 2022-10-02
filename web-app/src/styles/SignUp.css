@@ -1,0 +1,368 @@
+@import url('themes/color-scheme.css');
+
+h1.form-header {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+form.form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+    border-radius: 0.5em;
+    width: fit-content;
+    height: fit-content;
+    /* margin: 2em auto; */
+    padding-top: 1.5em;
+}
+
+fieldset.form-group {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+label.form-label {
+    display: block;
+    font-size: 1.5em;
+    font-weight: 550;
+    color: var(--primary-color);
+    text-align: center;
+    cursor: pointer;
+}
+
+div.form-input {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    /* text-align: center; */
+    position: relative;
+}
+
+input {
+    border: 1.5px solid var(--primary-color);
+    border-radius: 0.5em;
+    padding: 1em;
+    /*margin: 1em;*/
+    font-size: 1.5rem;
+    display: inline-block;
+    caret-color: var(--quaternary-color);
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+}
+
+input:focus {
+    outline: none;
+    border: 1.5px solid var(--quaternary-color);
+}
+
+span.form-input-error {
+    /* bottom: -1.5em; */
+    /* left: 0; */
+    font-size: 1.2em;
+    color: var(--tertiary-color);
+    font-weight: 500;
+    text-align: center;
+    display: none;
+}
+
+/* span.form-input-error-show {
+    display: inline-block;
+} */
+
+.form-validation-status-success, .form-validation-status-error {
+    position: absolute;
+    right: 2.6em;
+    top: 2.8em;
+    font-size: 1.2em;
+    color: var(--tertiary-color);
+    z-index: 100;
+    opacity: 0;
+    /* display: none; */
+}
+
+/* input:valid ~ .form-validation-status {
+    opacity: 1;
+} */
+
+/* div.form-input:has(input:valid) + span.form-validation-status {
+    opacity: 1;
+} */
+
+
+/* input[type="submit"] {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-size: 1.5em;
+    font-weight: 700;
+    border: none;
+    border-radius: 0.5em;
+    padding: 1em;
+    margin: 1em;
+    cursor: pointer;
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+} */
+
+/* input.form-input {
+    display: block;
+    width: 100%;
+    height: 2em;
+    border: 1px solid var(--primary-color);
+    border-radius: 0.5em;
+    padding: 0 0.5em;
+    font-size: 1.5em;
+    font-weight: 550;
+    color: var(--primary-color);
+    text-align: center;
+    cursor: pointer;
+} */
+
+/* form.form > * {
+    margin: 0.5em 0;
+} */
+
+form.form hr {
+    grid-column: span 2;
+    border: 0.1px solid var(--primary-color);
+    margin: 1em 0;
+}
+
+form.form footer.form-footer {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* footer.form-footer a {
+    font-size: 1.5em;
+    font-weight: 550;
+    color: var(--primary-color);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+} */
+
+/* input.form-checkbox {
+    margin-right: 0.5em;
+} */
+
+footer.form-footer a/* , footer.form-footer a:hover, footer.form-footer a:active */ {
+    text-decoration: none;
+    color: var(--tertiary-color);
+}
+
+footer.form-footer  div.form-invalid-submit-message {
+    font-size: 1.2em;
+    color: hsl(0, 0%, 100%);
+    background-color: var(--tertiary-color);
+    font-weight: 500;
+    border-radius: 0.5em;
+    padding: 1em 0.5em;
+    display: none;
+}
+
+footer.form-footer  div.form-invalid-submit-message-show {
+    display: inline-block;
+}
+
+button.form-btn-submit {
+    border: none;
+    color: hsl(0, 0%, 100%);
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 1em;
+    border-radius: 0.5em;
+    margin: 1.5em;
+    font-size: 1.5rem;
+    color: hsl(0, 0%, 100%);
+    background-color: var(--primary-color);
+    width: 80%;
+    transition: all .3s ease-out;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -ms-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+}
+
+/* button.form-submit {
+    grid-column: 1 / 3;
+    border: 1.5px solid var(--primary-color);
+    border-radius: 0.5em;
+    padding: 1em; */
+    /*margin: 1em;
+    *//* font-size: 1.5rem;
+    display: inline-block;
+    cursor: pointer;
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+} */
+
+/* /////////////////////////////////////////////////////////// */
+
+/* @note: validation */
+
+
+
+/* fieldset:is(:not(:placeholder-shown):valid) > label {
+    color: var(--secondary-color);
+}
+
+fieldset:is(:not(:placeholder-shown):invalid) > label {
+    color: var(--tertiary-color);
+} */
+
+/* fieldset:is(:not(:placeholder-shown):invalid) > label {
+    color: var(--tertiary-color);
+} */
+
+/* .form-group-validate label.form-label {
+    color: var(--secondary-color);
+}
+
+.form-group-invalidate label.form-label {
+    color: var(--tertiary-color);
+} */
+
+input:is(:not(:placeholder-shown):valid) + .form-validation-status-success {
+    opacity: 1;
+    color: var(--secondary-color);
+}
+
+input:is(:not(:placeholder-shown):invalid) ~ .form-validation-status-error {
+    opacity: 1;
+    color: var(--tertiary-color);
+}
+
+input:is(:not(:placeholder-shown):invalid) ~ span.form-input-error {
+    display: block;
+}
+
+input:is(:not(:placeholder-shown):valid) {
+    border: 1px solid var(--secondary-color);
+    caret-color: var(--secondary-color);
+}
+
+input:is(:not(:placeholder-shown):invalid) {
+    border: 1px solid var(--tertiary-color);
+    caret-color: var(--tertiary-color);
+}
+
+input:is(:not(:focus)):invalid:not(:placeholder-shown) {
+    border: 1px solid var(--tertiary-color);
+    caret-color: var(--tertiary-color);
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    25% {
+        transform: translateX(4px);
+    }
+    50% {
+        transform: translateX(-4px);
+    }
+    75% {
+        transform: translateX(4px);
+    }
+}
+
+/* /////////////////////////////////////////////////////////// */
+
+button.form-btn-submit:hover {
+    color: var(--primary-color);
+    background-color: hsl(0, 0%, 100%);
+   /*  box-shadow: 3px 0px 30px 0px var(--primary-color); */
+}
+
+/* input:is(:not(:focus)):valid:not(:placeholder-shown) {
+    border: 1px solid var(--secondary-color);
+    caret-color: var(--secondary-color);
+} */
+
+select {
+    cursor: pointer;
+    border: 1px solid var(--primary-color);
+    border-radius: 0.5em;
+    padding: 1em;
+    margin: 1em;
+    font-size: 1.5rem;
+    /* display: block; */
+    caret-color: var(--quaternary-color);
+    background-color: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* background: url("/uploads/media/default/0001/02/f7b4d3d2ba3fe1d8518e6e63d7740e1e73921abf.png") 96% / 15% no-repeat #eee; */
+}
+
+select:focus/* , select:active */ {
+    outline: none;
+    /* box-shadow: none; */
+    border: 1px solid var(--quaternary-color);
+}
+
+select:focus-visible {
+    /* outline: 5px solid green; */
+    border: 1px solid var(--secondary-color);
+}
+
+select:has(option:checked)/* :is(:not(first-child)) */ {
+    border: 1px solid var(--secondary-color);
+}
+
+/* .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--primary-color);
+    border-radius: 0.5em;
+    width: fit-content;
+    height: fit-content;
+    margin: 2em auto;
+    padding: 0 3em;
+} */
+
+/* .form > * {
+    margin: 1em;
+} */
+
+/* .form > *:not(:last-child) {
+    margin-bottom: 1em;
+} */
+
+/* .input-password::selection {
+    background-color: #ff;
+}
+
+.input-password::selection {
+    background-color: #ff;
+} */
+
+/* ::-webkit-validation-bubble, ::-webkit-validation-bubble-arrow-clipper, ::-webkit-validation-bubble-arrow, ::-webkit-validation-bubble-message {
+    background-color: var(--tertiary-color);
+    color: hsl(0, 0%, 100%);
+    border: none;
+    border-radius: 0.5em;
+    padding: 1em;
+    font-size: 1.5rem;
+} */

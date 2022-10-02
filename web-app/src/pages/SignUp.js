@@ -1,9 +1,13 @@
-import React, { useRef} from 'react';
+import React, { useRef, useId } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/form.css';
+import '../styles/SignUp.css';
+import '../styles/scrollbar.css';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { faUser, faCircleCheck, faTimesCircle, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 
 function SignUp() {
     const form = useRef();
+    const id = useId();
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -39,22 +43,141 @@ function SignUp() {
         <>
             <h1 className="form-header">Registrarse</h1>
             <form className="form" ref={form} onSubmit={handleSubmit}>
-                <input name="firstName" placeholder="Nombres" required/>
-                <input name="lastName" placeholder="Apellidos" required/>
-                <input name="age" placeholder="Edad" required/>
 
-                {/* <input type="number" name="age" size="2" min="1" max="100" data-maxlength="2" pattern="[0-9]{1,100}" onInput="this.value=this.value.slice(0,this.dataset.maxlength);" required/> */}
+                <fieldset className="form-group" id={`${id}-formGroupFirstName`}>
+                    <label className="form-label" htmlFor={`${id}-firstName`}>
+                        Nombres
+                    </label>
+                    <div className="form-input">
+                        {/* <FontAwesomeIcon icon={faUser} className="form-icon"/> */}
+                        <input id={`${id}-firstName`} name="firstName" placeholder="Pamela" pattern="[0-9]+" required/>
+                        <FontAwesomeIcon className="form-validation-status-success" icon={faCircleCheck} />
+                        <FontAwesomeIcon className="form-validation-status-error" icon={faTimesCircle} />
+                    </div>
 
-                <input type="email" name="email" placeholder="Correo electrónico" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" required/>
-                <input name="phoneNumber" placeholder="Número de teléfono" required/>
-                <select name="sex">
+                    <span className="form-input-error">El nombre solo puede contener letras.</span>
+                </fieldset>
+
+                <fieldset className="form-group" id={`${id}-formGroupLastName`}>
+                    <label className="form-label" htmlFor={`${id}-lastName`}>
+                        Apellidos
+                    </label>
+                    <div className="form-input">
+                        {/* <FontAwesomeIcon icon={faUser} className="form-icon"/> */}
+                        <input id={`${id}-lastName`} name="lastName" placeholder="Mejia" required/>
+                        <FontAwesomeIcon className="form-validation-status-success" icon={faCircleCheck} />
+                        <FontAwesomeIcon className="form-validation-status-error" icon={faTimesCircle} />
+                    </div>
+
+                    <span className="form-input-error">El apellido solo puede contener letras.</span>
+                </fieldset>
+
+                <fieldset className="form-group" id={`${id}-formGroupAge`}>
+                    <label className="form-label" htmlFor={`${id}-age`}>
+                        Edad
+                    </label>
+                    <div className="form-input">
+                        {/* <FontAwesomeIcon icon={faUser} className="form-icon"/> */}
+                        <input id={`${id}-age`} name="age" placeholder="20" required/>
+                        <FontAwesomeIcon className="form-validation-status-success" icon={faCircleCheck} />
+                        <FontAwesomeIcon className="form-validation-status-error" icon={faTimesCircle} />
+                    </div>
+
+                    <span className="form-input-error">La edad solo puede contener números.</span>
+                </fieldset>
+
+                {/* <input type="number" name="age" size="2" min="1" max="100" data-maxlength="2" pattern="[0-9]{1,100}" onInput={this.value=this.value.slice(0,this.dataset.maxlength);} onInvalid={e => e.target.setCustomValidity('Ingrese una edad valida')} required/> */}
+
+                <fieldset className="form-group" id={`${id}-formGroupEmail`}>
+                    <label className="form-label" htmlFor={`${id}-email`}>
+                        Correo electrónico
+                    </label>
+                    <div className="form-input">
+                        {/* <FontAwesomeIcon icon={faUser} className="form-icon"/> */}
+                        <input type="email" id={`${id}-email`} name="email" placeholder="Correo electrónico" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" /* onInvalid={e => e.target.setCustomValidity('Ingrese un correo e')} */ required/>
+                        <FontAwesomeIcon className="form-validation-status-success" icon={faCircleCheck} />
+                        <FontAwesomeIcon className="form-validation-status-error" icon={faTimesCircle} />
+                    </div>
+
+                    <span className="form-input-error">El correo institucional solo puede contener letras, números, puntos, guiones y guión bajo.</span>
+                </fieldset>
+
+                <div className="form-group" id={`${id}-formGroupPhoneNumber`}>
+                    <label className="form-label" htmlFor={`${id}-phoneNumber`}>
+                        Número de teléfono
+                    </label>
+                    <div className="form-input">
+                        {/* <FontAwesomeIcon icon={faUser} className="form-icon"/> */}
+                        <input type="tel" id={`${id}-phoneNumber`} name="phoneNumber" placeholder="7773464786" pattern="[0-9]{10}" onInvalid={e => e.target.setCustomValidity('Ingrese un número de teléfono válido')} required/>
+                        <FontAwesomeIcon className="form-validation-status-success" icon={faCircleCheck} />
+                        <FontAwesomeIcon className="form-validation-status-error" icon={faTimesCircle} />
+                    </div>
+
+                    <span className="form-input-error">El número de teléfono <br/> solo puede contener números <br/> y máximo 10 digitos.</span>
+                </div>
+
+                {/* Identity */}
+                <select name="sex" required>
+                    <option selected disabled hidden>Identidad de género</option>
                     <option value="m">Masculino</option>
                     <option value="f">Femenino</option>
                     <option value="o">No especificar</option>
                 </select>
-                <input type="password" name="password" placeholder="Contraseña" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" required/>
-                <input type="password" name="passwordConfirm" placeholder="Confirmar contraseña" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" required/>
-                <button className="form-btn" type="submit">Continuar</button>
+
+                <div className="form-group" id={`${id}-formGroupPassword`}>
+                    <label className="form-label" htmlFor={`${id}-password`}>
+                        Contraseña
+                    </label>
+                    <div className="form-input">
+                        {/* <FontAwesomeIcon icon={faUser} className="form-icon"/> */}
+                        <input type="password" id={`${id}-password`} name="password" placeholder="Contraseña" className="input-password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" onInvalid={e => e.target.setCustomValidity('Ingrese una contraseña valida')} onCopy={(e) => {e.preventDefault(); return false;}} onSelectStart={(e) => {e.preventDefault(); return false;}} required/>
+                        <FontAwesomeIcon className="form-validation-status-success" icon={faCircleCheck} />
+                        <FontAwesomeIcon className="form-validation-status-error" icon={faTimesCircle} />
+                    </div>
+
+                    <span className="form-input-error">La contraseña tiene que ser de 4 a 12 dígitos.</span>
+                </div>
+                
+                <div className="form-group" id={`${id}-formGroupPasswordConfirm`}>
+                    <label className="form-label" htmlFor={`${id}-passwordConfirm`}>
+                        Confirmar contraseña
+                    </label>
+                    <div className="form-input">
+                        {/* <FontAwesomeIcon icon={faUser} className="form-icon"/> */}
+                        <input type="password" id={`${id}-passwordConfirm`} name="passwordConfirm" placeholder="Confirmar contraseña" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" onInvalid={e => e.target.setCustomValidity('Confirme correctamente su contraseña valida')} onPaste={(e) => {e.preventDefault(); return false;}} required/>
+                        <FontAwesomeIcon className="form-validation-status-success" icon={faCircleCheck} />
+                        <FontAwesomeIcon className="form-validation-status-error" icon={faTimesCircle} />
+                    </div>
+                    
+                    <span className="form-input-error">Las contraseñas no coinciden.</span>
+                </div>
+                
+                <hr/>
+
+                <footer className="form-footer">
+                    <div className="form-group" id={`${id}-formGroupTermsAndConditions`}>
+                        <label className="form-label">
+                            <input className="form-checkbox" type="checkbox" id={`${id}-termsAndConditions`} name="termsAndConditions" required/>Acepto los <a href="#">términos y condiciones</a>
+                        </label>
+                        <FontAwesomeIcon className="form-validation-status-error" icon={faTimesCircle} />
+                        <span className="form-input-error">Debe aceptar los términos y condiciones.</span>
+                    </div>
+
+                    <div id={`${id}-formGroupPrivacyPolicy`}>
+                        <label className="form-label">
+                            <input className="form-checkbox" type="checkbox" id={`${id}-privacyPolicy`} name="privacyPolicy" required/>Acepto la <a href="#">política de privacidad</a>
+                        </label>
+                        <FontAwesomeIcon className="form-validation-status-error" icon={faTimesCircle} />
+                        <span className="form-input-error">Debe aceptar la política de privacidad.</span>
+                    </div>
+
+                    <div className="form-invalid-submit-message" id={`${id}-formInvalidSubmitMessage`}>
+                        <FontAwesomeIcon icon={faExclamationTriangle} />
+                        <span> <b>Error:</b> Por favor, revise los campos marcados en rojo.</span>
+                    </div>
+
+                    <button className="form-btn-submit" type="submit">Continuar</button>
+                </footer>                
             </form>
         </>
     );

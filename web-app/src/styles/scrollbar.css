@@ -1,0 +1,27 @@
+@import url('themes/color-scheme.css');
+
+::-webkit-scrollbar {
+    width: auto;
+}
+
+::-webkit-scrollbar-track {
+    background: hsl(240, 2%, 90%);
+    border-radius: 100vw;
+    margin-block: 0.25rem;
+}
+
+::-webkit-scrollbar-track:hover {
+    background: hsl(220, 2%, 80%);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 100vw;
+    border: .15em solid hsl(240, 2%, 90%);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(31, 99%, 50%);
+    border: .15em solid hsl(220, 2%, 80%);
+}
+

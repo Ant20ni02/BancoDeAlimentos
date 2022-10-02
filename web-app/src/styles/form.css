@@ -35,6 +35,7 @@ input {
     margin: 1em;
     font-size: 1.5rem;
     display: block;
+    caret-color: var(--quaternary-color);
 }
 
 input:focus {
@@ -44,14 +45,22 @@ input:focus {
 
 input:is(:not(:placeholder-shown):valid) {
     border: 1px solid var(--secondary-color);
+    caret-color: var(--secondary-color);
 }
+
+/* input:is(:not(:focus)):valid:not(:placeholder-shown) {
+    border: 1px solid var(--secondary-color);
+    caret-color: var(--secondary-color);
+} */
 
 input:is(:not(:placeholder-shown):invalid) {
     border: 1px solid var(--tertiary-color);
+    caret-color: var(--tertiary-color);
 }
 
 input:is(:not(:focus)):invalid:not(:placeholder-shown) {
     border: 1px solid var(--tertiary-color);
+    caret-color: var(--tertiary-color);
     animation: shake 0.5s;
 }
 
@@ -67,6 +76,37 @@ input:is(:not(:focus)):invalid:not(:placeholder-shown) {
     }
 }
 
+select {
+    cursor: pointer;
+    border: 1px solid var(--primary-color);
+    border-radius: 0.5em;
+    padding: 1em;
+    margin: 1em;
+    font-size: 1.5rem;
+    /* display: block; */
+    caret-color: var(--quaternary-color);
+    background-color: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* background: url("/uploads/media/default/0001/02/f7b4d3d2ba3fe1d8518e6e63d7740e1e73921abf.png") 96% / 15% no-repeat #eee; */
+}
+
+select:focus/* , select:active */ {
+    outline: none;
+    /* box-shadow: none; */
+    border: 1px solid var(--quaternary-color);
+}
+
+select:focus-visible {
+    /* outline: 5px solid green; */
+    border: 1px solid var(--secondary-color);
+}
+
+select:has(option:checked)/* :is(:not(first-child)) */ {
+    border: 1px solid var(--secondary-color);
+}
+
 .form {
     display: flex;
     flex-direction: column;
@@ -79,3 +119,28 @@ input:is(:not(:focus)):invalid:not(:placeholder-shown) {
     margin: 2em auto;
     padding: 0 3em;
 }
+
+/* .form > * {
+    margin: 1em;
+} */
+
+/* .form > *:not(:last-child) {
+    margin-bottom: 1em;
+} */
+
+/* .input-password::selection {
+    background-color: #ff;
+}
+
+.input-password::selection {
+    background-color: #ff;
+} */
+
+/* ::-webkit-validation-bubble, ::-webkit-validation-bubble-arrow-clipper, ::-webkit-validation-bubble-arrow, ::-webkit-validation-bubble-message {
+    background-color: var(--tertiary-color);
+    color: hsl(0, 0%, 100%);
+    border: none;
+    border-radius: 0.5em;
+    padding: 1em;
+    font-size: 1.5rem;
+} */
