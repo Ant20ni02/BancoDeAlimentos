@@ -1,35 +1,21 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/mike-/Desktop/TEC/semestre5/BancoDeAlimentos/Prototipo/app/src/main/res/layout/activity_main.xml" value="0.223731884057971" />
+        <entry key="..\:/Users/mike-/Desktop/TEC/semestre5/BancoDeAlimentos/Prototipo/app/src/main/res/layout/activity_create.xml" value="0.176" />
+        <entry key="..\:/Users/mike-/Desktop/TEC/semestre5/BancoDeAlimentos/Prototipo/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/mike-/Desktop/TEC/semestre5/BancoDeAlimentos/Prototipo/app/src/main/res/layout/activity_voluntario.xml" value="0.176" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/build/classes" />
-  </component>
-  <component name="ProjectType">
-    <option name="id" value="Android" />
-  </component>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="DesignSurface">
-    <option name="filePathToZoomLevelMap">
-      <map>
-        <entry key="..\:/Users/alan-/BancoDeAlimentos/Prototipo/app/src/main/res/layout/activity_create.xml" value="0.22282608695652173" />
-        <entry key="..\:/Users/alan-/BancoDeAlimentos/Prototipo/app/src/main/res/layout/activity_main.xml" value="0.264" />
-      </map>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.15942028985507245" />
+      </ProjectState>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/build/classes" />
-  </component>
-  <component name="ProjectType">
-    <option name="id" value="Android" />
-  </component>
->>>>>>> 54da0c3784bef6426ff16f455b7ef1dd797820b0
 </project>

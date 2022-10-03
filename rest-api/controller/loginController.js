@@ -38,9 +38,11 @@ module.exports.login = (req, res) => {
     function Fun(pw) {
 
         conexion.query(sql, [email], (error, results, fields) => {
-            if (error)
+            if (error){
+                //console.log("kiti")
                 res.send(error);
-            else {
+            }
+                else {
 
                 if (results[0] != undefined) {
 
