@@ -37,11 +37,18 @@ class MainActivity : AppCompatActivity() {
         val listener = Response.Listener<JSONObject> { response ->
             val mensaje = response.toString()
             Log.e("ENDPOINTRESPONSE", mensaje)
-            try {
-                Log.e("ENDPOINTRESPONSE2", response.toString())
-            } finally {
-                Log.e("ENDPOINTRESPONSE2", "unidentified :(")
+
+            //response.getString("mensaje")
+            if(response.getString("mensaje") == "Usuario o contraseña autenticados"){
+                val intent = Intent(this@MainActivity,Voluntario::class.java)
+
+                intent.putExtra("email", usernameTv.toString())
+                intent.putExtra("idUser", response.getString("idUser"))
+                intent.putExtra("x-access-token", response.getString("token"))
+
+                startActivity(intent)
             }
+
         }
 
         val error = Response.ErrorListener { error ->
@@ -52,7 +59,8 @@ class MainActivity : AppCompatActivity() {
 
 
         //val loginUrl = "http://localhost:4000/login"
-        val loginUrl = "http://192.168.0.17:4000/login"
+        val loginUrl = "http://192.168.73.166:4000/login"
+            // val loginUrl = "http://10.49.187.177:4000/login"
             //Log.e("ENDPOINTRESPONSE", usernameTv.text.toString())
 
 
@@ -72,9 +80,9 @@ class MainActivity : AppCompatActivity() {
 
         queue.add(request)
 
-        val intent = Intent(this@MainActivity,Voluntario::class.java)
-        //intent.putExtra("email", )
-        startActivity(intent)
+
+
+
 
             /*
             //Si es cuenta de Voluntario o Familia
