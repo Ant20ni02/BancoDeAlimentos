@@ -81,7 +81,7 @@
             android:text="Contraseña" />
 
         <EditText
-            android:id="@+id/txtConfContraseña"
+            android:id="@+id/txtConfContraseñaSU"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
