@@ -38,7 +38,6 @@ class MainActivity : AppCompatActivity() {
             val mensaje = response.toString()
             Log.e("ENDPOINTRESPONSE", mensaje)
 
-            //response.getString("mensaje")
             if(response.getString("mensaje") == "Usuario o contraseña autenticados"){
                 val intent = Intent(this@MainActivity,Voluntario::class.java)
 
@@ -57,20 +56,14 @@ class MainActivity : AppCompatActivity() {
 
         btnLogin.setOnClickListener{
 
-
         //val loginUrl = "http://localhost:4000/login"
         val loginUrl = "http://192.168.73.166:4000/login"
-            // val loginUrl = "http://10.49.187.177:4000/login"
-            //Log.e("ENDPOINTRESPONSE", usernameTv.text.toString())
-
+        // val loginUrl = "http://10.49.187.177:4000/login"
+        // Log.e("ENDPOINTRESPONSE", usernameTv.text.toString())
 
         val jsonBody = JSONObject()
             jsonBody.put("email",usernameTv.text.toString())
             jsonBody.put("password_",passwordTv.text.toString())
-
-        //val jsonArray = JSONArray()
-        //    jsonArray.put(jsonBody)
-
 
         val request = JsonObjectRequest(Request.Method.POST, loginUrl, jsonBody, listener, error)
             @Throws(AuthFailureError::class)
@@ -79,30 +72,7 @@ class MainActivity : AppCompatActivity() {
             }
 
         queue.add(request)
-
-
-
-
-
-            /*
-            //Si es cuenta de Voluntario o Familia
-            if(Username.text.toString() == "User" && Password.text.toString() == "User1234"
-                || Username.text.toString() == "Family" && Password.text.toString() == "Family1234"){
-                Toast.makeText(this@MainActivity, Username.text, Toast.LENGTH_SHORT).show()
-                val intent = Intent(this@MainActivity,Voluntario::class.java)
-                intent.putExtra("User", Username.text.toString())
-                startActivity(intent)
-            }
-            //Si es cuenta de Admin
-            else if(Username.text.toString() == "Admin" && Password.text.toString() == "Admin1234"){
-                Toast.makeText(this@MainActivity, Username.text, Toast.LENGTH_SHORT).show()
-                val intent = Intent(this@MainActivity,Admin::class.java)
-                intent.putExtra("User", Username.text.toString())
-                startActivity(intent)
-            }*/
         }
-
-
 
         //Button Create
         btnCreate.setOnClickListener{
@@ -114,5 +84,4 @@ class MainActivity : AppCompatActivity() {
             System.exit(0)
         }
     }
-
 }
