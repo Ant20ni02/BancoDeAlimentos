@@ -4,51 +4,79 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
+import com.android.volley.RequestQueue
 import com.android.volley.Response
+import com.android.volley.toolbox.JsonArrayRequest
+import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import org.json.JSONArray
 import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
-
-    val usernameTv =findViewById<TextView>(R.id.txtUsername_Voluntario)
-    val passwordTv = findViewById<TextView>(R.id.txtPassword)
-
-    override fun getBody(): ByteArray {
-        val params2 = HashMap<String, String>()
-        params2.put("email", usernameTv.text.toString())
-        params2.put("password_", passwordTv.text.toString())
-
-        return JSONObject(params2).toString().toByteArray()
-    }
+    lateinit var queue: RequestQueue
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val Password = findViewById<EditText>(R.id.txtPassword)
-        val Username = findViewById<EditText>(R.id.txtUsername_Voluntario)
+        val usernameTv =findViewById<TextView>(R.id.txtUsername_Voluntario)
+        val passwordTv = findViewById<TextView>(R.id.txtPassword)
 
         val btnLogin = findViewById<Button>(R.id.btnLogin)
         val btnCancel = findViewById<Button>(R.id.btnCancel)
         val btnCreate = findViewById<Button>(R.id.btnCreate)
 
+        queue =  Volley.newRequestQueue(this@MainActivity)
+
         //Si Tiene Cuenta the Voluntario o Familia
+
+        val listener = Response.Listener<JSONObject> { response ->
+            val mensaje = response.toString()
+            Log.e("ENDPOINTRESPONSE", mensaje)
+            try {
+                Log.e("ENDPOINTRESPONSE2", response.toString())
+            } finally {
+                Log.e("ENDPOINTRESPONSE2", "unidentified :(")
+            }
+        }
+
+        val error = Response.ErrorListener { error ->
+            Log.e("ERRORLISTENER", error.toString())
+        }
+
         btnLogin.setOnClickListener{
 
-        val loginUrl = "http://localhost:4000/login"
+
+        //val loginUrl = "http://localhost:4000/login"
+        val loginUrl = "http://192.168.0.17:4000/login"
+            //Log.e("ENDPOINTRESPONSE", usernameTv.text.toString())
 
 
+        val jsonBody = JSONObject()
+            jsonBody.put("email",usernameTv.text.toString())
+            jsonBody.put("password_",passwordTv.text.toString())
+
+        //val jsonArray = JSONArray()
+        //    jsonArray.put(jsonBody)
 
 
+        val request = JsonObjectRequest(Request.Method.POST, loginUrl, jsonBody, listener, error)
+            @Throws(AuthFailureError::class)
+            fun getBodyContentType(): String {
+                return "application/json"
+            }
 
+        queue.add(request)
 
+        val intent = Intent(this@MainActivity,Voluntario::class.java)
+        //intent.putExtra("email", )
+        startActivity(intent)
+
+            /*
             //Si es cuenta de Voluntario o Familia
             if(Username.text.toString() == "User" && Password.text.toString() == "User1234"
                 || Username.text.toString() == "Family" && Password.text.toString() == "Family1234"){
@@ -63,8 +91,11 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this@MainActivity,Admin::class.java)
                 intent.putExtra("User", Username.text.toString())
                 startActivity(intent)
-            }
+            }*/
         }
+
+
+
         //Button Create
         btnCreate.setOnClickListener{
                 val intent = Intent(this@MainActivity,Create::class.java)
@@ -75,38 +106,5 @@ class MainActivity : AppCompatActivity() {
             System.exit(0)
         }
     }
-
-    fun sendcall(url:String){
-        //RequestQueue initialized
-        var mRequestQueue = Volley.newRequestQueue(this)
-
-        //String Request initialized
-        var mStringRequest = object : StringRequest(Request.Method.POST, url, Response.Listener { response ->
-            Toast.makeText(applicationContext, "Logged In Successfully", Toast.LENGTH_SHORT).show()
-
-
-        }, Response.ErrorListener { error ->
-            Log.i("This is the error", "Error :" + error.toString())
-            Toast.makeText(applicationContext, "Please make sure you enter correct password and username", Toast.LENGTH_SHORT).show()
-        }) {
-            override fun getBodyContentType(): String {
-                return "application/json"
-            }
-
-            @Throws(AuthFailureError::class)
-            override fun getBody(): ByteArray {
-                val params2 = HashMap<String, String>()
-                params2.put("Login","your credentials" )
-                params2.put("Password", "your credentials")
-                return JSONObject(params2).toString().toByteArray()
-            }
-
-        }
-        mRequestQueue!!.add(mStringRequest!!)
-
-
-    }
-
-
 
 }
