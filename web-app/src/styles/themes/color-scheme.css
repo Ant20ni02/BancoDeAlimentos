@@ -8,7 +8,7 @@
     accent-color: var(--tertiary-color);
 }
 
-/* prefers-color-scheme: dark */
+/* * @note: prefers-color-scheme: dark */
 ::selection {
     background-color: var(--tertiary-color);
 }
