@@ -1,5 +1,6 @@
 import React, { useRef, useId } from 'react';
 import '../styles/LogIn.css';
+import url from '../config/API';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock, faCircleCheck, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
@@ -15,7 +16,7 @@ function LogIn() {
         let formData = JSON.stringify({ email: form.current.email.value, password_: form.current.password.value });
         
         
-        const response = await fetch('http://localhost:4000/login',{ method: 'POST',headers: {
+        const response = await fetch(url+'login',{ method: 'POST',headers: {
             'Content-Type': 'application/json',
           }, body: formData});
         const data = await response.json();
