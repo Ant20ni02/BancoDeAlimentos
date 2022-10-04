@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
         btnLogin.setOnClickListener{
 
         //val loginUrl = "http://localhost:4000/login"
-        val loginUrl = "http://192.168.73.166:4000/login"
+        val loginUrl = "http://bdarestapi-env.eba-hy3dqwvm.us-east-1.elasticbeanstalk.com/login"
         // val loginUrl = "http://10.49.187.177:4000/login"
         // Log.e("ENDPOINTRESPONSE", usernameTv.text.toString())
 

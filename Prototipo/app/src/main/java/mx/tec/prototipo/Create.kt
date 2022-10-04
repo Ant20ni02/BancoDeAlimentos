@@ -32,7 +32,6 @@ class Create : AppCompatActivity() {
         val txtContrasena = findViewById<EditText>(R.id.txtContraseñaSU)
         val txtContConfirmation = findViewById<EditText>(R.id.txtConfContraseñaSU)
 
-
         val btnRegresar = findViewById<Button>(R.id.btnRegresar)
         val btnRegistrarse = findViewById<Button>(R.id.btnRegistrarse)
 
@@ -55,7 +54,7 @@ class Create : AppCompatActivity() {
         }
 
         btnRegistrarse.setOnClickListener{
-            val signUpUrl = "http://192.168.73.166:4000/signUp"
+            val signUpUrl = "http://bdarestapi-env.eba-hy3dqwvm.us-east-1.elasticbeanstalk.com/signUp"
             val jsonBody = JSONObject()
 
             jsonBody.put("firstName",txtNombre.text.toString())
