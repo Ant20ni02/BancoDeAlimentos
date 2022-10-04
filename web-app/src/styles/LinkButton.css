@@ -17,6 +17,11 @@
 .btn:hover {
     color: var(--primary-color);
     background-color: hsl(0, 0%, 100%);
+    transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
 }
 
 /* .btn + .btn {

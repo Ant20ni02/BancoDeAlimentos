@@ -1,9 +1,10 @@
 import React, { useRef, useId } from 'react';
 import '../styles/LogIn.css';
 import url from '../config/API';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock, faCircleCheck, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import logo from '../images/recurso-4.png';
 
 function LogIn() {
     const form = useRef();
@@ -32,6 +33,10 @@ function LogIn() {
         <>
             <h1 className="form-header">Iniciar sesión</h1>
 
+            <div className="logo-container">
+                <img className="logo" src={logo} alt="Logo"/>
+            </div>
+
             <div className="grid">
                 <form className="form-login" ref={form} onSubmit={handleSubmit}>
                 <fieldset className="form-group" id={`${id}-formGroupEmail`}>
@@ -51,9 +56,17 @@ function LogIn() {
                             <FontAwesomeIcon icon={faLock} className="form-icon"/>
                         </label>
                         <div className="form-input-login">
-                            <input type="password" className="input-login-password" id={`${id}-password`} name="password" placeholder="Contraseña" onInvalid={e => e.target.setCustomValidity('Ingrese su contraseña')} onPaste={(e) => {e.preventDefault(); return false;}} onCopy={(e) => {e.preventDefault(); return false;}} /* onSelectStart={(e) => {e.preventDefault(); return false;}} */ autoComplete required/>
+                            <input type="password" className="input-login" id={`${id}-password`} name="password" placeholder="Contraseña" onInvalid={e => e.target.setCustomValidity('Ingrese su contraseña')} onPaste={(e) => {e.preventDefault(); return false;}} onCopy={(e) => {e.preventDefault(); return false;}} /* onSelectStart={(e) => {e.preventDefault(); return false;}} */ autoComplete required/>
                         </div>
+
+                        {/* <span className="form-input-error">Tienes que poner tu contraseña para ingresar. </span> */}
                     </fieldset>
+
+                    {/* <hr/> */}
+
+                    <span className="new-account">¿No tienes cuenta?, registrate <br/> <Link to="/signup">aquí</Link>.</span>
+
+                    {/* <hr/> */}
 
                     <footer className="form-footer-login">
                         <button className="form-btn-submit-login" type="submit">Continuar</button>
