@@ -13,6 +13,7 @@ CREATE TABLE User_(
  sex varchar(10),
  phoneNumber varchar(15),
  userType varchar(20),
+ isActive bool,
  primary key (idUser)
 );
 
