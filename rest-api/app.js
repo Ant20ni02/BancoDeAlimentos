@@ -7,6 +7,7 @@ const survey = require('./routes/survey');
 const family = require('./routes/family');
 const food = require('./routes/food');
 const question = require('./routes/question');
+const user = require('./routes/user');
 
 
 const multer = require('multer');
@@ -32,6 +33,7 @@ app.use('/', survey);
 app.use('/', family);
 app.use('/', food);
 app.use('/', question);
+app.use('/',user);
 
 //Función callback -> función que se ejecuta como respuesta a un evento o acción
 app.listen(port, () =>{

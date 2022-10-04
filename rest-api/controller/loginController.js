@@ -94,23 +94,3 @@ module.exports.login = (req, res) => {
 
     Fun(password_);
 }
-
-module.exports.getUsersData = (req,res) =>{
-    const idUser = req.params.idUser;
-    const  mensaje = "ID incorrecto"
-    const sql = `SELECT * FROM User_ WHERE idUser = ?`;
-
-    conexion.query(sql, [idUser],(error, results, fields) =>{
-        if(error)
-            res.send(error);
-
-        else{
-            if(results[0] == undefined)
-                res.json({
-                    mensaje
-                })
-            
-            res.json(results);
-        }
-    })
-}
