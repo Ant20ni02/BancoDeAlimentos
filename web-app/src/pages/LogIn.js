@@ -1,11 +1,7 @@
 import React, { useRef, useId } from 'react';
 import '../styles/LogIn.css';
-<<<<<<< Updated upstream
 import url from '../config/API';
-import { useNavigate } from 'react-router-dom';
-=======
 import { useNavigate, Link } from 'react-router-dom';
->>>>>>> Stashed changes
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock, faCircleCheck, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import logo from '../images/recurso-4.png';
