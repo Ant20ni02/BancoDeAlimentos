@@ -10,8 +10,8 @@ module.exports.insertUsuario = (req,res) =>{
     let mensaje = "El usuario ya se encuentra registrado";
 
 
-    const sq = `INSERT INTO User_(firstName, lastName, email, password_, age, sex, phoneNumber, userType) VALUES
-    (?,?,?,SHA2(?,224),?,?,?,?)`
+    const sq = `INSERT INTO User_(firstName, lastName, email, password_, age, sex, phoneNumber, userType, isActive) VALUES
+    (?,?,?,SHA2(?,224),?,?,?,?,false)`
 
     const sql = `SELECT idUser FROM User_ WHERE firstName = ? OR lastName = ? OR email=?`
     
