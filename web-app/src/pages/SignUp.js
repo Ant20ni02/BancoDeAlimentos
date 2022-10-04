@@ -1,5 +1,6 @@
 import React, { useRef, useId, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import url from '../config/API';
 import '../styles/SignUp.css';
 import '../styles/scrollbar.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -24,7 +25,7 @@ function SignUp() {
 
         if (password === passwordConfirm) {
             let formData = JSON.stringify({ firstName: firstName, lastName: lastName, phoneNumber: phoneNumber, sex: sex, age: age, email: email, password_: password, userType: 'Admin'});
-            const response = await fetch('http://localhost:4000/signup',{ method: 'POST',headers: {
+            const response = await fetch(url+'signup',{ method: 'POST',headers: {
             'Content-Type': 'application/json',
             }, body: formData});
             const data = await response.json();
