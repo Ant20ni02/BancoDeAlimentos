@@ -1,4 +1,5 @@
 import React from 'react';
+import url from '../config/API';
 import TextHeader from '../components/TextHeader';
 import DisplayText from '../components/DisplayText';
 import '../styles/Profile.css';
