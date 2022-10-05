@@ -111,7 +111,7 @@ function SignUp() {
                                 <FontAwesomeIcon icon={faEnvelope} className="form-icon"/>
                             </label>
                             <div className="form-input">
-                                <input type="email" className="input-signup" id={`${id}-email`} name="email" placeholder="Correo electrónico" /* pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" */ /* onInvalid={e => e.target.setCustomValidity('Ingrese un correo e')} */ autoComplete required/>
+                                <input type="email" className="input-signup" id={`${id}-email`} name="email" placeholder="Correo electrónico" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" /* onInvalid={e => e.target.setCustomValidity('Ingrese un correo e')} */ autoComplete required/>
                                 <FontAwesomeIcon className="form-validation-status-success" icon={faCircleCheck} />
                                 <FontAwesomeIcon className="form-validation-status-error" icon={faTimesCircle} />
                             </div>
