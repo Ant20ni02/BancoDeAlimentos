@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TextHeader from '../components/TextHeader';
-import DialogModal from '../components/DialogModal';
+import PortalModal from '../components/Modal/PortalModal';
 
-function Home() {    
+function Home() {
+    const [showModal, setShowModal] = useState(false);
+
     return (
         <>
             <TextHeader text="Home" />
-            <DialogModal title="Test" message="Testing" />
+            <button onClick={() => setShowModal(true)}>Open Modal</button>
+
+            <PortalModal onShow={showModal} onClose={() => setShowModal(false)} title="¡Cuenta creada exitosamente!" > 
+                <p>Felicidades, ya puedes comenzar a usar el nuevo sistema del banco de alimentos.</p>
+            </PortalModal>
         </>
     );
 }

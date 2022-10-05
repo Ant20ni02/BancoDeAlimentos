@@ -1,0 +1,101 @@
+@import url('../themes/color-scheme.css');
+
+div.modal-overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(0.5px);
+    background-color: hsla(0, 0%, 0%, 0.1);
+
+    /* * @note: put over elements */
+    z-index: 1000;
+
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+div.Portal-modal {
+    max-width: 50ch;
+    background-color:hsl(0, 0%, 100%);
+    box-shadow: rgba(100,100,111, 0.2) 0px 7px 29px 0px;
+    border-radius: 0.5em;
+    padding: 1em;
+    position: fixed;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+div.Portal-modal-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+div.Portal-modal-header-txt-btn {
+    font-size: 1.5em;
+    font-weight: 550;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid hsl(0, 0%, 80%);
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+    color: var(--tertiary-color);
+    /* position: relative; */
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+div.Portal-modal-header-txt-btn > button {
+    /* position: absolute;
+    right: 0;
+    top: 0.13em; */
+    font-size: 0.7em;
+    width: 1.5em;
+    height: 1.5em;
+    background-color: transparent;
+    border: none;
+    color: var(--tertiary-color);
+    cursor: pointer;
+    border-radius: 0.2em;
+    transition: .3s ease all;
+    -webkit-transition: .3s ease all;
+    -moz-transition: .3s ease all;
+    -ms-transition: .3s ease all;
+    -o-transition: .3s ease all;
+}
+
+.icon {
+    width: 100%;
+    height: 100%;
+}
+
+div.Portal-modal-header-txt-btn > button:hover {
+    background-color: hsl(0, 0%, 90%);
+}
+
+div.Portal-modal-header img {
+    width: 10em;
+    height: 10em;
+}
+
+div.Portal-modal-header div.Portal-modal-header-title > h1 {
+    color: var(--primary-color);
+}
+
+/* div.Portal-modal > div.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} */
+
+div.Portal-modal > div.Portal-modal-body {
+    text-align: center;
+}

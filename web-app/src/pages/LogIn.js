@@ -31,15 +31,16 @@ function LogIn() {
     }
     return (
         <>
-            <h1 className="form-header">Iniciar sesión</h1>
-
-            <div className="logo-container">
-                <img className="logo" src={logo} alt="Logo"/>
-            </div>
+            <header className="form-header">
+                <h1>Inicia sesión</h1>
+            </header>
 
             <div className="grid">
+                <div className="logo-container">
+                    <Link to="/"><img className="logo-login" src={logo} alt="Logo"/></Link>
+                </div>
                 <form className="form-login" ref={form} onSubmit={handleSubmit}>
-                <fieldset className="form-group" id={`${id}-formGroupEmail`}>
+                    <fieldset className="form-group" id={`${id}-formGroupEmail`}>
                         <label className="form-label" htmlFor={`${id}-email`}>
                             <FontAwesomeIcon icon={faEnvelope} className="form-icon"/>
                         </label>
@@ -64,7 +65,7 @@ function LogIn() {
 
                     {/* <hr/> */}
 
-                    <span className="new-account">¿No tienes cuenta?, registrate <br/> <Link to="/signup">aquí</Link>.</span>
+                    <span className="new-account">¿No tienes cuenta?, regístrate <br/> <Link to="/signup">aquí</Link>.</span>
 
                     {/* <hr/> */}
 

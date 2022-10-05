@@ -1,10 +1,13 @@
 import React, { useRef, useId, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import url from '../config/API';
 import '../styles/SignUp.css';
 import '../styles/scrollbar.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faUser, faEnvelope, faPhone, faLock, faCircleCheck, faTimesCircle, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
+import logo from '../images/recurso-4.png';
+import '../styles/TextHeader.css';
+import TextHeader from '../components/TextHeader';
 
 function SignUp() {
     const form = useRef();
@@ -58,10 +61,14 @@ function SignUp() {
     }
     return (
         <>
-            <h1 className="form-header">Registrarse</h1>
+            <header className="form-header">
+                <h1>Regístrate</h1>
+            </header>
             <div className="grid">
+                <div className="logo-container-signup">
+                    <Link to="/"><img className="logo-signup" src={logo} alt="Logo"/></Link>
+                </div>
                 <form className="form" ref={form} onSubmit={handleSubmit}>
-
                     <div className="form-container">
                         <fieldset className="form-group">
                             <label className="form-label" htmlFor={`${id}-firstName`}>

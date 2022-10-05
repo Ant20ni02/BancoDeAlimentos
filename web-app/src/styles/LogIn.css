@@ -6,9 +6,16 @@ div.logo-container {
     align-items: center;
 }
 
-div.logo-container img.logo {
+div.logo-container img.logo-login {
     width: 10em;
     height: 10em;
+    position: absolute;
+    top: 8.5em;
+    z-index: 100;
+}
+
+div.logo-container a {
+    margin-right: 9.5em;
 }
 
 form.form-login {
@@ -19,7 +26,9 @@ form.form-login {
     border-radius: 0.5em;
     width: fit-content;
     height: fit-content;
-    padding: 3.5em 0 0;
+    padding-top: 4.5em;
+    position: relative;
+    margin-top: 6em;
 }
 
 div.form-input-login {

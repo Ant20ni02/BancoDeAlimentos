@@ -1,11 +1,33 @@
 @import url('themes/color-scheme.css');
 
-h1.form-header {
-    font-size: 2.5em;
+header.form-header {
+    font-size: 1.5em;
     font-weight: 700;
-    color: var(--primary-color);
+    color: hsl(0, 0%, 100%);
     text-align: center;
+    padding-top: .01rem;
+    padding-bottom: .01rem;
+    background-color: var(--primary-color);
     margin-bottom: 1em;
+}
+
+div.logo-container-signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.logo-container-signup a {
+    margin-right: 11em;
+}
+
+div.logo-container-signup img.logo-signup {
+    width: 11em;
+    height: 11em;
+    position: absolute;
+    top: 8.5em;
+    z-index: 100;
+    cursor: pointer;
 }
 
 /* * @note: main grid div for center form */
@@ -21,7 +43,8 @@ form.form {
     width: fit-content;
     height: fit-content;
     padding-top: 2.5em;
-/*     margin-top: 2.5em; */
+    position: relative;
+    margin-top: 6.5em;
 }
 
 div.form-container {
@@ -388,6 +411,11 @@ button.form-btn-submit:hover {
 @media only screen and (max-width: 900px) {
     div.form-container {
         grid-template-columns: 1fr;
+    }
+
+    div.logo-container-signup img.logo-signup {
+        width: 10em;
+        height: 10em;
     }
 
     fieldset.terms-and-conditions-and-privacy-policy {
