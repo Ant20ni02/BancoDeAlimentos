@@ -1,5 +1,5 @@
 import React from "react";
-/* import ReactDOM from "react-dom"; */
+import ReactDOM from "react-dom";
 import '../../styles/Modal/PortalModal.css';
 import logo from '../../images/recurso-4.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,7 +7,7 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 const PortalModal = ({ onShow, label="Aviso", img={logo}, title, children, onClose }) => {
     if (!onShow ) return null;
-    return /* ReactDOM.createPortal */ (
+    return ReactDOM.createPortal (
         <>
             <div className="modal-overlay" onClick={onClose}>
             </div>
@@ -28,8 +28,8 @@ const PortalModal = ({ onShow, label="Aviso", img={logo}, title, children, onClo
                 </div>
             </div>
 
-        </>/* ,
-        document.getElementById('portal') */
+        </>,
+        document.getElementById('portal')
     )
 }
 

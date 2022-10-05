@@ -142,7 +142,7 @@ function SignUp() {
 
                         {/* Identity */}
                         <select name="sex" required>
-                            <option selected disabled hidden>Identidad de género</option>
+                            <option selected disabled hidden>Sexo</option>
                             <option value="m">Masculino</option>
                             <option value="f">Femenino</option>
                             <option value="o">No especificar</option>

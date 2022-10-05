@@ -7,7 +7,7 @@ const TextHeader = ({ text }) => {
             <div>
                 <h1>{text}</h1>
             </div>
-            <hr/>
+            {/* <hr/> */}
         </header>
     );
 }
