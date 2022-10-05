@@ -54,7 +54,9 @@ class Create : AppCompatActivity() {
         }
 
         btnRegistrarse.setOnClickListener{
-            val signUpUrl = "http://bdarestapi-env.eba-hy3dqwvm.us-east-1.elasticbeanstalk.com/signUp"
+            val signUp = endpoint()
+            val signUpUrl = signUp.globalLink + "signUp"
+
             val jsonBody = JSONObject()
 
             jsonBody.put("firstName",txtNombre.text.toString())
