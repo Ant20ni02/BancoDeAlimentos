@@ -14,11 +14,12 @@ module.exports.login = (req, res) => {
     const email = req.body.email;
     const password_ = req.body.password_;
 
-    const sql = `SELECT idUser FROM User_ WHERE email = ?`
-        //const sql2 = `SELECT SHA2(contrasena,224) FROM usuario WHERE nickname=?`
-    const sql2 = `SELECT password_ FROM User_ WHERE email=? `
+    const sql = `SELECT idUser FROM User_ WHERE email = ?` //makes sure it exists
 
-    //const sql3 = `SELECT contrasena FROM usuario WHERE contrasena = SHA2(?,224)`
+    const sql2 = `SELECT password_ FROM User_ WHERE email=? ` //password validation
+
+    const sql3 = `SELECT isValid FROM User_ WHERE email=?` //makes sure the user is active
+
     let idUser;
     let resultUser;
     let resultPassword;
@@ -49,39 +50,55 @@ module.exports.login = (req, res) => {
                     resultUser = results[0];
                     idUser = resultUser.idUser;
 
-                    conexion.query(sql2, [email], (error, results2, fields) => {
+                    conexion.query(sql3, [email], (error, results3,fields) =>{
 
-                        if (error)
-                            
-                            res.send(error);
-                        else {
+                        if(error)
+                            res.send(error)
+                        else{
 
-                            resultPassword = results2[0].password_;
-
-                            //////////7
-                            let pwd = pw;
-                            pwd = crypto.createHash('sha224')
-                                .update(pwd)
-                                .digest('hex');
-
-                            if (resultUser != undefined) {
-                                console.log(resultPassword);
-
-                                if (resultPassword === pwd) {
-                                    token = jwt.sign(payload, config.key, { expiresIn: 7200 })
-                                    mensaje = 'Usuario o contraseña autenticados'
-
-                                }
+                            if(results3[0].isValid == 1){
+                                conexion.query(sql2, [email], (error, results2, fields) => {
+    
+                                    if (error)
+                                        
+                                        res.send(error);
+                                    else {
+            
+                                        resultPassword = results2[0].password_;
+            
+                                        //////////7
+                                        let pwd = pw;
+                                        pwd = crypto.createHash('sha224')
+                                            .update(pwd)
+                                            .digest('hex');
+            
+                                        if (resultUser != undefined) {
+                                            console.log(resultPassword);
+            
+                                            if (resultPassword === pwd) {
+                                                token = jwt.sign(payload, config.key, { expiresIn: 7200 })
+                                                mensaje = 'Usuario o contraseña autenticados'
+            
+                                            }
+                                        }
+                                    }
+            
+                                    res.json({
+                                        mensaje,
+                                        token,
+                                        idUser
+                                    })
+                                })
+            
+                            }
+                            else{ //the user exists, but is not active
+                                mensaje = "Un administrador debe activar tu cuenta"
+                                
                             }
                         }
 
-                        res.json({
-                            mensaje,
-                            token,
-                            idUser
-                        })
                     })
-
+                    
                 } else {
                     res.json({
                         mensaje
@@ -92,5 +109,9 @@ module.exports.login = (req, res) => {
         })
     }
 
+    //1-> mensaje = "Usuario o contraseña inválidos"
+    //2-> mensaje = "Un administrador debe activar tu cuenta"
+    //3-> mensaje = "Usuario o contraseña autenticados", token, idUser 
+    
     Fun(password_);
 }
