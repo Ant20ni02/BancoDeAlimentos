@@ -56,15 +56,19 @@ module.exports.login = (req, res) => {
                             res.send(error)
                         else{
 
-                            if(results3[0].isValid == 1){
+                            console.log(results3[0])
+                            if(results3[0].isActive == 1){
                                 conexion.query(sql2, [email], (error, results2, fields) => {
     
+                                    console.log("kiti")
                                     if (error)
                                         
                                         res.send(error);
                                     else {
             
                                         resultPassword = results2[0].password_;
+                                        console.log(resultPassword)
+
             
                                         //////////7
                                         let pwd = pw;
@@ -93,7 +97,9 @@ module.exports.login = (req, res) => {
                             }
                             else{ //the user exists, but is not active
                                 mensaje = "Un administrador debe activar tu cuenta"
-                                
+                                res.json({
+                                    mensaje
+                                })
                             }
                         }
 
