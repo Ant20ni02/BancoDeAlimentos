@@ -18,7 +18,7 @@ module.exports.login = (req, res) => {
 
     const sql2 = `SELECT password_ FROM User_ WHERE email=? ` //password validation
 
-    const sql3 = `SELECT isValid FROM User_ WHERE email=?` //makes sure the user is active
+    const sql3 = `SELECT isActive FROM User_ WHERE email=?` //makes sure the user is active
 
     let idUser;
     let resultUser;
