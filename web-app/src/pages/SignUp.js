@@ -24,7 +24,7 @@ function SignUp() {
         const passwordConfirm = form.current.passwordConfirm.value;
 
         if (password === passwordConfirm) {
-            let formData = JSON.stringify({ firstName: firstName, lastName: lastName, phoneNumber: phoneNumber, sex: sex, age: age, email: email, password_: password, userType: 'Admin'});
+            let formData = JSON.stringify({ firstName: firstName, lastName: lastName, phoneNumber: phoneNumber, sex: sex, age: age, email: email, password_: password,isActive: 0, userType: 'Admin'});
             const response = await fetch(url+'signup',{ method: 'POST',headers: {
             'Content-Type': 'application/json',
             }, body: formData});
