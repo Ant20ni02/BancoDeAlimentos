@@ -36,7 +36,7 @@ module.exports.insertUsuario = (req,res) =>{
                 if (resultUser == undefined){
                     mensaje = 'Usuario insertado correctamente'
 
-                    conexion.query(sq, [body.firstName, body.lastName, body.email ,body.password_, body.age, body.sex, body.phoneNumber, body.userType], (error, resultsInsert, fields)=>{
+                    conexion.query(sq, [body.firstName, body.lastName, body.email ,body.password_, body.age, body.sex, body.phoneNumber, body.userType, body.isActive], (error, resultsInsert, fields)=>{
 
                         if(error){
                             res.send(error);

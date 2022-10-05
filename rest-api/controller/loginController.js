@@ -40,7 +40,7 @@ module.exports.login = (req, res) => {
 
         conexion.query(sql, [email], (error, results, fields) => {
             if (error){
-                //console.log("kiti")
+                //console.log("kiti")git
                 res.send(error);
             }
                 else {
