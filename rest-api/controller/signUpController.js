@@ -11,7 +11,7 @@ module.exports.insertUsuario = (req,res) =>{
 
 
     const sq = `INSERT INTO User_(firstName, lastName, email, password_, age, sex, phoneNumber, userType, isActive) VALUES
-    (?,?,?,SHA2(?,224),?,?,?,?,0)`
+    (?,?,?,SHA2(?,224),?,?,?,?,?)`
 
     const sql = `SELECT idUser FROM User_ WHERE firstName = ? OR lastName = ? OR email=?`
     

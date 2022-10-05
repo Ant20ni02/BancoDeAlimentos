@@ -46,6 +46,8 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("x-access-token", response.getString("token"))
 
                 startActivity(intent)
+            }else{
+                Toast.makeText(this@MainActivity, response.getString("mensaje"), Toast.LENGTH_SHORT).show()
             }
 
         }
@@ -57,8 +59,9 @@ class MainActivity : AppCompatActivity() {
         btnLogin.setOnClickListener{
 
         //val loginUrl = "http://localhost:4000/login"
-        val loginUrl = "http://bdarestapi-env.eba-hy3dqwvm.us-east-1.elasticbeanstalk.com/login"
-        // val loginUrl = "http://10.49.187.177:4000/login"
+        val login = endpoint()
+        val loginUrl = login.globalLink + "login"
+            // val loginUrl = "http://10.49.187.177:4000/login"
         // Log.e("ENDPOINTRESPONSE", usernameTv.text.toString())
 
         val jsonBody = JSONObject()
