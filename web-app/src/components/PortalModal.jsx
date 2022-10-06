@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import '../../styles/Modal/PortalModal.css';
-import logo from '../../images/recurso-4.png';
+import '../styles/PortalModal.css';
+import logo from '../images/recurso-4.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
@@ -15,7 +15,7 @@ const PortalModal = ({ onShow, label="Aviso", img={logo}, title, children, onClo
                 <div className="Portal-modal-header">
                     <div className="Portal-modal-header-txt-btn">
                         <span>{label}</span>
-                        <button className="Portal-modal-close" onClick={onClose}><FontAwesomeIcon icon={faXmark} className="icon"/></button>
+                        <button className="Portal-modal-close" onClick={onClose}><FontAwesomeIcon icon={faXmark} className="close-icon"/></button>
                     </div>
                     <img src={logo} alt="logo"/>
                     <div className="Portal-modal-header-title">
