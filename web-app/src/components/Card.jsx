@@ -1,20 +1,21 @@
 import React from "react";
 import '../styles/Card.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Card = ({ image, title/* , description */ }) => {
+const Card = ({ icon, title/* , description */ }) => {
     return (
         <div className="Card">
 
-            <header className="Card-header">
-                <img src={image} alt={title}/>
+            <header className="Card__header">
+                <FontAwesomeIcon icon={icon} className="Card__header-icon" />
             </header>
 
             {/* <div className="card-body">
                 <p>{description}</p>
             </div> */}
 
-            <footer className="Card-footer">
-                <h3>{title}</h3>
+            <footer className="Card__footer">
+                <h3 className="Card__footer-heading">{title}</h3>
             </footer>
         </div>
     );

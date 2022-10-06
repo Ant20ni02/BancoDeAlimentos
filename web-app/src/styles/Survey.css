@@ -1,0 +1,24 @@
+div.Survey {
+    width: 100vw;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
+    place-items: center;
+}
+
+div.Survey a {
+    text-decoration: none;
+}
+
+/* /////////////////////////////////////////////////////////// */
+
+/* RESPONSIVE DESIGN */
+
+/* @media only screen and (max-width: 768px) {
+    div.Survey {
+        grid-template-columns: 1fr;
+        grid-gap: 2.5em;
+        margin-bottom: 5rem;
+    }
+} */

@@ -12,8 +12,8 @@ function Start() {
                     {/* <figcaption>Welcome to the Food Bank!</figcaption>
                 </figure> */}
             <div className="container">
-                <LinkButton path="/login" text="Iniciar sesión" />
-                <LinkButton path="/signup" text="Registrarse" />
+                <LinkButton path="/inicio-de-sesion" text="Iniciar sesión" />
+                <LinkButton path="/registro-de-cuenta" text="Registrarse" />
             </div>
         </div>
         </>

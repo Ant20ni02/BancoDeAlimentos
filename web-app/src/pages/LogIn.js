@@ -1,15 +1,18 @@
-import React, { useRef, useId } from 'react';
+import React, { useRef, useId, useState } from 'react';
 import '../styles/LogIn.css';
 import url from '../config/API';
 import { useNavigate, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock, faCircleCheck, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import logo from '../images/recurso-4.png';
+import PortalModal from '../components/PortalModal';
 
 function LogIn() {
     const form = useRef();
     const id = useId();
     const navigate = useNavigate();
+
+    const [showModal, setShowModal] = useState(false);
     
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -26,8 +29,10 @@ function LogIn() {
             localStorage.setItem('idUser', data.idUser);
             console.log(data.token);
             console.log(data.idUser);
-            navigate('/home', { replace: true });
+            navigate('/pagina-principal', { replace: true });
         }
+
+
     }
     return (
         <>
@@ -65,7 +70,7 @@ function LogIn() {
 
                     {/* <hr/> */}
 
-                    <span className="new-account">¿No tienes cuenta?, regístrate <br/> <Link to="/signup">aquí</Link>.</span>
+                    <span className="new-account">¿No tienes cuenta?, regístrate <br/> <Link to="/registro-de-cuenta">aquí &gt;</Link>.</span>
 
                     {/* <hr/> */}
 
@@ -74,6 +79,12 @@ function LogIn() {
                     </footer>  
                 </form>
             </div>
+
+            <button onClick={() => setShowModal(true)}>Open Modal</button>
+
+            <PortalModal onShow={showModal} onClose={() => setShowModal(false)} title="¡Inicio de sesión exitoso!" > 
+                <p><b>¡Felicidades!</b>, ya puedes comenzar a usar el <b>nuevo sistema</b> del banco de alimentos.</p>
+            </PortalModal>
         </>
     );
 }

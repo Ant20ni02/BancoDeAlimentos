@@ -133,6 +133,10 @@ span.new-account a {
     text-decoration: none;
 }
 
+span.new-account a:hover {
+    text-decoration: underline;
+}
+
 form.form-login footer.form-footer-login {
     display: flex;
     flex-direction: column;
@@ -160,10 +164,15 @@ button.form-btn-submit-login {
     -o-transition: all .3s ease-in-out;
 }
 
-button.form-btn-submit-login:hover {
+button.form-btn-submit-login:hover, button.form-btn-submit-login:focus {
+    outline: none;
     transform: scale(1.01);
     -webkit-transform: scale(1.01);
     -moz-transform: scale(1.01);
     -ms-transform: scale(1.01);
     -o-transform: scale(1.01);
+}
+
+button.form-btn-submit-login:focus {
+    outline: 2px solid var(--quaternary-color);
 }

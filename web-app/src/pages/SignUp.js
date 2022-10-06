@@ -2,17 +2,18 @@ import React, { useRef, useId, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import url from '../config/API';
 import '../styles/SignUp.css';
-import '../styles/scrollbar.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faUser, faEnvelope, faPhone, faLock, faCircleCheck, faTimesCircle, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import logo from '../images/recurso-4.png';
 import '../styles/TextHeader.css';
-import TextHeader from '../components/TextHeader';
+import PortalModal from '../components/PortalModal';
 
 function SignUp() {
     const form = useRef();
     const id = useId();
     const navigate = useNavigate();
+
+    const [showModal, setShowModal] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -33,7 +34,7 @@ function SignUp() {
             }, body: formData});
             const data = await response.json();
             if(data.mensaje === 'Usuario insertado correctamente'){
-                navigate('/login', { replace: true });
+                navigate('/inicio-de-sesion', { replace: true });
             } else if(data.mensaje === "El usuario ya se encuentra registrado"){
                 alert('El usuario ya se encuentra registrado');
             } else{
@@ -142,7 +143,7 @@ function SignUp() {
 
                         {/* Identity */}
                         <select name="sex" required>
-                            <option selected disabled hidden>Identidad de género</option>
+                            <option selected disabled hidden>Sexo</option>
                             <option value="m">Masculino</option>
                             <option value="f">Femenino</option>
                             <option value="o">No especificar</option>
@@ -209,6 +210,12 @@ function SignUp() {
                     </footer>                
                 </form>
             </div>
+
+            <button onClick={() => setShowModal(true)}>Open Modal</button>
+
+            <PortalModal onShow={showModal} onClose={() => setShowModal(false)} title="¡Cuenta creada exitosamente!" > 
+                <p><b>¡Ya casi!</b>, ahora solamente <u>inicia sesión</u> con tu <b>cuenta nueva.</b></p>
+            </PortalModal>
         </>
     );
 }
