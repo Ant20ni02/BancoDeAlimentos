@@ -28,3 +28,54 @@ module.exports.getUsersData = (req,res) =>{
         }
     })
 }
+
+module.exports.changeUserStatus = (req,res) =>{
+    const idUser = req.params.idUser;
+    let mensaje = "isActive state updated";
+
+    const sql = `SELECT  isActive FROM User_ WHERE idUser = ?`
+    const query = `UPDATE User_ SET isActive = ? WHERE idUser = ?`
+    
+    conexion.query(sql, [idUser], (error,results,fields)=>{
+        if(error)
+            res.send(error)
+        else{
+            if(results[0] !=undefined){
+                let isActive = results[0].isActive;
+                //console.log(typeof isActive);
+
+                if(isActive === 0){
+                    mensaje = "Usuario Activado";
+                    isActive = 1;
+                }
+                else{
+                    mensaje = "Usuario desactivado"
+                    isActive = 0;
+                }
+
+                conexion.query(query, [isActive,idUser], (error,results,fields) =>{
+                    if(error)
+                        res.send(error)
+                    else{
+                        res.json({
+                            mensaje
+                        })
+                    }
+
+                })
+
+            }
+            else{
+                mensaje = "El id del usuario es incorrecto"
+                res.json({
+                    mensaje
+                })
+            }
+
+        }
+
+
+    })
+
+
+}
