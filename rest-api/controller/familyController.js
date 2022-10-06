@@ -1,14 +1,6 @@
-const jwt = require('jsonwebtoken');
-const config = require('../config/jwt');
-/////////
 const mysql = require('mysql');
 const mysqlConfig = require('../helpers/mysql-config');
-const { NULL } = require('mysql/lib/protocol/constants/types');
 const conexion = mysql.createConnection(mysqlConfig);
-const crypto = require('crypto');
-const { resolveAny } = require('dns');
-////////
-
 
 module.exports.createFamily = (req, res) =>{
     const idFamily = req.body.idFamily;
@@ -16,12 +8,12 @@ module.exports.createFamily = (req, res) =>{
     const familyLastName = req.body.familyLastName;
     const pregnancy = req.body.pregnancy;
     const latitude = req.body.latitude;
-    const longitud = req.body.longitud;
+    const longitude = req.body.longitud;
 
 
-    const sql = `INSERT INTO family (idFamily, familyMembers, familyLastName, pregnancy, latitude, longitud) VALUES(?,?,?,?,?,?)`
+    const sql = `INSERT INTO Family (idFamily, familyMembers, familyLastName, latitude, longitude, pregnancy) VALUES(?,?,?,?,?,?)`
 
-    conexion.query(sql, [idFamily, familyMembers, familyLastName, pregnancy], (error, results, fields)=>{
+    conexion.query(sql, [idFamily, familyMembers, familyLastName, latitude, longitude, pregnancy], (error, results, fields)=>{
         
         if(error)
             res.send(error)
@@ -46,4 +38,22 @@ module.exports.assignMedicalCondition = (req,res) =>{
             res.json(results)
         }
     })
+}
+
+module.exports.getFamilies = (req,res) =>{
+    const query = `SELECT s.idFamily, latitude, longitude, familyLastName, date_ FROM Survey s JOIN Family f
+    ON s.idFamily = f.idFamily`
+
+    conexion.query(query, (error,results,fields) =>{
+        if(error)
+            res.send(error)
+        else{
+            res.json(
+                results
+            )
+        }
+
+
+    })
+
 }

@@ -1,7 +1,5 @@
-const res = require('express/lib/response');
 const mysql = require('mysql');
 const mysqlConfig = require('../helpers/mysql-config');
-const { NULL } = require('mysql/lib/protocol/constants/types');
 const conexion = mysql.createConnection(mysqlConfig);
 
 module.exports.insertUsuario = (req,res) =>{
