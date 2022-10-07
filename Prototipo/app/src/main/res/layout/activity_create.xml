@@ -6,101 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".Create">
 
-<<<<<<< HEAD
-    <LinearLayout
+    <Button
+        android:id="@+id/btnRegresar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:background="@drawable/btn_orange"
+        android:text="Regresar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.048"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.276">
+        app:layout_constraintTop_toBottomOf="@+id/txt_Password_Create"
+        app:layout_constraintVertical_bias="0.476" />
 
-        <EditText
-            android:id="@+id/txtNombreSU"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="Nombre"
-            android:inputType="textPersonName" />
-
-        <EditText
-            android:id="@+id/txtApellidosSU"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="Apellido(s)"
-            android:inputType="textPersonName" />
-
-        <EditText
-            android:id="@+id/txtEdadSU"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="Edad"
-            android:inputType="textPersonName" />
-
-        <EditText
-            android:id="@+id/txtSexoSU"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="center"
-            android:inputType="textPersonName"
-            android:text="Sexo" />
-
-        <EditText
-            android:id="@+id/txtTelefonoSU"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="center"
-            android:inputType="textPersonName"
-            android:text="Teléfono" />
-
-        <EditText
-            android:id="@+id/txtCorreoSU"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="center"
-            android:inputType="textPersonName"
-            android:text="Correo" />
-
-        <EditText
-            android:id="@+id/txtContraseñaSU"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="center"
-            android:inputType="textPersonName"
-            android:text="Contraseña" />
-
-        <EditText
-            android:id="@+id/txtConfContraseñaSU"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="center"
-            android:inputType="textPersonName"
-            android:text="Confirmar contraseña" />
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/btnRegistrarse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Registrarse"
-=======
     <ImageView
         android:id="@+id/orange_background"
         android:layout_width="553dp"
         android:layout_height="245dp"
+        android:background="@drawable/btn_orange"
         app:layout_constraintBottom_toBottomOf="@+id/txt_registrate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.56"
@@ -111,42 +34,17 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/btnCompletar_Crear"
+        android:id="@+id/btnCrearCuenta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_orange"
-        android:text="Crear Cuenta"
->>>>>>> Design
+        android:text="Crear cuenta"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.103"
+        app:layout_constraintHorizontal_bias="0.935"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-<<<<<<< HEAD
-        app:layout_constraintVertical_bias="0.872" />
-=======
-        app:layout_constraintVertical_bias="0.926" />
->>>>>>> Design
-
-    <Button
-        android:id="@+id/btnRegresar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-<<<<<<< HEAD
-        android:text="Regresar"
-=======
-        android:background="@drawable/btn_orange"
-        android:text="Cancelar"
->>>>>>> Design
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.925"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-<<<<<<< HEAD
-        app:layout_constraintVertical_bias="0.963" />
-=======
-        app:layout_constraintVertical_bias="0.926" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_Password_Create_Confirmar"
+        app:layout_constraintVertical_bias="0.475"/>
 
     <EditText
         android:id="@+id/txt_Password_Create_Confirmar"
@@ -260,6 +158,7 @@
         android:id="@+id/spin_sexos"
         android:layout_width="180dp"
         android:layout_height="50dp"
+        android:contentDescription="Sexo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.92"
@@ -397,6 +296,6 @@
         app:layout_constraintTop_toTopOf="@+id/txt_Email_Create"
         app:layout_constraintVertical_bias="0.52"
         app:srcCompat="@drawable/pngegg" />
->>>>>>> Design
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

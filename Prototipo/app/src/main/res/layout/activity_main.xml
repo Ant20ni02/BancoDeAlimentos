@@ -39,19 +39,6 @@
 <<<<<<< HEAD
         android:gravity="center"
         android:hint="Email"
-=======
-        android:fontFamily="sans-serif-black"
-        android:hint="Username"
->>>>>>> Design
-        android:inputType="textPersonName"
-        android:textColor="#FE921D"
-        android:textColorHint="#FE921D"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.271" />
 
     <EditText
         android:id="@+id/txtPassword"
@@ -68,7 +55,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.355" />
+        app:layout_constraintVertical_bias="0.421" />
 
     <Button
         android:id="@+id/btnLogin"
@@ -105,6 +92,10 @@
         app:rippleColor="@color/purple_700" />
 
 <<<<<<< HEAD
+
+    =======
+>>>>>>> Design
+
     <Button
         android:id="@+id/btnCreate"
         android:layout_width="wrap_content"
@@ -112,13 +103,11 @@
         android:text="Registrarse"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.539" />
+        app:layout_constraintVertical_bias="0.742" />
 
-=======
->>>>>>> Design
     <TextView
         android:id="@+id/BancoDeAlimentos"
         android:layout_width="wrap_content"
@@ -146,4 +135,18 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/logo2" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout><![CDATA[=======
+        android:fontFamily="sans-serif-black"
+        android:hint="Username"
+>>>>>>> Design
+        android:inputType="textPersonName"
+        android:textColor="#FE921D"
+        android:textColorHint="#FE921D"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.271" />
+
+    ]]>
