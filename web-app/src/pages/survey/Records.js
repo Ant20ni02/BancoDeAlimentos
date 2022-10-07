@@ -1,8 +1,9 @@
 import TextHeader from '../../components/TextHeader';
 import Table from '../../components/Table';
-import surveys from '../../data/surveys';
+import SurveysData from '../../data/surveys';
 
 function Records() {
+    let surveys = SurveysData();
     return (
         <>
             <TextHeader text="Registros" />
