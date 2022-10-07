@@ -12,6 +12,7 @@ class Voluntario : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_voluntario)
 
+        /*
         val Username = intent.getStringExtra("User")
         val txtUsername = findViewById<TextView>(R.id.txtUsername_Voluntario)
         txtUsername.text = "$Username"
@@ -27,5 +28,9 @@ class Voluntario : AppCompatActivity() {
             Toast.makeText(this@Voluntario, "Sesion Cerrada", Toast.LENGTH_SHORT).show()
             System.exit(0)
         }
+    */
     }
+
+
+
 }

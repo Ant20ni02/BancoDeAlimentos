@@ -23,11 +23,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val usernameTv =findViewById<TextView>(R.id.txtUsername_Voluntario)
+        val usernameTv =findViewById<TextView>(R.id.txtEmail)
         val passwordTv = findViewById<TextView>(R.id.txtPassword)
 
         val btnLogin = findViewById<Button>(R.id.btnLogin)
-        val btnCancel = findViewById<Button>(R.id.btnCancel)
+        val signUpLink = findViewById<TextView>(R.id.signUpLink)
 
         queue =  Volley.newRequestQueue(this@MainActivity)
 
@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
 
         //Button Create
         //Button Cancel
-        btnCancel.setOnClickListener{
+        signUpLink.setOnClickListener{
             val intent = Intent(this@MainActivity,Inicio::class.java)
             startActivity(intent)
         }

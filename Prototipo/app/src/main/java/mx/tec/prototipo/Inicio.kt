@@ -42,9 +42,9 @@ class Inicio : AppCompatActivity() {
             System.exit(0)
         }
 
-        val Banco_View_Pager = findViewById<ViewPager2>(R.id.Banco_View_Pager)
-        val adapter = Image_Adapter(this)
-        Banco_View_Pager.adapter = adapter
+        //val Banco_View_Pager = findViewById<ViewPager2>(R.id.Banco_View_Pager)
+        //val adapter = Image_Adapter(this)
+        //Banco_View_Pager.adapter = adapter
 
     }
 }

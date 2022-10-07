@@ -6,39 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-<<<<<<< HEAD
-    <EditText
-        android:id="@+id/txtPassword"
+    <TextView
+        android:id="@+id/signUpLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="236dp"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Password"
-        android:inputType="textEmailAddress"
-=======
-    <ImageView
-        android:id="@+id/black_back_ground3"
-        android:layout_width="502dp"
-        android:layout_height="840dp"
-        android:layout_weight="1"
+        android:text="¿No tienes cuenta?, regístrate aquí"
+        android:textColor="@color/purple_500"
+        android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
->>>>>>> Design
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+        app:layout_constraintVertical_bias="0.133" />
+
+    <ImageView
+        android:id="@+id/orange_background2"
+        android:layout_width="553dp"
+        android:layout_height="245dp"
+        android:background="@drawable/btn_orange"
+        app:layout_constraintBottom_toBottomOf="@+id/BancoDeAlimentos"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.504"
-        app:srcCompat="@android:drawable/screen_background_dark" />
-
-    <EditText
-        android:id="@+id/txtUsername_Voluntario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-<<<<<<< HEAD
-        android:gravity="center"
-        android:hint="Email"
+        app:layout_constraintVertical_bias="0.90999997"
+        app:srcCompat="@drawable/orange"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/txtPassword"
@@ -47,6 +39,23 @@
         android:ems="10"
         android:fontFamily="sans-serif-black"
         android:hint="Password"
+        android:inputType="textPassword|textEmailAddress"
+        android:textColor="#FE921D"
+        android:textColorHint="#FE921D"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.546" />
+
+    <EditText
+        android:id="@+id/txtEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:fontFamily="sans-serif-black"
+        android:hint="Email"
         android:inputType="textEmailAddress"
         android:textColor="#FE921D"
         android:textColorHint="#FE921D"
@@ -55,7 +64,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.421" />
+        app:layout_constraintVertical_bias="0.443" />
 
     <Button
         android:id="@+id/btnLogin"
@@ -70,43 +79,12 @@
         android:textColorLink="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.185"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.553"
-        app:rippleColor="@color/teal_200"
-        app:strokeColor="#FF5722" />
-
-    <Button
-        android:id="@+id/btnCancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_orange"
-        android:text="Regresar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.801"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.553"
-        app:rippleColor="@color/purple_700" />
-
-<<<<<<< HEAD
-
-    =======
->>>>>>> Design
-
-    <Button
-        android:id="@+id/btnCreate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Registrarse"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.742" />
+        app:layout_constraintVertical_bias="0.661"
+        app:rippleColor="@color/teal_200"
+        app:strokeColor="#FF5722" />
 
     <TextView
         android:id="@+id/BancoDeAlimentos"
@@ -114,9 +92,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:fontFamily="sans-serif-black"
-        android:text="Banco de Alimentos"
+        android:text="Iniciar sesión"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#FE921D"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -124,29 +102,14 @@
         app:layout_constraintVertical_bias="0.039" />
 
     <ImageView
-        android:id="@+id/LOGO"
-        android:layout_width="174dp"
-        android:layout_height="153dp"
+        android:id="@+id/imageView"
+        android:layout_width="131dp"
+        android:layout_height="130dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/logo2" />
+        app:layout_constraintVertical_bias="0.199"
+        app:srcCompat="@drawable/_e8827daba0aa_logo" />
 
-</androidx.constraintlayout.widget.ConstraintLayout><![CDATA[=======
-        android:fontFamily="sans-serif-black"
-        android:hint="Username"
->>>>>>> Design
-        android:inputType="textPersonName"
-        android:textColor="#FE921D"
-        android:textColorHint="#FE921D"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.271" />
-
-    ]]>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -49,7 +49,7 @@ class Create : AppCompatActivity() {
         val txtContConfirmation = findViewById<EditText>(R.id.txt_Password_Create_Confirmar)
 
         val btnRegresar = findViewById<Button>(R.id.btnRegresar)
-        val btnRegistrarse = findViewById<Button>(R.id.btnRegresar)
+        val btnRegistrarse = findViewById<Button>(R.id.btnCrearCuenta)
 
         queue =  Volley.newRequestQueue(this@Create)
 
@@ -83,6 +83,7 @@ class Create : AppCompatActivity() {
             jsonBody.put("sex", txtSexo)
             jsonBody.put("phoneNumber", txtTelefono.text.toString())
             jsonBody.put("userType", "Voluntario")
+            jsonBody.put("isActive", 0)
 
             val request = JsonObjectRequest(Request.Method.POST, signUpUrl, jsonBody, listener, error)
             @Throws(AuthFailureError::class)
