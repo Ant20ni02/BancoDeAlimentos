@@ -10,6 +10,7 @@ import Survey from '../pages/survey/Survey';
 import Records from '../pages/survey/Records';
 import Charts from '../pages/survey/Charts';
 import PageNotFound from '../pages/PageNotFound';
+import ProtectedRoute from '../components/ProtectedRoute'
 
 function AppRouter() {
     return (
@@ -20,12 +21,12 @@ function AppRouter() {
                     <Route path="/registro-de-cuenta" element={<SignUp />} />
                     <Route path="/inicio-de-sesion" element={<LogIn />} />
 
-                    <Route path="/pagina-principal" element={<Home />}/>
-                    <Route path="/perfil" element={<Profile />} />
+                    <Route path="/pagina-principal" element={<ProtectedRoute><Home /></ProtectedRoute>}/>
+                    <Route path="/perfil" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
 
-                    <Route path="/encuestas" element={<Survey />} />
-                        <Route /* path="/encuestas/registros" */ path="/registros" element={<Records />} />
-                        <Route /* path="/encuestas/graficas" */ path="/graficas" element={<Charts />} />
+                    <Route path="/encuestas" element={<ProtectedRoute><Survey /></ProtectedRoute>} />
+                        <Route /* path="/encuestas/registros" */ path="/registros" element={<ProtectedRoute><Records /></ProtectedRoute>} />
+                        <Route /* path="/encuestas/graficas" */ path="/graficas" element={<ProtectedRoute><Charts /></ProtectedRoute>} />
                     {/* </Route> */}
 
                     <Route path="*" element={<PageNotFound />} />
