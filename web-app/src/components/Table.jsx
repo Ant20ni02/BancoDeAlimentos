@@ -1,3 +1,6 @@
+import React from "react";
+import '../styles/Table.css';
+
 const Table = ({ data }) => {
     return (
         <table>
@@ -10,24 +13,22 @@ const Table = ({ data }) => {
                     <th scope="col">Familia</th>
                     <th scope="col">Identidicador</th>
                     <th scope="col">Fecha</th>
-                    <th scope="col">Hora</th>
-                    <th scope="col">Ubicación</th>
-                    <th scope="col">Telefono</th>
+                    <th scope="col">Latitud</th>
+                    <th scope="col">Longitud</th>
                     <th scope="col">Encuesta</th>
                 </tr>
             </thead>
 
             <tbody>
-                {data.map(item => (
-                    <tr>
-                        <th scope="row">{item.position}</th>
-                        <td>{item.family}</td>
-                        <td>{item.id}</td>
-                        <td>{item.date}</td>
-                        <td>{item.time}</td>
-                        <td>{item.location}</td>
-                        <td>{item.phone}</td>
-                        <td>{item.survey}</td>
+                {Object.entries(data).map(([key, { familyLastName, idFamily, date_, latitude, longitude, idSurvey}]) => (
+                    <tr key = {key}>
+                        <th class="counterCell"></th>
+                        <td>{familyLastName}</td>
+                        <td>{idFamily}</td>
+                        <td>{date_}</td>
+                        <td>{latitude}</td>
+                        <td>{longitude}</td>
+                        <td>{idSurvey}</td>
                     </tr>
                 ))}
             </tbody>

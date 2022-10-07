@@ -6,24 +6,22 @@ import '../styles/Profile.css';
 
 function Profile() {
     const [user, setUser] = useState({
-                                        age: 0,
-                                        email: "No hay datos",
-                                        firstName: "No hay datos",
-                                        idUser: 0,
-                                        isActive: 0,
-                                        lastName: "No hay datos",
-                                        password_: "No hay datos",
-                                        phoneNumber: "No hay datos",
-                                        sex: "f",
-                                    });
-
+        age: 0,
+        email: "No hay datos",
+        firstName: "No hay datos",
+        idUser: 0,
+        isActive: 0,
+        lastName: "No hay datos",
+        password_: "No hay datos",
+        phoneNumber: "No hay datos",
+        sex: "f",
+    });
 
     useEffect(()=>{
         getUser();
         }, []);
 
     const getUser = async (e) => {
-        //e.preventDefault();
 
         const idUser = localStorage.getItem('idUser');
     
