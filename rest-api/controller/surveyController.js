@@ -20,6 +20,7 @@ module.exports.addSurvey = (req, res) =>{
         if(error)
             res.send(error)
         else{
+            /*
             if(results[0]!=undefined){
                 conexion.query(updateQuery, [idUser,idFamily,currentDate,idUser], (error3,results3,fields3)=>{
                     if(error3)
@@ -30,8 +31,8 @@ module.exports.addSurvey = (req, res) =>{
 
                 })
 
-            }
-            else{ //undefined
+            }*/
+             //undefined
                 conexion.query(sql, [idUser,idFamily,currentDate], (error2, results2, fields2)=>{
                     if(error2)
                         res.send(error2)
@@ -39,12 +40,6 @@ module.exports.addSurvey = (req, res) =>{
                         res.json(results2)
                     }
                 })
-            }
-
         }
-
     })
-
-
-
 }
