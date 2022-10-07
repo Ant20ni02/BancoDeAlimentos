@@ -8,7 +8,7 @@ module.exports.createFamily = (req, res) =>{
     const familyLastName = req.body.familyLastName;
     const pregnancy = req.body.pregnancy;
     const latitude = req.body.latitude;
-    const longitude = req.body.longitud;
+    const longitude = req.body.longitude;
 
 
     const sql = `INSERT INTO Family (idFamily, familyMembers, familyLastName, latitude, longitude, pregnancy) VALUES(?,?,?,?,?,?)`
