@@ -28,7 +28,6 @@ class MainActivity : AppCompatActivity() {
 
         val btnLogin = findViewById<Button>(R.id.btnLogin)
         val btnCancel = findViewById<Button>(R.id.btnCancel)
-        val btnCreate = findViewById<Button>(R.id.btnCreate)
 
         queue =  Volley.newRequestQueue(this@MainActivity)
 
@@ -78,13 +77,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         //Button Create
-        btnCreate.setOnClickListener{
-                val intent = Intent(this@MainActivity,Create::class.java)
-                startActivity(intent)
-        }
         //Button Cancel
         btnCancel.setOnClickListener{
-            System.exit(0)
+            val intent = Intent(this@MainActivity,Inicio::class.java)
+            startActivity(intent)
         }
     }
 }

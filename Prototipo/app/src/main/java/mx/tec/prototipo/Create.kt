@@ -21,6 +21,24 @@ class Create : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create)
 
+        val spin_sexos = findViewById<Spinner>(R.id.spin_sexos)
+
+        val sexos = arrayOf("Masculino","Femenino","Otro")
+        val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, sexos)
+        spin_sexos.adapter = arrayAdapter
+
+        spin_sexos.onItemSelectedListener = object :
+            AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
+
+        }
+
         val intent = Intent(this@Create,MainActivity::class.java)
 
         val txtNombre = findViewById<EditText>(R.id.txtNombreSU)
