@@ -41,7 +41,7 @@ module.exports.assignMedicalCondition = (req,res) =>{
 }
 
 module.exports.getFamilies = (req,res) =>{
-    const query = `SELECT s.idFamily, latitude, longitude, familyLastName, date_ FROM Survey s JOIN Family f
+    const query = `SELECT s.idFamily, s.idSurvey, latitude, longitude, familyLastName, date_ FROM Survey s JOIN Family f
     ON s.idFamily = f.idFamily`
 
     conexion.query(query, (error,results,fields) =>{
