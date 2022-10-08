@@ -25,8 +25,8 @@ function AppRouter() {
                     <Route path="/perfil" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
 
                     <Route path="/encuestas" element={<ProtectedRoute><Survey /></ProtectedRoute>} />
-                        <Route /* path="/encuestas/registros" */ path="/registros" element={<ProtectedRoute><Records /></ProtectedRoute>} />
-                        <Route /* path="/encuestas/graficas" */ path="/graficas" element={<ProtectedRoute><Charts /></ProtectedRoute>} />
+                        <Route path="/encuestas/registros" element={<ProtectedRoute><Records /></ProtectedRoute>} />
+                        <Route path="/encuestas/graficas" element={<ProtectedRoute><Charts /></ProtectedRoute>} />
                     {/* </Route> */}
                     {/* <Route path="/encuestas" element={<Survey />} >
                         <Route path="registros" element={<Records />} />
