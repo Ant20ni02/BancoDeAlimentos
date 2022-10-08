@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import url from '../config/API';
 import '../styles/SignUp.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faUser, faEnvelope, faPhone, faLock, faCircleCheck, faTimesCircle, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faEnvelope, faPhone, faLock, faCircleCheck, faTimesCircle, faExclamationTriangle,  faVenusMars, faCalendar} from '@fortawesome/free-solid-svg-icons';
 import logo from '../images/recurso-4.png';
 import '../styles/TextHeader.css';
 import PortalModal from '../components/PortalModal';
@@ -102,7 +102,7 @@ function SignUp() {
                         <fieldset className="form-group">
                             <label className="form-label" htmlFor={`${id}-age`}>
                                 {/* Edad */}
-                                <FontAwesomeIcon icon={faUser} className="form-icon"/>
+                                <FontAwesomeIcon icon={faCalendar} className="form-icon"/>
                             </label>
                             <div className="form-input">
                                 <input className="input-signup" id={`${id}-age`} name="age" placeholder="Edad" maxLength="2" /* pattern="/^\d{7,14}$/" */ required/>
@@ -144,12 +144,18 @@ function SignUp() {
                         </fieldset>
 
                         {/* Identity */}
-                        <select name="sex" required>
-                            <option selected disabled hidden>Sexo</option>
-                            <option value="m">Masculino</option>
-                            <option value="f">Femenino</option>
-                            <option value="o">No especificar</option>
-                        </select>
+                        <fieldset className="form-group">
+                            <label className="form-label" htmlFor={`${id}-phoneNumber`}>
+                                {/* Sexo*/}
+                                <FontAwesomeIcon icon={faVenusMars} className="form-icon"/>
+                            </label>
+                            <select name="sex" required>
+                                <option selected disabled hidden>Sexo</option>
+                                <option value="m">Masculino</option>
+                                <option value="f">Femenino</option>
+                            </select>
+                        </fieldset>
+                        
 
                         <fieldset className="form-group" id={`${id}-formGroupPassword`}>
                             <label className="form-label" htmlFor={`${id}-password`}>
