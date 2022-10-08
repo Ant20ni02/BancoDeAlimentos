@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import url from '../config/API';
 import '../styles/SignUp.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faUser, faEnvelope, faPhone, faLock, faCircleCheck, faTimesCircle, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faEnvelope, faPhone, faLock, faCircleCheck, faTimesCircle, faExclamationTriangle,  faVenusMars, faCalendar} from '@fortawesome/free-solid-svg-icons';
 import logo from '../images/recurso-4.png';
 import '../styles/TextHeader.css';
 import PortalModal from '../components/PortalModal';
@@ -13,7 +13,12 @@ function SignUp() {
     const id = useId();
     const navigate = useNavigate();
 
-    const [showModal, setShowModal] = useState(false);
+    const [showModalCreatedUserSuccess, setShowModalCreatedUserSuccess] = useState(false);
+    const [showModalCreatedUserEmailTakenError, setShowModalCreatedUserEmailTakenError] = useState(false);
+    const [showModalUnknownError, setShowModalUnknownError] = useState(false);
+    const [showModalInvalidPassword, setShowModalInvalidPassword] = useState(false);
+    
+    const [showInvalidInputPassword, setShowInvalidInputPassword] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -34,30 +39,27 @@ function SignUp() {
             }, body: formData});
             const data = await response.json();
             if(data.mensaje === 'Usuario insertado correctamente'){
+                setShowModalCreatedUserSuccess(true);
                 navigate('/inicio-de-sesion', { replace: true });
             } else if(data.mensaje === "El usuario ya se encuentra registrado"){
-                alert('El usuario ya se encuentra registrado');
+                setShowModalCreatedUserEmailTakenError(true);
             } else{
-                alert('Error al registrarse');
+                setShowModalUnknownError(true);
             }
         } else {
-            alert('Las contraseñas no coinciden');
+            setShowModalInvalidPassword(true);
         }
     }
 
-    const [show, setShow] = useState(false);
-
-    const passwordValidation = (e) => {
+    const inputPasswordValidation = (e) => {
         e.preventDefault();
         const password = form.current.password.value;
         const passwordConfirm = form.current.passwordConfirm.value; 
 
         if (password !== passwordConfirm) {
-            setShow(true);
+            setShowInvalidInputPassword(true);
         } else if (password === passwordConfirm) {
-            setShow(false);
-        } else {
-            setShow(false);
+            setShowInvalidInputPassword(false);
         }
     }
     return (
@@ -100,7 +102,7 @@ function SignUp() {
                         <fieldset className="form-group">
                             <label className="form-label" htmlFor={`${id}-age`}>
                                 {/* Edad */}
-                                <FontAwesomeIcon icon={faUser} className="form-icon"/>
+                                <FontAwesomeIcon icon={faCalendar} className="form-icon"/>
                             </label>
                             <div className="form-input">
                                 <input className="input-signup" id={`${id}-age`} name="age" placeholder="Edad" maxLength="2" /* pattern="/^\d{7,14}$/" */ required/>
@@ -142,12 +144,18 @@ function SignUp() {
                         </fieldset>
 
                         {/* Identity */}
-                        <select name="sex" required>
-                            <option selected disabled hidden>Sexo</option>
-                            <option value="m">Masculino</option>
-                            <option value="f">Femenino</option>
-                            <option value="o">No especificar</option>
-                        </select>
+                        <fieldset className="form-group">
+                            <label className="form-label" htmlFor={`${id}-phoneNumber`}>
+                                {/* Sexo*/}
+                                <FontAwesomeIcon icon={faVenusMars} className="form-icon"/>
+                            </label>
+                            <select name="sex" required>
+                                <option selected disabled hidden>Sexo</option>
+                                <option value="m">Masculino</option>
+                                <option value="f">Femenino</option>
+                            </select>
+                        </fieldset>
+                        
 
                         <fieldset className="form-group" id={`${id}-formGroupPassword`}>
                             <label className="form-label" htmlFor={`${id}-password`}>
@@ -169,12 +177,12 @@ function SignUp() {
                                 <FontAwesomeIcon icon={faLock} className="form-icon"/>
                             </label>
                             <div className="form-input">
-                                <input type="password" className="input-signup" id={`${id}-passwordConfirm`} name="passwordConfirm" placeholder="Confirmar contraseña" /* pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" */ onInvalid={e => e.target.setCustomValidity('Confirme correctamente su contraseña valida')} onPaste={(e) => {e.preventDefault(); return false;}} onKeyUp={passwordValidation} autoComplete required/>
+                                <input type="password" className="input-signup" id={`${id}-passwordConfirm`} name="passwordConfirm" placeholder="Confirmar contraseña" /* pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" */ onInvalid={e => e.target.setCustomValidity('Confirme correctamente su contraseña valida')} onPaste={(e) => {e.preventDefault(); return false;}} onKeyUp={inputPasswordValidation} autoComplete required/>
                                 <FontAwesomeIcon className="form-validation-status-success" icon={faCircleCheck} />
                                 <FontAwesomeIcon className="form-validation-status-error" icon={faTimesCircle} />
                             </div>
                             {
-                                show && <span className="form-input-error-useState">Las contraseñas no coinciden.</span>
+                                showInvalidInputPassword && <span className="form-input-error-useState">Las contraseñas no coinciden.</span>
                             }
                         </fieldset>
 
@@ -199,7 +207,6 @@ function SignUp() {
                         </fieldset>
                     </div>
 
-
                     <footer className="form-footer">
                         <div className="form-invalid-submit-message" id={`${id}-formInvalidSubmitMessage`}>
                             <FontAwesomeIcon icon={faExclamationTriangle} />
@@ -211,11 +218,23 @@ function SignUp() {
                 </form>
             </div>
 
-            <button onClick={() => setShowModal(true)}>Open Modal</button>
-
-            <PortalModal onShow={showModal} onClose={() => setShowModal(false)} title="¡Cuenta creada exitosamente!" > 
+            <PortalModal onShow={showModalCreatedUserSuccess} onClose={() => setShowModalCreatedUserSuccess(false)} title="¡Cuenta creada exitosamente!" > 
                 <p><b>¡Ya casi!</b>, ahora solamente <u>inicia sesión</u> con tu <b>cuenta nueva.</b></p>
             </PortalModal>
+
+            <PortalModal onShow={showModalCreatedUserEmailTakenError} label="Error" onClose={() => setShowModalCreatedUserEmailTakenError(false)} title="¡Usuario ya registrado!" >
+                <p><b>¡Lo sentimos!</b>, el correo eléctronico ya está <u>registrado</u>, por favor <b>usa otro correo</b> e intenta de nuevo.</p>
+            </PortalModal>
+
+            <PortalModal onShow={showModalUnknownError} label="Error" onClose={() => setShowModalUnknownError(false)} title="¡Ups, no se pudo crear tu cuenta!" >
+                <p><b>¡Lo sentimos!</b>, ha ocurrido un error al momento de <u>registarte</u>, por favor, <b>intenta de nuevo</b>.</p>
+            </PortalModal>
+
+            <PortalModal onShow={showModalInvalidPassword} label="Error" onClose={() => setShowModalInvalidPassword(false)} title="¡Las contraseñas no coinciden!" > 
+                <p>Por favor, <b>verifiqué</b> que sus <u>contraseñas</u> <b>coincidan</b> e intenta de nuevo.</p>
+            </PortalModal>
+
+
         </>
     );
 }

@@ -141,12 +141,13 @@ input.input-signup:focus {
 
 select {
     cursor: pointer;
-    border: 1px solid var(--primary-color);
+    font-size: 1.5rem;
+    border: 3px solid var(--primary-color);
     border-radius: 0.5em;
-    padding: 1em;
-    margin: 1em;
+    padding: 1em 5.51em;
     font-size: 1.5rem;
     /* display: block; */
+    text-align-last: center;
     caret-color: var(--quaternary-color);
     background-color: transparent;
     -webkit-appearance: none;

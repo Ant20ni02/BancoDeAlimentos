@@ -28,6 +28,10 @@ function AppRouter() {
                         <Route /* path="/encuestas/registros" */ path="/registros" element={<ProtectedRoute><Records /></ProtectedRoute>} />
                         <Route /* path="/encuestas/graficas" */ path="/graficas" element={<ProtectedRoute><Charts /></ProtectedRoute>} />
                     {/* </Route> */}
+                    {/* <Route path="/encuestas" element={<Survey />} >
+                        <Route path="registros" element={<Records />} />
+                        <Route path="graficas" element={<Charts />} />
+                    </Route> */}
 
                     <Route path="*" element={<PageNotFound />} />
                 </Routes>
