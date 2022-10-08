@@ -10,16 +10,18 @@ function Survey() {
         <>
             <TextHeader text="Survey" />
             <div className="Survey">
-                <Link to="/encuestas/registros">
+                <Link to="/bamx/encuestas/registros">
                     <Card icon={faSquarePollHorizontal} title="Registros" />
                 </Link>
-                <Link to="/encuestas/graficas">
+                <Link to="/bamx/encuestas/graficas">
                     <Card icon={faChartPie} title="Gráficas" />
                 </Link>
-                <section>
-        <Outlet></Outlet>
-      </section>
+
             </div>
+
+            {/* <section>
+                <Outlet/>
+            </section> */}
         </>
     );
 }

@@ -31,7 +31,7 @@ function LogIn() {
             console.log(data.token);
             console.log(data.idUser);
             setShowModalLoginSuccess(true);
-            navigate('/pagina-principal', { replace: true });
+            navigate('/bamx/pagina-principal', { replace: true });
         } else {
             setShowModalLoginError(true);
         }

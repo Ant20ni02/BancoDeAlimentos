@@ -1,9 +1,10 @@
 import React from "react";
+import TextHeader from '../../components/TextHeader';
 
 function Charts() {
     return (
         <>
-            <h1>Graficas</h1>
+            <TextHeader text="Gráficas" />
         </>
     );
 }
