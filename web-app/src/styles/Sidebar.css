@@ -1,5 +1,5 @@
 .Sidebar {
-    width: 10vw;
+    width: 5vw;
     height: 100vh;
     top: 0;
     left: 0;
@@ -10,12 +10,13 @@
     padding-top: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;*/
-    /* transition: all 0.3s ease-in-out;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -ms-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out; */
+    align-items: center;
+    */
+    transition: width 0.3s ease-in-out;
+    -webkit-transition: width 0.3s ease-in-out;
+    -moz-transition: width 0.3s ease-in-out;
+    -ms-transition: width 0.3s ease-in-out;
+    -o-transition: width 0.3s ease-in-out;
 }
 
 .Sidebar > ul.Sidebar-container {
@@ -62,12 +63,17 @@
     /* margin-left: 1rem; */
 }
 
-/* .Sidebar:hover {
-    width: 25vw;
-} */
+.Sidebar:hover {
+    width: 7.5vw;
+}
 
 .Sidebar:hover span.link-text {
     display: inline-block;
+    /* transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out; */
 }
 
 /* /////////////////////////////////////////////////////////// */
