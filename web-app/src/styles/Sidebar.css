@@ -1,0 +1,93 @@
+.Sidebar {
+    width: 10vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background-color: #1a1a1a;
+    /*z-index: 1;
+    overflow-x: hidden;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;*/
+    /* transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out; */
+}
+
+.Sidebar > ul.Sidebar-container {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.nav-item {
+    width: 100%;
+}
+
+/* .nav-item:last-child {
+    margin-top: auto;
+} */
+
+.nav-link {
+    height: 10vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #fff;
+    transition: 0.3s;
+}
+
+/* ? @note: it can be do in another way? (navlink state) */
+/* .nav-link:hover {
+    color: #f1c40f;
+} */
+
+.nav-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.link-text {
+    font-size: 1.2rem;
+    display: none;
+    /* margin-left: 1rem; */
+}
+
+/* .Sidebar:hover {
+    width: 25vw;
+} */
+
+.Sidebar:hover span.link-text {
+    display: inline-block;
+}
+
+/* /////////////////////////////////////////////////////////// */
+
+/* RESPONSIVE DESIGN */
+
+@media only screen and (max-width: 900px) {
+    .Sidebar {
+        top: calc(100% - 13vw);
+        bottom: 0;
+        width: 100vw;
+        height: 13vh;
+    } 
+    
+    .Sidebar > ul.Sidebar-container {
+        flex-direction: row;
+    }
+
+    .link-text {
+        display: inline-block;
+    }
+}
+

@@ -12,7 +12,8 @@ function LogIn() {
     const id = useId();
     const navigate = useNavigate();
 
-    const [showModal, setShowModal] = useState(false);
+    const [showModalLoginSuccess, setShowModalLoginSuccess] = useState(false);
+    const [showModalLoginError, setShowModalLoginError] = useState(false);
     
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -29,7 +30,10 @@ function LogIn() {
             localStorage.setItem('idUser', data.idUser);
             console.log(data.token);
             console.log(data.idUser);
+            setShowModalLoginSuccess(true);
             navigate('/pagina-principal', { replace: true });
+        } else {
+            setShowModalLoginError(true);
         }
 
 
@@ -80,10 +84,12 @@ function LogIn() {
                 </form>
             </div>
 
-            <button onClick={() => setShowModal(true)}>Open Modal</button>
-
-            <PortalModal onShow={showModal} onClose={() => setShowModal(false)} title="¡Inicio de sesión exitoso!" > 
+            <PortalModal onShow={showModalLoginSuccess} onClose={() => setShowModalLoginSuccess(false)} title="¡Inicio de sesión exitoso!" > 
                 <p><b>¡Felicidades!</b>, ya puedes comenzar a usar el <b>nuevo sistema</b> del banco de alimentos.</p>
+            </PortalModal>
+
+            <PortalModal onShow={showModalLoginError} label="Error" onClose={() => setShowModalLoginError(false)} title="¡Error al iniciar sesión!" >
+                <p>El <b>correo electrónico</b> o la <b>contraseña</b> son <u>incorrectos</u>.</p>
             </PortalModal>
         </>
     );

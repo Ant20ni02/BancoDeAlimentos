@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import TextHeader from '../../components/TextHeader';
 import Card from '../../components/Card';
 import '../../styles/Survey.css';
@@ -10,12 +10,15 @@ function Survey() {
         <>
             <TextHeader text="Survey" />
             <div className="Survey">
-                <Link to="/registros">
+                <Link to="/encuestas/registros">
                     <Card icon={faSquarePollHorizontal} title="Registros" />
                 </Link>
-                <Link to="/graficas">
+                <Link to="/encuestas/graficas">
                     <Card icon={faChartPie} title="Gráficas" />
                 </Link>
+                <section>
+        <Outlet></Outlet>
+      </section>
             </div>
         </>
     );
