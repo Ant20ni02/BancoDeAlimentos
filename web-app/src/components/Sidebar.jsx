@@ -8,6 +8,7 @@ const Sidebar = () => {
 
     const handleLogout = () => {
         localStorage.removeItem("token");
+        localStorage.removeItem("idUser");
         navigate("/inicio-de-sesion", { replace: true });
     }
 

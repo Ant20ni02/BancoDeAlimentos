@@ -4,9 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
+import android.view.View
+import android.widget.*
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.RequestQueue
@@ -17,23 +16,40 @@ import org.json.JSONObject
 
 class Create : AppCompatActivity() {
     lateinit var queue: RequestQueue
+    lateinit var txtSexo: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create)
 
+        val spin_sexos = findViewById<Spinner>(R.id.spin_sexos)
+
+        val sexos = arrayOf("Masculino","Femenino","Otro")
+
+        val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, sexos)
+        spin_sexos.adapter = arrayAdapter
+
+        spin_sexos.onItemSelectedListener = object :
+            AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                txtSexo = spin_sexos.selectedItem.toString()
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }
+        }
+
         val intent = Intent(this@Create,MainActivity::class.java)
 
-        val txtNombre = findViewById<EditText>(R.id.txtNombreSU)
-        val txtApellidos = findViewById<EditText>(R.id.txtApellidosSU)
-        val txtEdad = findViewById<EditText>(R.id.txtEdadSU)
-        val txtSexo = findViewById<EditText>(R.id.txtSexoSU)
-        val txtTelefono = findViewById<EditText>(R.id.txtTelefonoSU)
-        val txtCorreo = findViewById<EditText>(R.id.txtConfContraseñaSU)
-        val txtContrasena = findViewById<EditText>(R.id.txtContraseñaSU)
-        val txtContConfirmation = findViewById<EditText>(R.id.txtConfContraseñaSU)
+        val txtNombre = findViewById<EditText>(R.id.txt_Nombre)
+        val txtApellidos = findViewById<EditText>(R.id.txt_Apellido)
+        val txtEdad = findViewById<EditText>(R.id.txt_Edad)
+        //val txtSexo = findViewById<EditText>(R.id.txt_)
+        val txtTelefono = findViewById<EditText>(R.id.txt_Num_Telefono)
+        val txtCorreo = findViewById<EditText>(R.id.txt_Email_Create)
+        val txtContrasena = findViewById<EditText>(R.id.txt_Password_Create)
+        val txtContConfirmation = findViewById<EditText>(R.id.txt_Password_Create_Confirmar)
 
         val btnRegresar = findViewById<Button>(R.id.btnRegresar)
-        val btnRegistrarse = findViewById<Button>(R.id.btnRegistrarse)
+        val btnRegistrarse = findViewById<Button>(R.id.btnCrearCuenta)
 
         queue =  Volley.newRequestQueue(this@Create)
 
@@ -64,9 +80,10 @@ class Create : AppCompatActivity() {
             jsonBody.put("email", txtCorreo.text.toString())
             jsonBody.put("password_", txtContrasena.text.toString())
             jsonBody.put("age", txtEdad.text.toString())
-            jsonBody.put("sex", txtSexo.text.toString())
+            jsonBody.put("sex", txtSexo)
             jsonBody.put("phoneNumber", txtTelefono.text.toString())
             jsonBody.put("userType", "Voluntario")
+            jsonBody.put("isActive", 0)
 
             val request = JsonObjectRequest(Request.Method.POST, signUpUrl, jsonBody, listener, error)
             @Throws(AuthFailureError::class)
