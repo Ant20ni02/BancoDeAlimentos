@@ -1,68 +1,58 @@
 import React, { useEffect, useState } from "react";
 import TextHeader from '../../components/TextHeader';
-import PieChart from "../../components/PieChart";
+import axios from "axios";
+//import PieChart from "../../components/PieChart";
+import { Pie } from "react-chartjs-2";
 import url from '../../config/API';
 
-
-const DefaultData = [
-    {
-        answer: 3,
-        frequency: 2
-    },
-    {
-        answer: 4,
-        frequency: 2
-    },
-    {
-        answer: 5,
-        frequency: 1,
-    },
-];
-
-
-
 function Charts() {
-    const [dataQuestion2, setDataQuestion2] = useState({
-        labels: DefaultData.map((data) => data.answer),
-        datasets: [
-            {
-              label: "Número de miembros de la familia",
-              data: DefaultData.map((data) => data.frequency),
-              backgroundColor: [
-                "rgba(75,192,192,1)",
-                "#ecf0f1",
-                "#50AF95",
-                "#f3ba2f",
-                "#2a71d0",
-              ],
-              borderColor: "black",
-              borderWidth: 2,
-            },
-          ],
-    });
+    const [chartData1, setChartData1] = useState({});
+    /*const [questionAnswer1, setQuestionAnswer1] = useState([]);
+    const [questionFreq1, setQuestionFreq1] = useState([]);*/
 
-    useEffect(()=>{
-        getDataQuestion2();
-        }, []);
-
-    const getDataQuestion2 = async (e) => {  
-        const response = await fetch(url+`getAllAnswers/${1}`,{method: 'GET',
+    const getDataQuestion1 = () => {  
+        /*const response = await fetch(url+`getFrequency/${1}`,{method: 'GET',
                                 headers: {'x-access-token' : localStorage.getItem('token')} });
-        const data = await response.json();
-
-        var finalData = [{}]
-        for(var i in data){
-            var answer = data[i].answer;
-
-        }
-        setDataQuestion2(data);
+        const data = await response.json();*/
+        let answer = [];
+        let freq = [];
+        axios.get(url+`getFrequency/${1}`,{headers: {'x-access-token' : localStorage.getItem('token')}})
+        .then(res => {
+            console.log(res);
+            console.log(res.data);
+            for (const dataObj of res.data){
+                answer.push(dataObj.answer);
+                freq.push(dataObj.freq)
+            }
+            console.log(answer);
+            console.log(freq);
+            setChartData1({
+                labels: answer,
+                datasets: [
+                    {
+                        label: "Número de integrantes en la familia",
+                        data: freq,
+                        backgroundColor: ["rgba(75,192,192,1)"],
+                        borderColor: "black",
+                        borderWidth: 2,
+                    }
+                ]
+            })
+        })
+        .catch(err => {
+            console.log(err);
+        });
     }
+
+    useEffect(() => {
+        getDataQuestion1();
+      }, []);
 
     return (
         <>
             <TextHeader text="Gráficas" />
             <div style={{ width: 400 }}>
-                <PieChart chartData={dataQuestion2} />
+                <Pie data={chartData1} />
             </div>
             
         </>
