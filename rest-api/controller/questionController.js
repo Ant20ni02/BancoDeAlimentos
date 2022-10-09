@@ -1,4 +1,5 @@
 const mysql = require('mysql');
+const { json } = require('stream/consumers');
 const mysqlConfig = require('../helpers/mysql-config');
 const conexion = mysql.createConnection(mysqlConfig);
 
@@ -33,3 +34,26 @@ module.exports.getAllAnswers = (req,res) =>{
 
 
 }
+
+module.exports.getFrequency = (req,res) =>{
+    const idQuestion = req.params.idQuestion;
+    
+    const query2 = `SELECT answer, COUNT(*) AS freq FROM Question where idQuestion = ?  GROUP BY answer`;
+
+                conexion.query(query2,[idQuestion],(error,results,fields)=>{
+                    if(error)
+                        res.send(error)
+                    else{
+                        console.log(results)
+                        if(results[0]!=undefined){
+                            console.log(results);
+                            res.json(results)    
+                        }
+                        else{
+                            res.json({
+                                "mensaje" : "ID de pregunta incorrecto"
+                            })
+                        }
+                    }
+                })
+        }
