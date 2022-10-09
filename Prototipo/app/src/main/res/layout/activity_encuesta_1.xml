@@ -41,7 +41,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.478"
-        app:srcCompat="@drawable/gray" />
+        app:srcCompat="@drawable/gray_rectangle" />
 
     <ImageView
         android:id="@+id/imageView29"
@@ -72,11 +72,13 @@
     <EditText
         android:id="@+id/editTextTextPersonName3"
         android:layout_width="160dp"
-        android:layout_height="50dp"
+        android:layout_height="25dp"
+        android:background="@null"
         android:ems="10"
+        android:gravity="center"
         android:inputType="textPersonName"
         android:text="Integrantes"
-        android:textColor="#FF5722"
+        android:textColor="@color/black"
         android:textColorHighlight="#FF5722"
         android:textColorHint="#FF5722"
         android:textColorLink="#FF5722"
@@ -150,7 +152,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.216"
-        app:srcCompat="@drawable/gray_background" />
+        app:srcCompat="@drawable/gray_rectangle" />
 
     <EditText
         android:id="@+id/editTextTextPersonName8"
@@ -211,11 +213,11 @@
         android:layout_height="250dp"
         app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName3"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName3"
-        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName3"
         app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName3"
-        app:layout_constraintVertical_bias="0.52"
-        app:srcCompat="@drawable/pngegg" />
+        app:layout_constraintVertical_bias="0.502"
+        app:srcCompat="@drawable/black_text_input_oval" />
 
     <ImageView
         android:id="@+id/imageView32"
@@ -249,7 +251,7 @@
         android:text="¿Cuántos integrantes son  en su familia (incluyendolo)?"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/imageView24"
         app:layout_constraintEnd_toEndOf="@+id/imageView24"
         app:layout_constraintHorizontal_bias="0.513"

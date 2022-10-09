@@ -50,13 +50,14 @@
         android:id="@+id/txt_Password_Create_Confirmar"
         android:layout_width="160dp"
         android:layout_height="50dp"
+        android:background="@null"
         android:ems="10"
         android:hint="Confirmar"
         android:inputType="textPersonName"
-        android:textColor="#FE921D"
-        android:textColorHighlight="#FE921D"
-        android:textColorHint="#FE921D"
-        android:textColorLink="#FE921D"
+        android:textColor="#000000"
+        android:textColorHighlight="#000000"
+        android:textColorHint="#000000"
+        android:textColorLink="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.92"
@@ -68,13 +69,14 @@
         android:id="@+id/txt_Password_Create"
         android:layout_width="160dp"
         android:layout_height="50dp"
+        android:background="@null"
         android:ems="10"
         android:hint="Contraseña"
         android:inputType="textPersonName"
-        android:textColor="#FE921D"
-        android:textColorHighlight="#FE921D"
-        android:textColorHint="#FE921D"
-        android:textColorLink="#FE921D"
+        android:textColor="#000000"
+        android:textColorHighlight="#000000"
+        android:textColorHint="#000000"
+        android:textColorLink="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.08"
@@ -86,12 +88,13 @@
         android:id="@+id/txt_Apellido"
         android:layout_width="160dp"
         android:layout_height="50dp"
+        android:background="@null"
         android:ems="10"
         android:hint="Apellido"
         android:inputType="textPersonName"
-        android:textColor="#FE921D"
-        android:textColorHighlight="#FE921D"
-        android:textColorHint="#FE921D"
+        android:textColor="#000000"
+        android:textColorHighlight="#000000"
+        android:textColorHint="#000000"
         android:textColorLink="#FE921D"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -104,12 +107,13 @@
         android:id="@+id/txt_Nombre"
         android:layout_width="160dp"
         android:layout_height="50dp"
+        android:background="@null"
         android:ems="10"
         android:hint="Nombre"
         android:inputType="textPersonName"
-        android:textColor="#FE921D"
-        android:textColorHighlight="#FE921D"
-        android:textColorHint="#FE921D"
+        android:textColor="@color/black"
+        android:textColorHighlight="@color/black"
+        android:textColorHint="@color/black"
         android:textColorLink="#FE921D"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -125,10 +129,10 @@
         android:ems="10"
         android:hint="E-mail"
         android:inputType="textPersonName"
-        android:textColor="#FE921D"
-        android:textColorHighlight="#FE921D"
-        android:textColorHint="#FE921D"
-        android:textColorLink="#FE921D"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
+        android:textColorLink="#000000"
+        android:background="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.92"
@@ -143,10 +147,10 @@
         android:ems="10"
         android:hint="Edad"
         android:inputType="textPersonName"
-        android:textColor="#FE921D"
-        android:textColorHighlight="#FE921D"
-        android:textColorHint="#FE921D"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
         android:textColorLink="#FE921D"
+        android:background="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.08"
@@ -170,13 +174,14 @@
         android:id="@+id/txt_Num_Telefono"
         android:layout_width="160dp"
         android:layout_height="50dp"
+        android:background="@null"
         android:ems="10"
-        android:hint="Num de Cel"
+        android:hint="Teléfono"
         android:inputType="textPersonName"
-        android:textColor="#FE921D"
-        android:textColorHighlight="#FE921D"
-        android:textColorHint="#FE921D"
-        android:textColorLink="#FE921D"
+        android:textColor="#000000"
+        android:textColorHighlight="#000000"
+        android:textColorHint="#000000"
+        android:textColorLink="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.08"
@@ -218,7 +223,7 @@
         app:layout_constraintStart_toStartOf="@+id/txt_Nombre"
         app:layout_constraintTop_toTopOf="@+id/txt_Nombre"
         app:layout_constraintVertical_bias="0.52"
-        app:srcCompat="@drawable/pngegg" />
+        app:srcCompat="@drawable/black_text_input_oval" />
 
     <ImageView
         android:id="@+id/imageView14"
@@ -229,7 +234,7 @@
         app:layout_constraintStart_toStartOf="@+id/txt_Password_Create"
         app:layout_constraintTop_toTopOf="@+id/txt_Password_Create"
         app:layout_constraintVertical_bias="0.52"
-        app:srcCompat="@drawable/pngegg" />
+        app:srcCompat="@drawable/black_text_input_oval" />
 
     <ImageView
         android:id="@+id/imageView12"
@@ -240,7 +245,7 @@
         app:layout_constraintStart_toStartOf="@+id/txt_Num_Telefono"
         app:layout_constraintTop_toTopOf="@+id/txt_Num_Telefono"
         app:layout_constraintVertical_bias="0.52"
-        app:srcCompat="@drawable/pngegg" />
+        app:srcCompat="@drawable/black_text_input_oval" />
 
     <ImageView
         android:id="@+id/imageView10"
@@ -251,7 +256,7 @@
         app:layout_constraintStart_toStartOf="@+id/txt_Apellido"
         app:layout_constraintTop_toTopOf="@+id/txt_Apellido"
         app:layout_constraintVertical_bias="0.52"
-        app:srcCompat="@drawable/pngegg" />
+        app:srcCompat="@drawable/black_text_input_oval" />
 
     <ImageView
         android:id="@+id/imageView15"
@@ -262,7 +267,7 @@
         app:layout_constraintStart_toStartOf="@+id/txt_Password_Create_Confirmar"
         app:layout_constraintTop_toTopOf="@+id/txt_Password_Create_Confirmar"
         app:layout_constraintVertical_bias="0.52"
-        app:srcCompat="@drawable/pngegg" />
+        app:srcCompat="@drawable/black_text_input_oval" />
 
     <ImageView
         android:id="@+id/imageView13"
@@ -273,7 +278,7 @@
         app:layout_constraintStart_toStartOf="@+id/spin_sexos"
         app:layout_constraintTop_toTopOf="@+id/spin_sexos"
         app:layout_constraintVertical_bias="0.52"
-        app:srcCompat="@drawable/pngegg" />
+        app:srcCompat="@drawable/black_text_input_oval" />
 
     <ImageView
         android:id="@+id/imageView8"
@@ -284,7 +289,7 @@
         app:layout_constraintStart_toStartOf="@+id/txt_Edad"
         app:layout_constraintTop_toTopOf="@+id/txt_Edad"
         app:layout_constraintVertical_bias="0.52"
-        app:srcCompat="@drawable/pngegg" />
+        app:srcCompat="@drawable/black_text_input_oval" />
 
     <ImageView
         android:id="@+id/imageView9"
@@ -295,7 +300,7 @@
         app:layout_constraintStart_toStartOf="@+id/txt_Email_Create"
         app:layout_constraintTop_toTopOf="@+id/txt_Email_Create"
         app:layout_constraintVertical_bias="0.52"
-        app:srcCompat="@drawable/pngegg" />
+        app:srcCompat="@drawable/black_text_input_oval" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
