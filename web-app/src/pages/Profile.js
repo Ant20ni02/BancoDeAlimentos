@@ -33,7 +33,7 @@ function Profile() {
 
     return (
         <>
-            <TextHeader text="Profile" />
+            <TextHeader text="Perfil" />
             <div className="Profile">
                 <DisplayText text={user.firstName} />
                 <DisplayText text={user.lastName} />

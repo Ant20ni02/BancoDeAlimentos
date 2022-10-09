@@ -8,7 +8,7 @@ import { faChartPie, faSquarePollHorizontal } from '@fortawesome/free-solid-svg-
 function Survey() {
     return (
         <>
-            <TextHeader text="Survey" />
+            <TextHeader text="Encuestas" />
             <div className="Survey">
                 <Link to="/bamx/encuestas/registros">
                     <Card icon={faSquarePollHorizontal} title="Registros" />

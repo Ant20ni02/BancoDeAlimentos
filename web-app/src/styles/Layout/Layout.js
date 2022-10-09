@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Link, Outlet, useNavigate } from "react-router-dom";
-import Sidebar from '../../components/Sidebar'
+import { Outlet, useNavigate } from "react-router-dom";
+import Sidebar from '../../components/Sidebar';
+import Navbar from '../../components/Navbar';
 
 const Layout = () => {
     const navigate = useNavigate();
@@ -9,6 +10,7 @@ const Layout = () => {
     
     return (
         <main>
+            <Navbar toggleSidebar={toggleSidebar} />
             <Sidebar />
             
             <section>

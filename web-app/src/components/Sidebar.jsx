@@ -1,17 +1,9 @@
 import '../styles/Sidebar.css';
-import { useNavigate, NavLink, Outlet } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faHouse, faUser, faLayerGroup, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { faHouse, faUser, faLayerGroup, faHandshakeAngle } from '@fortawesome/free-solid-svg-icons';
 
 const Sidebar = () => {
-    const navigate = useNavigate();
-
-    const handleLogout = () => {
-        localStorage.removeItem("token");
-        localStorage.removeItem("idUser");
-        navigate("/inicio-de-sesion", { replace: true });
-    }
-
     return (
         <>
             <nav className="Sidebar">
@@ -26,7 +18,7 @@ const Sidebar = () => {
                         <NavLink to="/bamx/encuestas" className="nav-link"><FontAwesomeIcon icon={faLayerGroup} className="nav-icon"/><span className="link-text">Encuestas</span></NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink to="/inicio-de-sesion" className="nav-link" onClick={handleLogout}><FontAwesomeIcon icon={faRightFromBracket} className="nav-icon"/><span className="link-text">Salir</span></NavLink>
+                        <NavLink to="/bamx/voluntarios" className="nav-link"><FontAwesomeIcon icon={faHandshakeAngle} className="nav-icon"/><span className="link-text">Voluntarios</span></NavLink>
                         {/* <div onClick={handleLogout}><FontAwesomeIcon icon={faRightFromBracket} className="form-icon"/><span>Salir</span></div>  */}
                     </li>
                 </ul>               

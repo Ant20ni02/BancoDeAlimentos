@@ -11,6 +11,7 @@ import Profile from '../pages/Profile';
 import Survey from '../pages/survey/Survey';
 import Records from '../pages/survey/Records';
 import Charts from '../pages/survey/Charts';
+import Volunteers from '../pages/Volunteers';
 import PageNotFound from '../pages/PageNotFound';
 
 function AppRouter() {
@@ -30,6 +31,7 @@ function AppRouter() {
                         </Route>
                         <Route path="encuestas/registros" element={<ProtectedRoute><Records /></ProtectedRoute>} />
                         <Route path="encuestas/graficas" element={<ProtectedRoute><Charts /></ProtectedRoute>} />
+                        <Route path="voluntarios" element={<ProtectedRoute><Volunteers /></ProtectedRoute>} />
                     </Route>
                     <Route path="*" element={<PageNotFound />} />
                 </Routes>

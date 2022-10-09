@@ -43,8 +43,7 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    color: #fff;
-    transition: 0.3s;
+    color: #dadce1;
 }
 
 /* ? @note: it can be do in another way? (navlink state) */
