@@ -41,7 +41,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.478"
-        app:srcCompat="@drawable/seekpng_com_labels_png_924235" />
+        app:srcCompat="@drawable/gray" />
 
     <ImageView
         android:id="@+id/imageView29"
@@ -150,7 +150,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.216"
-        app:srcCompat="@drawable/seekpng_com_labels_png_924235" />
+        app:srcCompat="@drawable/gray_background" />
 
     <EditText
         android:id="@+id/editTextTextPersonName8"
@@ -264,8 +264,8 @@
         android:fontFamily="sans-serif-black"
         android:text="¿En qué rango de edad se encuentra cada uno de ellos y cuántos son?"
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#FFFFFF"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/imageView26"
         app:layout_constraintEnd_toEndOf="@+id/imageView26"
         app:layout_constraintHorizontal_bias="0.513"
