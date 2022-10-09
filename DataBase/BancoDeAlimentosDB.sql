@@ -52,8 +52,7 @@ CREATE TABLE Question(
  idSurvey int,
  answer varchar(10),
  CONSTRAINT fk_Survey_Question1
-			FOREIGN KEY (idSurvey) REFERENCES Survey(idSurvey),
-primary key(idSurvey)
+			FOREIGN KEY (idSurvey) REFERENCES Survey(idSurvey)
 );
 
 CREATE TABLE FoodAvailable(

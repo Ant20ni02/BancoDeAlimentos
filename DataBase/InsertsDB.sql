@@ -9,8 +9,15 @@ VALUES (4, "Gardida", 0);
 insert into Survey(idFamily, date_, idQuestionList) 
 Values (1, "2022-09-27", 1);
 
-insert into QuestionList (idQuestionList)
-values(1);
+insert into Question(idQuestion, idSurvey, answer)
+values(1, 1, "4");
+insert into Question(idQuestion, idSurvey, answer)
+values(1, 1, "5");
+insert into Question(idQuestion, idSurvey, answer)
+values(1, 1, "3");
 
+insert into Question(idQuestion, idSurvey, answer)
+values(1, 1, "4");
 
 Select * from User_;
+select * from Question;
