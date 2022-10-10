@@ -50,7 +50,7 @@ CONSTRAINT fk_Family_Survey2
 CREATE TABLE Question(
  idQuestion int,
  idSurvey int,
- answer varchar(10),
+ answer varchar(20),
  CONSTRAINT fk_Survey_Question1
 			FOREIGN KEY (idSurvey) REFERENCES Survey(idSurvey)
 );
