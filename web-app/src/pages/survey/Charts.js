@@ -3,8 +3,8 @@ import TextHeader from '../../components/TextHeader';
 import PieChart from "../../components/PieChart";
 import url from '../../config/API';
 
-const defaultAnswer = ["3", "4"]
-const defaultFreq = [3, 5]
+const defaultAnswer = ["3", "4", "5"]
+const defaultFreq = [1, 1, 1]
 
 function Charts() {
     const [chartData1, setChartData1] = useState({
@@ -13,16 +13,13 @@ function Charts() {
             {
                 label: "Número de integrantes en la familia",
                 data: defaultFreq,
-                backgroundColor: ["rgba(75,192,192,1)"],
+                backgroundColor: ["rgba(237, 26, 59, 1)", "rgba(254, 146, 29, 1)", "rgba(13, 177, 75, 1)"],
                 borderColor: "black",
                 borderWidth: 2,
             }
         ]
     });
     
-    /*const [questionAnswer1, setQuestionAnswer1] = useState([]);
-    const [questionFreq1, setQuestionFreq1] = useState([]);*/
-
     const getDataQuestion1 = async (e) => {
         
         const response = await fetch(url+`getFrequency/${1}`,{method: 'GET',
@@ -34,15 +31,19 @@ function Charts() {
             answer.push(dataObj.answer);
             freq.push(dataObj.freq)
         }
-        console.log(answer);
-        console.log(freq)
+
+        let colors=[];
+        for(let i=0;i<answer.length;i++){
+            colors.push('#'+Math.floor(Math.random()*16777215).toString(16));
+        }
+
         setChartData1({
             labels: answer,
             datasets: [
                 {
                     label: "Número de integrantes en la familia",
                     data: freq,
-                    backgroundColor: ["rgba(75,192,192,1)"],
+                    backgroundColor: colors,
                     borderColor: "black",
                     borderWidth: 2,
                 }
