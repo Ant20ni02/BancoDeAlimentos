@@ -21,8 +21,6 @@ CREATE TABLE Family(
  idFamily varchar(100) NOT NULL,
  familyMembers int,
  familyLastName varchar(25),
- latitude double,
- longitude double,
  pregnancy int,
  primary key(idFamily)
 );
@@ -39,6 +37,8 @@ CREATE TABLE Survey(
  idSurvey int auto_increment NOT NULL,
  idUser int NOT NULL,
  idFamily varchar(100) NOT NULL,
+ latitude double,
+ longitude double,
  date_ date,
  CONSTRAINT fk_User_Survey1
 			FOREIGN KEY (idUser) REFERENCES User_(idUser),
