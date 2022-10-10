@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
         //Button Create
         //Button Cancel
         signUpLink.setOnClickListener{
-            val intent = Intent(this@MainActivity,Inicio::class.java)
+            val intent = Intent(this@MainActivity,Create::class.java)
             startActivity(intent)
         }
     }

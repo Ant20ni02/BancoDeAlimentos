@@ -15,16 +15,19 @@ class Inicio : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inicio)
 
-        val videoView = findViewById<VideoView>(R.id.Inicio_Vid)
-        val mediaController = MediaController(this)
-        mediaController.setAnchorView(videoView)
+        //val videoView = findViewById<VideoView>(R.id.Inicio_Vid)
+        //val mediaController = MediaController(this)
+        //mediaController.setAnchorView(videoView)
 
         val offlineUri = Uri.parse("android.resource://$packageName/${R.raw.bancovid}")
 
+        /*
         videoView.setMediaController(mediaController)
         videoView.setVideoURI(offlineUri)
         videoView.requestFocus()
         videoView.start()
+        */
+
 
         val btnLogin = findViewById<Button>(R.id.btn_Inicio_Login)
         val btnCreate = findViewById<Button>(R.id.btn_Inicio_Crear_Cuenta)
