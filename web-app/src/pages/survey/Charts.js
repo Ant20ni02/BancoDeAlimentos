@@ -1,47 +1,67 @@
 import React, { useEffect, useState } from "react";
 import TextHeader from '../../components/TextHeader';
-import axios from "axios";
-//import PieChart from "../../components/PieChart";
-import { Pie } from "react-chartjs-2";
+import PieChart from "../../components/PieChart";
 import url from '../../config/API';
 
-function Charts() {
-    const [chartData1, setChartData1] = useState({});
-    /*const [questionAnswer1, setQuestionAnswer1] = useState([]);
-    const [questionFreq1, setQuestionFreq1] = useState([]);*/
+const defaultAnswer = ["3", "4", "5"]
+const defaultFreq = [1, 1, 1]
 
-    const getDataQuestion1 = () => {  
-        /*const response = await fetch(url+`getFrequency/${1}`,{method: 'GET',
+const chartOptions1 = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Número de integrantes en las familias'
+      }
+    }
+  }
+
+function Charts() {
+    const [chartData1, setChartData1] = useState({
+        labels: defaultAnswer,
+        datasets: [
+            {
+                label: "Integrantes",
+                data: defaultFreq,
+                backgroundColor: ["rgba(237, 26, 59, 1)", "rgba(254, 146, 29, 1)", "rgba(13, 177, 75, 1)"],
+                borderColor: "black",
+                borderWidth: 2,
+            }
+        ]
+    });
+    
+    const getDataQuestion1 = async (e) => {
+        
+        const response = await fetch(url+`getFrequency/${1}`,{method: 'GET',
                                 headers: {'x-access-token' : localStorage.getItem('token')} });
-        const data = await response.json();*/
+        const data = await response.json();
         let answer = [];
         let freq = [];
-        axios.get(url+`getFrequency/${1}`,{headers: {'x-access-token' : localStorage.getItem('token')}})
-        .then(res => {
-            console.log(res);
-            console.log(res.data);
-            for (const dataObj of res.data){
-                answer.push(dataObj.answer);
-                freq.push(dataObj.freq)
-            }
-            console.log(answer);
-            console.log(freq);
-            setChartData1({
-                labels: answer,
-                datasets: [
-                    {
-                        label: "Número de integrantes en la familia",
-                        data: freq,
-                        backgroundColor: ["rgba(75,192,192,1)"],
-                        borderColor: "black",
-                        borderWidth: 2,
-                    }
-                ]
-            })
+        for (const dataObj of data){
+            answer.push(dataObj.answer + " integrantes");
+            freq.push(dataObj.freq)
+        }
+
+        let colors=[];
+        for(let i=0;i<answer.length;i++){
+            colors.push('#'+Math.floor(Math.random()*16777215).toString(16));
+        }
+
+        setChartData1({
+            labels: answer,
+            datasets: [
+                {
+                    label: "Integrantes",
+                    data: freq,
+                    backgroundColor: colors,
+                    borderColor: "black",
+                    borderWidth: 2,
+                }
+            ]
         })
-        .catch(err => {
-            console.log(err);
-        });
     }
 
     useEffect(() => {
@@ -52,7 +72,7 @@ function Charts() {
         <>
             <TextHeader text="Gráficas" />
             <div style={{ width: 400 }}>
-                <Pie data={chartData1} />
+                <PieChart chartData={chartData1} chartOptions={chartOptions1}/>
             </div>
             
         </>
