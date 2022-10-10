@@ -5,6 +5,8 @@ const conexion = mysql.createConnection(mysqlConfig);
 module.exports.addSurvey = (req, res) =>{
     const idUser = req.body.idUser;
     const idFamily = req.body.idFamily;
+    const latitude = req.body.latitude;
+    const longitude = req.body.longitude;
     //const idQuestionList = req.body.idQuestionList;
     const currentDate = new Date();
     const clock = currentDate.getHours();
@@ -12,7 +14,7 @@ module.exports.addSurvey = (req, res) =>{
     const mensaje = ""
 
     const query = `SELECT idSurvey FROM Survey WHERE idUser = ?`;
-    const sql = `INSERT INTO Survey (idUser, idFamily, date_) VALUES(?,?, ?)`;
+    const sql = `INSERT INTO Survey (idUser, idFamily, date_, latitude, longitude) VALUES(?,?,?,?,?)`;
     const updateQuery = `UPDATE Survey SET idUser = ?, idFamily = ?, date_ = ? WHERE idUser = ?`
 
 
@@ -33,7 +35,7 @@ module.exports.addSurvey = (req, res) =>{
 
             }*/
              //undefined
-                conexion.query(sql, [idUser,idFamily,currentDate], (error2, results2, fields2)=>{
+                conexion.query(sql, [idUser,idFamily,currentDate,latitude,longitude], (error2, results2, fields2)=>{
                     if(error2)
                         res.send(error2)
                     else{

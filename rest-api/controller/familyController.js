@@ -7,13 +7,13 @@ module.exports.createFamily = (req, res) =>{
     const familyMembers = req.body.familyMembers;
     const familyLastName = req.body.familyLastName;
     const pregnancy = req.body.pregnancy;
-    const latitude = req.body.latitude;
-    const longitude = req.body.longitude;
+    //const latitude = req.body.latitude;
+    //const longitude = req.body.longitude;
 
 
-    const sql = `INSERT INTO Family (idFamily, familyMembers, familyLastName, latitude, longitude, pregnancy) VALUES(?,?,?,?,?,?)`
+    const sql = `INSERT INTO Family (idFamily, familyMembers, familyLastName, pregnancy) VALUES(?,?,?,?)`
 
-    conexion.query(sql, [idFamily, familyMembers, familyLastName, latitude, longitude, pregnancy], (error, results, fields)=>{
+    conexion.query(sql, [idFamily, familyMembers, familyLastName, pregnancy], (error, results, fields)=>{
         
         if(error)
             res.send(error)
@@ -41,7 +41,7 @@ module.exports.assignMedicalCondition = (req,res) =>{
 }
 
 module.exports.getFamilies = (req,res) =>{
-    const query = `SELECT s.idFamily, s.idSurvey, latitude, longitude, familyLastName, date_ FROM Survey s JOIN Family f
+    const query = `SELECT s.idFamily, s.idSurvey, s.latitude, s.longitude, familyLastName, date_ FROM Survey s JOIN Family f
     ON s.idFamily = f.idFamily`
 
     conexion.query(query, (error,results,fields) =>{
