@@ -429,7 +429,8 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/btn_orange"
                         android:text="Regresar"
-                        android:textAllCaps="true" />
+                        android:textAllCaps="true"
+                        android:textColor="#FFFFFF"/>
                 </FrameLayout>
 
                 <FrameLayout
@@ -444,7 +445,8 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/btn_orange"
                         android:text="Crear cuenta"
-                        android:textAllCaps="true" />
+                        android:textAllCaps="true"
+                        android:textColor="#FFFFFF"/>
                 </FrameLayout>
             </TableRow>
 
