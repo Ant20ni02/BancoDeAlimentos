@@ -17,6 +17,7 @@ import org.json.JSONObject
 class Create : AppCompatActivity() {
     lateinit var queue: RequestQueue
     lateinit var txtSexo: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create)
@@ -25,7 +26,7 @@ class Create : AppCompatActivity() {
 
         val sexos = arrayOf("Masculino","Femenino","Otro")
 
-        val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, sexos)
+        val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, sexos)
         spin_sexos.adapter = arrayAdapter
 
         spin_sexos.onItemSelectedListener = object :
@@ -37,7 +38,6 @@ class Create : AppCompatActivity() {
             }
         }
 
-        val intent = Intent(this@Create,MainActivity::class.java)
 
         val txtNombre = findViewById<EditText>(R.id.txt_Nombre)
         val txtApellidos = findViewById<EditText>(R.id.txt_Apellido)
@@ -50,6 +50,8 @@ class Create : AppCompatActivity() {
 
         val btnRegresar = findViewById<Button>(R.id.btnRegresar)
         val btnRegistrarse = findViewById<Button>(R.id.btnCrearCuenta)
+
+        val signUpLogo = findViewById<ImageView>(R.id.signUpLogo)
 
         queue =  Volley.newRequestQueue(this@Create)
 
@@ -73,27 +75,42 @@ class Create : AppCompatActivity() {
             val signUp = endpoint()
             val signUpUrl = signUp.globalLink + "signUp"
 
-            val jsonBody = JSONObject()
 
-            jsonBody.put("firstName",txtNombre.text.toString())
-            jsonBody.put("lastName",txtApellidos.text.toString())
-            jsonBody.put("email", txtCorreo.text.toString())
-            jsonBody.put("password_", txtContrasena.text.toString())
-            jsonBody.put("age", txtEdad.text.toString())
-            jsonBody.put("sex", txtSexo)
-            jsonBody.put("phoneNumber", txtTelefono.text.toString())
-            jsonBody.put("userType", "Voluntario")
-            jsonBody.put("isActive", 0)
+            if(txtNombre.text.toString() == "" || txtApellidos.text.toString() == "" || txtCorreo.text.toString() == ""
+                || txtContrasena.text.toString() == "" || txtEdad.text.toString() == "" || txtTelefono.text.toString() == ""
+                )
+                Toast.makeText(this@Create,"Por favor, complete todos los campos", Toast.LENGTH_SHORT).show()
+            else{
+                val jsonBody = JSONObject()
 
-            val request = JsonObjectRequest(Request.Method.POST, signUpUrl, jsonBody, listener, error)
-            @Throws(AuthFailureError::class)
-            fun getBodyContentType(): String {
-                return "application/json"
+                jsonBody.put("firstName",txtNombre.text.toString())
+                jsonBody.put("lastName",txtApellidos.text.toString())
+                jsonBody.put("email", txtCorreo.text.toString())
+                jsonBody.put("password_", txtContrasena.text.toString())
+                jsonBody.put("age", txtEdad.text.toString())
+                jsonBody.put("sex", txtSexo)
+                jsonBody.put("phoneNumber", txtTelefono.text.toString())
+                jsonBody.put("userType", "Voluntario")
+                jsonBody.put("isActive", 0)
+
+                val request = JsonObjectRequest(Request.Method.POST, signUpUrl, jsonBody, listener, error)
+                /*
+                @Throws(AuthFailureError::class)
+
+                fun getBodyContentType(): String {
+                    return "application/json"
+                }*/
+                queue.add(request)
             }
-            queue.add(request)
         }
 
         btnRegresar.setOnClickListener{
+            val intent = Intent(this@Create,MainActivity::class.java)
+            startActivity(intent)
+        }
+
+        signUpLogo.setOnClickListener{
+            val intent = Intent(this@Create,Inicio::class.java)
             startActivity(intent)
         }
     }

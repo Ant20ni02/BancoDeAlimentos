@@ -20,7 +20,7 @@
         tools:ignore="MissingConstraints"/>
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/signUpLogo"
         android:layout_width="131dp"
         android:layout_height="130dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -52,7 +52,7 @@
         app:layout_constraintBottom_toTopOf="@id/lastButtons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView2"
+        app:layout_constraintTop_toBottomOf="@id/signUpLogo"
         app:layout_constraintVertical_bias="0.83">
 
         <LinearLayout
@@ -413,6 +413,7 @@
                 android:id="@+id/botonesFinal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:paddingTop="0px"
                 android:paddingBottom="20px">
 

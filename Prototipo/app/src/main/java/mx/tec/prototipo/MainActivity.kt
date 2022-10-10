@@ -29,6 +29,8 @@ class MainActivity : AppCompatActivity() {
         val btnLogin = findViewById<Button>(R.id.btnLogin)
         val signUpLink = findViewById<TextView>(R.id.signUpLink)
 
+        val loginLogo = findViewById<ImageView>(R.id.loginLogo)
+
         queue =  Volley.newRequestQueue(this@MainActivity)
 
         //Si Tiene Cuenta the Voluntario o Familia
@@ -38,11 +40,12 @@ class MainActivity : AppCompatActivity() {
             Log.e("ENDPOINTRESPONSE", mensaje)
 
             if(response.getString("mensaje") == "Usuario o contraseña autenticados"){
-                val intent = Intent(this@MainActivity,Voluntario::class.java)
+                val intent = Intent(this@MainActivity,BottomNavigation::class.java)
 
                 intent.putExtra("email", usernameTv.toString())
                 intent.putExtra("idUser", response.getString("idUser"))
                 intent.putExtra("x-access-token", response.getString("token"))
+
 
                 startActivity(intent)
             }else{
@@ -63,23 +66,32 @@ class MainActivity : AppCompatActivity() {
             // val loginUrl = "http://10.49.187.177:4000/login"
         // Log.e("ENDPOINTRESPONSE", usernameTv.text.toString())
 
-        val jsonBody = JSONObject()
-            jsonBody.put("email",usernameTv.text.toString())
-            jsonBody.put("password_",passwordTv.text.toString())
+            if(usernameTv.text.toString() == "" || passwordTv.text.toString() == ""){
+                Toast.makeText(this@MainActivity,"Por favor, complete todos los campos", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                val jsonBody = JSONObject()
+                jsonBody.put("email",usernameTv.text.toString())
+                jsonBody.put("password_",passwordTv.text.toString())
 
-        val request = JsonObjectRequest(Request.Method.POST, loginUrl, jsonBody, listener, error)
-            @Throws(AuthFailureError::class)
-            fun getBodyContentType(): String {
-                return "application/json"
+                val request = JsonObjectRequest(Request.Method.POST, loginUrl, jsonBody, listener, error)
+                @Throws(AuthFailureError::class)
+                fun getBodyContentType(): String {
+                    return "application/json"
+                }
+
+                queue.add(request)
             }
 
-        queue.add(request)
         }
 
-        //Button Create
-        //Button Cancel
         signUpLink.setOnClickListener{
             val intent = Intent(this@MainActivity,Create::class.java)
+            startActivity(intent)
+        }
+
+        loginLogo.setOnClickListener{
+            val intent = Intent(this@MainActivity,Inicio::class.java)
             startActivity(intent)
         }
     }
