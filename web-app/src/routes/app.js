@@ -1,14 +1,17 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Home from '../pages/Home';
-import LogIn from '../pages/LogIn';
-import Profile from '../pages/Profile';
-import SignUp from '../pages/SignUp';
 import Start from '../pages/Start';
+import SignUp from '../pages/SignUp';
+import LogIn from '../pages/LogIn';
+import ProtectedRoute from '../components/ProtectedRoute'
+import Layout from '../styles/Layout/Layout'
+import Home from '../pages/Home';
+import Profile from '../pages/Profile';
 import Survey from '../pages/survey/Survey';
 import Records from '../pages/survey/Records';
 import Charts from '../pages/survey/Charts';
+import Volunteers from '../pages/Volunteers';
 import PageNotFound from '../pages/PageNotFound';
 
 function AppRouter() {
@@ -20,14 +23,16 @@ function AppRouter() {
                     <Route path="/registro-de-cuenta" element={<SignUp />} />
                     <Route path="/inicio-de-sesion" element={<LogIn />} />
 
-                    <Route path="/pagina-principal" element={<Home />}/>
-                    <Route path="/perfil" element={<Profile />} />
-
-                    <Route path="/encuestas" element={<Survey />} />
-                        <Route /* path="/encuestas/registros" */ path="/registros" element={<Records />} />
-                        <Route /* path="/encuestas/graficas" */ path="/graficas" element={<Charts />} />
-                    {/* </Route> */}
-
+                    <Route path="/bamx" element={<Layout />}>
+                        <Route index path="pagina-principal" element={<ProtectedRoute><Home /></ProtectedRoute>}/>
+                        <Route path="perfil" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+                        <Route path="encuestas" element={<ProtectedRoute><Survey /></ProtectedRoute>} >
+                           {/*  <Route path="registros" element={<ProtectedRoute><Records /></ProtectedRoute>} /> */}
+                        </Route>
+                        <Route path="encuestas/registros" element={<ProtectedRoute><Records /></ProtectedRoute>} />
+                        <Route path="encuestas/graficas" element={<ProtectedRoute><Charts /></ProtectedRoute>} />
+                        <Route path="voluntarios" element={<ProtectedRoute><Volunteers /></ProtectedRoute>} />
+                    </Route>
                     <Route path="*" element={<PageNotFound />} />
                 </Routes>
             </BrowserRouter>

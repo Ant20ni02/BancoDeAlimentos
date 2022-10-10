@@ -11,7 +11,7 @@ module.exports.insertUsuario = (req,res) =>{
     const sq = `INSERT INTO User_(firstName, lastName, email, password_, age, sex, phoneNumber, userType, isActive) VALUES
     (?,?,?,SHA2(?,224),?,?,?,?,?)`
 
-    const sql = `SELECT idUser FROM User_ WHERE firstName = ? OR lastName = ? OR email=?`
+    const sql = `SELECT idUser FROM User_ WHERE email=?`
     
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
@@ -21,7 +21,7 @@ module.exports.insertUsuario = (req,res) =>{
 
     async function Fun(){
 
-        conexion.query(sql, [firstName, lastName, email], (error,results,fields)=>{
+        conexion.query(sql, [email], (error,results,fields)=>{
 
             if (error)
                 res.send(error)

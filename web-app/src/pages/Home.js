@@ -1,11 +1,10 @@
-import React from 'react';
 import TextHeader from '../components/TextHeader';
 
 function Home() {
 
     return (
         <>
-            <TextHeader text="Home" />
+            <TextHeader text="Página principal" />
         </>
     );
 }
