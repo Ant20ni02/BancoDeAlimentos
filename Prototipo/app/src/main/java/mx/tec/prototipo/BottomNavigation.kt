@@ -12,6 +12,7 @@ class BottomNavigation: AppCompatActivity() {
         setContentView(R.layout.activity_main_bottomnav)
 
         val mainEncuestaFragment = MainEncuestaFragment()
+        val mainProfileFragment = MainProfileFragment()
         val bottomNav =findViewById<BottomNavigationView>(R.id.bnv_main)
 
         loadFragment(mainEncuestaFragment) //loads the button fragment for the first time
@@ -20,6 +21,10 @@ class BottomNavigation: AppCompatActivity() {
             when(it.itemId){
                 R.id.nav_menu ->{
                     loadFragment(mainEncuestaFragment)
+                    true
+                }
+                R.id.nav_Profile ->{
+                    loadFragment(mainProfileFragment)
                     true
                 }
                 else -> false

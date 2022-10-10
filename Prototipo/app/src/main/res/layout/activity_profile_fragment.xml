@@ -5,8 +5,8 @@
     android:layout_height="match_parent">
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,9 +19,160 @@
             android:orientation="vertical">
 
             <FrameLayout
-                android:id="@+id/frame_email"
+                android:id="@+id/frame_nombre"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ovalNombre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@id/txt_Nombre"
+                    app:layout_constraintEnd_toEndOf="@id/txt_Nombre"
+                    app:layout_constraintStart_toStartOf="@+id/txt_Nombre"
+                    app:layout_constraintTop_toTopOf="@+id/txt_Nombre"
+                    app:layout_constraintVertical_bias="0.52"
+                    app:srcCompat="@drawable/gray_text_input_oval" />
+
+                <EditText
+                    android:id="@+id/txt_Nombre"
+                    android:layout_width="160dp"
+                    android:layout_height="50dp"
+                    android:background="@null"
+                    android:ems="10"
+                    android:hint="Nombre"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="30sp"
+                    android:textColor="@color/white"
+                    android:textColorHighlight="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textColorLink="#FE921D"
+                    app:layout_constraintBottom_toBottomOf="@id/ovalNombre"
+                    app:layout_constraintEnd_toEndOf="@id/ovalNombre"
+                    app:layout_constraintHorizontal_bias="0.08"
+                    app:layout_constraintStart_toStartOf="@id/ovalNombre"
+                    app:layout_constraintTop_toTopOf="@id/ovalNombre"
+                    app:layout_constraintVertical_bias="0.396" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/frame_edad"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="20sp">
+
+                <ImageView
+                    android:id="@+id/ovalEdad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/txt_Edad"
+                    app:layout_constraintEnd_toEndOf="@+id/txt_Edad"
+                    app:layout_constraintStart_toStartOf="@+id/txt_Edad"
+                    app:layout_constraintTop_toTopOf="@+id/txt_Edad"
+                    app:layout_constraintVertical_bias="0.52"
+                    app:srcCompat="@drawable/gray_text_input_oval" />
+
+                <EditText
+                    android:id="@+id/txt_Edad"
+                    android:layout_width="160dp"
+                    android:layout_height="50dp"
+                    android:background="@null"
+                    android:ems="10"
+                    android:hint="Edad"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="30sp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    android:textColorLink="#FE921D"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.08"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.54" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/frame_sexo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="20sp">
+
+                <ImageView
+                    android:id="@+id/ovalSexo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/spin_sexos"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/spin_sexos"
+                    app:layout_constraintTop_toTopOf="@+id/spin_sexos"
+                    app:layout_constraintVertical_bias="0.52"
+                    app:srcCompat="@drawable/gray_text_input_oval" />
+
+                <EditText
+                    android:id="@+id/txt_Sexo"
+                    android:layout_width="160dp"
+                    android:layout_height="50dp"
+                    android:background="@null"
+                    android:ems="10"
+                    android:hint="Sexo"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="30sp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    android:textColorLink="#FE921D"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.08"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.54" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/frame_telefono"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="20sp">
+
+                <ImageView
+                    android:id="@+id/ovalTelefono"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/txt_Num_Telefono"
+                    app:layout_constraintEnd_toEndOf="@+id/txt_Num_Telefono"
+                    app:layout_constraintStart_toStartOf="@+id/txt_Num_Telefono"
+                    app:layout_constraintTop_toTopOf="@+id/txt_Num_Telefono"
+                    app:layout_constraintVertical_bias="0.52"
+                    app:srcCompat="@drawable/gray_text_input_oval" />
+
+                <EditText
+                    android:id="@+id/txt_Num_Telefono"
+                    android:layout_width="160dp"
+                    android:layout_height="50dp"
+                    android:background="@null"
+                    android:ems="10"
+                    android:hint="Teléfono"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="30sp"
+                    android:phoneNumber="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHighlight="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    android:textColorLink="#FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.08"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.675" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/frame_email"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="20sp">
 
                 <ImageView
                     android:id="@+id/ovalEmail"
@@ -32,7 +183,7 @@
                     app:layout_constraintStart_toStartOf="@+id/txt_Email_Create"
                     app:layout_constraintTop_toTopOf="@+id/txt_Email_Create"
                     app:layout_constraintVertical_bias="0.52"
-                    app:srcCompat="@drawable/black_text_input_oval" />
+                    app:srcCompat="@drawable/gray_text_input_oval" />
 
                 <EditText
                     android:id="@+id/txt_Email_Create"
@@ -43,9 +194,9 @@
                     android:hint="E-mail"
                     android:inputType="textPersonName|textEmailAddress"
                     android:paddingLeft="30sp"
-                    android:textColor="#000000"
-                    android:textColorHint="#000000"
-                    android:textColorLink="#000000"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    android:textColorLink="#FFFFFF"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.92"
