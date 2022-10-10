@@ -6,5 +6,6 @@ const middleware = require('../middleware/jwt-middleware');
 router.post('/createFamily', middleware, familyController.createFamily);
 router.post('/assignMedicalCondition', middleware, familyController.assignMedicalCondition);
 router.get('/getFamilyTables', middleware, familyController.getFamilies);
+router.get('/getEnfermedades', middleware, familyController.getEnfermedades)
 
 module.exports = router;

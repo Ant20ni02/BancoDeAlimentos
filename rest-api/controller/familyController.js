@@ -57,3 +57,21 @@ module.exports.getFamilies = (req,res) =>{
     })
 
 }
+
+module.exports.getEnfermedades = (req,res) =>{
+    const query = `SELECT medicalConditionName, SUM(medicalConditionNumber) as medicalConditionTotalNumber FROM MedicalCondition GROUP BY medicalConditionName`
+
+    conexion.query(query,(error,results,fields)=>{
+        if(error)
+            res.send(error)
+        else{
+            res.json(results)
+        }
+
+
+    })
+
+
+}
+
+

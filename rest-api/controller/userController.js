@@ -72,3 +72,18 @@ module.exports.changeUserStatus = (req,res) =>{
 
 
 }
+
+
+module.exports.getAllVolunteers = (req,res) =>{
+    const petition = `SELECT * FROM User_ WHERE userType = "voluntario"`
+
+    conexion.query(petition,(error,results,fields)=>{
+        if(error)
+            res.send(error)
+        else{
+            res.json(results)
+        }
+
+    })
+
+}
