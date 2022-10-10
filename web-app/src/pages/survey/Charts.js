@@ -6,12 +6,25 @@ import url from '../../config/API';
 const defaultAnswer = ["3", "4", "5"]
 const defaultFreq = [1, 1, 1]
 
+const chartOptions1 = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Número de integrantes en las familias'
+      }
+    }
+  }
+
 function Charts() {
     const [chartData1, setChartData1] = useState({
         labels: defaultAnswer,
         datasets: [
             {
-                label: "Número de integrantes en la familia",
+                label: "Integrantes",
                 data: defaultFreq,
                 backgroundColor: ["rgba(237, 26, 59, 1)", "rgba(254, 146, 29, 1)", "rgba(13, 177, 75, 1)"],
                 borderColor: "black",
@@ -28,7 +41,7 @@ function Charts() {
         let answer = [];
         let freq = [];
         for (const dataObj of data){
-            answer.push(dataObj.answer);
+            answer.push(dataObj.answer + " integrantes");
             freq.push(dataObj.freq)
         }
 
@@ -41,7 +54,7 @@ function Charts() {
             labels: answer,
             datasets: [
                 {
-                    label: "Número de integrantes en la familia",
+                    label: "Integrantes",
                     data: freq,
                     backgroundColor: colors,
                     borderColor: "black",
@@ -59,7 +72,7 @@ function Charts() {
         <>
             <TextHeader text="Gráficas" />
             <div style={{ width: 400 }}>
-                <PieChart chartData={chartData1} />
+                <PieChart chartData={chartData1} chartOptions={chartOptions1}/>
             </div>
             
         </>
