@@ -1,12 +1,26 @@
 import React, { useEffect, useState } from "react";
 import TextHeader from '../../components/TextHeader';
 import axios from "axios";
-//import PieChart from "../../components/PieChart";
-import { Pie } from "react-chartjs-2";
+import PieChart from "../../components/PieChart";
 import url from '../../config/API';
 
+const defaultAnswer = ["3", "4"]
+const defaultFreq = [3, 5]
+
 function Charts() {
-    const [chartData1, setChartData1] = useState({});
+    const [chartData1, setChartData1] = useState({
+        labels: defaultAnswer,
+        datasets: [
+            {
+                label: "Número de integrantes en la familia",
+                data: defaultFreq,
+                backgroundColor: ["rgba(75,192,192,1)"],
+                borderColor: "black",
+                borderWidth: 2,
+            }
+        ]
+    });
+    
     /*const [questionAnswer1, setQuestionAnswer1] = useState([]);
     const [questionFreq1, setQuestionFreq1] = useState([]);*/
 
@@ -52,7 +66,7 @@ function Charts() {
         <>
             <TextHeader text="Gráficas" />
             <div style={{ width: 400 }}>
-                <Pie data={chartData1} />
+                <PieChart chartData={chartData1} />
             </div>
             
         </>
