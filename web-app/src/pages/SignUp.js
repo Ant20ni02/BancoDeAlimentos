@@ -151,8 +151,9 @@ function SignUp() {
                             </label>
                             <select name="sex" required>
                                 <option selected disabled hidden>Sexo</option>
-                                <option value="m">Masculino</option>
-                                <option value="f">Femenino</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Femenino">Femenino</option>
+                                <option value="Otro">Otro</option>
                             </select>
                         </fieldset>
                         
