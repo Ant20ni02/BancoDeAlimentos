@@ -24,6 +24,8 @@ insert into Survey(idUser,idFamily, latitude, longitude, date_)
 Values (1, "E01",17.25,5.55,"03-10-2022");
 insert into Survey(idUser,idFamily, latitude, longitude, date_) 
 Values (1, "E03",18.25,6.55,"04-10-2022");
+insert into Survey(idUser,idFamily, latitude, longitude, date_) 
+Values (1, "E02",19.25,7.55,"11-10-2022");
 
 insert into MedicalCondition(idFamily, medicalConditionNumber, medicalConditionName)
 Values ("E01", 1, "Diabetes");
