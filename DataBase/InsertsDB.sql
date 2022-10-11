@@ -72,6 +72,27 @@ values(5, 8, "CAL-C-TOSE");
 insert into Question(idQuestion, idSurvey, answer)
 values(5, 9, "GLUCERNA");
 
+insert into Question(idQuestion, idSurvey, answer)
+values(6, 1, "Sí");
+insert into Question(idQuestion, idSurvey, answer)
+values(6, 2, "Sí");
+insert into Question(idQuestion, idSurvey, answer)
+values(6, 3, "Sí");
+insert into Question(idQuestion, idSurvey, answer)
+values(6, 4, "Sí");
+insert into Question(idQuestion, idSurvey, answer)
+values(6, 5, "Sí");
+insert into Question(idQuestion, idSurvey, answer)
+values(6, 5, "Sí");
+insert into Question(idQuestion, idSurvey, answer)
+values(6, 6, "No");
+insert into Question(idQuestion, idSurvey, answer)
+values(6, 7, "No");
+insert into Question(idQuestion, idSurvey, answer)
+values(6, 8, "No");
+insert into Question(idQuestion, idSurvey, answer)
+values(6, 9, "No");
+
 Select * from User_;
 select * from Family;
 select * from Survey;

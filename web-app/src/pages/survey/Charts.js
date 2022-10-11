@@ -41,7 +41,7 @@ const chartOptions3 = {
         },
         title: {
         display: true,
-        text: 'Enfermedades en las familias'
+        text: 'Enfermedades presente en las familias'
         }
     }
 }
@@ -54,7 +54,7 @@ const chartOptions4 = {
         },
         title: {
         display: true,
-        text: 'Embarazo en la familia'
+        text: 'Embarazo en las familias'
         }
     }
 }
@@ -68,6 +68,19 @@ const chartOptions5 = {
         title: {
         display: true,
         text: 'Consumo de suplemento alimenticio'
+        }
+    }
+}
+
+const chartOptions6 = {
+    responsive: true,
+    plugins: {
+        legend: {
+        position: 'top',
+        },
+        title: {
+        display: true,
+        text: '¿Algún integrante de la famila se encuentra dando lactancia materna?'
         }
     }
 }
@@ -129,6 +142,19 @@ function Charts() {
     });
 
     const [chartData5, setChartData5] = useState({
+        labels: defaultAnswer,
+        datasets: [
+            {
+                label: "Cargando",
+                data: defaultFreq,
+                backgroundColor: ["rgba(237, 26, 59, 1)", "rgba(254, 146, 29, 1)", "rgba(13, 177, 75, 1)"],
+                borderColor: "black",
+                borderWidth: 2,
+            }
+        ]
+    });
+
+    const [chartData6, setChartData6] = useState({
         labels: defaultAnswer,
         datasets: [
             {
@@ -326,6 +352,37 @@ function Charts() {
         })
     }
 
+    const getDataQuestion6 = async (e) => {
+        
+        const response = await fetch(url+`getFrequency/${6}`,{method: 'GET',
+                                headers: {'x-access-token' : localStorage.getItem('token')} });
+        const data = await response.json();
+        let answer = [];
+        let freq = [];
+        for (const dataObj of data){
+            answer.push(dataObj.answer);
+            freq.push(dataObj.freq)
+        }
+
+        let colors=[];
+        for(let i=0;i<answer.length;i++){
+            colors.push('#'+Math.floor(Math.random()*16777215).toString(16));
+        }
+
+        setChartData6({
+            labels: answer,
+            datasets: [
+                {
+                    label: "Integrantes",
+                    data: freq,
+                    backgroundColor: colors,
+                    borderColor: "black",
+                    borderWidth: 2,
+                }
+            ]
+        })
+    }
+
     useEffect(() => {
         getDataQuestion1();
       }, []);
@@ -346,6 +403,10 @@ function Charts() {
         getDataQuestion5();
     }, []);
 
+    useEffect(() => {
+        getDataQuestion6();
+    }, []);
+
     return (
         <>
             <TextHeader text="Gráficas" />
@@ -363,6 +424,9 @@ function Charts() {
             </div>
             <div style={{ width: 400 }}>
                 <PieChart chartData={chartData5} chartOptions={chartOptions5}/>
+            </div>
+            <div style={{ width: 400 }}>
+                <PieChart chartData={chartData6} chartOptions={chartOptions6}/>
             </div>
         </>
     );
