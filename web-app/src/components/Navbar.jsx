@@ -23,7 +23,7 @@ const Navbar = () => {
                 }
             });
             const data = await response.json();
-            setUser(data[0]);
+            setUser(data);
         }
         getUser();
     }, []);

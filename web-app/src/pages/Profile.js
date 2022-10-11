@@ -28,7 +28,7 @@ function Profile() {
         const response = await fetch(url+`getUsersData/${idUser}`,{method: 'GET',
                                 headers: {'x-access-token' : localStorage.getItem('token')} });
         const data = await response.json();
-        setUser(data[0]);
+        setUser(data);
     }
 
     return (
