@@ -41,10 +41,11 @@ function Records() {
                 {!isLastStep && <button onClick={next}>Siguiente</button>}
                 {/* <button onClick={next} disabled={currentStepIndex === steps.length - 1}>Next</button> */}
 
-                {!isFirstStep && <button onClick={reset}>Reset</button>}
+                {!isFirstStep && <button onClick={reset}>Volver al principio</button>}
                 {/* <button onClick={reset}>Reset</button> */}
 
-                <button onClick={() => goTo(1)}>Go to step 2</button>
+                {/* <button onClick={() => goTo(1)}>Ir a</button> */}
+                <input type="number" min="1" max={steps.length} value={currentStepIndex + 1} onChange={e => goTo(e.target.value - 1)} />
             </div>
         </>
     );

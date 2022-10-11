@@ -6,8 +6,26 @@
 }
 
 .steps {
-    margin-top: 1rem;
+    padding: 0.3rem;
+    border-radius: .50rem;
+    margin: 1rem auto;
+    width: fit-content;
+    background-color: var(--quinary-color);
+}
+
+div.buttons {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+}
+
+div.buttons button, div.buttons input[type="number"] {
+    border: none;
+    cursor: pointer;
+    padding: 0.6rem;
+    border-radius: .50rem;
+    background-color: var(--quinary-color);
+    font-size: 1.3rem;
+    font-weight: bold;
 }
