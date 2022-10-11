@@ -19,6 +19,27 @@ module.exports.insertQuestion = (req,res) =>{
     })
 }
 
+module.exports.insertQuestionList = (req,res) =>{
+
+    const doQuery = async (element) =>{
+        await conexion.query (sql, [element.idQuestion, element.idSurvey, element.answer], (error, results, fields)=>{
+            if(error)
+                res.json(error);
+            else{
+                console.log(results);
+            }
+        })
+    }
+
+    const questionList = req.body.questionList;
+    const sql = `INSERT INTO Question (idQuestion,idSurvey, answer) VALUES(?,?,?)`;
+
+    questionList.forEach(ele => {
+        doQuery(ele);
+    });
+    res.json({"mensaje": "Insertados correctamente"})
+}
+
 module.exports.getAllAnswers = (req,res) =>{
     const idQuestion = req.params.idQuestion;
 

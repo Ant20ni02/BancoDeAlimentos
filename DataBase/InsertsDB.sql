@@ -194,4 +194,6 @@ Select * from User_;
 select * from Family;
 select * from Survey;
 select * from Question;
+delete from Question where idQuestion = 11;
 select * from MedicalCondition;
+-- substr( A.answer,5,3) from Question as A where idQuestion = 2 ;
