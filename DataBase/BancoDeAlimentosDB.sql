@@ -39,7 +39,7 @@ CREATE TABLE Survey(
  idFamily varchar(100) NOT NULL,
  latitude double,
  longitude double,
- date_ date,
+ date_ varchar(10),
  CONSTRAINT fk_User_Survey1
 			FOREIGN KEY (idUser) REFERENCES User_(idUser),
 CONSTRAINT fk_Family_Survey2

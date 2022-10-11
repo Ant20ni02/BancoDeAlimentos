@@ -1,55 +1,78 @@
 use BancoDeAlimentos;
 
-INSERT INTO Family(familyMembers, familyLastName, pregnancy)
-VALUES (4, "Gardida Santos", 3);
+INSERT INTO Family(idFamily, familyMembers, familyLastName, pregnancy)
+VALUES ("E01", 4, "Gardida Santos", 3);
+INSERT INTO Family(idFamily, familyMembers, familyLastName, pregnancy)
+VALUES ("E02", 3, "Jiménez García", 2);
+INSERT INTO Family(idFamily, familyMembers, familyLastName, pregnancy)
+VALUES ("E03", 3, "Xatruch Adame", 13);
 
 insert into Survey(idUser,idFamily, latitude, longitude, date_) 
-Values (1, "e01",10.25,0.55,"2022-09-27");
+Values (1, "E01",10.25,0.55,"27-09-2022");
 insert into Survey(idUser,idFamily, latitude, longitude, date_) 
-Values (1, "e02",11.25,1.55,"2022-09-28");
+Values (1, "E01",11.25,1.55,"28-09-2022");
 insert into Survey(idUser,idFamily, latitude, longitude, date_) 
-Values (1, "e01",12.25,2.55,"2022-09-29");
+Values (1, "E03",12.25,2.55,"29-09-2022");
 insert into Survey(idUser,idFamily, latitude, longitude, date_) 
-Values (1, "e02",10.25,0.55,"2022-09-30");
+Values (1, "E02",13.25,3.55,"30-09-2022");
 
 insert into Survey(idUser,idFamily, latitude, longitude, date_) 
-Values (1, "e01",15.25,3.55,"2022-10-01");
+Values (1, "E03",15.25,4.55,"01-10-2022");
 insert into Survey(idUser,idFamily, latitude, longitude, date_) 
-Values (1, "e02",16.25,4.55,"2022-10-02");
+Values (1, "E02",16.25,4.55,"02-10-2022");
 insert into Survey(idUser,idFamily, latitude, longitude, date_) 
-Values (1, "e01",17.25,5.55,"2022-10-03");
+Values (1, "E01",17.25,5.55,"03-10-2022");
 insert into Survey(idUser,idFamily, latitude, longitude, date_) 
-Values (1, "e02",18.25,6.55,"2022-10-04");
-
+Values (1, "E03",18.25,6.55,"04-10-2022");
 
 insert into MedicalCondition(idFamily, medicalConditionNumber, medicalConditionName)
-Values ("e01", 1, "Diabetes");
+Values ("E01", 1, "Diabetes");
 insert into MedicalCondition(idFamily, medicalConditionNumber, medicalConditionName)
-Values ("e01", 1, "Obesidad");
+Values ("E01", 1, "Obesidad");
 insert into MedicalCondition(idFamily, medicalConditionNumber, medicalConditionName)
-Values ("e02", 2, "Diabetes");
+Values ("E03", 2, "Diabetes");
+insert into MedicalCondition(idFamily, medicalConditionNumber, medicalConditionName)
+Values ("E02", 1, "Hipertensión");
 
 insert into Question(idQuestion, idSurvey, answer)
 values(1, 1, "4");
 insert into Question(idQuestion, idSurvey, answer)
-values(1, 1, "5");
+values(1, 2, "5");
 insert into Question(idQuestion, idSurvey, answer)
-values(1, 1, "5");
+values(1, 2, "5");
 insert into Question(idQuestion, idSurvey, answer)
-values(1, 1, "5");
+values(1, 3, "5");
 insert into Question(idQuestion, idSurvey, answer)
-values(1, 1, "3");
+values(1, 4, "3");
 insert into Question(idQuestion, idSurvey, answer)
-values(1, 1, "4");
+values(1, 5, "4");
+insert into Question(idQuestion, idSurvey, answer)
+values(1, 6, "5");
+insert into Question(idQuestion, idSurvey, answer)
+values(1, 7, "5");
+insert into Question(idQuestion, idSurvey, answer)
+values(1, 8, "4");
+insert into Question(idQuestion, idSurvey, answer)
+values(1, 9, "4");
 
 insert into Question(idQuestion, idSurvey, answer)
 values(2, 1, "a01_b01_c01_d02_e02");
 insert into Question(idQuestion, idSurvey, answer)
-values(2, 1, "b01_c01_d02");
+values(2, 2, "b01_c01_d02");
 insert into Question(idQuestion, idSurvey, answer)
-values(2, 1, "a01_d02");
+values(2, 3, "a01_d02");
 insert into Question(idQuestion, idSurvey, answer)
-values(2, 1, "c01_d01_e02");
+values(2, 4, "c01_d01_e02");
+insert into Question(idQuestion, idSurvey, answer)
+values(2, 5, "e02");
+insert into Question(idQuestion, idSurvey, answer)
+values(2, 6, "d02");
+insert into Question(idQuestion, idSurvey, answer)
+values(2, 7, "a02_d02");
+insert into Question(idQuestion, idSurvey, answer)
+values(2, 8, "c02_d01_e02");
+insert into Question(idQuestion, idSurvey, answer)
+values(2, 9, "c03_d01");
 
 insert into Question(idQuestion, idSurvey, answer)
 values(5, 1, "Ninguno");
@@ -61,8 +84,6 @@ insert into Question(idQuestion, idSurvey, answer)
 values(5, 4, "CAL-C-TOSE");
 insert into Question(idQuestion, idSurvey, answer)
 values(5, 5, "Ninguno");
-insert into Question(idQuestion, idSurvey, answer)
-values(5, 5, "WHEY PROTEIN");
 insert into Question(idQuestion, idSurvey, answer)
 values(5, 6, "WHEY PROTEIN");
 insert into Question(idQuestion, idSurvey, answer)
@@ -83,8 +104,6 @@ values(6, 4, "Sí");
 insert into Question(idQuestion, idSurvey, answer)
 values(6, 5, "Sí");
 insert into Question(idQuestion, idSurvey, answer)
-values(6, 5, "Sí");
-insert into Question(idQuestion, idSurvey, answer)
 values(6, 6, "No");
 insert into Question(idQuestion, idSurvey, answer)
 values(6, 7, "No");
@@ -101,8 +120,6 @@ insert into Question(idQuestion, idSurvey, answer)
 values(7, 3, "De 3 a más comidas");
 insert into Question(idQuestion, idSurvey, answer)
 values(7, 4, "De 3 a más comidas");
-insert into Question(idQuestion, idSurvey, answer)
-values(7, 5, "De 3 a más comidas");
 insert into Question(idQuestion, idSurvey, answer)
 values(7, 5, "De 3 a más comidas");
 insert into Question(idQuestion, idSurvey, answer)

@@ -9,7 +9,7 @@ module.exports.addSurvey = (req, res) =>{
     const longitude = req.body.longitude;
     //const idQuestionList = req.body.idQuestionList;
     const currentDate = new Date();
-    const clock = currentDate.getHours();
+    const clock = currentDate.getDay() +"-"+ currentDate.getDate()+"-" + currentDate.getFullYear();
     console.log(clock);
     const mensaje = ""
 
@@ -44,4 +44,20 @@ module.exports.addSurvey = (req, res) =>{
                 })
         }
     })
+}
+
+module.exports.getSurveyById = (req,res) =>{
+    const idSurvey = req.params.idSurvey;
+
+    const query = `SELECT * FROM Survey WHERE idSurvey = ?`
+
+    conexion.query(query,[idSurvey],(error,results,fields)=>{
+        if(error)
+            res.send(error)
+        else{
+            res.json(results)   
+        }
+    })
+
+
 }
