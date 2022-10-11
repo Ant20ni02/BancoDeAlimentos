@@ -17,7 +17,8 @@ module.exports.getUsersData = (req,res) =>{
                     mensaje
                 })
             
-            res.json(results);
+            console.log(results);
+            res.json(results[0]);
         }
     })
 }
