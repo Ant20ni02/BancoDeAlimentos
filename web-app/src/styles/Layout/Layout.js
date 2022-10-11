@@ -11,7 +11,7 @@ const Layout = () => {
     return (
         <main>
             <Navbar toggleSidebar={toggleSidebar} />
-            <Sidebar />
+            {/* <Sidebar /> */}
             
             <section>
                 <Outlet />

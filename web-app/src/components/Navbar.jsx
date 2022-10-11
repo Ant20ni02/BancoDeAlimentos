@@ -1,5 +1,5 @@
 import '../styles/Navbar.css';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useId } from "react";
 import { useNavigate, NavLink } from 'react-router-dom';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faCaretDown, faPalette,faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
@@ -38,7 +38,7 @@ const Navbar = () => {
                         </NavLink>
                     </li>
                     <li className="Navbar-item">
-                        <span>{user.firstName} {user.lastName}</span>
+                        {/* <span>{user.firstName} {user.lastName}</span> */}
                     </li>
                     <li className="Navbar-item">
                         <NavLink to="/bamx/pagina-principal" className="Navbar-link" onClick={() => setShowMenu(!showMenu)}><FontAwesomeIcon icon={faCaretDown} className="Navbar-icon"/></NavLink>
@@ -57,19 +57,23 @@ const Navbar = () => {
 const DropdownMenu = () => {
     const navigate = useNavigate();
     let theme = localStorage.getItem('theme');
+    const auto = useRef();
+    const light = useRef();
+    const dark = useRef();
+    const id = useId();
 
-    const changeTheme = () => {
-        if(theme === 'light'){
+    const changeTheme = (e) => {
+        if(e.target === auto.current){
+            localStorage.setItem('theme', 'auto');
+            theme = 'auto';
+        }else if(e.target === light.current){
+            localStorage.setItem('theme', 'light');
+            console.log(localStorage.getItem('theme'));
+            theme = 'light';
+        }else if(e.target === dark.current){
             localStorage.setItem('theme', 'dark');
             theme = 'dark';
-        } else if (theme === 'dark'){
-            localStorage.setItem('theme', 'light');
-            theme = 'light';
-        } else {
-            localStorage.setItem('theme', 'default-auto');
-            theme = 'default-auto';
         }
-        window.location.reload();
     }
 
     const handleLogout = () => {
@@ -85,12 +89,12 @@ const DropdownMenu = () => {
                     <span>Tema </span><FontAwesomeIcon icon={faPalette} className="Navbar-dropdown-item-icon"/>
                 </div>
                 <div className="Navbar-dropdown-item-checkboxs">
-                    <input type="radio" id="default-auto" name="theme" value="default-auto"/>
-                    <label htmlFor="default-auto">Automático</label>
-                    <input type="radio" id="light" name="theme" value="light" onClick={changeTheme}/>
-                    <label htmlFor="light">Claro</label>
-                    <input type="radio" id='dark' name="theme" value="dark"/>
-                    <label htmlFor="dark">Oscuro</label>
+                    <input type="radio" ref={auto} id={`${id}-auto`} name="theme" value="auto" checked/>
+                    <label htmlFor={`${id}-auto`}>Automático</label>
+                    <input type="radio" ref={light} id={`${id}-light`} name="theme" value="light" onClick={changeTheme}/>
+                    <label htmlFor={`${id}-light`}>Claro</label>
+                    <input type="radio" ref={dark} id={`${id}-dark`} name="theme" value="dark"/>
+                    <label htmlFor={`${id}-dark`}>Oscuro</label>
                 </div>
             </li>
             <li className="Navbar-dropdown-item" onClick={handleLogout}>

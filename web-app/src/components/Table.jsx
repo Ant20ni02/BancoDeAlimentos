@@ -1,11 +1,11 @@
 import React from "react";
 import '../styles/Table.css';
 
-const Table = ({ data }) => {
-    return (
-        <table>
+const Table = ({ data, newSurveys }) => {
 
-            <caption>Tabla de registros</caption>
+    return (
+        <table className="Table">
+            <caption className="Caption">Tabla de registros</caption>
 
             <thead>
                 <tr>
@@ -20,9 +20,9 @@ const Table = ({ data }) => {
             </thead>
 
             <tbody>
-                {Object.entries(data).map(([key, { familyLastName, idFamily, date_, latitude, longitude, idSurvey}]) => (
+                {Object.entries(newSurveys).map(([key, { familyLastName, idFamily, date_, latitude, longitude, idSurvey}]) => (
                     <tr key = {key}>
-                        <th class="counterCell"></th>
+                        <th className="counterCell"></th>
                         <td>{familyLastName}</td>
                         <td>{idFamily}</td>
                         <td>{date_}</td>

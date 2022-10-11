@@ -1,7 +1,57 @@
-table {
-    counter-reset: tableCount;     
+table.Table {
+    border-collapse: collapse;
+    border-radius: .50rem;
+    overflow: hidden;
 }
-.counterCell:before {              
-    content: counter(tableCount); 
-    counter-increment: tableCount; 
+
+table.Table {
+    counter-reset: records;     
+}
+
+.counterCell::before {              
+    counter-increment: records; 
+    content: counter(records); 
+}
+
+table.Table caption.Caption {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0.5em 0 0.75em;
+}
+
+thead, tfoot:has(tr) {
+    background-color: var(--primary-color) /* hsl(0, 0%, 94%) */;
+    /* background-color: hsl(0, 0%, 94%);
+    color: hsl(0, 0%, 0%); */
+    font-weight: bold;
+}
+
+thead tr th {
+    text-align: left;
+}
+
+thead tr th:first-of-type {
+    border-radius: .50rem 0 0 .50rem;
+}
+
+thead tr th:last-of-type {
+    border-radius: 0 .50rem .50rem 0;
+}
+
+th, td {
+    padding: 1em;
+}
+
+tbody tr:not(:last-child) {
+    border-bottom: 1px solid hsl(0, 0%, 87%);
+}
+
+tbody tr:nth-child(even) {
+    background-color: hsl(0, 0%, 97%);
+    color: hsl(0, 0%, 0%);
+    border-bottom: none;
+}
+
+tfoot th {
+    border-radius: 0 0 .50rem .50rem;
 }
