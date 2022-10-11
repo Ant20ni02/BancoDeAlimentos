@@ -58,6 +58,20 @@ const chartOptions4 = {
         }
     }
 }
+
+const chartOptions5 = {
+    responsive: true,
+    plugins: {
+        legend: {
+        position: 'top',
+        },
+        title: {
+        display: true,
+        text: 'Consumo de suplemento alimenticio'
+        }
+    }
+}
+
 //-----------------------
 
 function Charts() {
@@ -114,6 +128,19 @@ function Charts() {
         ]
     });
 
+    const [chartData5, setChartData5] = useState({
+        labels: defaultAnswer,
+        datasets: [
+            {
+                label: "Cargando",
+                data: defaultFreq,
+                backgroundColor: ["rgba(237, 26, 59, 1)", "rgba(254, 146, 29, 1)", "rgba(13, 177, 75, 1)"],
+                borderColor: "black",
+                borderWidth: 2,
+            }
+        ]
+    });
+
     const getDataQuestion1 = async (e) => {
         
         const response = await fetch(url+`getFrequency/${1}`,{method: 'GET',
@@ -151,12 +178,10 @@ function Charts() {
                                 headers: {'x-access-token' : localStorage.getItem('token')} });
         const data = await response.json();
         let freq = [0,0,0,0,0]
-        console.log(data);
         let control = 0;
         for (const dataObj of data){
             let ans = dataObj.answer;
             while(control < ans.length){
-                console.log('kiti');
                 if(ans[control] === 'a'){
                     freq[0] += parseInt(ans[control+1] + ans[control+2]);
                     control += 4;
@@ -180,7 +205,6 @@ function Charts() {
             }
             control = 0;
         }
-        console.log(freq);
 
         let colors=[];
         for(let i=0;i<freq.length;i++){
@@ -271,6 +295,37 @@ function Charts() {
         })
     }
 
+    const getDataQuestion5 = async (e) => {
+        
+        const response = await fetch(url+`getFrequency/${5}`,{method: 'GET',
+                                headers: {'x-access-token' : localStorage.getItem('token')} });
+        const data = await response.json();
+        let answer = [];
+        let freq = [];
+        for (const dataObj of data){
+            answer.push(dataObj.answer);
+            freq.push(dataObj.freq)
+        }
+
+        let colors=[];
+        for(let i=0;i<answer.length;i++){
+            colors.push('#'+Math.floor(Math.random()*16777215).toString(16));
+        }
+
+        setChartData5({
+            labels: answer,
+            datasets: [
+                {
+                    label: "Integrantes",
+                    data: freq,
+                    backgroundColor: colors,
+                    borderColor: "black",
+                    borderWidth: 2,
+                }
+            ]
+        })
+    }
+
     useEffect(() => {
         getDataQuestion1();
       }, []);
@@ -287,6 +342,10 @@ function Charts() {
         getDataQuestion4();
     }, []);
 
+    useEffect(() => {
+        getDataQuestion5();
+    }, []);
+
     return (
         <>
             <TextHeader text="Gráficas" />
@@ -301,6 +360,9 @@ function Charts() {
             </div>
             <div style={{ width: 400 }}>
                 <PieChart chartData={chartData4} chartOptions={chartOptions4}/>
+            </div>
+            <div style={{ width: 400 }}>
+                <PieChart chartData={chartData5} chartOptions={chartOptions5}/>
             </div>
         </>
     );

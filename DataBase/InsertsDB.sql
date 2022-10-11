@@ -51,6 +51,27 @@ values(2, 1, "a01_d02");
 insert into Question(idQuestion, idSurvey, answer)
 values(2, 1, "c01_d01_e02");
 
+insert into Question(idQuestion, idSurvey, answer)
+values(5, 1, "Ninguno");
+insert into Question(idQuestion, idSurvey, answer)
+values(5, 2, "WHEY PROTEIN");
+insert into Question(idQuestion, idSurvey, answer)
+values(5, 3, "ENSURE");
+insert into Question(idQuestion, idSurvey, answer)
+values(5, 4, "CAL-C-TOSE");
+insert into Question(idQuestion, idSurvey, answer)
+values(5, 5, "Ninguno");
+insert into Question(idQuestion, idSurvey, answer)
+values(5, 5, "WHEY PROTEIN");
+insert into Question(idQuestion, idSurvey, answer)
+values(5, 6, "WHEY PROTEIN");
+insert into Question(idQuestion, idSurvey, answer)
+values(5, 7, "WHEY PROTEIN");
+insert into Question(idQuestion, idSurvey, answer)
+values(5, 8, "CAL-C-TOSE");
+insert into Question(idQuestion, idSurvey, answer)
+values(5, 9, "GLUCERNA");
+
 Select * from User_;
 select * from Family;
 select * from Survey;
