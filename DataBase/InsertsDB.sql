@@ -93,6 +93,27 @@ values(6, 8, "No");
 insert into Question(idQuestion, idSurvey, answer)
 values(6, 9, "No");
 
+insert into Question(idQuestion, idSurvey, answer)
+values(7, 1, "De 1 a 2 comidas");
+insert into Question(idQuestion, idSurvey, answer)
+values(7, 2, "De 1 a 2 comidas");
+insert into Question(idQuestion, idSurvey, answer)
+values(7, 3, "3 o más comidas");
+insert into Question(idQuestion, idSurvey, answer)
+values(7, 4, "3 o más comidas");
+insert into Question(idQuestion, idSurvey, answer)
+values(7, 5, "3 o más comidas");
+insert into Question(idQuestion, idSurvey, answer)
+values(7, 5, "3 o más comidas");
+insert into Question(idQuestion, idSurvey, answer)
+values(7, 6, "3 o más comidas");
+insert into Question(idQuestion, idSurvey, answer)
+values(7, 7, "3 o más comidas");
+insert into Question(idQuestion, idSurvey, answer)
+values(7, 8, "De 1 a 2 comidas");
+insert into Question(idQuestion, idSurvey, answer)
+values(7, 9, "3 o más comidas");
+
 Select * from User_;
 select * from Family;
 select * from Survey;
