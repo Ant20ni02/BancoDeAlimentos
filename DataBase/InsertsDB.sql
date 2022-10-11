@@ -1,9 +1,9 @@
 use BancoDeAlimentos;
 
 INSERT INTO Family(familyMembers, familyLastName, pregnancy)
-VALUES (4, "Gardida Cortés", 0);
+VALUES (4, "Gardida Santos", 3);
 
-insert into Survey(idUser,idFamily, date_) 
+insert into Survey(idUser,idFamily, latitude, longitude, date_) 
 Values (1, "e01",10.25,0.5,"2022-09-27");
 
 insert into MedicalCondition(idFamily, medicalConditionNumber, medicalConditionName)

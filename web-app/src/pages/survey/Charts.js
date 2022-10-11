@@ -10,28 +10,41 @@ const defaultFreq = [1, 1, 1]
 const chartOptions1 = {
     responsive: true,
     plugins: {
-      legend: {
+        legend: {
         position: 'top',
-      },
-      title: {
+        },
+        title: {
         display: true,
         text: 'Número de integrantes en las familias'
-      }
+        }
     }
-  }
+}
   
-  const chartOptions2 = {
+const chartOptions2 = {
     responsive: true,
     plugins: {
-      legend: {
+        legend: {
         position: 'top',
-      },
-      title: {
+        },
+        title: {
         display: true,
         text: 'Rangos de edades en los integrantes de las familias'
-      }
+        }
     }
-  }
+}
+
+const chartOptions3 = {
+    responsive: true,
+    plugins: {
+        legend: {
+        position: 'top',
+        },
+        title: {
+        display: true,
+        text: 'Enfermedades en las familias'
+        }
+    }
+}
 //-----------------------
 
 function Charts() {
@@ -61,6 +74,50 @@ function Charts() {
             }
         ]
     });
+
+    const [chartData3, setChartData3] = useState({
+        labels: defaultAnswer,
+        datasets: [
+            {
+                label: "Cargando",
+                data: defaultFreq,
+                backgroundColor: ["rgba(237, 26, 59, 1)", "rgba(254, 146, 29, 1)", "rgba(13, 177, 75, 1)"],
+                borderColor: "black",
+                borderWidth: 2,
+            }
+        ]
+    });
+
+    const getDataQuestion1 = async (e) => {
+        
+        const response = await fetch(url+`getFrequency/${1}`,{method: 'GET',
+                                headers: {'x-access-token' : localStorage.getItem('token')} });
+        const data = await response.json();
+        let answer = [];
+        let freq = [];
+        for (const dataObj of data){
+            answer.push(dataObj.answer + " integrantes");
+            freq.push(dataObj.freq)
+        }
+
+        let colors=[];
+        for(let i=0;i<answer.length;i++){
+            colors.push('#'+Math.floor(Math.random()*16777215).toString(16));
+        }
+
+        setChartData1({
+            labels: answer,
+            datasets: [
+                {
+                    label: "Integrantes",
+                    data: freq,
+                    backgroundColor: colors,
+                    borderColor: "black",
+                    borderWidth: 2,
+                }
+            ]
+        })
+    }
     
     const getDataQuestion2 = async (e) => {
         
@@ -118,16 +175,16 @@ function Charts() {
         })
     }
 
-    const getDataQuestion1 = async (e) => {
+    const getDataQuestion3 = async (e) => {
         
-        const response = await fetch(url+`getFrequency/${1}`,{method: 'GET',
+        const response = await fetch(url+'getEnfermedades',{method: 'GET',
                                 headers: {'x-access-token' : localStorage.getItem('token')} });
         const data = await response.json();
         let answer = [];
         let freq = [];
         for (const dataObj of data){
-            answer.push(dataObj.answer + " integrantes");
-            freq.push(dataObj.freq)
+            answer.push(dataObj.medicalConditionName);
+            freq.push(dataObj.medicalConditionTotalNumber);
         }
 
         let colors=[];
@@ -135,7 +192,7 @@ function Charts() {
             colors.push('#'+Math.floor(Math.random()*16777215).toString(16));
         }
 
-        setChartData1({
+        setChartData3({
             labels: answer,
             datasets: [
                 {
@@ -157,6 +214,10 @@ function Charts() {
         getDataQuestion2();
     }, []);
 
+    useEffect(() => {
+        getDataQuestion3();
+    }, []);
+
     return (
         <>
             <TextHeader text="Gráficas" />
@@ -165,6 +226,9 @@ function Charts() {
             </div>
             <div style={{ width: 400 }}>
                 <PieChart chartData={chartData2} chartOptions={chartOptions2}/>
+            </div>
+            <div style={{ width: 400 }}>
+                <PieChart chartData={chartData3} chartOptions={chartOptions3}/>
             </div>
         </>
     );

@@ -7,5 +7,6 @@ router.post('/createFamily', middleware, familyController.createFamily);
 router.post('/assignMedicalCondition', middleware, familyController.assignMedicalCondition);
 router.get('/getFamilyTables', middleware, familyController.getFamilies);
 router.get('/getEnfermedades', middleware, familyController.getEnfermedades)
+router.get('/getPregnancy', middleware, familyController.getPregnancy)
 
 module.exports = router;

@@ -74,4 +74,20 @@ module.exports.getEnfermedades = (req,res) =>{
 
 }
 
+module.exports.getPregnancy = (req,res) =>{
+    const query = `SELECT pregnancy , COUNT(*) AS freq FROM Family GROUP BY pregnancy`;
+
+    conexion.query(query,(error,results,fields)=>{
+        if(error)
+            res.send(error)
+        else{
+            res.json(results)
+        }
+
+
+    })
+
+
+}
+
 
