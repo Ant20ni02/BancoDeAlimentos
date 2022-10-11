@@ -1,2 +1,2 @@
-const url = 'http://bdaapi-env.eba-fizvyxtu.us-east-1.elasticbeanstalk.com/';
+const url = 'http://bamxapi3-env.eba-j9sdi2k3.us-east-1.elasticbeanstalk.com/';
 export default url;
