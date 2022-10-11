@@ -98,21 +98,78 @@ values(7, 1, "De 1 a 2 comidas");
 insert into Question(idQuestion, idSurvey, answer)
 values(7, 2, "De 1 a 2 comidas");
 insert into Question(idQuestion, idSurvey, answer)
-values(7, 3, "3 o más comidas");
+values(7, 3, "De 3 a más comidas");
 insert into Question(idQuestion, idSurvey, answer)
-values(7, 4, "3 o más comidas");
+values(7, 4, "De 3 a más comidas");
 insert into Question(idQuestion, idSurvey, answer)
-values(7, 5, "3 o más comidas");
+values(7, 5, "De 3 a más comidas");
 insert into Question(idQuestion, idSurvey, answer)
-values(7, 5, "3 o más comidas");
+values(7, 5, "De 3 a más comidas");
 insert into Question(idQuestion, idSurvey, answer)
-values(7, 6, "3 o más comidas");
+values(7, 6, "De 3 a más comidas");
 insert into Question(idQuestion, idSurvey, answer)
-values(7, 7, "3 o más comidas");
+values(7, 7, "De 3 a más comidas");
 insert into Question(idQuestion, idSurvey, answer)
 values(7, 8, "De 1 a 2 comidas");
 insert into Question(idQuestion, idSurvey, answer)
-values(7, 9, "3 o más comidas");
+values(7, 9, "De 3 a más comidas");
+
+insert into Question(idQuestion, idSurvey, answer)
+values(8, 1, "No");
+insert into Question(idQuestion, idSurvey, answer)
+values(8, 2, "Sí");
+insert into Question(idQuestion, idSurvey, answer)
+values(8, 3, "No");
+insert into Question(idQuestion, idSurvey, answer)
+values(8, 4, "Sí");
+insert into Question(idQuestion, idSurvey, answer)
+values(8, 5, "No");
+insert into Question(idQuestion, idSurvey, answer)
+values(8, 6, "No");
+insert into Question(idQuestion, idSurvey, answer)
+values(8, 7, "Sí");
+insert into Question(idQuestion, idSurvey, answer)
+values(8, 8, "No");
+insert into Question(idQuestion, idSurvey, answer)
+values(8, 9, "No");
+
+insert into Question(idQuestion, idSurvey, answer)
+values(9, 1, "Menos de $5,255 MXN");
+insert into Question(idQuestion, idSurvey, answer)
+values(9, 2, "Menos de $5,255 MXN");
+insert into Question(idQuestion, idSurvey, answer)
+values(9, 3, "Más de $5,255 MXN");
+insert into Question(idQuestion, idSurvey, answer)
+values(9, 4, "Menos de $5,255 MXN");
+insert into Question(idQuestion, idSurvey, answer)
+values(9, 5, "Menos de $5,255 MXN");
+insert into Question(idQuestion, idSurvey, answer)
+values(9, 6, "Más de $5,255 MXN");
+insert into Question(idQuestion, idSurvey, answer)
+values(9, 7, "Menos de $5,255 MXN");
+insert into Question(idQuestion, idSurvey, answer)
+values(9, 8, "Menos de $5,255 MXN");
+insert into Question(idQuestion, idSurvey, answer)
+values(9, 9, "Menos de $5,255 MXN");
+
+insert into Question(idQuestion, idSurvey, answer)
+values(10, 1, "20% aproximadamente");
+insert into Question(idQuestion, idSurvey, answer)
+values(10, 2, "20% aproximadamente");
+insert into Question(idQuestion, idSurvey, answer)
+values(10, 3, "35% aproximadamente");
+insert into Question(idQuestion, idSurvey, answer)
+values(10, 4, "35% aproximadamente");
+insert into Question(idQuestion, idSurvey, answer)
+values(10, 5, "20% aproximadamente");
+insert into Question(idQuestion, idSurvey, answer)
+values(10, 6, "35% aproximadamente");
+insert into Question(idQuestion, idSurvey, answer)
+values(10, 7, "20% aproximadamente");
+insert into Question(idQuestion, idSurvey, answer)
+values(10, 8, "35% aproximadamente");
+insert into Question(idQuestion, idSurvey, answer)
+values(10, 9, "50% aproximadamente");
 
 Select * from User_;
 select * from Family;
