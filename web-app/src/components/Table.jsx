@@ -25,7 +25,7 @@ const Table = ({ data, newSurveys }) => {
                         <th className="counterCell"></th>
                         <td>{familyLastName}</td>
                         <td>{idFamily}</td>
-                        <td>{date_}</td>
+                        <td>{date_[0]+date_[1]+date_[2]+date_[3]+date_[4]+date_[5]+date_[6]+date_[7]+date_[8]+date_[9]}</td>
                         <td>{latitude}</td>
                         <td>{longitude}</td>
                         <td>{idSurvey}</td>
