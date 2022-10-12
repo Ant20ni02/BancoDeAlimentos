@@ -57,6 +57,7 @@ function Volunteers() {
     }
 
     const handleApprove = () => {
+		/* setRequest(false); */
 		setActive(true);
 		setShowModalApprove(true);
     }
@@ -84,19 +85,30 @@ function Volunteers() {
 				{
 					request &&
 					<VolunteerCard>
-						<span className='status'><FontAwesomeIcon className="status-decline" icon={faTimesCircle} onClick={handleDecline} /><FontAwesomeIcon className="status-accept" icon={faCircleCheck} onClick={handleApprove} /></span>
+						{
+							!active &&
+							<span className='status'><FontAwesomeIcon className="status-decline" icon={faTimesCircle} onClick={handleDecline} /><FontAwesomeIcon className="status-accept" icon={faCircleCheck} onClick={handleApprove} /></span>
+						}
+
+						{
+							active &&
+							<div className="status">
+								<input type="checkbox" id={`${id}-switch`} className="toggle-status" /* checked */ onChange={handleStatus}/>
+								<label className="toggle-status" htmlFor={`${id}-switch`}></label>
+							</div>
+						}
 					</VolunteerCard>
 				}
 
-				{/* {
-					active && */}
+				{
+					active &&
 					<VolunteerCard>
 						<div className="status">
 							<input type="checkbox" id={`${id}-switch`} className="toggle-status" /* checked */ onChange={handleStatus}/>
 							<label className="toggle-status" htmlFor={`${id}-switch`}></label>
 						</div>
 					</VolunteerCard>
-				{/* } */}
+				}
 
 				<PortalModal onShow={showModalDecline} onClose={() => setShowModalDecline(false)} title="¡Solicitud rechazada exitosamente!">
 					<p>La solicitud del <u>voluntario</u> fue <b>rechazada</b> exitosamente.</p>
