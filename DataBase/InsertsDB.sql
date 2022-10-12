@@ -190,10 +190,11 @@ values(10, 8, "35% aproximadamente");
 insert into Question(idQuestion, idSurvey, answer)
 values(10, 9, "50% aproximadamente");
 
+-- "a_01_a_4000"
 Select * from User_;
 select * from Family;
 select * from Survey;
 select * from Question;
 delete from Question where idQuestion = 11;
 select * from MedicalCondition;
--- substr( A.answer,5,3) from Question as A where idQuestion = 2 ;
+-- SELECT SUBSTRING(answer,3,2) AS food, SUBSTRING(answer,8) AS quantity FROM Question WHERE ((idQuestion = 11) AND ((SUBSTRING(answer,1,1 ) = 'c')));

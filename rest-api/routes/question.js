@@ -7,5 +7,6 @@ router.post('/insertQuestion', middleware,questionController.insertQuestion);
 router.post('/insertQuestionList', middleware,questionController.insertQuestionList);
 router.get('/getAllAnswers/:idQuestion', middleware,questionController.getAllAnswers )
 router.get('/getFrequency/:idQuestion', middleware, questionController.getFrequency);
+router.get('/getQuantity/:systemType', middleware, questionController.getQuantity);
 
 module.exports = router;
