@@ -1,5 +1,6 @@
 package mx.tec.prototipo
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -41,11 +42,14 @@ class MainActivity : AppCompatActivity() {
 
             if(response.getString("mensaje") == "Usuario o contraseña autenticados"){
                 val intent = Intent(this@MainActivity,BottomNavigation::class.java)
+                val sharedPreference = getSharedPreferences("profile", Context.MODE_PRIVATE)
 
-                intent.putExtra("email", usernameTv.toString())
-                intent.putExtra("idUser", response.getString("idUser"))
-                intent.putExtra("x-access-token", response.getString("token"))
-
+                with(sharedPreference.edit()){
+                    putString("email", usernameTv.toString())
+                    putString("idUser", response.getString("idUser"))
+                    putString("x-access-token", response.getString("token"))
+                    commit()
+                }
 
                 startActivity(intent)
             }else{
@@ -79,10 +83,8 @@ class MainActivity : AppCompatActivity() {
                 fun getBodyContentType(): String {
                     return "application/json"
                 }
-
                 queue.add(request)
             }
-
         }
 
         signUpLink.setOnClickListener{

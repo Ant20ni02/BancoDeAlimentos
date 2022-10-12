@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
-import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
@@ -49,7 +48,7 @@ class Create : AppCompatActivity() {
         val txtContConfirmation = findViewById<EditText>(R.id.txt_Password_Create_Confirmar)
 
         val btnRegresar = findViewById<Button>(R.id.btnRegresar)
-        val btnRegistrarse = findViewById<Button>(R.id.btnCrearCuenta)
+        val btnRegistrarse = findViewById<Button>(R.id.btnSiguiente)
 
         val signUpLogo = findViewById<ImageView>(R.id.signUpLogo)
 

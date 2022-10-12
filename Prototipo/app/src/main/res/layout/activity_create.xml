@@ -428,9 +428,9 @@
                         android:layout_width="350px"
                         android:layout_height="wrap_content"
                         android:background="@drawable/btn_orange"
-                        android:text="Regresar"
+                        android:text="Iniciar sesión"
                         android:textAllCaps="true"
-                        android:textColor="#FFFFFF"/>
+                        android:textColor="#FFFFFF" />
                 </FrameLayout>
 
                 <FrameLayout
@@ -440,7 +440,7 @@
                     android:paddingEnd="150px">
 
                     <Button
-                        android:id="@+id/btnCrearCuenta"
+                        android:id="@+id/btnSiguiente"
                         android:layout_width="350px"
                         android:layout_height="wrap_content"
                         android:background="@drawable/btn_orange"

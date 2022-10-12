@@ -29,19 +29,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Encuesta_RES"
-            android:exported="false" />
-        <activity
-            android:name=".Encuesta"
-            android:exported="false" />
-        <activity
             android:name=".Create"
-            android:exported="false" />
-        <activity
-            android:name=".Admin"
-            android:exported="false" />
-        <activity
-            android:name=".Voluntario"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -52,6 +40,17 @@
             android:exported="false"
             >
         </activity>
+        <activity
+            android:name=".AvisoPrivacidad"
+            android:exported="false"
+            >
+        </activity>
+
+        <activity
+            android:name=".EncuestaContainer"
+            android:exported="false">
+        </activity>
+
     </application>
 
 </manifest>

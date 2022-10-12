@@ -32,11 +32,12 @@
         app:layout_constraintVertical_bias="0.039" />
 
     <Button
-        android:id="@+id/btnEncuesta_Voluntario2"
+        android:id="@+id/btn_aviso_realizar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_orange"
         android:text="Realizar Encuesta"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -45,11 +46,12 @@
         app:layout_constraintVertical_bias="0.816" />
 
     <Button
-        android:id="@+id/btnCerrarSesion_Voluntario2"
+        android:id="@+id/btn_aviso_regresar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_orange"
         android:text="Regresar"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

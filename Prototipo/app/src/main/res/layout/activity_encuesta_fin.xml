@@ -58,7 +58,7 @@
         app:srcCompat="@drawable/whatsapp_image_2022_10_07_at_10_55_51_am" />
 
     <Button
-        android:id="@+id/btnEncuesta_Voluntario2"
+        android:id="@+id/btn_aviso_realizar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_orange"
