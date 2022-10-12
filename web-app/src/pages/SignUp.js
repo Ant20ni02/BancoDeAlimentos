@@ -149,7 +149,7 @@ function SignUp() {
                                 {/* Sexo*/}
                                 <FontAwesomeIcon icon={faVenusMars} className="form-icon"/>
                             </label>
-                            <select name="sex" required>
+                            <select className='sex' name="sex" required>
                                 <option selected disabled hidden>Sexo</option>
                                 <option value="Masculino">Masculino</option>
                                 <option value="Femenino">Femenino</option>

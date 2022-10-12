@@ -139,7 +139,7 @@ input.input-signup:focus {
     border: 2px solid var(--quaternary-color);
 }
 
-select {
+select.sex {
     cursor: pointer;
     font-size: 1.5rem;
     border: 3px solid var(--primary-color);
@@ -156,18 +156,18 @@ select {
     /* background: url("/uploads/media/default/0001/02/f7b4d3d2ba3fe1d8518e6e63d7740e1e73921abf.png") 96% / 15% no-repeat #eee; */
 }
 
-select:focus/* , select:active */ {
+select.sex:focus/* , select:active */ {
     outline: none;
     /* box-shadow: none; */
     border: 1px solid var(--quaternary-color);
 }
 
-select:focus-visible {
+select.sex:focus-visible {
     /* outline: 5px solid green; */
     border: 1px solid var(--secondary-color);
 }
 
-select:has(option:checked)/* :is(:not(first-child)) */ {
+select.sex:has(option:checked)/* :is(:not(first-child)) */ {
     border: 1px solid var(--secondary-color);
 }
 

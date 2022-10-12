@@ -32,13 +32,18 @@ const Navbar = () => {
         <>
             <nav className="Navbar">
                 <ul className="Navbar-container">
+                <li className="Navbar-item">
+                        <NavLink to="/bamx/pagina-principal">
+                            Menu
+                        </NavLink>
+                    </li>
                     <li className="Navbar-item">
                         <NavLink to="/bamx/pagina-principal">
                             <img src={logo} alt="logo" className="Navbar-logo"/>
                         </NavLink>
                     </li>
                     <li className="Navbar-item">
-                        {/* <span>{user.firstName} {user.lastName}</span> */}
+                        <span>{user.firstName} {user.lastName}</span>
                     </li>
                     <li className="Navbar-item">
                         <NavLink to="/bamx/pagina-principal" className="Navbar-link" onClick={() => setShowMenu(!showMenu)}><FontAwesomeIcon icon={faCaretDown} className="Navbar-icon"/></NavLink>
