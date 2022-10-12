@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    background-color: transparent;
+    flex-direction: row; 
+    justify-content: space-evenly;
+    align-self: center;
+    flex-basis: content; 
+}
+.box {
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-evenly;
+    align-items:  flex-start;
+    flex-basis: content; 
+}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import TextHeader from '../../components/TextHeader';
 import PieChart from "../../components/PieChart";
+import '../../styles/ChartContainer.css'
 import url from '../../config/API';
 
 //Configuration and default data----------
@@ -11,7 +12,7 @@ const chartOptions1 = {
     responsive: true,
     plugins: {
         legend: {
-        position: 'top',
+            position: 'top',
         },
         title: {
         display: true,
@@ -654,36 +655,46 @@ function Charts() {
     return (
         <>
             <TextHeader text="Gráficas" />
-            <div style={{ width: 400 }}>
-                <PieChart chartData={chartData1} chartOptions={chartOptions1}/>
+            <div class="container">
+                <div class="box">
+                    <div style={{ width: 400 }}>
+                        <PieChart chartData={chartData1} chartOptions={chartOptions1}/>
+                    </div>
+                    <div style={{ width: 400 }}>
+                        <PieChart chartData={chartData3} chartOptions={chartOptions3}/>
+                    </div>
+                    <div style={{ width: 400 }}>
+                        <PieChart chartData={chartData5} chartOptions={chartOptions5}/>
+                    </div>
+                    
+                    <div style={{ width: 400 }}>
+                        <PieChart chartData={chartData7} chartOptions={chartOptions7}/>
+                    </div>
+                    <div style={{ width: 400}} >
+                        <PieChart chartData={chartData9} chartOptions={chartOptions9}/>
+                    </div>
+                </div>
+                <div class="box">
+                    <div style={{ width: 400 }}>
+                        <PieChart chartData={chartData2} chartOptions={chartOptions2}/>
+                    </div>
+                    <div style={{ width: 400 }}>
+                        <br/>
+                        <PieChart chartData={chartData4} chartOptions={chartOptions4}/>
+                    </div>
+                    <div style={{ width: 400 }}>
+                        <PieChart chartData={chartData6} chartOptions={chartOptions6}/>
+                    </div>
+                    <div style={{ width: 400 }}>
+                        <PieChart chartData={chartData8} chartOptions={chartOptions8}/>
+                    </div>
+                    <div style={{ width: 400 }}>
+                        <PieChart chartData={chartData10} chartOptions={chartOptions10}/>
+                    </div>
+                </div>
             </div>
-            <div style={{ width: 400 }}>
-                <PieChart chartData={chartData2} chartOptions={chartOptions2}/>
-            </div>
-            <div style={{ width: 400 }}>
-                <PieChart chartData={chartData3} chartOptions={chartOptions3}/>
-            </div>
-            <div style={{ width: 400 }}>
-                <PieChart chartData={chartData4} chartOptions={chartOptions4}/>
-            </div>
-            <div style={{ width: 400 }}>
-                <PieChart chartData={chartData5} chartOptions={chartOptions5}/>
-            </div>
-            <div style={{ width: 400 }}>
-                <PieChart chartData={chartData6} chartOptions={chartOptions6}/>
-            </div>
-            <div style={{ width: 400 }}>
-                <PieChart chartData={chartData7} chartOptions={chartOptions7}/>
-            </div>
-            <div style={{ width: 400 }}>
-                <PieChart chartData={chartData8} chartOptions={chartOptions8}/>
-            </div>
-            <div style={{ width: 400 }}>
-                <PieChart chartData={chartData9} chartOptions={chartOptions9}/>
-            </div>
-            <div style={{ width: 400 }}>
-                <PieChart chartData={chartData10} chartOptions={chartOptions10}/>
-            </div>
+            
+            
         </>
     );
 }
