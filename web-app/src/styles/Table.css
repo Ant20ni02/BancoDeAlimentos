@@ -46,8 +46,13 @@ th, td {
     border-bottom: 1px solid hsl(0, 0%, 87%);
 } */
 
+/* tbody tr:nth-child(odd) {
+    background-color: white;
+    color: hsl(0, 0%, 0%);
+} */
+
 tbody tr:nth-child(even) {
-    background-color: hsl(0, 0%, 97%);
+    background-color: white;
     color: hsl(0, 0%, 0%);
 }
 
