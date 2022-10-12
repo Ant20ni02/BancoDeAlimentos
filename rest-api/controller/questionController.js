@@ -79,10 +79,10 @@ module.exports.getFrequency = (req,res) =>{
     })
 }
 
-module.exports.getQuantity = (req,res) =>{
+module.exports.getFoodQuantity = (req,res) =>{
     const systemType = req.params.systemType;
     
-    const query1 = `SELECT SUBSTRING(answer,3,2) AS food, SUBSTRING(answer,8) AS quantity FROM Question WHERE ((idQuestion = 11) AND ((SUBSTRING(answer,1,1 ) = ?  )));`;
+    const query1 = `SELECT SUBSTRING(answer,3,2) AS food, SUBSTRING(answer,8) AS quantity FROM Question WHERE ((idQuestion = 11) AND ((SUBSTRING(answer,1,1 ) = ?  )))`;
 
     conexion.query(query1,[systemType],(error,results,fields)=>{
         if(error)
@@ -96,6 +96,33 @@ module.exports.getQuantity = (req,res) =>{
             else{
                 res.json({
                     "mensaje" : "Tipo de sistema métrico incorrecto"
+                })
+            }
+        }
+    })
+}
+
+module.exports.getFoodFrequency = (req,res) =>{
+    let foodNumber = req.params.foodNumber;
+    
+    const query1 = `SELECT SUBSTRING(answer,6,1) AS answer, COUNT(*) AS freq FROM Question WHERE ((idQuestion = 11) AND ((SUBSTRING(answer,3,2 ) = ?  ))) GROUP BY answer`;
+    
+    if(foodNumber.length==1){
+       foodNumber = '0'+foodNumber
+    }
+
+    conexion.query(query1,[foodNumber],(error,results,fields)=>{
+        if(error)
+            res.send(error)
+        else{
+            //console.log(results)
+            if(results[0]!=undefined){
+                //console.log(results);
+                res.json(results)
+            }
+            else{
+                res.json({
+                    "mensaje" : "Alimento proporcionado incorrecto"
                 })
             }
         }
