@@ -94,17 +94,17 @@ module.exports.idFamilyExists = (req,res) =>{
     
     const idFamily = req.params.idFamily;
     const query = `SELECT idFamily from Family WHERE idFamily = ?`
-    let exist = false;
+    let exist = "false";
 
     conexion.query(query,[idFamily], (error,results,fields)=>{
         if(error)
             res.send(error)
         else{
             if(results[0]!=undefined){
-                exist = true;
+                exist = "true";
             }
             
-            res.json(exist);
+            res.json({exist});
 
 
         }
