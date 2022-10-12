@@ -1,0 +1,66 @@
+.volunteer-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: max-content;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    outline: solid var(--details);
+    transition: all 0.2s ease-in-out;
+}
+
+.volunteer-card:hover {
+    transform: scale(1.02);
+}
+
+.volunteer-card-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+div.volunteer-card-info span {
+    font-weight: 500;
+}
+
+input.toggle-status[type="checkbox"] {
+    position: absolute;
+    visibility: hidden;
+    left: -9999;
+    top: -9999;
+}
+
+label.toggle-status {
+    position: relative;
+    display: inline-block;
+    width: 4rem;
+    height: 2rem;
+    background-color: var(--tertiary-color);
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+label.toggle-status::after {
+    content: "";
+    position: absolute;
+    top: 0.2rem;
+    left: 0.2rem;
+    width: 1.6rem;
+    height: 1.6rem;
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 1rem;
+    transition: all 0.2s ease-in-out;
+}
+
+input.toggle-status[type="checkbox"]:checked + label.toggle-status::after {
+    left: 2rem;
+    background-color: hsl(0, 0%, 100%);
+}
+
+input.toggle-status[type="checkbox"]:checked + label.toggle-status {
+    background-color: var(--secondary-color);
+}
