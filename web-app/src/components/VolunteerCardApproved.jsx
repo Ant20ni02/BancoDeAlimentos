@@ -14,12 +14,13 @@ const VolunteerCard = ({ volunteer }) => {
     const handleStatus = () => {
 		setActive(!active);
 		if (active) {
-			setShowModalDisable(true);
+            setShowModalActive(true);
             changeStatus();
             setVisible("hidden");
 		} else {
-			setShowModalActive(true);
-            changeStatus();
+            setShowModalDisable(true);
+			changeStatus();
+            setVisible("visible");
 		}
 	};
 
@@ -32,8 +33,8 @@ const VolunteerCard = ({ volunteer }) => {
     }
 
     return (
-        <div style={{visibility: visible}}>
-            <div className="volunteer-card">
+        <div>
+            <div style={{visibility: visible}} className="volunteer-card">
                 {/* <img src={volunteer.image} alt={volunteer.name} /> */}
                     <div className="volunteer-card-info">
                         <h2>{volunteer.firstName} {volunteer.lastName}</h2>

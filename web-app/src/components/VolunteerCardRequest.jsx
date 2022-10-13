@@ -3,9 +3,10 @@ import '../styles/VolunteerCardRequest.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import PortalModal from '../components/PortalModal';
+import url from '../config/API';
 
 const VolunteerCardRequest = ({ volunteer}) => {
-	const [request, setRequest] = useState(true);
+    const [visible, setVisible]= useState("visible");
 
     const [showModalDecline, setShowModalDecline] = useState(false);
 	const [showModalApprove, setShowModalApprove] = useState(false);
@@ -13,15 +14,35 @@ const VolunteerCardRequest = ({ volunteer}) => {
     /** @note remove request */
     const handleDecline = () => {
 		setShowModalDecline(true);
+        deleteUser();
+        setVisible("hidden");
     }
 
     const handleApprove = () => {
-		setShowModalApprove(true);
+        setShowModalApprove(true);
+        changeStatus();
+        setVisible("hidden");
+    }
+
+    const changeStatus = async (e) => {
+    
+        const response = await fetch(url+`changeActiveStatus/${volunteer.idUser}`,{method: 'PUT',
+                                headers: {'x-access-token' : localStorage.getItem('token')} });
+        const data = await response.json();
+        console.log(data.mensaje);
+    }
+
+    const deleteUser = async (e) => {
+    
+        const response = await fetch(url+`deleteUser/${volunteer.idUser}`,{method: 'DELETE',
+                                headers: {'x-access-token' : localStorage.getItem('token')} });
+        const data = await response.json();
+        console.log(data.mensaje);
     }
 
     return (
-        <>
-            <div className="volunteer-card">
+        <div>
+            <div style={{visibility: visible}} className="volunteer-card">
                 {/* <img src={volunteer.image} alt={volunteer.name} /> */}
                     <div className="volunteer-card-info">
                         <h2>{volunteer.firstName} {volunteer.lastName}</h2>
@@ -40,7 +61,7 @@ const VolunteerCardRequest = ({ volunteer}) => {
 			<PortalModal onShow={showModalApprove} onClose={() => setShowModalApprove(false)} title="¡Solicitud aceptada exitosamente!">
 				<p>La solicitud del <u>voluntario</u> fue <b>aceptada</b> exitosamente.</p>
 			</PortalModal>
-        </>
+        </div>
     );
 }
 
