@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import TextHeader from '../../components/TextHeader';
 import PieChart from "../../components/PieChart";
+import PieChartFrequency from "../../components/PieChartFrequency";
+import BarChartQuantity from "../../components/BarChartQuantity";
 import '../../styles/ChartContainer.css'
+import { Tab, Tabs } from '@mui/material';
 import url from '../../config/API';
 
 //Configuration and default data----------
@@ -271,6 +274,8 @@ function Charts() {
             }
         ]
     });
+
+    const [selectedTab, setSelectedTab] = useState(0);
 
     const getDataQuestion1 = async (e) => {
         
@@ -612,6 +617,10 @@ function Charts() {
         })
     }
 
+    const handleChange = (event, newValue) =>{
+        setSelectedTab(newValue);
+    };
+
     useEffect(() => {
         getDataQuestion1();
       }, []);
@@ -655,8 +664,8 @@ function Charts() {
     return (
         <>
             <TextHeader text="Gráficas" />
-            <div class="container">
-                <div class="box">
+            <div className="containerChart">
+                <div className="box">
                     <div style={{ width: 400 }}>
                         <PieChart chartData={chartData1} chartOptions={chartOptions1}/>
                     </div>
@@ -674,7 +683,7 @@ function Charts() {
                         <PieChart chartData={chartData9} chartOptions={chartOptions9}/>
                     </div>
                 </div>
-                <div class="box">
+                <div className="box">
                     <div style={{ width: 400 }}>
                         <PieChart chartData={chartData2} chartOptions={chartOptions2}/>
                     </div>
@@ -693,8 +702,12 @@ function Charts() {
                     </div>
                 </div>
             </div>
-            
-            
+            <Tabs value={selectedTab} onChange={handleChange} textColor="inherit" indicatorColor="secondary" centered>
+                <Tab label="Cantidad" />
+                <Tab label="Frecuencia" />
+            </Tabs>
+            {selectedTab === 0 && <BarChartQuantity/> }
+            {selectedTab === 1 && <div>xd</div> } 
         </>
     );
 }
