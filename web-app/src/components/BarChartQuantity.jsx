@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 import url from '../config/API';
+import '../styles/ChartContainer.css'
 
 function BarChartQuantity() {
 
@@ -91,7 +92,7 @@ function BarChartQuantity() {
     const response = await fetch(url+`getFoodQuantity/${foodType}`,{method: 'GET',
                             headers: {'x-access-token' : localStorage.getItem('token')} });
     const data = await response.json();
-    //console.log(value);
+
     let answer = [];
     if(foodType === 'b'){
       answer = ['Carne de res', 'Carne de cerdo', 'Arroz', 'Verduras crudas o cocidas', 'Frutas enteras', 'Frijol, lenteja o garbanzo', 'Nuez, cacahuate, pistaches'];
@@ -140,13 +141,22 @@ useEffect(() => {
 
   return(
     <>
-      <label>Elija el sistema métrico de los alimentos a visualizar: </label>
+      <label>Elija el sistema métrico de los alimentos a visualizar:  </label>
         <select value={value} onChange={handleChange}>
           <option value="a">Mililitro</option>
           <option value="b">Gramo</option>
           <option value="c">Pieza</option>
         </select>
-      <Bar data={chartData} options={chartOptions} />
+        <div className="containerChart">
+          <div style={{ width: "80%" }}>
+            <Bar data={chartData} options={chartOptions} />
+          </div>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
     </>
     
   );

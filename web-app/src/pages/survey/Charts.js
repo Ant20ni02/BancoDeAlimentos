@@ -4,7 +4,7 @@ import PieChart from "../../components/PieChart";
 import PieChartFrequency from "../../components/PieChartFrequency";
 import BarChartQuantity from "../../components/BarChartQuantity";
 import '../../styles/ChartContainer.css'
-import { Tab, Tabs } from '@mui/material';
+import { Tab, Tabs, Box } from '@mui/material';
 import url from '../../config/API';
 
 //Configuration and default data----------
@@ -702,12 +702,14 @@ function Charts() {
                     </div>
                 </div>
             </div>
-            <Tabs value={selectedTab} onChange={handleChange} textColor="inherit" indicatorColor="secondary" centered>
-                <Tab label="Cantidad" />
-                <Tab label="Frecuencia" />
-            </Tabs>
+            <Box sx={{ borderBottom: 2, borderColor: 'divider' }}>
+                <Tabs value={selectedTab} onChange={handleChange} textColor="inherit" indicatorColor="secondary" centered>
+                    <Tab label="Cantidad" />
+                    <Tab label="Frecuencia" />
+                </Tabs>
+            </Box>
             {selectedTab === 0 && <BarChartQuantity/> }
-            {selectedTab === 1 && <div>xd</div> } 
+            {selectedTab === 1 && <PieChartFrequency/> } 
         </>
     );
 }
