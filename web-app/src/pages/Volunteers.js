@@ -1,67 +1,78 @@
+import React, { useEffect, useState } from "react";
 import TextHeader from '../components/TextHeader';
 import '../styles/Volunteers.css';
+import url from '../config/API';
 import VolunteerCardRequest from '../components/VolunteerCardRequest';
 import VolunteerCardApproved from '../components/VolunteerCardApproved';
-import volunteersRequest from '../data/volunteers-request';
-import volunteersApproved from '../data/volunteers-approved';
+//import volunteersRequest from '../data/volunteers-request';
+//import volunteersApproved from '../data/volunteers-approved';
 
 function Volunteers() {
-	/* const [user, setUser] = useState({
+	const [value, setValue] = useState('approved');
+	const [user, setUser] = useState({
+        age: 0,
+        email: "No hay datos",
+        firstName: "No hay datos",
         idUser: 0,
-		firstName: "",
-		lastName: "",
-		"email": "cool@gmail.zom",
-		age: 0,
-		sex: "",
-		phoneNumber: "",
-		isActive: 0
+        isActive: 0,
+        lastName: "No hay datos",
+        password_: "No hay datos",
+        phoneNumber: "No hay datos",
+        sex: "f",
     });
 
-    useEffect(()=>{
-        getVolunteers();
-    }, []);
+	
 
-    const getVolunteers = async (e) => {
+	const handleChange = (event) => {
+		setValue(event.target.value);
+
+		if(event.target.value === 'approved'){
+			getActive();
+		}
+		else{
+			getInactive();
+		}
+		console.log(user);
+
+	};
+	
+
+	const getActive = async (e) => {
     
-        const response = await fetch(url+'getVolunteers',{method: 'GET',
+        const response = await fetch(url+`getActiveVolunteers`,{method: 'GET',
                                 headers: {'x-access-token' : localStorage.getItem('token')} });
         const data = await response.json();
-        setSurveys(data);
-    } */
+        setUser(data);
+    }
 
-	/* const displayApproved = () => {
-		setActive(true);
-	}; */
+	const getInactive = async (e) => {
+    
+        const response = await fetch(url+`getInactiveVolunteers`,{method: 'GET',
+                                headers: {'x-access-token' : localStorage.getItem('token')} });
+        const data = await response.json();
+        setUser(data);
+    }
 
-	/* const displayRequest = () => {
-		setRequest(true); */
-		/* if (!active) {
-			
-		}   */
-	/* }; */
+	useEffect(() => {
+		getActive();
+	  }, []);
 
 	return (
     	<>
       		<TextHeader text="Voluntarios" />
 			<div className='Filter'>
-				<select className='Sort'>
-					<option selected disabled hidden>Filtrar</option>
-					<option value="approved" /* onClick={displayApproved} */>Aceptados</option>
-					<option value="request" /* onClick={displayRequest} */>Solicitudes</option>
+				<select value={value} onChange={handleChange} className='Sort'>
+					<option value="approved">Aceptados</option>
+					<option value="request">Solicitudes</option>
 				</select>
 			</div>
       		<div className="Volunteers">
-				{
-					volunteersRequest.map((volunteer) => (
-						<VolunteerCardRequest volunteer={volunteer} />
-					))
-				}
-
-				{
-					volunteersApproved.map((volunteer) => (
+			  	{/*value === "approved" && user.map((volunteer) => (
 						<VolunteerCardApproved volunteer={volunteer} />
-					))
-				}
+					)) }
+            	{value === "request" && user.map((volunteer) => (
+						<VolunteerCardRequest volunteer={volunteer} />
+				)) */}
       		</div>
     	</>
   	);
