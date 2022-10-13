@@ -116,3 +116,16 @@ module.exports.getInactiveVolunteers = (req,res) =>{
     })
 
 }
+
+module.exports.deleteUser = (req,res) =>{
+    const idUser = req.params.idUser;
+    const sql = `DELETE FROM User_ WHERE idUser = ?`
+
+    conexion.query(sql, [idUser],(error,results,fields)=>{
+        if(error)
+            res.send(error)
+        else{
+            res.json(results)
+        }
+    })
+}

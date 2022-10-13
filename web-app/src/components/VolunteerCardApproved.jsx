@@ -4,7 +4,8 @@ import url from '../config/API';
 import PortalModal from '../components/PortalModal';
 
 const VolunteerCard = ({ volunteer }) => {
-	const [active, setActive] = useState(false);
+	const [active, setActive] = useState(true);
+    const [visible, setVisible]= useState("visible")
 	const id = useId();
 
     const [showModalActive, setShowModalActive] = useState(false);
@@ -13,14 +14,25 @@ const VolunteerCard = ({ volunteer }) => {
     const handleStatus = () => {
 		setActive(!active);
 		if (active) {
-			setShowModalActive(true);
-		} else {
 			setShowModalDisable(true);
+            changeStatus();
+            setVisible("hidden");
+		} else {
+			setShowModalActive(true);
+            changeStatus();
 		}
 	};
 
+    const changeStatus = async (e) => {
+    
+        const response = await fetch(url+`changeActiveStatus/${volunteer.idUser}`,{method: 'PUT',
+                                headers: {'x-access-token' : localStorage.getItem('token')} });
+        const data = await response.json();
+        console.log(data.mensaje);
+    }
+
     return (
-        <>
+        <div style={{visibility: visible}}>
             <div className="volunteer-card">
                 {/* <img src={volunteer.image} alt={volunteer.name} /> */}
                     <div className="volunteer-card-info">
@@ -43,7 +55,7 @@ const VolunteerCard = ({ volunteer }) => {
 			<PortalModal onShow={showModalDisable} onClose={() => setShowModalDisable(false)} title="¡Voluntario fue activado exitosamente!">
 				<p>El <u>voluntario</u> fue <b>activado</b> exitosamente.</p>
 			</PortalModal> 
-        </>
+        </div>
     );
 }
 

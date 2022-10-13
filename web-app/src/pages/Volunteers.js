@@ -69,11 +69,11 @@ function Volunteers() {
 				</select>
 			</div>
       		<div className="Volunteers">
-			  	{value === "approved" && Object.entries(user).map(([key, { firstName, lastName, email, age, sex, phoneNumber}]) => (
-					<VolunteerCardApproved volunteer={{firstName: firstName, lastName: lastName, email: email, age: age, sex: sex, phoneNumber: phoneNumber}}/>
+			  	{value === "approved" && Object.entries(user).map(([key, { firstName, lastName, email, age, sex, phoneNumber, idUser}]) => (
+					<VolunteerCardApproved volunteer={{firstName: firstName, lastName: lastName, email: email, age: age, sex: sex, phoneNumber: phoneNumber, idUser: idUser}}/>
 				))}
-				{value === "request" && Object.entries(user).map(([key, { firstName, lastName, email, age, sex, phoneNumber}]) => (
-					<VolunteerCardRequest volunteer={{firstName: firstName, lastName: lastName, email: email, age: age, sex: sex, phoneNumber: phoneNumber}}/>
+				{value === "request" && Object.entries(user).map(([key, { firstName, lastName, email, age, sex, phoneNumber, idUser}]) => (
+					<VolunteerCardRequest volunteer={{firstName: firstName, lastName: lastName, email: email, age: age, sex: sex, phoneNumber: phoneNumber, idUser: idUser}}/>
 				))}
       		</div>
     	</>
