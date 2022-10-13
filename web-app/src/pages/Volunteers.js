@@ -4,8 +4,8 @@ import '../styles/Volunteers.css';
 import url from '../config/API';
 import VolunteerCardRequest from '../components/VolunteerCardRequest';
 import VolunteerCardApproved from '../components/VolunteerCardApproved';
-//import volunteersRequest from '../data/volunteers-request';
-//import volunteersApproved from '../data/volunteers-approved';
+import volunteersRequest from '../data/volunteers-request';
+import volunteersApproved from "../data/volunteers-approved";
 
 function Volunteers() {
 	const [value, setValue] = useState('approved');
@@ -18,7 +18,7 @@ function Volunteers() {
         lastName: "No hay datos",
         password_: "No hay datos",
         phoneNumber: "No hay datos",
-        sex: "f",
+        sex: "N/A",
     });
 
 	
@@ -43,6 +43,7 @@ function Volunteers() {
                                 headers: {'x-access-token' : localStorage.getItem('token')} });
         const data = await response.json();
         setUser(data);
+		console.log(data);
     }
 
 	const getInactive = async (e) => {
@@ -51,6 +52,7 @@ function Volunteers() {
                                 headers: {'x-access-token' : localStorage.getItem('token')} });
         const data = await response.json();
         setUser(data);
+		console.log(data);
     }
 
 	useEffect(() => {
@@ -67,12 +69,12 @@ function Volunteers() {
 				</select>
 			</div>
       		<div className="Volunteers">
-			  	{/*value === "approved" && user.map((volunteer) => (
-						<VolunteerCardApproved volunteer={volunteer} />
-					)) }
-            	{value === "request" && user.map((volunteer) => (
-						<VolunteerCardRequest volunteer={volunteer} />
-				)) */}
+			  	{value === "approved" && Object.entries(user).map(([key, { firstName, lastName, email, age, sex, phoneNumber}]) => (
+					<VolunteerCardApproved volunteer={{firstName: firstName, lastName: lastName, email: email, age: age, sex: sex, phoneNumber: phoneNumber}}/>
+				))}
+				{value === "request" && Object.entries(user).map(([key, { firstName, lastName, email, age, sex, phoneNumber}]) => (
+					<VolunteerCardRequest volunteer={{firstName: firstName, lastName: lastName, email: email, age: age, sex: sex, phoneNumber: phoneNumber}}/>
+				))}
       		</div>
     	</>
   	);
