@@ -7,5 +7,7 @@ const middleware = require('../middleware/jwt-middleware');
 router.get('/getUsersData/:idUser', middleware, userController.getUsersData);
 router.put('/changeActiveStatus/:idUser', middleware, userController.changeUserStatus);
 router.get('/getAllVolunteers', middleware, userController.getAllVolunteers);
+router.get('/getActiveVolunteers', middleware, userController.getActiveVolunteers);
+router.get('/getInactiveVolunteers', middleware, userController.getInactiveVolunteers);
 
 module.exports = router;

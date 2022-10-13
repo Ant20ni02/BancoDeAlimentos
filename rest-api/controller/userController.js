@@ -88,3 +88,31 @@ module.exports.getAllVolunteers = (req,res) =>{
     })
 
 }
+
+module.exports.getActiveVolunteers = (req,res) =>{
+    const sql = `SELECT * FROM User_ WHERE ((userType = "Voluntario") AND (isActive = 1))`
+
+    conexion.query(sql,(error,results,fields)=>{
+        if(error)
+            res.send(error)
+        else{
+            res.json(results)
+        }
+
+    })
+
+}
+
+module.exports.getInactiveVolunteers = (req,res) =>{
+    const sql = `SELECT * FROM User_ WHERE ((userType = "Voluntario") AND (isActive = 0))`
+
+    conexion.query(sql,(error,results,fields)=>{
+        if(error)
+            res.send(error)
+        else{
+            res.json(results)
+        }
+
+    })
+
+}
