@@ -128,3 +128,28 @@ module.exports.getFoodFrequency = (req,res) =>{
         }
     })
 }
+
+module.exports.getAnswerByIdQuestion = (req,res) =>{
+    const idSurvey = req.params.idSurvey;
+    const idQuestion = req.params.idQuestion;
+    //console.log(idSurvey, idQuestion)
+    
+    const sql = `SELECT * FROM Question WHERE ((idSurvey = ?) AND (idQuestion = ?))`;
+    
+    conexion.query(sql,[idSurvey, idQuestion],(error,results,fields)=>{
+        if(error)
+            res.send(error)
+        else{
+            //console.log(results)
+            if(results[0]!=undefined){
+                //console.log(results);
+                res.json(results);
+            }
+            else{
+                res.json({
+                    "mensaje" : "Id de encuesta o idPregunta incorrecto"
+                })
+            }
+        }
+    })
+}

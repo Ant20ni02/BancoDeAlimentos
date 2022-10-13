@@ -9,5 +9,6 @@ router.get('/getAllAnswers/:idQuestion', middleware,questionController.getAllAns
 router.get('/getFrequency/:idQuestion', middleware, questionController.getFrequency);
 router.get('/getFoodQuantity/:systemType', middleware, questionController.getFoodQuantity);
 router.get('/getFoodFrequency/:foodNumber', middleware, questionController.getFoodFrequency);
+router.get('/getAnswerByIdQuestion/:idSurvey/:idQuestion', middleware,questionController.getAnswerByIdQuestion);
 
 module.exports = router;
