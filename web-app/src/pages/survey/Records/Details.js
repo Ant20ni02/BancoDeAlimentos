@@ -26,11 +26,15 @@ function Details() {
 
     const [question2, setQuestion2] = useState({
         id: 2,
-        question: "¿En qué rango de edad se encuentra cada uno de ellos y cuántos son?",
+        question: "Pregunta 2: ¿En qué rango de edad se encuentra cada uno de ellos y cuántos son?",
         options: [],
     });
 
-    
+    const [question3, setQuestion3] = useState({
+        id: 2,
+        question: "Pregunta 3: ¿En su familia alguien presenta alguna de las siguientes enfermedades? Seleccionar cuál(es)?",
+        options: [],
+    });
 
     /*----------------------------------------------------------------------------------------------------------*/ 
 
@@ -60,7 +64,6 @@ function Details() {
                                 headers: {'x-access-token' : localStorage.getItem('token')} });
         const data = await response.json();
         const ans = data[0].answer;
-        console.log(ans);
         let value = [false, false, false, false, false];
         let input = ["","","","",""];
         let control = 0;
@@ -95,7 +98,7 @@ function Details() {
 
         setQuestion2({
             id: 2,
-            question: "¿En qué rango de edad se encuentra cada uno de ellos y cuántos son?",
+            question: "Pregunta 2: ¿En qué rango de edad se encuentra cada uno de ellos y cuántos son?",
             options: [
                 {
                     id: 1,
@@ -133,7 +136,72 @@ function Details() {
                     input: input[4]
                 },
             ],
-    });
+        });
+    };
+
+    const getQuestion3 = async (e) => {
+    
+        const response = await fetch(url+`getEnfermedadesById/${idSurvey}`,{method: 'GET',
+                                headers: {'x-access-token' : localStorage.getItem('token')} });
+        const data = await response.json();
+        let value = [false, false, false, false];
+        let input = ["","","",""];
+        let newMedicalCondition = 'Otro'
+        for (const dataObj of data){
+            let ans = dataObj.medicalConditionName;
+            if(ans === 'Diabetes'){
+                value[0] = true;
+                input[0] = dataObj.medicalConditionNumber.toString()
+            }
+            else if(ans === 'Hipertensión'){
+                value[1] = true;
+                input[1] = dataObj.medicalConditionNumber.toString()
+            }
+            else if(ans === 'Obesidad'){
+                value[2] = true;
+                input[2] = dataObj.medicalConditionNumber.toString()
+            }
+            else{
+                newMedicalCondition = ans;
+                value[3] = true;
+                input[3] = dataObj.medicalConditionNumber.toString()
+            }
+        }
+
+        setQuestion3({
+            id: 3,
+            question: "Pregunta 2: ¿En qué rango de edad se encuentra cada uno de ellos y cuántos son?",
+            options: [
+                {
+                    id: 1,
+                    option: "Diabetes",
+                    value: value[0],
+                    label: "Diabetes",
+                    input: input[0]
+                },
+                {
+                    id: 2,
+                    option: "Hipertensión",
+                    value: value[1],
+                    label: "Hipertensión",
+                    input: input[1]
+                },
+                {
+                    id: 3,
+                    option: "Obesidad",
+                    value: value[2],
+                    label: "Obesidad",
+                    input: input[2]
+                },
+                {
+                    id: 4,
+                    option: newMedicalCondition,
+                    value: value[3],
+                    label: newMedicalCondition,
+                    input: input[3]
+                },
+            ],
+        });
     };
 
     /*----------------------------------------------------------------------------------------------------------*/ 
@@ -149,6 +217,10 @@ function Details() {
     useEffect(() => {
     getQuestion2();
     }, []);
+
+    useEffect(() => {
+        getQuestion3();
+        }, []);
 
     /*----------------------------------------------------------------------------------------------------------*/ 
 
@@ -166,6 +238,7 @@ function Details() {
 
             <TextQuestion question={question1}/>
             <CheckboxQuestion question={question2} />
+            <CheckboxQuestion question={question3} />
 
 
         </div>

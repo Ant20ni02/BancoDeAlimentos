@@ -130,3 +130,36 @@ module.exports.getFamilyById = (req,res) =>{
     })
 
 }
+
+module.exports.getEnfermedadesById = (req,res) =>{
+    const idSurvey = req.params.idSurvey;
+    const sql = `SELECT m.medicalConditionName, m.medicalConditionNumber FROM MedicalCondition m JOIN Survey s ON m.idFamily = s.idFamily WHERE idSurvey= ?  `;
+
+    conexion.query(sql, [idSurvey], (error,results,fields) =>{
+        if(error)
+            res.send(error)
+        else{
+            res.json(
+                results
+            )
+        }
+    })
+
+}
+
+module.exports.getPregnancyById = (req,res) =>{
+    const idSurvey = req.params.idSurvey;
+    const sql = `SELECT f.pregnancy FROM Family f JOIN Survey s ON f.idFamily = s.idFamily WHERE idSurvey= ?`;
+
+    conexion.query(sql, [idSurvey], (error,results,fields)=>{
+        if(error)
+            res.send(error)
+        else{
+            res.json(results[0])
+        }
+
+
+    })
+
+
+}

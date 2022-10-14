@@ -200,3 +200,5 @@ select * from MedicalCondition;
 -- SELECT * FROM User_ WHERE ((userType = "Voluntario") AND (isActive = 1));
 -- SELECT * FROM Question WHERE ((idSurvey = 2) AND (idQuestion = 1))
 -- SELECT s.idFamily, s.idSurvey, s.latitude, s.longitude, familyLastName, date_ FROM Survey s JOIN Family f ON s.idFamily = f.idFamily WHERE idSurvey=2; 
+-- SELECT m.medicalConditionName, m.medicalConditionNumber FROM MedicalCondition m JOIN Survey s ON m.idFamily = s.idFamily WHERE idSurvey= 4;
+-- SELECT f.pregnancy FROM Family f JOIN Survey s ON f.idFamily = s.idFamily WHERE idSurvey= 3;
