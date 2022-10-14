@@ -202,3 +202,4 @@ select * from MedicalCondition;
 -- SELECT s.idFamily, s.idSurvey, s.latitude, s.longitude, familyLastName, date_ FROM Survey s JOIN Family f ON s.idFamily = f.idFamily WHERE idSurvey=2; 
 -- SELECT m.medicalConditionName, m.medicalConditionNumber FROM MedicalCondition m JOIN Survey s ON m.idFamily = s.idFamily WHERE idSurvey= 4;
 -- SELECT f.pregnancy FROM Family f JOIN Survey s ON f.idFamily = s.idFamily WHERE idSurvey= 3;
+SELECT SUBSTRING(answer,6,1) AS freq, SUBSTRING(answer,8) AS quantity FROM Question WHERE ((idQuestion = 11) AND (idSurvey= 1) AND ((SUBSTRING(answer,3,2 ) = '11')))

@@ -153,3 +153,29 @@ module.exports.getAnswerByIdQuestion = (req,res) =>{
         }
     })
 }
+
+module.exports.getFrequencyQuantityById = (req,res) =>{
+    const idSurvey = req.params.idSurvey;
+    let foodNumber = req.params.foodNumber;    
+    const sql = `SELECT SUBSTRING(answer,6,1) AS freq, SUBSTRING(answer,8) AS quantity FROM Question WHERE ((idQuestion = 11) AND (idSurvey = ?  ) AND ((SUBSTRING(answer,3,2 ) = ?  )))`;
+    if(foodNumber.length==1){
+        foodNumber = '0'+foodNumber
+     }
+
+    conexion.query(sql,[idSurvey, foodNumber],(error,results,fields)=>{
+        if(error)
+            res.send(error)
+        else{
+            //console.log(results)
+            if(results[0]!=undefined){
+                //console.log(results);
+                res.json(results[0]);
+            }
+            else{
+                res.json({
+                    "mensaje" : "Id de encuesta o alimento incorrecto"
+                })
+            }
+        }
+    })
+}
