@@ -48,6 +48,12 @@ function Details() {
         options: [],
     });
 
+    const [question6, setQuestion6] = useState({
+        id: 6,
+        question: "Pregunta 6: ¿Usted o alguien de su familia está dando lactancia materna?",
+        options: [],
+    });
+
     /*----------------------------------------------------------------------------------------------------------*/ 
 
     const getSurveyData = async (e) => {
@@ -294,6 +300,42 @@ function Details() {
         });
     };
 
+    const getQuestion6 = async (e) => {
+    
+        const response = await fetch(url+`getAnswerByIdQuestion/${idSurvey}/${6}`,{method: 'GET',
+                                headers: {'x-access-token' : localStorage.getItem('token')} });
+        const data = await response.json();
+        const answer = data[0].answer;
+        let value = [false, false];
+        if(answer === 'Sí'){
+            value[0] = true;
+        }
+        else{
+            value[1] = true;
+        }
+
+        setQuestion6({
+            id: 6,
+            question: "Pregunta 6: ¿Usted o alguien de su familia está dando lactancia materna?",
+            options: [
+                {
+                    id: 1,
+                    option: "Sí",
+                    value: value[0],
+                    label: "Sí",
+                    input: ""
+                },
+                {
+                    id: 2,
+                    option: "No",
+                    value: value[1],
+                    label: "No",
+                    input: ""
+                },
+            ],
+        });
+    };
+
     /*----------------------------------------------------------------------------------------------------------*/ 
 
     useEffect(() => {
@@ -320,6 +362,10 @@ function Details() {
         getQuestion5();
         }, []);
 
+    useEffect(() => {
+        getQuestion6();
+        }, []);
+
     /*----------------------------------------------------------------------------------------------------------*/ 
 
     return (
@@ -339,6 +385,7 @@ function Details() {
             <CheckboxQuestion question={question3} />
             <CheckboxQuestion question={question4} />
             <CheckboxQuestion question={question5} />
+            <CheckboxQuestion question={question6} />
         </div>
     );
 }
