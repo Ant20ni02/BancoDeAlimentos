@@ -30,7 +30,7 @@ function AppRouter() {
                            {/*  <Route path="registros" element={<ProtectedRoute><Records /></ProtectedRoute>} /> */}
                         </Route>
                         <Route path="encuestas/registros" element={<ProtectedRoute><Records /></ProtectedRoute>} />
-                        <Route path="encuestas/registros/detalles" element={<ProtectedRoute><Details /></ProtectedRoute>} />
+                        <Route path={`encuestas/registros/detalles/:idSurvey`} element={<ProtectedRoute><Details /></ProtectedRoute>} />
                         <Route path="encuestas/graficas" element={<ProtectedRoute><Charts /></ProtectedRoute>} />
                         <Route path="voluntarios" element={<ProtectedRoute><Volunteers /></ProtectedRoute>} />
                     </Route>

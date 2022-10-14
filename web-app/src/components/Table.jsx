@@ -1,4 +1,4 @@
-/* import { Link } from react-DOMRectList; */
+import { Link } from 'react-router-dom';
 import '../styles/Table.css';
 
 const Table = ({ data, newSurveys }) => {
@@ -28,7 +28,7 @@ const Table = ({ data, newSurveys }) => {
                         <td>{date_}</td>
                         <td>{latitude}</td>
                         <td>{longitude}</td>
-                        <td>{/* <Link to={`/detalles?:${idSurvey}`}> */}{idSurvey}{/* </Link> */}</td>
+                        <td> <Link to={`encuestas/registros/detalles/${idSurvey}`}>{idSurvey} </Link></td>
                     </tr>
                 ))}
             </tbody>
