@@ -54,6 +54,12 @@ function Details() {
         options: [],
     });
 
+    const [question7, setQuestion7] = useState({
+        id: 7,
+        question: "Pregunta 7: ¿Cuántas comidas hace al día?",
+        options: [],
+    });
+
     /*----------------------------------------------------------------------------------------------------------*/ 
 
     const getSurveyData = async (e) => {
@@ -336,6 +342,42 @@ function Details() {
         });
     };
 
+    const getQuestion7 = async (e) => {
+    
+        const response = await fetch(url+`getAnswerByIdQuestion/${idSurvey}/${7}`,{method: 'GET',
+                                headers: {'x-access-token' : localStorage.getItem('token')} });
+        const data = await response.json();
+        const answer = data[0].answer;
+        let value = [false, false];
+        if(answer === 'De 1 a 2 comidas'){
+            value[0] = true;
+        }
+        else{
+            value[1] = true;
+        }
+
+        setQuestion7({
+            id: 7,
+            question: "Pregunta 7: ¿Cuántas comidas hace al día?",
+            options: [
+                {
+                    id: 1,
+                    option: "De 1 a 2 comidas",
+                    value: value[0],
+                    label: "De 1 a 2 comidas",
+                    input: ""
+                },
+                {
+                    id: 2,
+                    option: "De 3 a más comidas",
+                    value: value[1],
+                    label: "De 3 a más comidas",
+                    input: ""
+                },
+            ],
+        });
+    };
+
     /*----------------------------------------------------------------------------------------------------------*/ 
 
     useEffect(() => {
@@ -366,6 +408,10 @@ function Details() {
         getQuestion6();
         }, []);
 
+    useEffect(() => {
+        getQuestion7();
+        }, []);
+
     /*----------------------------------------------------------------------------------------------------------*/ 
 
     return (
@@ -386,6 +432,7 @@ function Details() {
             <CheckboxQuestion question={question4} />
             <CheckboxQuestion question={question5} />
             <CheckboxQuestion question={question6} />
+            <CheckboxQuestion question={question7} />
         </div>
     );
 }
