@@ -60,6 +60,24 @@ function Details() {
         options: [],
     });
 
+    const [question8, setQuestion8] = useState({
+        id: 8,
+        question: "Pregunta 8: ¿Se añade sal a las comidas ya preparadas?",
+        options: [],
+    });
+
+    const [question9, setQuestion9] = useState({
+        id: 9,
+        question: "Pregunta 9: ¿Cuál es el ingreso familiar mensual?",
+        options: [],
+    });
+
+    const [question10, setQuestion10] = useState({
+        id: 10,
+        question: "Pregunta 10: ¿Qué porcentaje es destinado a la alimentación?",
+        options: [],
+    });
+
     /*----------------------------------------------------------------------------------------------------------*/ 
 
     const getSurveyData = async (e) => {
@@ -378,6 +396,124 @@ function Details() {
         });
     };
 
+    const getQuestion8 = async (e) => {
+    
+        const response = await fetch(url+`getAnswerByIdQuestion/${idSurvey}/${8}`,{method: 'GET',
+                                headers: {'x-access-token' : localStorage.getItem('token')} });
+        const data = await response.json();
+        const answer = data[0].answer;
+        let value = [false, false];
+        if(answer === 'Sí'){
+            value[0] = true;
+        }
+        else{
+            value[1] = true;
+        }
+
+        setQuestion8({
+            id: 8,
+            question: "Pregunta 8: ¿Se añade sal a las comidas ya preparadas?",
+            options: [
+                {
+                    id: 1,
+                    option: "Sí",
+                    value: value[0],
+                    label: "Sí",
+                    input: ""
+                },
+                {
+                    id: 2,
+                    option: "No",
+                    value: value[1],
+                    label: "No",
+                    input: ""
+                },
+            ],
+        });
+    };
+
+    const getQuestion9 = async (e) => {
+    
+        const response = await fetch(url+`getAnswerByIdQuestion/${idSurvey}/${9}`,{method: 'GET',
+                                headers: {'x-access-token' : localStorage.getItem('token')} });
+        const data = await response.json();
+        const answer = data[0].answer;
+        let value = [false, false];
+        if(answer === 'Menos de $5,255 MXN'){
+            value[0] = true;
+        }
+        else{
+            value[1] = true;
+        }
+
+        setQuestion9({
+            id: 9,
+            question: "Pregunta 9: ¿Cuál es el ingreso familiar mensual?",
+            options: [
+                {
+                    id: 1,
+                    option: "Menos de $5,255 MXN",
+                    value: value[0],
+                    label: "Menos de $5,255 MXN",
+                    input: ""
+                },
+                {
+                    id: 2,
+                    option: "Más de $5,255 MXN",
+                    value: value[1],
+                    label: "Más de $5,255 MXN",
+                    input: ""
+                },
+            ],
+        });
+    };
+
+    const getQuestion10 = async (e) => {
+    
+        const response = await fetch(url+`getAnswerByIdQuestion/${idSurvey}/${10}`,{method: 'GET',
+                                headers: {'x-access-token' : localStorage.getItem('token')} });
+        const data = await response.json();
+        const answer = data[0].answer;
+        let value = [false, false, false];
+        if(answer === '20% aproximadamente'){
+            value[0] = true;
+        }
+        else if(answer === '35% aproximadamente'){
+            value[1] = true;
+        }
+        else{
+            value[2] = true;
+        }
+
+        setQuestion10({
+            id: 10,
+            question: "Pregunta 10: ¿Qué porcentaje es destinado a la alimentación?",
+            options: [
+                {
+                    id: 1,
+                    option: "20% aproximadamente",
+                    value: value[0],
+                    label: "20% aproximadamente",
+                    input: ""
+                },
+                {
+                    id: 2,
+                    option: "35% aproximadamente",
+                    value: value[1],
+                    label: "35% aproximadamente",
+                    input: ""
+                },
+                {
+                    id: 3,
+                    option: "50% aproximadamente",
+                    value: value[2],
+                    label: "50% aproximadamente",
+                    input: ""
+                },
+            ],
+        });
+    };
+
     /*----------------------------------------------------------------------------------------------------------*/ 
 
     useEffect(() => {
@@ -411,6 +547,18 @@ function Details() {
     useEffect(() => {
         getQuestion7();
         }, []);
+    
+    useEffect(() => {
+        getQuestion8();
+        }, []);
+
+    useEffect(() => {
+        getQuestion9();
+        }, []);
+
+    useEffect(() => {
+        getQuestion10();
+        }, []);
 
     /*----------------------------------------------------------------------------------------------------------*/ 
 
@@ -433,6 +581,9 @@ function Details() {
             <CheckboxQuestion question={question5} />
             <CheckboxQuestion question={question6} />
             <CheckboxQuestion question={question7} />
+            <CheckboxQuestion question={question8} />
+            <CheckboxQuestion question={question9} />
+            <CheckboxQuestion question={question10} />
         </div>
     );
 }
