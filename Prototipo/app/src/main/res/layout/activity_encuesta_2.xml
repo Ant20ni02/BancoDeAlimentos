@@ -23,7 +23,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:paddingTop="0dp"
-                android:paddingBottom="20dp">
+                android:paddingBottom="10dp">
 
                 <FrameLayout
                     android:layout_width="225dp"
@@ -101,6 +101,8 @@
                         android:gravity="center"
                         android:hint="##"
                         android:inputType="textPersonName"
+                        android:enabled="false"
+                        android:visibility="invisible"
                         app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
                         app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
                         app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
@@ -153,6 +155,8 @@
                         android:gravity="center"
                         android:hint="##"
                         android:inputType="textPersonName"
+                        android:enabled="false"
+                        android:visibility="invisible"
                         app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
                         app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
                         app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
@@ -205,6 +209,8 @@
                         android:gravity="center"
                         android:hint="##"
                         android:inputType="textPersonName"
+                        android:enabled="false"
+                        android:visibility="invisible"
                         app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
                         app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
                         app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
@@ -244,6 +250,8 @@
                     android:gravity="center"
                     android:hint="Enfermedad"
                     android:inputType="textPersonName"
+                    android:enabled="false"
+                    android:visibility="invisible"
                     app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
                     app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
                     app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
@@ -273,6 +281,8 @@
                         android:gravity="center"
                         android:hint="##"
                         android:inputType="textPersonName"
+                        android:enabled="false"
+                        android:visibility="invisible"
                         app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
                         app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
                         app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
@@ -288,8 +298,8 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp">
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
 
                 <FrameLayout
                     android:layout_width="225dp"
@@ -327,63 +337,72 @@
                 </FrameLayout>
             </TableRow>
 
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
 
-                <RadioButton
-                    android:id="@+id/si_embarazo_cb"
+                <RadioGroup
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="Sí (especificar)" />
-
-                <RadioButton
-                    android:id="@+id/no_embarazo_cb"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="No" />
-
-            </RadioGroup>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:paddingTop="0dp">
-
-                <FrameLayout
-                    android:layout_width="60dp"
-                    android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:paddingLeft="10dp">
+                    android:paddingTop="10dp">
 
-                    <ImageView
-                        android:id="@+id/si_embarazo_cb_red_iv"
+                    <RadioButton
+                        android:id="@+id/si_embarazo_cb"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-
-
-                        app:srcCompat="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095" />
-
-                    <EditText
-                        android:id="@+id/si_embarazo_cb_et"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:ems="10"
+                        android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:hint="##"
-                        android:inputType="textPersonName"
-                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
-                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
-                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
-                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
-                        app:layout_constraintVertical_bias="0.574" />
+                        android:text="Sí (especificar)" />
 
-                </FrameLayout>
+                    <RadioButton
+                        android:id="@+id/no_embarazo_cb"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="No" />
 
-            </TableRow>
+                </RadioGroup>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <FrameLayout
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:paddingLeft="10dp">
+
+                        <ImageView
+                            android:id="@+id/si_embarazo_cb_red_iv"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+
+
+                            app:srcCompat="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095" />
+
+                        <EditText
+                            android:id="@+id/si_embarazo_cb_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:hint="##"
+                            android:inputType="textPersonName"
+                            android:enabled="false"
+                            android:visibility="invisible"
+                            app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
+                            app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
+                            app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
+                            app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
+                            app:layout_constraintVertical_bias="0.574" />
+
+                    </FrameLayout>
+                </TableRow>
+
+            </LinearLayout>
 
 
         </LinearLayout>
