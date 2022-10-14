@@ -43,7 +43,7 @@ const VolunteerCard = ({ volunteer }) => {
                         <span>{volunteer.sex}</span>
                         <span>{volunteer.phoneNumber}</span>
                         <div className="status">
-								<input type="checkbox" id={`${id}-switch`} className="toggle-status" /* checked */ onChange={handleStatus}/>
+								<input type="checkbox" id={`${id}-switch`} className="toggle-status" checked onChange={handleStatus}/>
 								<label className="toggle-status" htmlFor={`${id}-switch`}></label>
 						</div>
                     </div>
