@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import '../../styles/CheckboxQuestion.css';
 
 const CheckboxQuestion = ({ question/* , answer, onChange */ }) => {
@@ -17,9 +16,7 @@ const CheckboxQuestion = ({ question/* , answer, onChange */ }) => {
                         return (
                             <div className="checkbox-answer">
                                 <input type="checkbox" className="checkbox-value" defaultChecked={ option.value } />
-                                {console.log(option.value)}
                                 <label className="answer-label">{option.label}</label>
-
                                 <p className="answer-checkbox">{option.input}</p>
                             </div>
                         )
