@@ -1,10 +1,13 @@
 .Sidebar {
     width: 6vw;
-    height: 100vh;
-    top: 0;
+    height: 92vh;
+    top: 8;
     left: 0;
     position: fixed;
-    background-color: #1a1a1a;
+    background-color: hsl(0, 0%, 100%);
+    border-right: 1px solid var(--bg-color-light);
+    /* box-shadow: 0 0 10px 0 black; */
+    /* background-color: #1a1a1a; */
     /*z-index: 1;
     overflow-x: hidden;
     padding-top: 20px;
@@ -43,7 +46,11 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    color: #dadce1;
+    color: var(--details);
+}
+
+.nav-link:active {
+    background-color: #dadce1;
 }
 
 /* ? @note: it can be do in another way? (navlink state) */

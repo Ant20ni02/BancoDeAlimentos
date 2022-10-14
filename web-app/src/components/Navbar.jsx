@@ -6,7 +6,12 @@ import { faBars, faCaretDown, faPalette, faCircle, faRightFromBracket } from '@f
 import url from '../config/API';
 import logo from '../images/recurso-4.png';
 
+import Sidebar from '../components/Sidebar';
+
 const Navbar = () => {
+    const [sidebar, setSidebar] = useState(false);
+    const toggleSidebar = () => setSidebar(!sidebar);
+
     const [showMenu, setShowMenu] = useState(false);
     const [user, setUser] = useState({
         firstName: "",
@@ -38,7 +43,7 @@ const Navbar = () => {
                             <div></div>
                             <div></div>
                         </div> */}
-                        <FontAwesomeIcon icon={faBars} className="Navbar-icon-menu-hamburger"/>
+                        <FontAwesomeIcon icon={faBars} className="Navbar-icon-menu-hamburger" onClick={toggleSidebar}/>
                     </li>
                     <li className="Navbar-item">
                         <NavLink to="/bamx/pagina-principal">
@@ -58,6 +63,10 @@ const Navbar = () => {
                     </li>
                 </ul>
             </nav>
+            {
+                sidebar &&
+                <Sidebar show={sidebar}/>
+            }
         </>
     );
 }

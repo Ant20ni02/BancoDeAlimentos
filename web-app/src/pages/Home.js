@@ -16,7 +16,6 @@ function Home() {
     return (
         <>
             <TextHeader text="Página principal" />
-            <p /* onClick={useTheme} */>Esta es la página principal</p>
         </>
     );
 }

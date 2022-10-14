@@ -2,15 +2,12 @@ import { useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import Sidebar from '../../components/Sidebar';
 import Navbar from '../../components/Navbar';
+/* import NavbarSidebar from '../../components/NavbarSidebar'; */
 
 const Layout = () => {
-    const navigate = useNavigate();
-    const [sidebar, setSidebar] = useState(false);
-    const toggleSidebar = () => setSidebar(!sidebar);
-    
     return (
         <main>
-            <Navbar toggleSidebar={toggleSidebar} />
+            <Navbar />
             {/* <Sidebar /> */}
             
             <section>
