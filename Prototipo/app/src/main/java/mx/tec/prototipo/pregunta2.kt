@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 
 class pregunta2 : Fragment(){
@@ -49,8 +50,8 @@ class pregunta2 : Fragment(){
         enf_cb_4 = view.findViewById(R.id.otra_cb)
 
         enf_et_1 = view.findViewById(R.id.diabetes_et)
-        enf_et_2 = view.findViewById(R.id.obe_et)
-        enf_et_3 = view.findViewById(R.id.hip_et)
+        enf_et_2 = view.findViewById(R.id.hip_et)
+        enf_et_3 = view.findViewById(R.id.obe_et)
         enf_et_4 = view.findViewById(R.id.otra_et)
 
         otra_enf = view.findViewById(R.id.otra_et2)
@@ -74,31 +75,66 @@ class pregunta2 : Fragment(){
 
         var pregunta2 : Boolean = false
 
-        val sharedPreference = activity?.getSharedPreferences("Enfermedades", Context.MODE_PRIVATE)
+        val sharedPreference = activity?.getSharedPreferences("ANSWERS", Context.MODE_PRIVATE)
 
-        val pregnancySP = activity?.getSharedPreferences("Pregnancy", Context.MODE_PRIVATE)
+        //val pregnancySP = activity?.getSharedPreferences("Pregnancy", Context.MODE_PRIVATE)
+
+        enf_cb_1.setOnCheckedChangeListener { buttonView, isChecked ->
+            enf_et_1.isEnabled = enf_cb_1.isChecked
+            enf_et_1.isVisible = enf_cb_1.isChecked
+        }
+        enf_cb_2.setOnCheckedChangeListener { buttonView, isChecked ->
+            enf_et_2.isEnabled = enf_cb_2.isChecked
+            enf_et_2.isVisible = enf_cb_2.isChecked
+        }
+        enf_cb_3.setOnCheckedChangeListener { buttonView, isChecked ->
+            enf_et_3.isEnabled = enf_cb_3.isChecked
+            enf_et_3.isVisible = enf_cb_3.isChecked
+        }
+        enf_cb_4.setOnCheckedChangeListener { buttonView, isChecked ->
+            enf_et_4.isEnabled = enf_cb_4.isChecked
+            enf_et_4.isVisible = enf_cb_4.isChecked
+            otra_enf.isEnabled = enf_cb_4.isChecked
+            otra_enf.isVisible = enf_cb_4.isChecked
+        }
+
+        meses = view.findViewById(R.id.si_embarazo_cb_et)
+
+        si_embarazados.setOnCheckedChangeListener { buttonView, isChecked ->
+            meses.isEnabled = si_embarazados.isChecked
+            meses.isVisible = si_embarazados.isChecked
+        }
+
+        var allcorrect : Boolean
 
 
         btnSiguiente?.setOnClickListener {
             //pregnancy
 
+            allcorrect = true //control variable for checkbox edit texts
             meses = view.findViewById(R.id.si_embarazo_cb_et)
 
             if(si_embarazados.isChecked)
             {
-                with(pregnancySP?.edit()){
-                    this?.putString("months", meses.text.toString())
-                    this?.commit()
+                if(meses.text.toString() != "") {
+                    with(sharedPreference?.edit()) {
+                        this?.putString("answer3", meses.text.toString())
+                        this?.commit()
+                    }
+                    pregunta2 = true
                 }
-                pregunta2 = true
+
+                else{
+                Toast.makeText(context, "Ingrese los meses de embarazo", Toast.LENGTH_SHORT).show()
+                }
             }
 
             if(no_embarazados.isChecked){
-                with(pregnancySP?.edit()){
-                    this?.putString("months", "13")
-                    this?.commit()
-                }
-                pregunta2 = true
+                    with(sharedPreference?.edit()){
+                        this?.putString("answer3", "13")
+                        this?.commit()
+                    }
+                    pregunta2 = true
             }
 
             // cantidad de enfermedades
@@ -107,53 +143,84 @@ class pregunta2 : Fragment(){
             if(enf_cb_1.isChecked)
             {
                 diabetes = true
-                diabetesCantidad = enf_et_1.text.toString().toInt()
+                if(enf_et_1.text.toString() == ""){
+                    Toast.makeText(context,"Ingrese todos los campos", Toast.LENGTH_SHORT).show()
+                    allcorrect = false
+                }
+
+                else{
+                    diabetesCantidad = enf_et_1.text.toString().toInt()
+                }
             }
 
             if(enf_cb_2.isChecked)
             {
                 hipertension = true
-                hipertensionCantidad = enf_et_2.text.toString().toInt()
+
+                if(enf_et_2.text.toString() == ""){
+                    Toast.makeText(context,"Ingrese todos los campos", Toast.LENGTH_SHORT).show()
+                    allcorrect = false
+                }
+
+                else{
+                    hipertensionCantidad = enf_et_2.text.toString().toInt()
+                }
             }
 
             if(enf_cb_3.isChecked)
             {
                 obesidad = true
-                obesidadCantidad = enf_et_3.text.toString().toInt()
+                if(enf_et_3.text.toString() == ""){
+                    Toast.makeText(context,"Porfavor, complete todos los campos", Toast.LENGTH_SHORT).show()
+                    allcorrect = false
+                }
+                else{
+                    obesidadCantidad = enf_et_3.text.toString().toInt()
+                }
             }
 
-            if(enf_cb_1.isChecked)
+            if(enf_cb_4.isChecked)
             {
                 otra = true
-                otraCantidad = enf_et_4.text.toString().toInt()
+                if(enf_et_4.text.toString() == "" || otra_enf.text.toString() == ""){
+                    Toast.makeText(context,"Ingrese todos los campos", Toast.LENGTH_SHORT).show()
+                    allcorrect = false
+                }
+                else{
+                    otraCantidad = enf_et_4.text.toString().toInt()
+                }
+
             }
 
             //guardar enfermedades
             if (sharedPreference != null) {
                 with(sharedPreference?.edit()){
-                    this?.putString("diabetes", diabetes.toString())
-                    this?.putString("diabetesCantidad", diabetesCantidad.toString())
+                    this?.putString("answer4_diabetes", diabetes.toString())
+                    this?.putString("answer4_diabetesCantidad", diabetesCantidad.toString())
 
-                    this?.putString("hipertension", hipertension.toString())
-                    this?.putString("hipertensionCantidad", hipertensionCantidad.toString())
+                    this?.putString("answer4_hipertension", hipertension.toString())
+                    this?.putString("answer4_hipertensionCantidad", hipertensionCantidad.toString())
 
-                    this?.putString("obesidad", obesidad.toString())
-                    this?.putString("obesidadCantidad", obesidadCantidad.toString())
+                    this?.putString("answer4_obesidad", obesidad.toString())
+                    this?.putString("answer4_obesidadCantidad", obesidadCantidad.toString())
 
-                    this?.putString("otra", otra.toString())
-                    this?.putString("otra_nombre", otra_enf.text.toString()) //nombre de la nueva enfermedad
-                    this?.putString("otraCantidad", otraCantidad.toString())
+                    this?.putString("answer4_otra", otra.toString())
+                    this?.putString("answer4_otra_nombre", otra_enf.text.toString()) //nombre de la nueva enfermedad
+                    this?.putString("answer4_otraCantidad", otraCantidad.toString())
 
                     this?.commit()
                 }
 
                 //request
                 next = (curr.toString().toInt() + 1).toString()
-
+                with(currentFragment?.edit()){
+                    this?.putString("currentFragment",next)
+                    this?.commit()
+                }
                 //go to the next fragment
                 Log.e("next: ", next)
 
-                if(pregunta2)
+                if(pregunta2 && allcorrect)
                     (activity as EncuestaContainer?)!!.buttonPressed(next)
                 else{
                     Toast.makeText(context, "Porfavor, complete todos los campos", Toast.LENGTH_SHORT).show()
@@ -167,6 +234,10 @@ class pregunta2 : Fragment(){
         btnRegresar?.setOnClickListener {
             curr = (curr.toString().toInt() - 1).toString() //gets back to 0
 
+            with(currentFragment?.edit()){
+                this?.putString("currentFragment",curr)
+                this?.commit()
+            }
             if (curr != null) {
                 (activity as EncuestaContainer?)!!.buttonPressed(curr!!)
             }

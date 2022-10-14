@@ -7,6 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.view.isGone
+import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.android.volley.RequestQueue
 import java.lang.NumberFormatException
@@ -87,6 +90,28 @@ class pregunta1 : Fragment() {
             var checkedNumber4: String
             var checkedNumber5: String
 
+
+        check1.setOnCheckedChangeListener { buttonView, isChecked ->
+            edit1.isEnabled = check1.isChecked
+            edit1.isVisible = check1.isChecked
+        }
+        check2.setOnCheckedChangeListener { buttonView, isChecked ->
+            edit2.isEnabled = check2.isChecked
+            edit2.isVisible = check2.isChecked
+        }
+        check3.setOnCheckedChangeListener { buttonView, isChecked ->
+            edit3.isEnabled = check3.isChecked
+            edit3.isVisible = check3.isChecked
+        }
+        check4.setOnCheckedChangeListener { buttonView, isChecked ->
+            edit4.isEnabled = check4.isChecked
+            edit4.isVisible = check4.isChecked
+        }
+        check5.setOnCheckedChangeListener { buttonView, isChecked ->
+            edit5.isEnabled = check5.isChecked
+            edit5.isVisible = check5.isChecked
+        }
+
         btnSiguiente?.setOnClickListener {
 
             checkbox1 = ""
@@ -119,6 +144,7 @@ class pregunta1 : Fragment() {
 
             //pregunta 2
             if(check1.isChecked){
+
                 if(edit1.text.toString() != "")
                 {
                     pregunta2 = edit1.text.toString() != ""
@@ -340,4 +366,6 @@ class pregunta1 : Fragment() {
     fun removeLastNchars(str: String, n: Int): String {
         return str.substring(0, str.length - n)
     }
+
+
 }
