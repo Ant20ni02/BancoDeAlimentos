@@ -24,6 +24,52 @@ function Details() {
         answer: "No hay datos"
     })
 
+    const [question2, setQuestion2] = useState({
+        id: 2,
+        question: "¿En qué rango de edad se encuentra cada uno de ellos y cuántos son?",
+        options: [
+            {
+                id: 1,
+                option: "Infancia (0-5 años)",
+                value: false,
+                label: "Infancia (0-5 años)",
+                input: ""
+            },
+            {
+                id: 2,
+                option: "Niñez (6-12 años)",
+                value: false,
+                label: "Niñez (6-12 años)",
+                input: ""
+            },
+            {
+                id: 3,
+                option: "Adolscencia (12-18 años)",
+                value: false,
+                label: "Adolscencia (12-18 años)",
+                input: ""
+            },
+            {
+                id: 4,
+                option: "Adultez (18-60 años)",
+                value: false,
+                label: "Adultez (18-60 años)",
+                input: ""
+            },
+            {
+                id: 5,
+                option: "Adulto mayor (+65 años)",
+                value: false,
+                label: "Adulto mayor (+65 años)",
+                input: ""
+            },
+        ],
+    });
+
+    
+
+    /*----------------------------------------------------------------------------------------------------------*/ 
+
     const getSurveyData = async (e) => {
     
         const response = await fetch(url+`getFamilyById/${idSurvey}`,{method: 'GET',
@@ -42,7 +88,91 @@ function Details() {
             question: "Pregunta 1: ¿Cuántos integrantes son en su familia (incluyéndolo)?",
             answer: data[0].answer
         });
-    }
+    };
+
+    const getQuestion2 = async (e) => {
+    
+        const response = await fetch(url+`getAnswerByIdQuestion/${idSurvey}/${2}`,{method: 'GET',
+                                headers: {'x-access-token' : localStorage.getItem('token')} });
+        const data = await response.json();
+        const ans = data[0].answer;
+        console.log(ans);
+        let value = [false, false, false, false, false];
+        let input = ["","","","",""];
+        let control = 0;
+
+        while(control < ans.length){
+            if(ans[control] === 'a'){
+                value[0] = true;
+                input[0] = parseInt(ans[control+1] + ans[control+2]).toString()
+                control += 4;
+            }
+            else if(ans[control] === 'b'){
+                value[1] = true;
+                input[1] = parseInt(ans[control+1] + ans[control+2]).toString()
+                control += 4;
+            }
+            else if(ans[control] === 'c'){
+                value[2] = true;
+                input[2] = parseInt(ans[control+1] + ans[control+2]).toString()
+                control += 4;
+            }
+            else if(ans[control] === 'd'){
+                value[3] = true;
+                input[3] = parseInt(ans[control+1] + ans[control+2]).toString().toString()
+                control += 4;
+            }
+            else{
+                value[4] = true;
+                input[4] = parseInt(ans[control+1] + ans[control+2]).toString()
+                control += 4;
+            }
+        }
+
+        setQuestion2({
+            id: 2,
+            question: "¿En qué rango de edad se encuentra cada uno de ellos y cuántos son?",
+            options: [
+                {
+                    id: 1,
+                    option: "Infancia (0-5 años)",
+                    value: value[0],
+                    label: "Infancia (0-5 años)",
+                    input: input[0]
+                },
+                {
+                    id: 2,
+                    option: "Niñez (6-12 años)",
+                    value: value[1],
+                    label: "Niñez (6-12 años)",
+                    input: input[1]
+                },
+                {
+                    id: 3,
+                    option: "Adolscencia (12-18 años)",
+                    value: value[2],
+                    label: "Adolscencia (12-18 años)",
+                    input: input[2]
+                },
+                {
+                    id: 4,
+                    option: "Adultez (18-60 años)",
+                    value: value[3],
+                    label: "Adultez (18-60 años)",
+                    input: input[3]
+                },
+                {
+                    id: 5,
+                    option: "Adulto mayor (+65 años)",
+                    value: value[4],
+                    label: "Adulto mayor (+65 años)",
+                    input: input[4]
+                },
+            ],
+    });
+    };
+
+    /*----------------------------------------------------------------------------------------------------------*/ 
 
     useEffect(() => {
         getSurveyData();
@@ -51,6 +181,12 @@ function Details() {
     useEffect(() => {
     getQuestion1();
     }, []);
+    
+    useEffect(() => {
+    getQuestion2();
+    }, []);
+
+    /*----------------------------------------------------------------------------------------------------------*/ 
 
     return (
         <div className="Details">
@@ -65,12 +201,8 @@ function Details() {
             <Link to="/bamx/encuestas/registros">Regresar</Link>
 
             <TextQuestion question={question1}/>
+            <CheckboxQuestion question={question2} />
 
-            {/*
-                QuestionsCheckbox.map((question) => (
-                    <CheckboxQuestion question={question} />
-                ))
-                */}
 
         </div>
     );
