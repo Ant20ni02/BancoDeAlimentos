@@ -28,7 +28,7 @@ const Table = ({ data, newSurveys }) => {
                         <td>{date_}</td>
                         <td>{latitude}</td>
                         <td>{longitude}</td>
-                        <td> <Link to={`encuestas/registros/detalles/${idSurvey}`}>{idSurvey} </Link></td>
+                        <td> <Link to={`/bamx/encuestas/registros/detalles/${idSurvey}`}>{idSurvey} </Link></td>
                     </tr>
                 ))}
             </tbody>

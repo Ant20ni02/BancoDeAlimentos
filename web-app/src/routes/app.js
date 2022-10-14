@@ -20,19 +20,17 @@ function AppRouter() {
             <BrowserRouter>
                 <Routes>
                     <Route index path="/" element={<Start />} />
-                    <Route path="/registro-de-cuenta" element={<SignUp />} />
-                    <Route path="/inicio-de-sesion" element={<LogIn />} />
+                    <Route path="registro-de-cuenta" element={<SignUp />} />
+                    <Route path="inicio-de-sesion" element={<LogIn />} />
 
-                    <Route path="/bamx" element={<Layout />}>
+                    <Route path="bamx" element={<Layout />}>
                         <Route index path="pagina-principal" element={<ProtectedRoute><Home /></ProtectedRoute>}/>
                         <Route path="perfil" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-                        <Route path="encuestas" element={<ProtectedRoute><Survey /></ProtectedRoute>} >
-                           {/*  <Route path="registros" element={<ProtectedRoute><Records /></ProtectedRoute>} /> */}
-                        </Route>
-                        <Route path="encuestas/registros" element={<ProtectedRoute><Records /></ProtectedRoute>} />
-                        <Route path={`encuestas/registros/detalles/`} element={<ProtectedRoute><Details /></ProtectedRoute>} />
-                        <Route path="encuestas/graficas" element={<ProtectedRoute><Charts /></ProtectedRoute>} />
+                        <Route path="encuestas" element={<ProtectedRoute><Survey /></ProtectedRoute>} />
                         <Route path="voluntarios" element={<ProtectedRoute><Volunteers /></ProtectedRoute>} />
+                        <Route path="encuestas/graficas" element={<ProtectedRoute><Charts /></ProtectedRoute>} />
+                        <Route path="encuestas/registros" element={<ProtectedRoute><Records /></ProtectedRoute>} /> 
+                        <Route path="encuestas/registros/detalles/:idSurvey" element={<ProtectedRoute><Details /></ProtectedRoute>} />
                     </Route>
                     <Route path="*" element={<PageNotFound />} />
                 </Routes>

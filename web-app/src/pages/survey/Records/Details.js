@@ -1,12 +1,14 @@
 import TextQuestion from "../../../components/Records/TextQuestion";
 import CheckboxQuestion from "../../../components/Records/CheckboxQuestion";
+import {Link, useParams} from "react-router-dom";
 import LinkButton from "../../../components/LinkButton";
 import '../../../styles/Details.css';
-import {Link} from "react-router-dom";
 import QuestionsText from "../../../data/Questions-text";
 import QuestionsCheckbox from "../../../data/Questions-checkbox";
 
-function Details({idSurvey}) {
+function Details() {
+    const {idSurvey} = useParams();
+    console.log(idSurvey);
     return (
         <div className="Details">
             <div className="Question-header">

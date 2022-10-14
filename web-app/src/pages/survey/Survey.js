@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import TextHeader from '../../components/TextHeader';
 import Card from '../../components/Card';
 import '../../styles/Survey.css';
@@ -16,12 +16,7 @@ function Survey() {
                 <Link to="/bamx/encuestas/graficas">
                     <Card icon={faChartPie} title="Gráficas" />
                 </Link>
-
             </div>
-
-            {/* <section>
-                <Outlet/>
-            </section> */}
         </>
     );
 }
