@@ -1,0 +1,55 @@
+.Details {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* justify-content: flex-start; */
+    padding: 2rem;
+    gap: 2rem;
+}
+
+div.Question-header {
+    width: 100%;
+    background-color: hsl(0, 0%, 100%);
+    border-radius: .5em;
+    padding: 1em;
+}
+
+div.Question-header h1.title {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+div.Question-header > h3.date, div.Question-header h3.location {
+    font-size: 1.5em;
+    color: var(--details);
+}
+
+/* div.Details a {
+    font-weight: bold;
+    text-decoration: none;
+    padding: 1em;
+    border-radius: .5em;
+    text-align: center;
+    font-size: 1.5rem;
+    color: hsl(0, 0%, 100%);
+    background-color: var(--primary-color); */
+    /* display: block; */
+/* } */
+
+/* div.Details a:hover {
+    color: var(--primary-color);
+    background-color: hsl(0, 0%, 100%);
+    transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+}
+ */
+/* div.Details hr {
+    color: var(--details);
+} */
+
+/* div.Question-header:is(h2.date, h3.location) p {
+    color: red;
+} */

@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Start from '../pages/Start';
@@ -9,9 +8,10 @@ import Layout from '../styles/Layout/Layout'
 import Home from '../pages/Home';
 import Profile from '../pages/Profile';
 import Survey from '../pages/survey/Survey';
-import Records from '../pages/survey/Records';
+import Records from '../pages/survey/Records/Records';
+import Details from '../pages/survey/Records/Details';
 import Charts from '../pages/survey/Charts';
-import Volunteers from '../pages/Volunteers';
+import Volunteers from '../pages/Volunteers/Volunteers';
 import PageNotFound from '../pages/PageNotFound';
 
 function AppRouter() {
@@ -30,6 +30,7 @@ function AppRouter() {
                            {/*  <Route path="registros" element={<ProtectedRoute><Records /></ProtectedRoute>} /> */}
                         </Route>
                         <Route path="encuestas/registros" element={<ProtectedRoute><Records /></ProtectedRoute>} />
+                        <Route path="encuestas/registros/detalles" element={<ProtectedRoute><Details /></ProtectedRoute>} />
                         <Route path="encuestas/graficas" element={<ProtectedRoute><Charts /></ProtectedRoute>} />
                         <Route path="voluntarios" element={<ProtectedRoute><Volunteers /></ProtectedRoute>} />
                     </Route>

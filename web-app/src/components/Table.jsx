@@ -1,4 +1,4 @@
-import React from "react";
+/* import { Link } from react-DOMRectList; */
 import '../styles/Table.css';
 
 const Table = ({ data, newSurveys }) => {
@@ -23,12 +23,12 @@ const Table = ({ data, newSurveys }) => {
                 {Object.entries(newSurveys).map(([key, { familyLastName, idFamily, date_, latitude, longitude, idSurvey}]) => (
                     <tr key = {key}>
                         <th className="counterCell"></th>
-                        <td>{familyLastName}</td>
+                        <td>{/* <Link> */}{familyLastName}{/* </Link> */}</td>
                         <td>{idFamily}</td>
                         <td>{date_}</td>
                         <td>{latitude}</td>
                         <td>{longitude}</td>
-                        <td>{idSurvey}</td>
+                        <td>{/* <Link to={`/detalles?:${idSurvey}`}> */}{idSurvey}{/* </Link> */}</td>
                     </tr>
                 ))}
             </tbody>

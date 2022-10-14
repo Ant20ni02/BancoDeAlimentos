@@ -1,0 +1,48 @@
+div.checkbox-question {
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;
+    *//*justify-content: center;
+    */padding: 2em;
+    border-radius: .5em;
+    background-color: white;
+    gap: 1em;
+}
+
+span.question-checkbox, p.answer-checkbox {
+    font-size: 1.5em;
+    padding: 1em;
+    border-radius: .5em;
+}
+
+div.checkbox-answer {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+} 
+
+span.question-checkbox {
+    font-weight: bold;
+    background-color: var(--bg-color-light);
+    max-width: max-content;
+}
+
+input.checkbox-value[type="checkbox"] {
+    width: 1.5em;
+    height: 1.5em;
+    border: 1px solid var(--bg-color-light);
+    border-radius: .5em;
+}
+
+label.answer-label {
+    font-weight: bold;
+    background-color: var(--bg-color-light);
+    padding: 1em;
+    border-radius: .5em;
+    max-width: max-content;
+}
+
+p.answer-checkbox {
+    background-color: var(--details);
+    max-width: max-content;
+}
