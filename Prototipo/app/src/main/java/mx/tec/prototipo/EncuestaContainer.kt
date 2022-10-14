@@ -20,13 +20,14 @@ class EncuestaContainer : AppCompatActivity (){
         if(savedInstanceState != null)
             return
 
+        buttonPressed("0") //starts and loads the id fragment
 
         with(sharedPreference.edit()){
             putString("currentFragment","0")
             commit()
         }
 
-        val curr = sharedPreference?.getString("currentFragment","#")
+        var curr = ""
 
 
         val btnRegresar = findViewById<Button>(R.id.btnRegresar)
@@ -43,9 +44,14 @@ class EncuestaContainer : AppCompatActivity (){
 
 
         btnRegresar.setOnClickListener {
-            val intent = Intent(this@EncuestaContainer,BottomNavigation::class.java)
+            curr = sharedPreference?.getString("currentFragment","#").toString()
+            if(curr == "0"){
+                val intent = Intent(this@EncuestaContainer,BottomNavigation::class.java)
+                startActivity(intent)
+            }
         }
         btnSiguiente.setOnClickListener {
+            curr = sharedPreference?.getString("currentFragment","#").toString()
             if (curr != null) {
                 buttonPressed(curr)
             }

@@ -8,7 +8,9 @@ class encuesta_fragments : Application(){
     // Lista de todos los fragmentos
     val identFragment = IdentificadorFragment()
     val pregunta1 = pregunta1()
+    val pregunta2 = pregunta2()
+    val pregunta3 = pregunta3()
 
     //guardar fragmentos en diccionario
-    var fragmentsDic: Map<String, Fragment> = mapOf("0" to identFragment, "1" to pregunta1)
+    var fragmentsDic: Map<String, Fragment> = mapOf("0" to identFragment, "1" to pregunta1, "2" to pregunta2, "3" to pregunta3)
 }

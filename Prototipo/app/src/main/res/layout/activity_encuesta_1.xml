@@ -5,286 +5,403 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <CheckBox
-        android:id="@+id/checkBox3"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Adolscencia: 12-18 años"
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.713" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/imageView26"
-        android:layout_width="283dp"
-        android:layout_height="79dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.478"
-        app:srcCompat="@drawable/gray_rectangle" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/imageView29"
-        android:layout_width="50dp"
-        android:layout_height="200dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.833"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.781"
-        app:srcCompat="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095" />
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center">
 
-    <EditText
-        android:id="@+id/editTextTextPersonName7"
-        android:layout_width="30dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="##"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.721"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.797" />
+                <FrameLayout
+                    android:layout_width="225dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center">
 
-    <EditText
-        android:id="@+id/editTextTextPersonName3"
-        android:layout_width="160dp"
-        android:layout_height="25dp"
-        android:background="@null"
-        android:ems="10"
-        android:gravity="center"
-        android:inputType="textPersonName"
-        android:text="Integrantes"
-        android:textColor="@color/black"
-        android:textColorHighlight="#FF5722"
-        android:textColorHint="#FF5722"
-        android:textColorLink="#FF5722"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.359" />
+                    <ImageView
+                        android:id="@+id/integrantes_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="79dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.476"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.216"
+                        app:srcCompat="@drawable/gray_rectangle" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName5"
-        android:layout_width="30dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="##"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.695"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.646" />
+                    <TextView
+                        android:id="@+id/integrantes_txt"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="sans-serif-black"
+                        android:gravity="center"
+                        android:text="¿Cuántos integrantes son  en su familia (incluyendolo)?"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="@color/black"
+                        app:layout_constraintBottom_toBottomOf="@+id/embarazo_iv"
+                        app:layout_constraintEnd_toEndOf="@+id/embarazo_iv"
+                        app:layout_constraintHorizontal_bias="0.513"
+                        app:layout_constraintStart_toStartOf="@+id/embarazo_iv"
+                        app:layout_constraintTop_toTopOf="@+id/embarazo_iv"
+                        app:layout_constraintVertical_bias="1.0" />
+                </FrameLayout>
+            </TableRow>
 
-    <CheckBox
-        android:id="@+id/checkBox2"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Niñez: 6-12 años"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.406"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.646" />
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingTop="20dp">
 
-    <ImageView
-        android:id="@+id/imageView30"
-        android:layout_width="50dp"
-        android:layout_height="200dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.734"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.883"
-        app:srcCompat="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095" />
+                <EditText
+                    android:id="@+id/integrantes_pregunta1"
+                    android:layout_width="160dp"
+                    android:layout_height="50dp"
+                    android:background="@null"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="Integrantes"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textColorLink="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.039" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName4"
-        android:layout_width="30dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="##"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.695"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.574" />
+                <ImageView
+                    android:id="@+id/imageView25"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/integrantes_pregunta1"
+                    app:layout_constraintEnd_toEndOf="@+id/integrantes_pregunta1"
+                    app:layout_constraintHorizontal_bias="0.457"
+                    app:layout_constraintStart_toStartOf="@+id/integrantes_pregunta1"
+                    app:layout_constraintTop_toTopOf="@+id/integrantes_pregunta1"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:srcCompat="@drawable/black_text_input_oval" />
+            </FrameLayout>
 
-    <ImageView
-        android:id="@+id/imageView24"
-        android:layout_width="283dp"
-        android:layout_height="79dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.216"
-        app:srcCompat="@drawable/gray_rectangle" />
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:paddingTop="20dp"
+                android:paddingBottom="10dp">
 
-    <EditText
-        android:id="@+id/editTextTextPersonName8"
-        android:layout_width="30dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="##"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.721"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.876" />
+                <FrameLayout
+                    android:layout_width="225dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center">
 
-    <CheckBox
-        android:id="@+id/checkBox5"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Adultez: 18-60 años"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.871" />
+                    <ImageView
+                        android:id="@+id/en_que_rango_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="79dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.476"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.478"
+                        app:srcCompat="@drawable/gray_rectangle" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName6"
-        android:layout_width="30dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="##"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.816"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.719" />
+                    <TextView
+                        android:id="@+id/en_que_rango_txt"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="sans-serif-black"
+                        android:gravity="center"
+                        android:text="¿En qué rango de edad se encuentra cada uno de ellos y cuántos son?"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                        android:textColor="@color/black"
+                        app:layout_constraintBottom_toBottomOf="@+id/preg_enfermedade_iv"
+                        app:layout_constraintEnd_toEndOf="@+id/preg_enfermedade_iv"
+                        app:layout_constraintTop_toTopOf="@+id/preg_enfermedade_iv"
+                        app:layout_constraintVertical_bias="0.625" />
+                </FrameLayout>
+            </TableRow>
 
-    <ImageView
-        android:id="@+id/imageView27"
-        android:layout_width="50dp"
-        android:layout_height="200dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.706"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.595"
-        app:srcCompat="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:paddingTop="0dp">
 
-    <ImageView
-        android:id="@+id/imageView25"
-        android:layout_width="195dp"
-        android:layout_height="250dp"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName3"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName3"
-        app:layout_constraintHorizontal_bias="0.485"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName3"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName3"
-        app:layout_constraintVertical_bias="0.502"
-        app:srcCompat="@drawable/black_text_input_oval" />
+                <CheckBox
+                    android:id="@+id/infancia_cb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-black"
+                    android:text="Infancia: 0-5 años"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.406"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.574" />
 
-    <ImageView
-        android:id="@+id/imageView32"
-        android:layout_width="50dp"
-        android:layout_height="200dp"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName8"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName8"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName8"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName8"
-        app:layout_constraintVertical_bias="0.506"
-        app:srcCompat="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095" />
+                <FrameLayout
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:paddingLeft="10dp">
 
-    <CheckBox
-        android:id="@+id/checkBox4"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Adultez: 18-60 años"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.791" />
+                    <ImageView
+                        android:id="@+id/infancia_red_iv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
 
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="211dp"
-        android:layout_height="63dp"
-        android:fontFamily="sans-serif-black"
-        android:text="¿Cuántos integrantes son  en su familia (incluyendolo)?"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView24"
-        app:layout_constraintEnd_toEndOf="@+id/imageView24"
-        app:layout_constraintHorizontal_bias="0.513"
-        app:layout_constraintStart_toStartOf="@+id/imageView24"
-        app:layout_constraintTop_toTopOf="@+id/imageView24"
-        app:layout_constraintVertical_bias="1.0" />
 
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="211dp"
-        android:layout_height="63dp"
-        android:fontFamily="sans-serif-black"
-        android:text="¿En qué rango de edad se encuentra cada uno de ellos y cuántos son?"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView26"
-        app:layout_constraintEnd_toEndOf="@+id/imageView26"
-        app:layout_constraintHorizontal_bias="0.513"
-        app:layout_constraintStart_toStartOf="@+id/imageView24"
-        app:layout_constraintTop_toTopOf="@+id/imageView26"
-        app:layout_constraintVertical_bias="0.625" />
+                        app:srcCompat="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095" />
 
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Infancia: 0-5 años"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.406"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.574" />
+                    <EditText
+                        android:id="@+id/infancia_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint="##"
+                        android:inputType="textPersonName"
+                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
+                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
+                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
+                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
+                        app:layout_constraintVertical_bias="0.574" />
 
-    <ImageView
-        android:id="@+id/imageView28"
-        android:layout_width="50dp"
-        android:layout_height="200dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.706"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.689"
-        app:srcCompat="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095" />
+                </FrameLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:paddingTop="0dp">
+
+                <CheckBox
+                    android:id="@+id/niñez_cb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-black"
+                    android:text="Niñez: 6-12 años"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.406"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.574" />
+
+                <FrameLayout
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:paddingLeft="10dp">
+
+                    <ImageView
+                        android:id="@+id/niñez_red_iv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+
+                        app:srcCompat="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095" />
+
+                    <EditText
+                        android:id="@+id/niñez_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint="##"
+                        android:inputType="textPersonName"
+                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
+                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
+                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
+                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
+                        app:layout_constraintVertical_bias="0.574" />
+
+                </FrameLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:paddingTop="0dp">
+
+                <CheckBox
+                    android:id="@+id/adolescencia_cb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-black"
+                    android:text="Adolescencia: 12-18 años"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.406"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.574" />
+
+                <FrameLayout
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:paddingLeft="10dp">
+
+                    <ImageView
+                        android:id="@+id/adolescencia_red_iv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+
+                        app:srcCompat="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095" />
+
+                    <EditText
+                        android:id="@+id/adolescencia_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint="##"
+                        android:inputType="textPersonName"
+                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
+                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
+                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
+                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
+                        app:layout_constraintVertical_bias="0.574" />
+
+                </FrameLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:paddingTop="0dp">
+
+                <CheckBox
+                    android:id="@+id/adultez_cb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-black"
+                    android:text="Adultez: 18-60 años"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.406"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.574" />
+
+                <FrameLayout
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:paddingLeft="10dp">
+
+                    <ImageView
+                        android:id="@+id/adultez_red_iv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+
+                        app:srcCompat="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095" />
+
+                    <EditText
+                        android:id="@+id/adultez_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint="##"
+                        android:inputType="textPersonName"
+                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
+                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
+                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
+                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
+                        app:layout_constraintVertical_bias="0.574" />
+
+                </FrameLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:paddingTop="0dp">
+
+                <CheckBox
+                    android:id="@+id/may_cb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-black"
+                    android:text="Adulto mayor: +65 años"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.406"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.574" />
+
+                <FrameLayout
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:paddingLeft="10dp">
+
+                    <ImageView
+                        android:id="@+id/may_red_iv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+
+                        app:srcCompat="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095" />
+
+                    <EditText
+                        android:id="@+id/may_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint="##"
+                        android:inputType="textPersonName"
+                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
+                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
+                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
+                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
+                        app:layout_constraintVertical_bias="0.574" />
+
+                </FrameLayout>
+
+            </TableRow>
+
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
