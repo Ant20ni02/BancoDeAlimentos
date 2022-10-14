@@ -9,39 +9,23 @@ module.exports.addSurvey = (req, res) =>{
     const longitude = req.body.longitude;
     //const idQuestionList = req.body.idQuestionList;
     const currentDate = new Date();
-    const clock = currentDate.getDay() +"-"+ currentDate.getDate()+"-" + currentDate.getFullYear();
-    console.log(clock);
+    const clock = currentDate.getDate() +"-"+ (currentDate.getMonth() + 1 )+"-" + currentDate.getFullYear();
     const mensaje = ""
 
-    const query = `SELECT idSurvey FROM Survey WHERE idUser = ?`;
     const sql = `INSERT INTO Survey (idUser, idFamily, date_, latitude, longitude) VALUES(?,?,?,?,?)`;
-    const updateQuery = `UPDATE Survey SET idUser = ?, idFamily = ?, date_ = ? WHERE idUser = ?`
+    const sql2 = `SELECT LAST_INSERT_ID() AS idSurvey`;
 
-
-    conexion.query(query, [idUser],(error,results,fields) =>{
-        if(error)
-            res.send(error)
+    conexion.query(sql, [idUser,idFamily,clock,latitude,longitude], (error1, results1, fields1)=>{
+        if(error1)
+            res.send(error1);
         else{
-            /*
-            if(results[0]!=undefined){
-                conexion.query(updateQuery, [idUser,idFamily,currentDate,idUser], (error3,results3,fields3)=>{
-                    if(error3)
-                        res.send(error3)
-                    else{
-                        res.json(results3)
-                    }
-
-                })
-
-            }*/
-             //undefined
-                conexion.query(sql, [idUser,idFamily,currentDate,latitude,longitude], (error2, results2, fields2)=>{
-                    if(error2)
-                        res.send(error2)
-                    else{
-                        res.json(results2)
-                    }
-                })
+            conexion.query(sql2, (error2, results2, fields2)=>{
+                if(error2)
+                    res.send(error2);
+                else{
+                    res.json(results2[0]);
+                }
+            })
         }
     })
 }
