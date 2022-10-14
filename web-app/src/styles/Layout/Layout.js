@@ -5,10 +5,19 @@ import Navbar from '../../components/Navbar';
 /* import NavbarSidebar from '../../components/NavbarSidebar'; */
 
 const Layout = () => {
+    const [isOpenSidebar, setIsOpenSidebar] = useState(false);
+    const toggleSidebar = () => {
+        setIsOpenSidebar(!isOpenSidebar);
+    };
+    
     return (
         <main>
-            <Navbar />
-            {/* <Sidebar /> */}
+            
+            <Navbar toggleSidebar={toggleSidebar} isOpenSidebar={isOpenSidebar} />
+            { 
+                isOpenSidebar &&
+                <Sidebar toggleSidebar={toggleSidebar} />
+            }
             
             <section>
                 <Outlet />

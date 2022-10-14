@@ -6,12 +6,9 @@ import { faBars, faCaretDown, faPalette, faCircle, faRightFromBracket } from '@f
 import url from '../config/API';
 import logo from '../images/recurso-4.png';
 
-import Sidebar from '../components/Sidebar';
+/* import Sidebar from '../components/Sidebar'; */
 
-const Navbar = () => {
-    const [sidebar, setSidebar] = useState(false);
-    const toggleSidebar = () => setSidebar(!sidebar);
-
+const Navbar = ({isOpenSidebar, toggleSidebar, ...props}) => {
     const [showMenu, setShowMenu] = useState(false);
     const [user, setUser] = useState({
         firstName: "",
@@ -63,10 +60,10 @@ const Navbar = () => {
                     </li>
                 </ul>
             </nav>
-            {
-                sidebar &&
-                <Sidebar show={sidebar}/>
-            }
+            {/* {
+                isOpenSidebar &&
+                <Sidebar show={isOpenSidebar}/>
+            } */}
         </>
     );
 }

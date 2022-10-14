@@ -3,14 +3,14 @@ import { NavLink } from 'react-router-dom';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faXmark, faHouse, faUser, faLayerGroup, faHandshakeAngle } from '@fortawesome/free-solid-svg-icons';
 
-const Sidebar = (show) => {
+const Sidebar = ({ toggleSidebar, ...props }) => {
     return (
         <>
             <nav className="Sidebar">
                 <ul className="Sidebar-container">
-                    {/* <li className="nav-item">
-                        <div className="nav-link" onClick={show}><FontAwesomeIcon icon={faXmark} className="nav-icon"/><span className="link-text">Cerrar</span></div>
-                    </li> */}
+                    <li className="nav-item">
+                        <div className="nav-link" onClick={toggleSidebar}><FontAwesomeIcon icon={faXmark} className="nav-icon"/><span className="link-text">Cerrar</span></div>
+                    </li>
                     <li className="nav-item">
                         <NavLink to="/bamx/pagina-principal" className="nav-link"><FontAwesomeIcon icon={faHouse} className="nav-icon"/><span className="link-text">Principal</span></NavLink>
                     </li>

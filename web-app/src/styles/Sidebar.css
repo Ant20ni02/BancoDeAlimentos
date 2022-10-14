@@ -1,7 +1,7 @@
 .Sidebar {
     width: 6vw;
-    height: 92vh;
-    top: 8;
+    height: 100vh;
+    top: 0;
     left: 0;
     position: fixed;
     background-color: hsl(0, 0%, 100%);
