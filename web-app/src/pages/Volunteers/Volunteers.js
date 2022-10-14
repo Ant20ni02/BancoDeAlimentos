@@ -62,6 +62,7 @@ function Volunteers() {
       		<TextHeader text="Voluntarios" />
 			<div className='Filter'>
 				<select value={value} onChange={handleChange} className='Sort'>
+					{/* <option selected disabled hidden>Filtrar</option> */}
 					<option value="approved">Aceptados</option>
 					<option value="request">Solicitudes</option>
 				</select>

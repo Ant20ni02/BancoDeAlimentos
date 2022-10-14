@@ -2,7 +2,7 @@ import '../styles/Navbar.css';
 import { useState, useEffect, useRef, useId } from "react";
 import { useNavigate, NavLink } from 'react-router-dom';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faCaretDown, faPalette,faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faCaretDown, faPalette, faCircle, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import url from '../config/API';
 import logo from '../images/recurso-4.png';
 
@@ -32,10 +32,13 @@ const Navbar = () => {
         <>
             <nav className="Navbar">
                 <ul className="Navbar-container">
-                <li className="Navbar-item">
-                        <NavLink to="/bamx/pagina-principal">
-                            Menu
-                        </NavLink>
+                    <li className="Navbar-item">
+                        {/* <div className='menu-hamburger'>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div> */}
+                        <FontAwesomeIcon icon={faBars} className="Navbar-icon-menu-hamburger"/>
                     </li>
                     <li className="Navbar-item">
                         <NavLink to="/bamx/pagina-principal">
@@ -46,7 +49,7 @@ const Navbar = () => {
                         <span>{user.firstName} {user.lastName}</span>
                     </li>
                     <li className="Navbar-item">
-                        <NavLink to="/bamx/pagina-principal" className="Navbar-link" onClick={() => setShowMenu(!showMenu)}><FontAwesomeIcon icon={faCaretDown} className="Navbar-icon"/></NavLink>
+                        <div className="Navbar-item-circle" onClick={() => setShowMenu(!showMenu)}><FontAwesomeIcon icon={faCaretDown} className="Navbar-icon"/></div>
                         {
                             showMenu && (
                                 <DropdownMenu/>
@@ -61,11 +64,11 @@ const Navbar = () => {
 
 const DropdownMenu = () => {
     const navigate = useNavigate();
-    let theme = localStorage.getItem('theme');
+    const id = useId();
+    /* let theme = localStorage.getItem('theme');
     const auto = useRef();
     const light = useRef();
     const dark = useRef();
-    const id = useId();
 
     const changeTheme = (e) => {
         if(e.target === auto.current){
@@ -79,7 +82,7 @@ const DropdownMenu = () => {
             localStorage.setItem('theme', 'dark');
             theme = 'dark';
         }
-    }
+    } */
 
     const handleLogout = () => {
         localStorage.removeItem("token");
@@ -89,9 +92,9 @@ const DropdownMenu = () => {
     
     return (
         <ul className="Navbar-dropdown">
-            <li className="Navbar-dropdown-item">
+            {/* <li className="Navbar-dropdown-item">
                 <div className="Navbar-dropdown-item-legend">
-                    <span>Tema </span><FontAwesomeIcon icon={faPalette} className="Navbar-dropdown-item-icon"/>
+                    <span>Apariencia </span><FontAwesomeIcon icon={faPalette} className="Navbar-dropdown-item-icon"/>
                 </div>
                 <div className="Navbar-dropdown-item-checkboxs">
                     <input type="radio" ref={auto} id={`${id}-auto`} name="theme" value="auto" checked/>
@@ -100,6 +103,18 @@ const DropdownMenu = () => {
                     <label htmlFor={`${id}-light`}>Claro</label>
                     <input type="radio" ref={dark} id={`${id}-dark`} name="theme" value="dark"/>
                     <label htmlFor={`${id}-dark`}>Oscuro</label>
+                </div>
+            </li> */}
+            <li className="Navbar-dropdown-item">
+                <div className="Navbar-dropdown-item-legend">
+                    <span>Tema </span><FontAwesomeIcon icon={faPalette} className="Navbar-dropdown-item-icon"/>
+                </div>
+                <div className="Navbar-dropdown-item-checkboxes">
+                    <input type="radio" className='theme-yellow' id={`${id}-yellow`} name="theme" value="yellow"/>
+
+                    <input type="radio" className='theme-green' id={`${id}-green`} name="theme" value="green"/>
+
+                    <input type="radio" className='theme-red' id={`${id}-red`} name="theme" value="red"/>
                 </div>
             </li>
             <li className="Navbar-dropdown-item" onClick={handleLogout}>
