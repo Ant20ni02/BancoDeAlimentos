@@ -1,0 +1,1412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="70dp">
+
+                <FrameLayout
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/layout_border"
+                    android:paddingRight="5dp">
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Alimento"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="0dp">
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/layout_border"
+                        android:gravity="center"
+                        android:text="Cantidad"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:background="@drawable/layout_border"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="Frecuencia"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/textView4"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/layout_border"
+                            android:gravity="center"
+                            android:text="Diario"
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/textView5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/layout_border"
+                            android:gravity="center"
+                            android:text="2-3 veces por semana"
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/textView6"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/layout_border"
+                            android:gravity="center"
+                            android:text="Casi nunca"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/textView7"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/layout_border"
+                            android:gravity="center"
+                            android:paddingLeft="0dp"
+                            android:text="Nunca"
+                            android:textColor="@color/black" />
+                    </TableRow>
+                </LinearLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="5dp">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/leche_tv"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Leche"
+                        android:textColor="@color/black" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/leche_cantidad"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:ems="10"
+                        android:enabled="false"
+                        android:gravity="center"
+                        android:hint="____"
+                        android:inputType="textPersonName"
+                        android:paddingTop="5dp"
+                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
+                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
+                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
+                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
+                        app:layout_constraintVertical_bias="0.574" />
+                </FrameLayout>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center|center_horizontal"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/leche_diario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="fill_horizontal"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/leche_dosveces"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/leche_casinunca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/leche_nunca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+                </RadioGroup>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="5dp">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/pollo_tv"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Pollo"
+                        android:textColor="@color/black" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/pollo_cantidad"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:ems="10"
+                        android:enabled="false"
+                        android:gravity="center"
+                        android:hint="____"
+                        android:inputType="textPersonName"
+                        android:paddingTop="5dp"
+                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
+                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
+                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
+                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
+                        app:layout_constraintVertical_bias="0.574" />
+                </FrameLayout>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center|center_horizontal"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/pollo_diario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="fill_horizontal"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/pollo_dosveces"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/pollo_casinunca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/pollo_nunca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+                </RadioGroup>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="5dp">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/atun_tv"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Atún"
+                        android:textColor="@color/black" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/atun_cantidad"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:ems="10"
+                        android:enabled="false"
+                        android:gravity="center"
+                        android:hint="____"
+                        android:inputType="textPersonName"
+                        android:paddingTop="5dp"
+                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
+                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
+                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
+                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
+                        app:layout_constraintVertical_bias="0.574" />
+                </FrameLayout>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center|center_horizontal"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/atun_diario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="fill_horizontal"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/atun_dosveces"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/atun_casinunca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/atun_nunca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+                </RadioGroup>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="5dp">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/carneRes_tv"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Carne de res"
+                        android:textColor="@color/black" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/carneRes_cantidad"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:ems="10"
+                        android:enabled="false"
+                        android:gravity="center"
+                        android:hint="____"
+                        android:inputType="textPersonName"
+                        android:paddingTop="5dp"
+                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
+                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
+                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
+                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
+                        app:layout_constraintVertical_bias="0.574" />
+                </FrameLayout>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center|center_horizontal"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/carneRes_diario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="fill_horizontal"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/carneRes_dosveces"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/carneRes_casinunca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/carneRes_nunca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+                </RadioGroup>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="5dp">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/carneCerdo_tv"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Carne de cerdo"
+                        android:textColor="@color/black" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/carneCerdo_cantidad"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:ems="10"
+                        android:enabled="false"
+                        android:gravity="center"
+                        android:hint="____"
+                        android:inputType="textPersonName"
+                        android:paddingTop="5dp"
+                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
+                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
+                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
+                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
+                        app:layout_constraintVertical_bias="0.574" />
+                </FrameLayout>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center|center_horizontal"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/carneCerdo_diario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="fill_horizontal"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/carneCerdo_dosveces"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/carneCerdo_casinunca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/carneCerdo_nunca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+                </RadioGroup>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="5dp">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/huevo_tv"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Huevo"
+                        android:textColor="@color/black" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/huevo_cantidad"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:ems="10"
+                        android:enabled="false"
+                        android:gravity="center"
+                        android:hint="____"
+                        android:inputType="textPersonName"
+                        android:paddingTop="5dp"
+                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
+                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
+                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
+                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
+                        app:layout_constraintVertical_bias="0.574" />
+                </FrameLayout>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center|center_horizontal"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/huevo_diario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="fill_horizontal"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/huevo_dosveces"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/huevo_casinunca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/huevo_nunca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+                </RadioGroup>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="5dp">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/arroz_tv"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Arroz"
+                        android:textColor="@color/black" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/arroz_cantidad"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:ems="10"
+                        android:enabled="false"
+                        android:gravity="center"
+                        android:hint="____"
+                        android:inputType="textPersonName"
+                        android:paddingTop="5dp"
+                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
+                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
+                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
+                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
+                        app:layout_constraintVertical_bias="0.574" />
+                </FrameLayout>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center|center_horizontal"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/arroz_diario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="fill_horizontal"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/arroz_dosveces"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/arroz_casinunca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/arroz_nunca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+                </RadioGroup>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="5dp">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tortilla_tv"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Tortilla, pan, galletas"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/tortilla_cantidad"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:ems="10"
+                        android:enabled="false"
+                        android:gravity="center"
+                        android:hint="____"
+                        android:inputType="textPersonName"
+                        android:paddingTop="5dp"
+                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
+                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
+                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
+                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
+                        app:layout_constraintVertical_bias="0.574" />
+                </FrameLayout>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center|center_horizontal"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/tortilla_diario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="fill_horizontal"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/tortilla_dosveces"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/tortilla_casinunca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/tortilla_nunca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+                </RadioGroup>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="5dp">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/verduras_tv"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Verduras crudas o cocidas"
+                        android:textColor="@color/black"
+                        android:textSize="10sp" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/verduras_cantidad"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:ems="10"
+                        android:enabled="false"
+                        android:gravity="center"
+                        android:hint="____"
+                        android:inputType="textPersonName"
+                        android:paddingTop="5dp"
+                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
+                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
+                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
+                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
+                        app:layout_constraintVertical_bias="0.574" />
+                </FrameLayout>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center|center_horizontal"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/verduras_diario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="fill_horizontal"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/verduras_dosveces"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/verduras_casinunca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/verduras_nunca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+                </RadioGroup>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="5dp">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/verduras_enlatadas_tv"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Verduras enlatadas"
+                        android:textColor="@color/black" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/verduras_enlatadas_cantidad"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:ems="10"
+                        android:enabled="false"
+                        android:gravity="center"
+                        android:hint="____"
+                        android:inputType="textPersonName"
+                        android:paddingTop="5dp"
+                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
+                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
+                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
+                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
+                        app:layout_constraintVertical_bias="0.574" />
+                </FrameLayout>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center|center_horizontal"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/verduras_enlatadas_diario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="fill_horizontal"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/verduras_enlatadas_dosveces"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/verduras_enlatadas_casinunca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/verduras_enlatadas_nunca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+                </RadioGroup>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="5dp">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/frutas_tv"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Frutas enteras"
+                        android:textColor="@color/black" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/frutas_cantidad"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:ems="10"
+                        android:enabled="false"
+                        android:gravity="center"
+                        android:hint="____"
+                        android:inputType="textPersonName"
+                        android:paddingTop="5dp"
+                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
+                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
+                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
+                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
+                        app:layout_constraintVertical_bias="0.574" />
+                </FrameLayout>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center|center_horizontal"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/frutas_diario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="fill_horizontal"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/frutas_dosveces"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/frutas_casinunca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/frutas_nunca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+                </RadioGroup>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="5dp">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/frutas_enlatadas_tv"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Frutas enlatadas"
+                        android:textColor="@color/black" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/frutas_enlatadas_cantidad"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:ems="10"
+                        android:enabled="false"
+                        android:gravity="center"
+                        android:hint="____"
+                        android:inputType="textPersonName"
+                        android:paddingTop="5dp"
+                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
+                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
+                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
+                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
+                        app:layout_constraintVertical_bias="0.574" />
+                </FrameLayout>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center|center_horizontal"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/frutas_enlatadas_diario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="fill_horizontal"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/frutas_enlatadas_dosveces"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/frutas_enlatadas_casinunca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/frutas_enlatadas_nunca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+                </RadioGroup>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="5dp">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/frijol_tv"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Frijol, lenteja, garbanzo"
+                        android:textColor="@color/black"
+                        android:textSize="10sp" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/frijol_cantidad"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:ems="10"
+                        android:enabled="false"
+                        android:gravity="center"
+                        android:hint="____"
+                        android:inputType="textPersonName"
+                        android:paddingTop="5dp"
+                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
+                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
+                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
+                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
+                        app:layout_constraintVertical_bias="0.574" />
+                </FrameLayout>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center|center_horizontal"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/frijol_diario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="fill_horizontal"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/frijol_dosveces"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/frijol_casinunca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/frijol_nunca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+                </RadioGroup>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="5dp">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/nuez_tv"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Nuez, cacahuate, pistache"
+                        android:textColor="@color/black"
+                        android:textSize="10sp" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/nuez_cantidad"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:ems="10"
+                        android:enabled="false"
+                        android:gravity="center"
+                        android:hint="____"
+                        android:inputType="textPersonName"
+                        android:paddingTop="5dp"
+                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
+                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
+                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
+                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
+                        app:layout_constraintVertical_bias="0.574" />
+                </FrameLayout>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center|center_horizontal"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/nuez_diario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="fill_horizontal"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/nuez_dosveces"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/nuez_casinunca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/nuez_nunca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+                </RadioGroup>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="5dp">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/refresco_tv"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Refresco"
+                        android:textColor="@color/black" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/refresco_cantidad"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:ems="10"
+                        android:enabled="false"
+                        android:gravity="center"
+                        android:hint="____"
+                        android:inputType="textPersonName"
+                        android:paddingTop="5dp"
+                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
+                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
+                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
+                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
+                        app:layout_constraintVertical_bias="0.574" />
+                </FrameLayout>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center|center_horizontal"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/refresco_diario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="fill_horizontal"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/refresco_dosveces"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/refresco_casinunca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/refresco_nunca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/black" />
+                </RadioGroup>
+
+            </TableRow>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

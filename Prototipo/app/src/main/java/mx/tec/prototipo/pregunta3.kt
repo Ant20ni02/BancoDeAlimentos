@@ -146,8 +146,6 @@ class pregunta3 : Fragment() {
             else{
                 Toast.makeText(context, "Porfavor, complete todos los campos", Toast.LENGTH_SHORT).show()
             }
-
-
         }
 
         btnRegresar?.setOnClickListener {
@@ -161,9 +159,6 @@ class pregunta3 : Fragment() {
                 (activity as EncuestaContainer?)!!.buttonPressed(curr!!)
             }
         }
-
-
-
         return view
     }
 }

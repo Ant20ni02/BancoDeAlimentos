@@ -116,8 +116,6 @@ class pregunta4 : Fragment() {
                 pregunta3 = true
             }
 
-
-
             if(pregunta1 && pregunta2 && pregunta3){
 
                 next = (curr.toString().toInt() + 1).toString()
@@ -131,8 +129,6 @@ class pregunta4 : Fragment() {
                 Log.e("next: ", next)
                 (activity as EncuestaContainer?)!!.buttonPressed(next)
             }
-
-
         }
 
         btnRegresar?.setOnClickListener {
@@ -146,9 +142,6 @@ class pregunta4 : Fragment() {
                 (activity as EncuestaContainer?)!!.buttonPressed(curr!!)
             }
         }
-
-
-
 
         return view
     }
