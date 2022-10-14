@@ -90,53 +90,8 @@ function Details() {
 
     const handleChange = (event) => {
         setValue(event.target.value);
-
-        if(event.target.value === '2'){
-          getQuestion11('2')
-        }
-        else if(event.target.value === '3'){
-            getQuestion11('3')
-        }
-        else if(event.target.value === '4'){
-            getQuestion11('4')
-          }
-          else if(event.target.value === '5'){
-            getQuestion11('5')
-          }
-          else if(event.target.value === '6'){
-            getQuestion11('6')
-          }
-          else if(event.target.value === '7'){
-            getQuestion11('7')
-          }
-          else if(event.target.value === '8'){
-            getQuestion11('8')
-          }
-          else if(event.target.value === '9'){
-            getQuestion11('10')
-          }
-          else if(event.target.value === '10'){
-            getQuestion11('12')
-          }
-          else if(event.target.value === '11'){
-            getQuestion11('12')
-          }
-          else if(event.target.value === '12'){
-            getQuestion11('12')
-          }
-          else if(event.target.value === '13'){
-            getQuestion11('13')
-          }
-          else if(event.target.value === '14'){
-            getQuestion11('14')
-          }
-          else if(event.target.value === '15'){
-            getQuestion11('15')
-          }
-        else{
-            getQuestion11('1')
-        }
-      };
+        getQuestion11(event.target.value);
+    };
 
     /*----------------------------------------------------------------------------------------------------------*/ 
 
