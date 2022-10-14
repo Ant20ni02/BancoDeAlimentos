@@ -31,8 +31,14 @@ function Details() {
     });
 
     const [question3, setQuestion3] = useState({
-        id: 2,
+        id: 3,
         question: "Pregunta 3: ¿En su familia alguien presenta alguna de las siguientes enfermedades? Seleccionar cuál(es)?",
+        options: [],
+    });
+
+    const [question4, setQuestion4] = useState({
+        id: 4,
+        question: "Pregunta 4: ¿Usted o alguien de su familia está actualmente embarazada? Si su respuesta fue sí, especificar en meses",
         options: [],
     });
 
@@ -170,7 +176,7 @@ function Details() {
 
         setQuestion3({
             id: 3,
-            question: "Pregunta 2: ¿En qué rango de edad se encuentra cada uno de ellos y cuántos son?",
+            question: "Pregunta 3: ¿En su familia alguien presenta alguna de las siguientes enfermedades? Seleccionar cuál(es)?",
             options: [
                 {
                     id: 1,
@@ -204,6 +210,45 @@ function Details() {
         });
     };
 
+    const getQuestion4 = async (e) => {
+    
+        const response = await fetch(url+`getPregnancyById/${idSurvey}`,{method: 'GET',
+                                headers: {'x-access-token' : localStorage.getItem('token')} });
+        const data = await response.json();
+        let value = [false, false];
+        let input = ["",""];
+        if(data.pregnancy !== 13){
+            value[1] = true;
+            input[1] = data.pregnancy
+        }
+        else{
+            value[0] = true;
+        }
+
+        
+
+        setQuestion4({
+            id: 4,
+            question: "Pregunta 4: ¿Usted o alguien de su familia está actualmente embarazada? Si su respuesta fue sí, especificar en meses",
+            options: [
+                {
+                    id: 1,
+                    option: "No",
+                    value: value[0],
+                    label: "No",
+                    input: input[0]
+                },
+                {
+                    id: 2,
+                    option: "Sí",
+                    value: value[1],
+                    label: "Sí",
+                    input: input[1]
+                },
+            ],
+        });
+    };
+
     /*----------------------------------------------------------------------------------------------------------*/ 
 
     useEffect(() => {
@@ -220,6 +265,10 @@ function Details() {
 
     useEffect(() => {
         getQuestion3();
+        }, []);
+    
+    useEffect(() => {
+        getQuestion4();
         }, []);
 
     /*----------------------------------------------------------------------------------------------------------*/ 
@@ -239,6 +288,7 @@ function Details() {
             <TextQuestion question={question1}/>
             <CheckboxQuestion question={question2} />
             <CheckboxQuestion question={question3} />
+            <CheckboxQuestion question={question4} />
 
 
         </div>
