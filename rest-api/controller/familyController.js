@@ -49,7 +49,7 @@ module.exports.getFamilies = (req,res) =>{
             res.send(error)
         else{
             res.json(
-                results[0]
+                results
             )
         }
 
@@ -124,7 +124,7 @@ module.exports.getFamilyById = (req,res) =>{
             res.send(error)
         else{
             res.json(
-                results
+                results[0]
             )
         }
     })

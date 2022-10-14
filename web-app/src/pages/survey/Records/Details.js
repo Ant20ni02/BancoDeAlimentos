@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 import QuestionsText from "../../../data/Questions-text";
 import QuestionsCheckbox from "../../../data/Questions-checkbox";
 
-function Details() {
+function Details({idSurvey}) {
     return (
         <div className="Details">
             <div className="Question-header">
