@@ -27,43 +27,7 @@ function Details() {
     const [question2, setQuestion2] = useState({
         id: 2,
         question: "¿En qué rango de edad se encuentra cada uno de ellos y cuántos son?",
-        options: [
-            {
-                id: 1,
-                option: "Infancia (0-5 años)",
-                value: false,
-                label: "Infancia (0-5 años)",
-                input: ""
-            },
-            {
-                id: 2,
-                option: "Niñez (6-12 años)",
-                value: false,
-                label: "Niñez (6-12 años)",
-                input: ""
-            },
-            {
-                id: 3,
-                option: "Adolscencia (12-18 años)",
-                value: false,
-                label: "Adolscencia (12-18 años)",
-                input: ""
-            },
-            {
-                id: 4,
-                option: "Adultez (18-60 años)",
-                value: false,
-                label: "Adultez (18-60 años)",
-                input: ""
-            },
-            {
-                id: 5,
-                option: "Adulto mayor (+65 años)",
-                value: false,
-                label: "Adulto mayor (+65 años)",
-                input: ""
-            },
-        ],
+        options: [],
     });
 
     
