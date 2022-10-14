@@ -42,6 +42,12 @@ function Details() {
         options: [],
     });
 
+    const [question5, setQuestion5] = useState({
+        id: 5,
+        question: "Pregunta 5: ¿Usted o alguien de su familia está tomando algún suplemento alimenticio? Especificar cuál",
+        options: [],
+    });
+
     /*----------------------------------------------------------------------------------------------------------*/ 
 
     const getSurveyData = async (e) => {
@@ -249,6 +255,45 @@ function Details() {
         });
     };
 
+    const getQuestion5 = async (e) => {
+    
+        const response = await fetch(url+`getAnswerByIdQuestion/${idSurvey}/${5}`,{method: 'GET',
+                                headers: {'x-access-token' : localStorage.getItem('token')} });
+        const data = await response.json();
+        const answer = data[0].answer;
+        let value = [false, false];
+        let input = ["",""];
+        if(answer === 'Ninguno'){
+            value[0] = true;
+        }
+        else{
+            value[1] = true;
+            input[1] = answer;
+        }
+
+
+        setQuestion5({
+            id: 5,
+            question: "Pregunta 5: ¿Usted o alguien de su familia está tomando algún suplemento alimenticio? Especificar cuál",
+            options: [
+                {
+                    id: 1,
+                    option: "No",
+                    value: value[0],
+                    label: "No",
+                    input: input[0]
+                },
+                {
+                    id: 2,
+                    option: "Sí",
+                    value: value[1],
+                    label: "Sí (Especificar)",
+                    input: input[1]
+                },
+            ],
+        });
+    };
+
     /*----------------------------------------------------------------------------------------------------------*/ 
 
     useEffect(() => {
@@ -271,6 +316,10 @@ function Details() {
         getQuestion4();
         }, []);
 
+    useEffect(() => {
+        getQuestion5();
+        }, []);
+
     /*----------------------------------------------------------------------------------------------------------*/ 
 
     return (
@@ -289,8 +338,7 @@ function Details() {
             <CheckboxQuestion question={question2} />
             <CheckboxQuestion question={question3} />
             <CheckboxQuestion question={question4} />
-
-
+            <CheckboxQuestion question={question5} />
         </div>
     );
 }
