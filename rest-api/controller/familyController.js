@@ -49,7 +49,7 @@ module.exports.getFamilies = (req,res) =>{
             res.send(error)
         else{
             res.json(
-                results
+                results[0]
             )
         }
 
@@ -112,5 +112,21 @@ module.exports.idFamilyExists = (req,res) =>{
 
     })
 
+
+}
+
+module.exports.getFamilyById = (req,res) =>{
+    const idSurvey = req.params.idSurvey;
+    const sql = `SELECT s.idFamily, s.idSurvey, s.latitude, s.longitude, familyLastName, date_ FROM Survey s JOIN Family f ON s.idFamily = f.idFamily WHERE idSurvey= ?  `;
+
+    conexion.query(sql, [idSurvey], (error,results,fields) =>{
+        if(error)
+            res.send(error)
+        else{
+            res.json(
+                results
+            )
+        }
+    })
 
 }

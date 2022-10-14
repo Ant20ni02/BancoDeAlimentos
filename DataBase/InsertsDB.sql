@@ -193,9 +193,10 @@ Select * from User_;
 select * from Family;
 select * from Survey;
 select * from Question;
-delete from Question where idQuestion = 11;
+-- delete from Question where idQuestion = 11;
 select * from MedicalCondition;
 -- SELECT SUBSTRING(answer,3,2) AS food, SUBSTRING(answer,8) AS quantity FROM Question WHERE ((idQuestion = 11) AND ((SUBSTRING(answer,1,1 ) = 'c')));
 -- SELECT SUBSTRING(answer,6,1) AS answer, COUNT(*) AS freq FROM Question WHERE ((idQuestion = 11) AND ((SUBSTRING(answer,3,2 ) = '11'))) GROUP BY answer;
 -- SELECT * FROM User_ WHERE ((userType = "Voluntario") AND (isActive = 1));
 -- SELECT * FROM Question WHERE ((idSurvey = 2) AND (idQuestion = 1))
+-- SELECT s.idFamily, s.idSurvey, s.latitude, s.longitude, familyLastName, date_ FROM Survey s JOIN Family f ON s.idFamily = f.idFamily WHERE idSurvey=2; 
