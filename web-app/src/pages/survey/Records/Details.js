@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import TextQuestion from "../../../components/Records/TextQuestion";
 import CheckboxQuestion from "../../../components/Records/CheckboxQuestion";
+import CheckboxQuestionSpecial from "../../../components/Records/CheckboxQuestionSpecial";
 import {Link, useParams} from "react-router-dom";
 //import LinkButton from "../../../components/LinkButton";
 import '../../../styles/Details.css';
@@ -8,6 +9,8 @@ import url from '../../../config/API';
 
 function Details() {
     const {idSurvey} = useParams();
+
+    const [value, setValue] = useState('1');
 
     const [surveyData, setSurveyData] = useState({
         idFamily: "No hay datos",
@@ -77,6 +80,63 @@ function Details() {
         question: "Pregunta 10: ¿Qué porcentaje es destinado a la alimentación?",
         options: [],
     });
+
+    const [question11, setQuestion11] = useState({
+        id: 11,
+        question: "Pregunta 11: Frecuencia de consumo",
+        options: [],
+    });
+
+
+    const handleChange = (event) => {
+        setValue(event.target.value);
+
+        if(event.target.value === '2'){
+          getQuestion11('2')
+        }
+        else if(event.target.value === '3'){
+            getQuestion11('3')
+        }
+        else if(event.target.value === '4'){
+            getQuestion11('4')
+          }
+          else if(event.target.value === '5'){
+            getQuestion11('5')
+          }
+          else if(event.target.value === '6'){
+            getQuestion11('6')
+          }
+          else if(event.target.value === '7'){
+            getQuestion11('7')
+          }
+          else if(event.target.value === '8'){
+            getQuestion11('8')
+          }
+          else if(event.target.value === '9'){
+            getQuestion11('10')
+          }
+          else if(event.target.value === '10'){
+            getQuestion11('12')
+          }
+          else if(event.target.value === '11'){
+            getQuestion11('12')
+          }
+          else if(event.target.value === '12'){
+            getQuestion11('12')
+          }
+          else if(event.target.value === '13'){
+            getQuestion11('13')
+          }
+          else if(event.target.value === '14'){
+            getQuestion11('14')
+          }
+          else if(event.target.value === '15'){
+            getQuestion11('15')
+          }
+        else{
+            getQuestion11('1')
+        }
+      };
 
     /*----------------------------------------------------------------------------------------------------------*/ 
 
@@ -514,6 +574,66 @@ function Details() {
         });
     };
 
+    const getQuestion11 = async (food) => {
+    
+        const response = await fetch(url+`getFrequencyQuantityById/${idSurvey}/${food}`,{method: 'GET',
+                                headers: {'x-access-token' : localStorage.getItem('token')} });
+        const data = await response.json();
+        let value = [false, false, false, false];
+        let input = ["", "", "", ""];
+        if(data.freq === 'a'){
+            value[0] = true;
+            input[0] = "Cantidad: " + data.quantity;
+        }
+        else if(data.freq === 'b'){
+            value[1] = true;
+            input[1] = "Cantidad: " + data.quantity;
+        }
+        else if(data.freq === 'c'){
+            value[2] = true;
+            input[2] = "Cantidad: " + data.quantity;
+        }
+        else{
+            value[3] = true;
+            input[3] = "Cantidad: " + data.quantity;
+        }
+
+        setQuestion11({
+            id: 11,
+            question: "Pregunta 11: Frecuencia de consumo",
+            options: [
+                {
+                    id: 1,
+                    option: "Diario",
+                    value: value[0],
+                    label: "Diario",
+                    input: input[0]
+                },
+                {
+                    id: 2,
+                    option: "2-3 veces por semana",
+                    value: value[1],
+                    label: "2-3 veces por semana",
+                    input: input[1]
+                },
+                {
+                    id: 3,
+                    option: "Casi nunca",
+                    value: value[2],
+                    label: "Casi nunca",
+                    input: input[2]
+                },
+                {
+                    id: 4,
+                    option: "Nunca",
+                    value: value[3],
+                    label: "Nunca",
+                    input: input[3]
+                },
+            ],
+        });
+    };
+
     /*----------------------------------------------------------------------------------------------------------*/ 
 
     useEffect(() => {
@@ -560,6 +680,10 @@ function Details() {
         getQuestion10();
         }, []);
 
+    useEffect(() => {
+        getQuestion11('1');
+        }, []);
+
     /*----------------------------------------------------------------------------------------------------------*/ 
 
     return (
@@ -584,6 +708,25 @@ function Details() {
             <CheckboxQuestion question={question8} />
             <CheckboxQuestion question={question9} />
             <CheckboxQuestion question={question10} />
+            <label>Elija el alimento:  </label>
+            <select value={value} onChange={handleChange}>
+                <option value="1" >Leche</option>
+                <option value="2">Pollo</option>
+                <option value="3">Atún</option>
+                <option value="4" >Carne de res</option>
+                <option value="5">Carne de cerdo</option>
+                <option value="6">Huevo</option>
+                <option value="7" >Arroz</option>
+                <option value="8">Tortilla, pan, galletas</option>
+                <option value="9">Verduras crudas o cocidas</option>
+                <option value="10" >Verduras enlatadas o en jugo</option>
+                <option value="11">Frutas enteras</option>
+                <option value="12">Frutas enlatadas o en jugo</option>
+                <option value="13">Frijol, lenteja o garbanzo</option>
+                <option value="14">Nuez, cacahuate, pistaches</option>
+                <option value="15">Refresco</option>
+            </select>
+            <CheckboxQuestionSpecial question={question11} />
         </div>
     );
 }
