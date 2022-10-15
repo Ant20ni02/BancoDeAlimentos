@@ -1,15 +1,22 @@
 package mx.tec.prototipo
+import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.location.Location
+import android.location.LocationListener
+import android.location.LocationManager
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.FragmentContainer
 
-class EncuestaContainer : AppCompatActivity (){
+class EncuestaContainer : AppCompatActivity (), LocationListener{
+    lateinit var locationManager: LocationManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,4 +90,37 @@ class EncuestaContainer : AppCompatActivity (){
         }
 
     }
+
+    override fun onLocationChanged(location: Location) {
+        TODO("Not yet implemented")
+    }
+
+    /*
+    fun getCurrentLocation (){
+        locationManager = getSystemService(Context.LOCATION_SERVICE)
+                as LocationManager
+
+        locationManager.requestLocationUpdates(
+            LocationManager.GPS_PROVIDER,
+            0,
+            0f, );
+
+        var location : Location
+        var latitude : Location
+        var longitude : Location
+
+        if(ActivityCompat.checkSelfPermission(this@EncuestaContainer,
+                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+
+            location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)!!
+            latitude = location.latitude
+
+        }
+
+    }
+
+    override fun onLocationChanged(location: Location) {
+        val currentLocation = arrayOf(location.latitude, location.longitude)
+        return currentLocation
+    } */
 }

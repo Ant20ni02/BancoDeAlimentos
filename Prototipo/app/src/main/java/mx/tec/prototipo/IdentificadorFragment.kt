@@ -1,8 +1,12 @@
 package mx.tec.prototipo
 
+import android.Manifest
 import android.app.PendingIntent.getActivity
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.location.LocationManager
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,6 +15,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
@@ -27,6 +34,9 @@ class IdentificadorFragment : Fragment(){
     lateinit var queue : RequestQueue
     lateinit var txtid : TextView
 
+    lateinit var locationManager: LocationManager
+
+    @RequiresApi(Build.VERSION_CODES.S)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -51,6 +61,10 @@ class IdentificadorFragment : Fragment(){
             txtid.text = "0"
         */
 
+        ///////////////// Location //////////////////////
+
+        var familyExist : Boolean = false
+
         val listener = Response.Listener<JSONObject> { response ->
             val mensaje = response.toString()
             Log.e("ENDPOINTRESPONSE", mensaje)
@@ -58,6 +72,7 @@ class IdentificadorFragment : Fragment(){
 
             ////////////////// If idFamily do exist }///////////////
             if(response.getString("exist") == "true"){
+                familyExist = true
                 if (sharedPreference != null) {
                     with(sharedPreference.edit()){
                         putString("currentFragment","1")
@@ -65,18 +80,14 @@ class IdentificadorFragment : Fragment(){
                     }
                     //request
                     next = sharedPreference?.getString("currentFragment","#").toString()
+
+                    if (next != null) {
+                        (activity as EncuestaContainer?)!!.buttonPressed(next)
+                    }
+
+                    Log.e("curr2", next.toString())
+
                 }
-
-                //validate if user exists (REQUEST)
-
-                //Encuesta Container found in Map method
-                if (next != null) {
-                    (activity as EncuestaContainer?)!!.buttonPressed(next)
-                }
-
-                Log.e("curr2", next.toString())
-
-                ///////////////////////////////////////
             }
             else{
                 Toast.makeText(activity, "Identificador no encontrado", Toast.LENGTH_SHORT).show()
@@ -96,12 +107,26 @@ class IdentificadorFragment : Fragment(){
                     Toast.makeText(activity,"Porfavor, ingrese un identificador", Toast.LENGTH_SHORT).show()
                 else{
 
-
                 val idFamilyExists = endpoint().globalLink + "idFamilyExists/" + txtid.text.toString()
+                val addSurvey = endpoint().globalLink + "addSurvey/"
                 queue =  Volley.newRequestQueue(activity?.applicationContext)
 
+
+                    val requestAddSurvey = object :
+                        JsonObjectRequest(Method.POST, idFamilyExists, null, listener, error){
+                        @Throws(AuthFailureError::class)
+                        override fun getHeaders(): MutableMap<String, String> {
+                            val hashMap = HashMap<String, String>()
+                            hashMap["Content-Type"] = "application/json; charset=UTF-8";
+                            //hashMap["User-Agent"] = "Mozilla/5.0"
+                            hashMap["x-access-token"] = xaccesstoken.toString()
+
+                            return hashMap
+                        }
+                    }
+
                 val request = object :
-                    JsonObjectRequest(Request.Method.GET, idFamilyExists, null, listener, error){
+                    JsonObjectRequest(Method.GET, idFamilyExists, null, listener, error){
                     @Throws(AuthFailureError::class)
                     override fun getHeaders(): MutableMap<String, String> {
                         val hashMap = HashMap<String, String>()
@@ -113,8 +138,26 @@ class IdentificadorFragment : Fragment(){
                         }
                     }
 
+                    /////////////////////////////////////7
+                    //validate if user exists (REQUEST)
+                    //Encuesta Container found in Map method
+
+                    ///////////////////////////////////////
+
                     queue.add(request)
 
+                    //if idFamilyExists
+
+                    /*
+                    if(familyExist){
+                        val location = locationResult
+                        val surveyAttributes = JSONObject()
+                        surveyAttributes.put("idUser", shPreferenceToken?.getString("idUser", "#") )
+                        surveyAttributes.put("idFamily", txtid.text.toString())
+                        surveyAttributes.put("latitude", location.latitude)
+
+                    }
+                    */
                 }
         }
 
