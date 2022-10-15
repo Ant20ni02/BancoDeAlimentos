@@ -5,6 +5,8 @@ import android.app.PendingIntent.getActivity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Location
+import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Build
 import android.os.Bundle
@@ -29,11 +31,12 @@ import com.google.android.material.internal.ContextUtils
 import com.google.android.material.internal.ContextUtils.getActivity
 import org.json.JSONObject
 
-class IdentificadorFragment : Fragment(){
+class IdentificadorFragment : Fragment(), LocationListener{
 
     lateinit var queue : RequestQueue
     lateinit var txtid : TextView
-
+    var latitude : Double = 0.0
+    var longitude : Double = 0.0
     lateinit var locationManager: LocationManager
 
     @RequiresApi(Build.VERSION_CODES.S)
@@ -52,6 +55,14 @@ class IdentificadorFragment : Fragment(){
         val curr = sharedPreference?.getString("currentFragment","#")
         var next = ""
 
+        locationManager = activity?.getSystemService(Context.LOCATION_SERVICE)
+                as LocationManager
+
+        if(ActivityCompat.checkSelfPermission(requireContext(),
+                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0f,this)
+
+
         Log.e("x-access-token", xaccesstoken.toString())
 
         txtid = view.findViewById(R.id.txt_id)
@@ -65,7 +76,7 @@ class IdentificadorFragment : Fragment(){
 
         var familyExist : Boolean = false
 
-        val listener = Response.Listener<JSONObject> { response ->
+        val listenerFamily = Response.Listener<JSONObject> { response ->
             val mensaje = response.toString()
             Log.e("ENDPOINTRESPONSE", mensaje)
 
@@ -80,11 +91,6 @@ class IdentificadorFragment : Fragment(){
                     }
                     //request
                     next = sharedPreference?.getString("currentFragment","#").toString()
-
-                    if (next != null) {
-                        (activity as EncuestaContainer?)!!.buttonPressed(next)
-                    }
-
                     Log.e("curr2", next.toString())
 
                 }
@@ -93,6 +99,12 @@ class IdentificadorFragment : Fragment(){
                 Toast.makeText(activity, "Identificador no encontrado", Toast.LENGTH_SHORT).show()
             }
         }
+
+        val listenerSurvey = Response.Listener<JSONObject> { response ->
+            val mensaje = response.toString()
+            Log.e("ENDPOINTRESPONSE", mensaje)
+        }
+
 
         val error = Response.ErrorListener { error ->
             Log.e("ERRORLISTENER", error.toString())
@@ -112,21 +124,10 @@ class IdentificadorFragment : Fragment(){
                 queue =  Volley.newRequestQueue(activity?.applicationContext)
 
 
-                    val requestAddSurvey = object :
-                        JsonObjectRequest(Method.POST, idFamilyExists, null, listener, error){
-                        @Throws(AuthFailureError::class)
-                        override fun getHeaders(): MutableMap<String, String> {
-                            val hashMap = HashMap<String, String>()
-                            hashMap["Content-Type"] = "application/json; charset=UTF-8";
-                            //hashMap["User-Agent"] = "Mozilla/5.0"
-                            hashMap["x-access-token"] = xaccesstoken.toString()
 
-                            return hashMap
-                        }
-                    }
 
                 val request = object :
-                    JsonObjectRequest(Method.GET, idFamilyExists, null, listener, error){
+                    JsonObjectRequest(Method.GET, idFamilyExists, null, listenerFamily, error){
                     @Throws(AuthFailureError::class)
                     override fun getHeaders(): MutableMap<String, String> {
                         val hashMap = HashMap<String, String>()
@@ -148,31 +149,55 @@ class IdentificadorFragment : Fragment(){
 
                     //if idFamilyExists
 
-                    /*
+
                     if(familyExist){
-                        val location = locationResult
+
                         val surveyAttributes = JSONObject()
                         surveyAttributes.put("idUser", shPreferenceToken?.getString("idUser", "#") )
                         surveyAttributes.put("idFamily", txtid.text.toString())
-                        surveyAttributes.put("latitude", location.latitude)
+
+                        surveyAttributes.put("latitude", latitude.toString())
+                        surveyAttributes.put("longitude", longitude.toString())
+
+                        //request
+
+                        val requestAddSurvey = object :
+                            JsonObjectRequest(Method.POST, addSurvey, surveyAttributes, listenerSurvey, error){
+                            @Throws(AuthFailureError::class)
+                            override fun getHeaders(): MutableMap<String, String> {
+                                val hashMap = HashMap<String, String>()
+                                hashMap["Content-Type"] = "application/json; charset=UTF-8";
+                                //hashMap["User-Agent"] = "Mozilla/5.0"
+                                hashMap["x-access-token"] = xaccesstoken.toString()
+
+                                return hashMap
+                            }
+                        }
+
+                        Log.e("latitude", latitude.toString())
+                        Log.e("longitude", longitude.toString())
+
+                        queue.add(requestAddSurvey)
+
+                        if (next != null) {
+                            (activity as EncuestaContainer?)!!.buttonPressed(next)
+                        }
 
                     }
-                    */
+
                 }
         }
 
         btnRegresar?.setOnClickListener { view->
-
             val intent = Intent(activity,AvisoPrivacidad::class.java)
             startActivity(intent)
-
-            /*
-            if (curr != null) {
-                (activity as EncuestaContainer?)!!.buttonPressed(curr)
-            }*/
-
         }
 
         return view;
+    }
+
+    override fun onLocationChanged(location: Location) {
+        latitude = location.latitude
+        longitude = location.longitude
     }
 }

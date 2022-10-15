@@ -21,7 +21,7 @@ import androidx.core.app.ActivityCompat
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
 
-class Inicio : AppCompatActivity(), LocationListener {
+class Inicio : AppCompatActivity(){
 
     lateinit var locationManager: LocationManager
 
@@ -48,20 +48,6 @@ class Inicio : AppCompatActivity(), LocationListener {
         }
 
         requestPermission.launch(android.Manifest.permission.ACCESS_FINE_LOCATION)
-        locationManager = getSystemService(Context.LOCATION_SERVICE)
-                as LocationManager
-
-        if(ActivityCompat.checkSelfPermission(this@Inicio,
-                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0f,this@Inicio)
-
-
-
-
-
-
-
-
 
         btnCreate.setOnClickListener{
             val intent = Intent(this@Inicio,Create::class.java)
@@ -71,11 +57,5 @@ class Inicio : AppCompatActivity(), LocationListener {
             val intent = Intent(this@Inicio,MainActivity::class.java)
             startActivity(intent)
         }
-
-
-    }
-
-    override fun onLocationChanged(location: Location) {
-        Log.w("ONLOCATIONCHANGED", "the location was changed")
     }
 }
