@@ -12,5 +12,7 @@ router.get('/idFamilyExists/:idFamily', middleware, familyController.idFamilyExi
 router.get('/getFamilyById/:idSurvey', middleware, familyController.getFamilyById);
 router.get('/getEnfermedadesById/:idSurvey', middleware, familyController.getEnfermedadesById);
 router.get('/getPregnancyById/:idSurvey', middleware, familyController.getPregnancyById);
+router.put('/setPregnancy/:months/:idFamily', middleware, familyController.setPregnancy);
+
 
 module.exports = router;

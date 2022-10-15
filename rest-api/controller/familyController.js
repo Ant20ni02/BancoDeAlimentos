@@ -163,3 +163,19 @@ module.exports.getPregnancyById = (req,res) =>{
 
 
 }
+
+module.exports.setPregnancy = (req,res) => {
+    const pregnancy_months = req.params.months;
+    const idFamily = req.params.idFamily;
+    const query = `UPDATE Family SET pregnancy = ? WHERE idFamily = ?`
+
+    conexion.query(query, [pregnancy_months, idFamily], (error, results, fields) =>{
+        if(error)
+            res.send(error)
+        else{
+            res.json(results)
+        }
+
+    })
+
+}
