@@ -18,8 +18,10 @@
             android:id="@+id/btn_realizar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:alpha="0.75"
             android:background="@drawable/btn_orange"
             android:text="Realizar encuesta"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

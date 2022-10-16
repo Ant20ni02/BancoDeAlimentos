@@ -6,8 +6,10 @@
     android:layout_height="match_parent">
 
     <ScrollView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +36,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="Alimento"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white"
                         android:textStyle="bold" />
                 </FrameLayout>
 
@@ -50,7 +52,7 @@
                         android:background="@drawable/layout_border"
                         android:gravity="center"
                         android:text="Cantidad"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white"
                         android:textStyle="bold" />
                 </FrameLayout>
 
@@ -71,7 +73,7 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:text="Frecuencia"
-                            android:textColor="@color/black"
+                            android:textColor="@color/white"
                             android:textStyle="bold" />
                     </TableRow>
 
@@ -89,7 +91,7 @@
                             android:gravity="center"
                             android:text="Diario"
                             android:textAlignment="center"
-                            android:textColor="@color/black" />
+                            android:textColor="@color/white" />
 
                         <TextView
                             android:id="@+id/textView5"
@@ -100,7 +102,7 @@
                             android:gravity="center"
                             android:text="2-3 veces por semana"
                             android:textAlignment="center"
-                            android:textColor="@color/black" />
+                            android:textColor="@color/white" />
 
                         <TextView
                             android:id="@+id/textView6"
@@ -110,7 +112,7 @@
                             android:background="@drawable/layout_border"
                             android:gravity="center"
                             android:text="Casi nunca"
-                            android:textColor="@color/black" />
+                            android:textColor="@color/white" />
 
                         <TextView
                             android:id="@+id/textView7"
@@ -121,7 +123,7 @@
                             android:gravity="center"
                             android:paddingLeft="0dp"
                             android:text="Nunca"
-                            android:textColor="@color/black" />
+                            android:textColor="@color/white" />
                     </TableRow>
                 </LinearLayout>
 
@@ -130,6 +132,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/layout_border_black"
                 android:paddingTop="5dp">
 
                 <FrameLayout
@@ -142,7 +145,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="Leche"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/white" />
                 </FrameLayout>
 
                 <FrameLayout
@@ -160,6 +163,8 @@
                         android:hint="____"
                         android:inputType="textPersonName"
                         android:paddingTop="5dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
                         app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
                         app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
                         app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
@@ -168,6 +173,7 @@
                 </FrameLayout>
 
                 <RadioGroup
+                    android:id="@+id/leche_radiogroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -179,34 +185,41 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="fill_horizontal"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:gravity="center"
                         android:textAlignment="center"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/white"
+                        android:textColorHighlight="@color/white"
+                        android:textColorHint="@color/white"
+                        android:textColorLink="@color/white" />
 
                     <RadioButton
                         android:id="@+id/leche_dosveces"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:textColor="@color/black" />
 
                     <RadioButton
                         android:id="@+id/leche_casinunca"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:textColor="@color/black" />
 
                     <RadioButton
                         android:id="@+id/leche_nunca"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:textColor="@color/black" />
                 </RadioGroup>
 
@@ -253,6 +266,7 @@
                 </FrameLayout>
 
                 <RadioGroup
+                    android:id="@+id/pollo_radiogroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -264,7 +278,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="fill_horizontal"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
                         android:gravity="center"
                         android:textAlignment="center"
@@ -274,7 +288,7 @@
                         android:id="@+id/pollo_dosveces"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
                         android:textColor="@color/black" />
 
@@ -282,7 +296,7 @@
                         android:id="@+id/pollo_casinunca"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
                         android:textColor="@color/black" />
 
@@ -290,7 +304,7 @@
                         android:id="@+id/pollo_nunca"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
                         android:textColor="@color/black" />
                 </RadioGroup>
@@ -300,6 +314,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/layout_border"
                 android:paddingTop="5dp">
 
                 <FrameLayout
@@ -312,7 +327,8 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="Atún"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white" />
                 </FrameLayout>
 
                 <FrameLayout
@@ -330,6 +346,8 @@
                         android:hint="____"
                         android:inputType="textPersonName"
                         android:paddingTop="5dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
                         app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
                         app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
                         app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
@@ -338,6 +356,7 @@
                 </FrameLayout>
 
                 <RadioGroup
+                    android:id="@+id/atun_radiogroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -349,8 +368,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="fill_horizontal"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:gravity="center"
                         android:textAlignment="center"
                         android:textColor="@color/black" />
@@ -359,24 +379,27 @@
                         android:id="@+id/atun_dosveces"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:textColor="@color/black" />
 
                     <RadioButton
                         android:id="@+id/atun_casinunca"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:textColor="@color/black" />
 
                     <RadioButton
                         android:id="@+id/atun_nunca"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:textColor="@color/black" />
                 </RadioGroup>
 
@@ -385,6 +408,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/layout_border_black"
                 android:paddingTop="5dp">
 
                 <FrameLayout
@@ -397,7 +421,8 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="Carne de res"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white" />
                 </FrameLayout>
 
                 <FrameLayout
@@ -415,6 +440,8 @@
                         android:hint="____"
                         android:inputType="textPersonName"
                         android:paddingTop="5dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
                         app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
                         app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
                         app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
@@ -423,6 +450,7 @@
                 </FrameLayout>
 
                 <RadioGroup
+                    android:id="@+id/carne_de_res_radiogroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -434,8 +462,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="fill_horizontal"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:gravity="center"
                         android:textAlignment="center"
                         android:textColor="@color/black" />
@@ -444,24 +473,27 @@
                         android:id="@+id/carneRes_dosveces"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:textColor="@color/black" />
 
                     <RadioButton
                         android:id="@+id/carneRes_casinunca"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:textColor="@color/black" />
 
                     <RadioButton
                         android:id="@+id/carneRes_nunca"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:textColor="@color/black" />
                 </RadioGroup>
 
@@ -508,6 +540,7 @@
                 </FrameLayout>
 
                 <RadioGroup
+                    android:id="@+id/carne_de_cerdo_radiogroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -519,7 +552,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="fill_horizontal"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
                         android:gravity="center"
                         android:textAlignment="center"
@@ -529,7 +562,7 @@
                         android:id="@+id/carneCerdo_dosveces"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
                         android:textColor="@color/black" />
 
@@ -537,7 +570,7 @@
                         android:id="@+id/carneCerdo_casinunca"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
                         android:textColor="@color/black" />
 
@@ -545,7 +578,7 @@
                         android:id="@+id/carneCerdo_nunca"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
                         android:textColor="@color/black" />
                 </RadioGroup>
@@ -555,6 +588,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/layout_border"
                 android:paddingTop="5dp">
 
                 <FrameLayout
@@ -567,7 +601,8 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="Huevo"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white" />
                 </FrameLayout>
 
                 <FrameLayout
@@ -585,6 +620,8 @@
                         android:hint="____"
                         android:inputType="textPersonName"
                         android:paddingTop="5dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
                         app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
                         app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
                         app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
@@ -593,6 +630,7 @@
                 </FrameLayout>
 
                 <RadioGroup
+                    android:id="@+id/huevo_radiogroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -604,8 +642,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="fill_horizontal"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:gravity="center"
                         android:textAlignment="center"
                         android:textColor="@color/black" />
@@ -614,24 +653,27 @@
                         android:id="@+id/huevo_dosveces"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:textColor="@color/black" />
 
                     <RadioButton
                         android:id="@+id/huevo_casinunca"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:textColor="@color/black" />
 
                     <RadioButton
                         android:id="@+id/huevo_nunca"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:textColor="@color/black" />
                 </RadioGroup>
 
@@ -640,6 +682,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/layout_border_black"
                 android:paddingTop="5dp">
 
                 <FrameLayout
@@ -652,7 +695,8 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="Arroz"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white" />
                 </FrameLayout>
 
                 <FrameLayout
@@ -670,6 +714,8 @@
                         android:hint="____"
                         android:inputType="textPersonName"
                         android:paddingTop="5dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
                         app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
                         app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
                         app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
@@ -678,6 +724,7 @@
                 </FrameLayout>
 
                 <RadioGroup
+                    android:id="@+id/arroz_radiogroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -689,8 +736,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="fill_horizontal"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:gravity="center"
                         android:textAlignment="center"
                         android:textColor="@color/black" />
@@ -699,24 +747,27 @@
                         android:id="@+id/arroz_dosveces"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:textColor="@color/black" />
 
                     <RadioButton
                         android:id="@+id/arroz_casinunca"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:textColor="@color/black" />
 
                     <RadioButton
                         android:id="@+id/arroz_nunca"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:textColor="@color/black" />
                 </RadioGroup>
 
@@ -764,6 +815,7 @@
                 </FrameLayout>
 
                 <RadioGroup
+                    android:id="@+id/tortilla_radiogroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -775,7 +827,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="fill_horizontal"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
                         android:gravity="center"
                         android:textAlignment="center"
@@ -785,7 +837,7 @@
                         android:id="@+id/tortilla_dosveces"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
                         android:textColor="@color/black" />
 
@@ -793,7 +845,7 @@
                         android:id="@+id/tortilla_casinunca"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
                         android:textColor="@color/black" />
 
@@ -801,7 +853,7 @@
                         android:id="@+id/tortilla_nunca"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
                         android:textColor="@color/black" />
                 </RadioGroup>
@@ -811,6 +863,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/layout_border"
                 android:paddingTop="5dp">
 
                 <FrameLayout
@@ -823,7 +876,8 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="Verduras crudas o cocidas"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
                         android:textSize="10sp" />
                 </FrameLayout>
 
@@ -842,6 +896,8 @@
                         android:hint="____"
                         android:inputType="textPersonName"
                         android:paddingTop="5dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
                         app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
                         app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
                         app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
@@ -850,6 +906,7 @@
                 </FrameLayout>
 
                 <RadioGroup
+                    android:id="@+id/verduras_radiogroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -861,8 +918,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="fill_horizontal"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:gravity="center"
                         android:textAlignment="center"
                         android:textColor="@color/black" />
@@ -871,24 +929,27 @@
                         android:id="@+id/verduras_dosveces"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:textColor="@color/black" />
 
                     <RadioButton
                         android:id="@+id/verduras_casinunca"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:textColor="@color/black" />
 
                     <RadioButton
                         android:id="@+id/verduras_nunca"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:textColor="@color/black" />
                 </RadioGroup>
 
@@ -897,6 +958,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/layout_border_black"
                 android:paddingTop="5dp">
 
                 <FrameLayout
@@ -909,7 +971,8 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="Verduras enlatadas"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white" />
                 </FrameLayout>
 
                 <FrameLayout
@@ -927,6 +990,8 @@
                         android:hint="____"
                         android:inputType="textPersonName"
                         android:paddingTop="5dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
                         app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
                         app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
                         app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
@@ -935,6 +1000,7 @@
                 </FrameLayout>
 
                 <RadioGroup
+                    android:id="@+id/verduras_enlatadas_radiogroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -946,8 +1012,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="fill_horizontal"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:gravity="center"
                         android:textAlignment="center"
                         android:textColor="@color/black" />
@@ -956,24 +1023,27 @@
                         android:id="@+id/verduras_enlatadas_dosveces"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:textColor="@color/black" />
 
                     <RadioButton
                         android:id="@+id/verduras_enlatadas_casinunca"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:textColor="@color/black" />
 
                     <RadioButton
                         android:id="@+id/verduras_enlatadas_nunca"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:textColor="@color/black" />
                 </RadioGroup>
 
@@ -1020,6 +1090,7 @@
                 </FrameLayout>
 
                 <RadioGroup
+                    android:id="@+id/frutas_enteras_radiogroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -1031,7 +1102,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="fill_horizontal"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
                         android:gravity="center"
                         android:textAlignment="center"
@@ -1041,7 +1112,7 @@
                         android:id="@+id/frutas_dosveces"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
                         android:textColor="@color/black" />
 
@@ -1049,7 +1120,7 @@
                         android:id="@+id/frutas_casinunca"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
                         android:textColor="@color/black" />
 
@@ -1057,7 +1128,7 @@
                         android:id="@+id/frutas_nunca"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
                         android:textColor="@color/black" />
                 </RadioGroup>
@@ -1067,6 +1138,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/layout_border"
                 android:paddingTop="5dp">
 
                 <FrameLayout
@@ -1079,7 +1151,8 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="Frutas enlatadas"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white" />
                 </FrameLayout>
 
                 <FrameLayout
@@ -1097,6 +1170,8 @@
                         android:hint="____"
                         android:inputType="textPersonName"
                         android:paddingTop="5dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
                         app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
                         app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
                         app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
@@ -1105,6 +1180,7 @@
                 </FrameLayout>
 
                 <RadioGroup
+                    android:id="@+id/frutas_enlatadas_radiogroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -1116,8 +1192,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="fill_horizontal"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:gravity="center"
                         android:textAlignment="center"
                         android:textColor="@color/black" />
@@ -1126,24 +1203,27 @@
                         android:id="@+id/frutas_enlatadas_dosveces"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:textColor="@color/black" />
 
                     <RadioButton
                         android:id="@+id/frutas_enlatadas_casinunca"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:textColor="@color/black" />
 
                     <RadioButton
                         android:id="@+id/frutas_enlatadas_nunca"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:textColor="@color/black" />
                 </RadioGroup>
 
@@ -1152,6 +1232,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/layout_border_black"
                 android:paddingTop="5dp">
 
                 <FrameLayout
@@ -1164,7 +1245,8 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="Frijol, lenteja, garbanzo"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
                         android:textSize="10sp" />
                 </FrameLayout>
 
@@ -1183,6 +1265,8 @@
                         android:hint="____"
                         android:inputType="textPersonName"
                         android:paddingTop="5dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
                         app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
                         app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
                         app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
@@ -1191,6 +1275,7 @@
                 </FrameLayout>
 
                 <RadioGroup
+                    android:id="@+id/frijol_radiogroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -1202,8 +1287,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="fill_horizontal"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:gravity="center"
                         android:textAlignment="center"
                         android:textColor="@color/black" />
@@ -1212,24 +1298,27 @@
                         android:id="@+id/frijol_dosveces"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:textColor="@color/black" />
 
                     <RadioButton
                         android:id="@+id/frijol_casinunca"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:textColor="@color/black" />
 
                     <RadioButton
                         android:id="@+id/frijol_nunca"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:textColor="@color/black" />
                 </RadioGroup>
 
@@ -1277,6 +1366,7 @@
                 </FrameLayout>
 
                 <RadioGroup
+                    android:id="@+id/nuez_radiogroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -1288,7 +1378,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="fill_horizontal"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
                         android:gravity="center"
                         android:textAlignment="center"
@@ -1298,7 +1388,7 @@
                         android:id="@+id/nuez_dosveces"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
                         android:textColor="@color/black" />
 
@@ -1306,7 +1396,7 @@
                         android:id="@+id/nuez_casinunca"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
                         android:textColor="@color/black" />
 
@@ -1314,7 +1404,7 @@
                         android:id="@+id/nuez_nunca"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
                         android:textColor="@color/black" />
                 </RadioGroup>
@@ -1324,6 +1414,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/layout_border"
                 android:paddingTop="5dp">
 
                 <FrameLayout
@@ -1336,7 +1427,8 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="Refresco"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white" />
                 </FrameLayout>
 
                 <FrameLayout
@@ -1354,6 +1446,8 @@
                         android:hint="____"
                         android:inputType="textPersonName"
                         android:paddingTop="5dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
                         app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
                         app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
                         app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
@@ -1362,6 +1456,7 @@
                 </FrameLayout>
 
                 <RadioGroup
+                    android:id="@+id/refresco_radiogroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -1373,8 +1468,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="fill_horizontal"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:gravity="center"
                         android:textAlignment="center"
                         android:textColor="@color/black" />
@@ -1383,24 +1479,27 @@
                         android:id="@+id/refresco_dosveces"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:textColor="@color/black" />
 
                     <RadioButton
                         android:id="@+id/refresco_casinunca"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:textColor="@color/black" />
 
                     <RadioButton
                         android:id="@+id/refresco_nunca"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/white"
                         android:textColor="@color/black" />
                 </RadioGroup>
 

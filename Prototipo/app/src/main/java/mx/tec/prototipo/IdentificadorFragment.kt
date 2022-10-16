@@ -34,6 +34,8 @@ import org.json.JSONObject
 class IdentificadorFragment : Fragment(), LocationListener{
 
     lateinit var queue : RequestQueue
+    lateinit var queue2 : RequestQueue
+
     lateinit var txtid : TextView
     var latitude : Double = 0.0
     var longitude : Double = 0.0
@@ -51,6 +53,8 @@ class IdentificadorFragment : Fragment(), LocationListener{
         val sharedPreference = context?.getSharedPreferences("currentFragment", Context.MODE_PRIVATE)
         val shPreferenceToken = context?.getSharedPreferences("profile",Context.MODE_PRIVATE)
         val xaccesstoken = shPreferenceToken?.getString("x-access-token","#")
+
+        val surveyStuff = context?.getSharedPreferences("survey", Context.MODE_PRIVATE)
 
         val curr = sharedPreference?.getString("currentFragment","#")
         var next = ""
@@ -76,6 +80,20 @@ class IdentificadorFragment : Fragment(), LocationListener{
 
         var familyExist : Boolean = false
 
+        val listenerSurvey = Response.Listener<JSONObject> { response ->
+            val mensaje = response.toString()
+            Log.e("ENDPOINTRESPONSE", mensaje)
+
+            with(surveyStuff?.edit()){
+                this?.putString("idSurvey",response.getString("idSurvey").toString())
+                this?.commit()
+            }
+        }
+
+        val error = Response.ErrorListener { error ->
+            Log.e("ERRORLISTENER", error.toString())
+        }
+
         val listenerFamily = Response.Listener<JSONObject> { response ->
             val mensaje = response.toString()
             Log.e("ENDPOINTRESPONSE", mensaje)
@@ -93,6 +111,48 @@ class IdentificadorFragment : Fragment(), LocationListener{
                     next = sharedPreference?.getString("currentFragment","#").toString()
                     Log.e("curr2", next.toString())
 
+                    ////////////////////////////
+                    //if idFamilyExists
+                    if(familyExist){
+
+                        val surveyAttributes = JSONObject()
+                        surveyAttributes.put("idUser", shPreferenceToken?.getString("idUser", "#") )
+                        surveyAttributes.put("idFamily", txtid.text.toString())
+
+                        surveyAttributes.put("latitude", latitude.toString())
+                        surveyAttributes.put("longitude", longitude.toString())
+
+                        //request add survey
+
+                        val addSurvey = endpoint().globalLink + "addSurvey/"
+                        queue2 = Volley.newRequestQueue(activity?.applicationContext)
+
+                        val requestAddSurvey = object :
+                            JsonObjectRequest(Method.POST, addSurvey, surveyAttributes, listenerSurvey, error){
+                            @Throws(AuthFailureError::class)
+                            override fun getHeaders(): MutableMap<String, String> {
+                                val hashMap = HashMap<String, String>()
+                                hashMap["Content-Type"] = "application/json; charset=UTF-8";
+                                //hashMap["User-Agent"] = "Mozilla/5.0"
+                                hashMap["x-access-token"] = xaccesstoken.toString()
+
+                                return hashMap
+                            }
+                        }
+
+                        Log.e("latitude", latitude.toString())
+                        Log.e("longitude", longitude.toString())
+
+                        queue2.add(requestAddSurvey)
+
+                        if (next != null) {
+                            (activity as EncuestaContainer?)!!.buttonPressed(next)
+                        }
+
+                    }
+
+
+
                 }
             }
             else{
@@ -100,15 +160,10 @@ class IdentificadorFragment : Fragment(), LocationListener{
             }
         }
 
-        val listenerSurvey = Response.Listener<JSONObject> { response ->
-            val mensaje = response.toString()
-            Log.e("ENDPOINTRESPONSE", mensaje)
-        }
 
 
-        val error = Response.ErrorListener { error ->
-            Log.e("ERRORLISTENER", error.toString())
-        }
+
+
 
         btnSiguiente?.setOnClickListener{ view ->
                 //comprobar que el idFamily existe
@@ -120,10 +175,7 @@ class IdentificadorFragment : Fragment(), LocationListener{
                 else{
 
                 val idFamilyExists = endpoint().globalLink + "idFamilyExists/" + txtid.text.toString()
-                val addSurvey = endpoint().globalLink + "addSurvey/"
                 queue =  Volley.newRequestQueue(activity?.applicationContext)
-
-
 
 
                 val request = object :
@@ -142,48 +194,11 @@ class IdentificadorFragment : Fragment(), LocationListener{
                     /////////////////////////////////////7
                     //validate if user exists (REQUEST)
                     //Encuesta Container found in Map method
-
                     ///////////////////////////////////////
 
                     queue.add(request)
 
-                    //if idFamilyExists
 
-
-                    if(familyExist){
-
-                        val surveyAttributes = JSONObject()
-                        surveyAttributes.put("idUser", shPreferenceToken?.getString("idUser", "#") )
-                        surveyAttributes.put("idFamily", txtid.text.toString())
-
-                        surveyAttributes.put("latitude", latitude.toString())
-                        surveyAttributes.put("longitude", longitude.toString())
-
-                        //request
-
-                        val requestAddSurvey = object :
-                            JsonObjectRequest(Method.POST, addSurvey, surveyAttributes, listenerSurvey, error){
-                            @Throws(AuthFailureError::class)
-                            override fun getHeaders(): MutableMap<String, String> {
-                                val hashMap = HashMap<String, String>()
-                                hashMap["Content-Type"] = "application/json; charset=UTF-8";
-                                //hashMap["User-Agent"] = "Mozilla/5.0"
-                                hashMap["x-access-token"] = xaccesstoken.toString()
-
-                                return hashMap
-                            }
-                        }
-
-                        Log.e("latitude", latitude.toString())
-                        Log.e("longitude", longitude.toString())
-
-                        queue.add(requestAddSurvey)
-
-                        if (next != null) {
-                            (activity as EncuestaContainer?)!!.buttonPressed(next)
-                        }
-
-                    }
 
                 }
         }

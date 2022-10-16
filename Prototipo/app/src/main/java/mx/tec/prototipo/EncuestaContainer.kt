@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.FragmentContainer
 
-class EncuestaContainer : AppCompatActivity (), LocationListener{
+class EncuestaContainer : AppCompatActivity (){
     lateinit var locationManager: LocationManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -91,36 +91,4 @@ class EncuestaContainer : AppCompatActivity (), LocationListener{
 
     }
 
-    override fun onLocationChanged(location: Location) {
-        TODO("Not yet implemented")
-    }
-
-    /*
-    fun getCurrentLocation (){
-        locationManager = getSystemService(Context.LOCATION_SERVICE)
-                as LocationManager
-
-        locationManager.requestLocationUpdates(
-            LocationManager.GPS_PROVIDER,
-            0,
-            0f, );
-
-        var location : Location
-        var latitude : Location
-        var longitude : Location
-
-        if(ActivityCompat.checkSelfPermission(this@EncuestaContainer,
-                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
-
-            location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)!!
-            latitude = location.latitude
-
-        }
-
-    }
-
-    override fun onLocationChanged(location: Location) {
-        val currentLocation = arrayOf(location.latitude, location.longitude)
-        return currentLocation
-    } */
 }
