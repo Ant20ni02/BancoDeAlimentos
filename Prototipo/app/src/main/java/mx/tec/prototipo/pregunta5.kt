@@ -10,16 +10,18 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import com.android.volley.AuthFailureError
+import com.android.volley.RequestQueue
+import com.android.volley.Response
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
+import org.json.JSONArray
 import org.json.JSONObject
 import org.w3c.dom.Text
 
 class pregunta5 : Fragment() {
-    lateinit var leche_cantidad: EditText
-    lateinit var leche_diario : RadioButton
-    lateinit var leche_dos_veces : RadioButton
-    lateinit var leche_casi_nunca : RadioButton
-    lateinit var leche_nunca : RadioButton
-
+    lateinit var queue : RequestQueue
+    lateinit var queue2 : RequestQueue
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,12 +35,100 @@ class pregunta5 : Fragment() {
 
         var RadioButtonFrequency: Array<String> = arrayOf("a","b","c","d")
         var tipoDeAlimento: Map<String, String> = mapOf("Leche" to "a", "Pollo" to "c", "Atún" to "c", "Carne de res" to "b", "Carne de cerdo" to "b", "Huevo" to "c", "Arroz" to "b", "Tortilla" to "c", "Verduras" to "b", "Verduras_enlatadas" to "c", "Frutas" to "b", "Frutas_enlatadas" to "c", "Frijol" to "b", "Nuez" to "b", "Refresco" to "a")
-        var quantityEdits : Array<String>  = arrayOf("leche", "pollo", "atun", "carneRes", "carneCerdo", "huevo", "arroz", "tortilla", "verduras", "verduras_enlatadas", "frutas", "frutas_enlatadas", "frijol", "nuez", "refresco")
         var viewTextsPositions : Array<String> = arrayOf("Leche", "Pollo", "Atún", "Carne de res", "Carne de cerdo", "Huevo", "Arroz", "Tortilla", "Verduras", "Verduras_enlatadas", "Frutas", "Frutas_enlatadas", "Frijol", "Nuez", "Refresco")
         var quantityET : Array<EditText>? = arrayOf(view.findViewById(R.id.leche_cantidad), view.findViewById(R.id.pollo_cantidad), view.findViewById(R.id.atun_cantidad), view.findViewById(R.id.carneRes_cantidad), view.findViewById(R.id.carneCerdo_cantidad), view.findViewById(R.id.huevo_cantidad), view.findViewById(R.id.arroz_cantidad), view.findViewById(R.id.tortilla_cantidad),view.findViewById(R.id.verduras_cantidad), view.findViewById(R.id.verduras_enlatadas_cantidad), view.findViewById(R.id.frutas_cantidad), view.findViewById(R.id.frutas_enlatadas_cantidad), view.findViewById(R.id.frijol_cantidad), view.findViewById(R.id.nuez_cantidad), view.findViewById(R.id.refresco_cantidad))
         var radioGroups : Array<RadioGroup>? = arrayOf(view.findViewById(R.id.leche_radiogroup), view.findViewById(R.id.pollo_radiogroup), view.findViewById(R.id.atun_radiogroup), view.findViewById(R.id.carne_de_res_radiogroup), view.findViewById(R.id.carne_de_cerdo_radiogroup), view.findViewById(R.id.huevo_radiogroup), view.findViewById(R.id.arroz_radiogroup), view.findViewById(R.id.tortilla_radiogroup), view.findViewById(R.id.verduras_radiogroup), view.findViewById(R.id.verduras_enlatadas_radiogroup), view.findViewById(R.id.frutas_enteras_radiogroup), view.findViewById(R.id.frutas_enlatadas_radiogroup), view.findViewById(R.id.frijol_radiogroup), view.findViewById(R.id.nuez_radiogroup), view.findViewById(R.id.refresco_radiogroup))
-        //var xd : Array<EditText> = arrayOf(view.findViewById(R.id.leche_cantidad))
 
+        val shPreferenceToken = context?.getSharedPreferences("profile",Context.MODE_PRIVATE)
+
+        val xaccesstoken = shPreferenceToken?.getString("x-access-token","#")
+
+        val surveyStuff = context?.getSharedPreferences("survey", Context.MODE_PRIVATE)
+
+        val error = Response.ErrorListener { error ->
+            Log.e("ERRORLISTENER", error.toString())
+        }
+
+        val listenerDisease = Response.Listener<JSONObject>{ response ->
+            val mensaje = response.toString()
+            Log.e("listenerDis RESPONSE", mensaje)
+        }
+
+
+
+        val listenerPregnancy = Response.Listener<JSONObject>{ response ->
+            val mensaje = response.toString()
+            Log.e("listenerPreg RESPONSE", mensaje)
+
+            //enfermedades
+
+            val enfermedadesEndpoint = endpoint().globalLink + "/assignMedicalCondition"
+            val medical = JSONObject()
+
+            
+
+
+
+            val requestAssignMedicalCondition = object :
+                JsonObjectRequest(Method.POST, enfermedadesEndpoint, null, listenerDisease, error){
+                @Throws(AuthFailureError::class)
+                override fun getHeaders(): MutableMap<String, String> {
+                    val hashMap = HashMap<String, String>()
+                    hashMap["Content-Type"] = "application/json; charset=UTF-8";
+                    //hashMap["User-Agent"] = "Mozilla/5.0"
+                    hashMap["x-access-token"] = xaccesstoken.toString()
+
+                    return hashMap
+                }
+            }
+
+
+
+
+
+
+        }
+
+
+
+
+
+        val listenerAnswers = Response.Listener<JSONObject> { response ->
+            val mensaje = response.toString()
+            Log.e("listenerAns", mensaje)
+
+            //starts second request
+            val pregnancyMonths = sharedPreference?.getString("answer3","#")
+            val idFamily = surveyStuff?.getString("idFamily", "#")
+
+            val pregnancyEndpoint = endpoint().globalLink + "setPregnancy/" + pregnancyMonths + "/" + idFamily
+
+            val requestUpdatePregnancy = object :
+                JsonObjectRequest(Method.PUT, pregnancyEndpoint, null, listenerPregnancy, error){
+                @Throws(AuthFailureError::class)
+                override fun getHeaders(): MutableMap<String, String> {
+                    val hashMap = HashMap<String, String>()
+                    hashMap["Content-Type"] = "application/json; charset=UTF-8";
+                    //hashMap["User-Agent"] = "Mozilla/5.0"
+                    hashMap["x-access-token"] = xaccesstoken.toString()
+
+                    return hashMap
+                }
+            }
+
+            queue2 = Volley.newRequestQueue(activity?.applicationContext)
+            queue.add(requestUpdatePregnancy)
+
+        }
+
+
+
+
+
+
+
+        var mainJsonObject = JSONObject()
+        var jsonArray = JSONArray()
         //build json array
         val pregunta1 = JSONObject()
         val pregunta2 = JSONObject()
@@ -50,14 +140,46 @@ class pregunta5 : Fragment() {
         val pregunta10 = JSONObject()
         val pregunta11 = JSONObject()
 
-        pregunta1.put("answer1", sharedPreference?.getString("answer1","#"))
-        pregunta2.put("answer2")
+        pregunta1.put("idQuestion", "1")
+        pregunta1.put("idSurvey", surveyStuff?.getString("idSurvey","#"))
+        pregunta1.put("answer", sharedPreference?.getString("answer1","#"))
 
+        pregunta2.put("idQuestion", "2")
+        pregunta2.put("idSurvey", surveyStuff?.getString("idSurvey","#"))
+        pregunta2.put("answer", sharedPreference?.getString("answer2","#"))
 
+        pregunta5.put("idQuestion", "5")
+        pregunta5.put("idSurvey", surveyStuff?.getString("idSurvey","#"))
+        pregunta5.put("answer", sharedPreference?.getString("answer5","#"))
 
+        pregunta6.put("idQuestion", "6")
+        pregunta6.put("idSurvey", surveyStuff?.getString("idSurvey","#"))
+        pregunta6.put("answer", sharedPreference?.getString("answer6","#"))
 
+        pregunta7.put("idQuestion", "7")
+        pregunta7.put("idSurvey", surveyStuff?.getString("idSurvey","#"))
+        pregunta7.put("answer", sharedPreference?.getString("answer7","#"))
 
+        pregunta8.put("idQuestion", "8")
+        pregunta8.put("idSurvey", surveyStuff?.getString("idSurvey","#"))
+        pregunta8.put("answer", sharedPreference?.getString("answer8","#"))
 
+        pregunta9.put("idQuestion", "9")
+        pregunta9.put("idSurvey", surveyStuff?.getString("idSurvey","#"))
+        pregunta9.put("answer", sharedPreference?.getString("answer9","#"))
+
+        pregunta10.put("idQuestion", "10")
+        pregunta10.put("idSurvey", surveyStuff?.getString("idSurvey","#"))
+        pregunta10.put("answer", sharedPreference?.getString("answer10","#"))
+
+        jsonArray.put(pregunta1)
+        jsonArray.put(pregunta2)
+        jsonArray.put(pregunta5)
+        jsonArray.put(pregunta6)
+        jsonArray.put(pregunta7)
+        jsonArray.put(pregunta8)
+        jsonArray.put(pregunta9)
+        jsonArray.put(pregunta10)
 
         val btnSiguiente = activity?.findViewById<Button>(R.id.btnSiguiente)
         val btnRegresar = activity?.findViewById<Button>(R.id.btnRegresar)
@@ -87,7 +209,21 @@ class pregunta5 : Fragment() {
             //retrieve tables data
             var RadioSelectedButton : RadioButton
             for (x in 0..14){
+                var pregunta11 = JSONObject()
+
                 currentQuantity = quantityET?.get(x)?.text.toString()
+
+                if(currentQuantity == "")
+                {
+                    Toast.makeText(context, "Porfavor, ingrese todos los campos", Toast.LENGTH_SHORT).show()
+                    allCantidadesFilled = false
+                    break
+                }
+                else{
+                    allCantidadesFilled = true
+                }
+
+
                 currentQuestion = ""
                 currentType = tipoDeAlimento.get(viewTextsPositions[x]).toString()
                 var selectedRadioButtonId : Int? = radioGroups?.get(x)?.checkedRadioButtonId
@@ -126,6 +262,14 @@ class pregunta5 : Fragment() {
                 if(allCantidadesFilled && allFrequencysSelected){
                     currentString = currentType + "_" + currentQuestion + "_" + currentFrequencyId + "_" + currentQuantity
                     Log.e("currentString", currentString)
+
+                    // add string to the array
+                    pregunta11.put("idQuestion", "11")
+                    pregunta11.put("idSurvey", surveyStuff?.getString("idSurvey","#"))
+                    pregunta11.put("answer", currentString)
+
+                    jsonArray.put(pregunta11)
+
                     continue
                 }else{
                     Toast.makeText(context, "Porfavor, ingrese todos los campos", Toast.LENGTH_SHORT).show()
@@ -134,6 +278,27 @@ class pregunta5 : Fragment() {
 
             }
 
+            //add json array to main json object
+            mainJsonObject.put("questionList", jsonArray)
+            Log.e("question List", mainJsonObject.getString("questionList"))
+
+            //main REQUEST
+
+            val answersRequestEndpoint = endpoint().globalLink + "insertQuestionList"
+            val requestAddAnswers = object :
+                JsonObjectRequest(Method.POST, answersRequestEndpoint, mainJsonObject, listenerAnswers, error){
+                @Throws(AuthFailureError::class)
+                override fun getHeaders(): MutableMap<String, String> {
+                    val hashMap = HashMap<String, String>()
+                    hashMap["Content-Type"] = "application/json; charset=UTF-8";
+                    //hashMap["User-Agent"] = "Mozilla/5.0"
+                    hashMap["x-access-token"] = xaccesstoken.toString()
+
+                    return hashMap
+                }
+            }
+            queue = Volley.newRequestQueue(activity?.applicationContext)
+            queue.add(requestAddAnswers)
 
 
 

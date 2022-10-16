@@ -21,8 +21,8 @@
 
     <ImageView
         android:id="@+id/signUpLogo"
-        android:layout_width="131dp"
-        android:layout_height="130dp"
+        android:layout_width="wrap_content"
+        android:layout_height="90dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,15 +59,17 @@
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:orientation="vertical">
 
             <TableLayout
                 android:id="@+id/tableLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingStart="15px"
+                android:paddingStart="0dp"
                 android:paddingTop="0dp"
-                android:paddingEnd="15px"
+                android:paddingEnd="0dp"
                 android:stretchColumns="0">
 
                 <TableRow

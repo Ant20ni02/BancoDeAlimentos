@@ -25,6 +25,8 @@ module.exports.createFamily = (req, res) =>{
 }
 
 module.exports.assignMedicalCondition = (req,res) =>{
+
+    /*
     const name = req.body.name;
     const medicalConditionNumber = req.body.medicalConditionNumber;
     const idFamily = req.body.idFamily;
@@ -37,7 +39,26 @@ module.exports.assignMedicalCondition = (req,res) =>{
         else{
             res.json(results)
         }
-    })
+    })*/
+
+
+    const doQuery = async (element) =>{
+        await conexion.query (sql, [element.medicalConditionName, element.medicalConditionNumber, element.idFamily], (error, results, fields)=>{
+            if(error)
+                res.json(error);
+            else{
+                console.log(results);
+            }
+        })
+    }
+
+    const conditions = req.body.conditions;
+    const sql = `INSERT INTO MedicalCondition (medicalConditionName,medicalConditionNumber, idFamily) VALUES(?,?,?)`;
+
+    conditions.forEach(ele => {
+        doQuery(ele);
+    });
+    res.json({"mensaje": "Condiciones insertadas satisfactoriamente"})
 }
 
 module.exports.getFamilies = (req,res) =>{

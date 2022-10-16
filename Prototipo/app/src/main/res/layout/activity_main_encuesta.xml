@@ -82,7 +82,7 @@
                         android:layout_width="350px"
                         android:layout_height="wrap_content"
                         android:background="@drawable/btn_orange"
-                        android:text="Rgresar"
+                        android:text="Regresar"
                         android:textAllCaps="true"
                         android:textColor="#FFFFFF" />
                 </FrameLayout>
@@ -98,9 +98,11 @@
                         android:layout_width="350px"
                         android:layout_height="wrap_content"
                         android:background="@drawable/btn_orange"
+                        android:shadowColor="@color/cardview_shadow_end_color"
                         android:text="Siguiente"
                         android:textAllCaps="true"
-                        android:textColor="#FFFFFF" />
+                        android:textColor="#FFFFFF"
+                        android:textColorHint="@color/black" />
                 </FrameLayout>
             </TableRow>
 

@@ -119,6 +119,13 @@ class IdentificadorFragment : Fragment(), LocationListener{
                         surveyAttributes.put("idUser", shPreferenceToken?.getString("idUser", "#") )
                         surveyAttributes.put("idFamily", txtid.text.toString())
 
+                        // add idFamily
+
+                        with(surveyStuff?.edit()){
+                            this?.putString("idFamily", txtid.text.toString())
+                            this?.commit()
+                        }
+
                         surveyAttributes.put("latitude", latitude.toString())
                         surveyAttributes.put("longitude", longitude.toString())
 
