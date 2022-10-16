@@ -24,6 +24,17 @@ div.Question-header > h3.date, div.Question-header h3.location {
     color: var(--details);
 }
 
+.mapContainer {
+    float: right;
+  }
+  
+  /* Then style the iframe to fit in the container div with full height and width */
+  .responsive-iframe {
+    height: auto; 
+    width: 500px;
+    max-width: 100%;
+  }
+
 /* div.Details a {
     font-weight: bold;
     text-decoration: none;

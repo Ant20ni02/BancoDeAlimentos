@@ -3,7 +3,6 @@ import TextQuestion from "../../../components/Records/TextQuestion";
 import CheckboxQuestion from "../../../components/Records/CheckboxQuestion";
 import CheckboxQuestionSpecial from "../../../components/Records/CheckboxQuestionSpecial";
 import {Link, useParams} from "react-router-dom";
-//import LinkButton from "../../../components/LinkButton";
 import '../../../styles/Details.css';
 import url from '../../../config/API';
 
@@ -15,8 +14,8 @@ function Details() {
     const [surveyData, setSurveyData] = useState({
         idFamily: "No hay datos",
         idSurvey: 0,
-        latitude: 0,
-        longitude: 0,
+        latitude: 18.806170,
+        longitude: -99.221455,
         familyLastName: "No hay datos",
         date_: "00-00-0000"
     });
@@ -644,12 +643,15 @@ function Details() {
     return (
         <div className="Details">
             <div className="Question-header">
-                <h1 className="title">Encuesta: {surveyData.familyLastName + '-' + surveyData.idFamily + '-' + surveyData.idSurvey}</h1>      
-                <h3 className="date">Fecha: {surveyData.date_}</h3>
-                <h3 className="location">Ubicación: {surveyData.latitude+ ", " + surveyData.longitude}</h3>
+                <div style={{float: "left"}} >
+                    <h1 className="title">Encuesta: {surveyData.familyLastName + '-' + surveyData.idFamily + '-' + surveyData.idSurvey}</h1>          
+                    <h3 className="date">Fecha: {surveyData.date_}</h3>
+                    <h3 className="location">Ubicación: {surveyData.latitude+ ", " + surveyData.longitude}</h3>
+                </div>
+                <div className="mapContainer">
+                    <iframe className="responsive-iframe" src={`https://maps.google.com/maps?q=${surveyData.latitude},${surveyData.longitude}&hl=es;&output=embed`}  />
+                </div>
             </div>
-
-            {/* <LinkButton to="/bamx/encuestas/registros" text="Regresar" /> */}
 
             <Link to="/bamx/encuestas/registros">Regresar</Link>
 
