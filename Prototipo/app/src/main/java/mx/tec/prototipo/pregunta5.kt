@@ -22,6 +22,7 @@ import org.w3c.dom.Text
 class pregunta5 : Fragment() {
     lateinit var queue : RequestQueue
     lateinit var queue2 : RequestQueue
+    lateinit var queue3 : RequestQueue
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,6 +45,7 @@ class pregunta5 : Fragment() {
         val xaccesstoken = shPreferenceToken?.getString("x-access-token","#")
 
         val surveyStuff = context?.getSharedPreferences("survey", Context.MODE_PRIVATE)
+        val idFamily = surveyStuff?.getString("idFamily", "#")
 
         val error = Response.ErrorListener { error ->
             Log.e("ERRORLISTENER", error.toString())
@@ -52,6 +54,12 @@ class pregunta5 : Fragment() {
         val listenerDisease = Response.Listener<JSONObject>{ response ->
             val mensaje = response.toString()
             Log.e("listenerDis RESPONSE", mensaje)
+
+            //final request, next fragment
+
+            val intent = Intent(context,letreroFinal::class.java)
+            startActivity(intent)
+
         }
 
 
@@ -62,15 +70,51 @@ class pregunta5 : Fragment() {
 
             //enfermedades
 
-            val enfermedadesEndpoint = endpoint().globalLink + "/assignMedicalCondition"
-            val medical = JSONObject()
+            val enfermedadesEndpoint = endpoint().globalLink + "assignMedicalCondition"
+            val medical1 = JSONObject()
+            val medical2 = JSONObject()
+            val medical3 = JSONObject()
+            val medical4 = JSONObject()
+            var medicalCocoon = JSONArray()
 
-            
+            var mainMedicalConditions = JSONObject()
+
+
+            //if diabetes
+            if(sharedPreference?.getString("answer4_diabetes", "#") == "true"){
+                medical1.put("medicalConditionName", "Diabetes")
+                medical1.put("medicalConditionNumber", sharedPreference?.getString("answer4_diabetesCantidad", "#"))
+                medical1.put("idFamily", idFamily)
+                medicalCocoon.put(medical1)
+            }
+            //if hipertensión
+            if(sharedPreference?.getString("answer4_hipertension", "#") == "true"){
+                medical2.put("medicalConditionName", "Hipertensión")
+                medical2.put("medicalConditionNumber", sharedPreference?.getString("answer4_hipertensionCantidad", "#"))
+                medical2.put("idFamily", idFamily)
+                medicalCocoon.put(medical2)
+            }
+            //if obesidad
+            if(sharedPreference?.getString("answer4_obesidad", "#") == "true"){
+                medical3.put("medicalConditionName", "Obesidad")
+                medical3.put("medicalConditionNumber", sharedPreference?.getString("answer4_obesidadCantidad", "#"))
+                medical3.put("idFamily", idFamily)
+                medicalCocoon.put(medical3)
+            }
+            //if otra
+            if(sharedPreference?.getString("answer4_otra", "#") == "true"){
+                medical4.put("medicalConditionName", sharedPreference?.getString("answer4_otra_nombre","#"))
+                medical4.put("medicalConditionNumber", sharedPreference?.getString("answer4_otraCantidad", "#"))
+                medical4.put("idFamily", idFamily)
+                medicalCocoon.put(medical4)
+            }
+
+            mainMedicalConditions.put("conditions", medicalCocoon)
 
 
 
             val requestAssignMedicalCondition = object :
-                JsonObjectRequest(Method.POST, enfermedadesEndpoint, null, listenerDisease, error){
+                JsonObjectRequest(Method.POST, enfermedadesEndpoint, mainMedicalConditions, listenerDisease, error){
                 @Throws(AuthFailureError::class)
                 override fun getHeaders(): MutableMap<String, String> {
                     val hashMap = HashMap<String, String>()
@@ -82,6 +126,8 @@ class pregunta5 : Fragment() {
                 }
             }
 
+            queue3 = Volley.newRequestQueue(activity?.applicationContext)
+            queue3.add(requestAssignMedicalCondition)
 
 
 
@@ -99,7 +145,6 @@ class pregunta5 : Fragment() {
 
             //starts second request
             val pregnancyMonths = sharedPreference?.getString("answer3","#")
-            val idFamily = surveyStuff?.getString("idFamily", "#")
 
             val pregnancyEndpoint = endpoint().globalLink + "setPregnancy/" + pregnancyMonths + "/" + idFamily
 
@@ -117,7 +162,7 @@ class pregunta5 : Fragment() {
             }
 
             queue2 = Volley.newRequestQueue(activity?.applicationContext)
-            queue.add(requestUpdatePregnancy)
+            queue2.add(requestUpdatePregnancy)
 
         }
 
@@ -201,10 +246,6 @@ class pregunta5 : Fragment() {
             currentFrequencyId = ""
             currentQuestion = ""
             currentType = ""
-            /*
-            val intent = Intent(context,letreroFinal::class.java)
-            startActivity(intent)
-            */
 
             //retrieve tables data
             var RadioSelectedButton : RadioButton
