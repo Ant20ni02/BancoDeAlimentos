@@ -40,15 +40,17 @@ function LogIn() {
     }
     return (
         <>
-            <header className="form-header">
-                <h1>Inicia sesión</h1>
-            </header>
-
             <div className="grid">
                 <div className="logo-container">
                     <Link to="/"><img className="logo-login" src={logo} alt="Logo"/></Link>
                 </div>
+                <header className="form-header-login">
+                    <h1>Inicia sesión</h1>
+                </header>
                 <form className="form-login" ref={form} onSubmit={handleSubmit}>
+                    {/* <label className="form-label">
+                            Inicia sesión
+                    </label> */}
                     <fieldset className="form-group" id={`${id}-formGroupEmail`}>
                         <label className="form-label" htmlFor={`${id}-email`}>
                             <FontAwesomeIcon icon={faEnvelope} className="form-icon"/>
