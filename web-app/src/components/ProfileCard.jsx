@@ -3,7 +3,7 @@ import url from '../config/API';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faEnvelope, faPhone, faLock, faVenusMars, faCalendar } from '@fortawesome/free-solid-svg-icons';
 import '../styles/ProfileCard.css';
-import Profile from '../images/profile.jpg';
+import Profile from '../images/profile.png';
 
 const ProfileCard = () => {
 
