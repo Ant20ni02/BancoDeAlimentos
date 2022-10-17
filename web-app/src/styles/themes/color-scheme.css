@@ -7,11 +7,12 @@
     --bg-color-light: #f5f5f5;
     --bg-color-dark: #1e1e1e;
     --details: #c0c0c0;
+    --accent-color: #FE921D /* transparent */;
     /* --bg-color-dark: #1a1a1a;
     --text-color-light: #dadce1;
     --text-color-dark: #fff; */
     color-scheme: light dark;
-    accent-color: var(--tertiary-color);
+    accent-color: var(--accent-color);
 }
 
 /* * @note: prefers-color-scheme: dark */

@@ -1,0 +1,37 @@
+.stepBtn::before, .stepBtn::after {
+    --scale: 0;
+    --arrow-size: 0.5rem;
+    position: absolute;
+    top: -0.25rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+    /*opacity: 0;
+    transition: opacity  0s linear 1s;
+    */transition: transform 0.3s;
+    transform-origin: bottom center;
+}
+
+.stepBtn::before {
+    --translate-y: calc(-100% - var(--arrow-size));
+    content: attr(data-tooltip);
+    padding: 0.5rem;
+    max-width: max-content;
+    border-radius: 0.5rem;
+    background-color: var(--accent-color);
+    color: hsl(0, 0%, 100%);    
+}
+
+.stepBtn:hover::before, .stepBtn:hover::after {
+    --scale: 1;
+}
+
+.stepBtn::after {
+    --translate-y: calc(-1 * var(--arrow-size));
+    content: "";
+    border: var(--arrow-size) solid transparent;
+    border-top-color: var(--accent-color);
+    transform-origin: top center;
+    /* border-style: solid;
+    border-width: 0.5rem 0.5rem 0 0.5rem;
+    border-color: var(--accent-color) transparent transparent transparent; */
+}

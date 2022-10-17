@@ -43,7 +43,7 @@ const Navbar = ({isOpenSidebar, toggleSidebar, ...props}) => {
                         <FontAwesomeIcon icon={faBars} className="Navbar-icon-menu-hamburger" onClick={toggleSidebar}/>
                     </li>
                     <li className="Navbar-item">
-                        <NavLink to="/bamx/pagina-principal">
+                        <NavLink to="/bamx/pagina-principal" accessKey='P'>
                             <img src={logo} alt="logo" className="Navbar-logo"/>
                         </NavLink>
                     </li>
@@ -71,6 +71,25 @@ const Navbar = ({isOpenSidebar, toggleSidebar, ...props}) => {
 const DropdownMenu = () => {
     const navigate = useNavigate();
     const id = useId();
+
+    const changeTheme = (e) => {
+        const theme = e.target.value;
+
+        if (theme === "#FE921D") {
+            document.documentElement.style.setProperty('--accent-color', "#FE921D");
+            localStorage.setItem("theme", "#FE921D");
+            /* theme = "#FE921D"; */
+        } else if (theme === "#0DB14B") {
+            document.documentElement.style.setProperty('--accent-color', "#0DB14B");
+            localStorage.setItem("theme", "#0DB14B");
+            /* theme = "#0DB14B"; */
+        } else if (theme === "#ED1A3B") {
+            document.documentElement.style.setProperty('--accent-color', "#ED1A3B");
+            localStorage.setItem("theme", "#ED1A3B");
+            /* theme = "#ED1A3B"; */
+        }
+    }
+    
     /* let theme = localStorage.getItem('theme');
     const auto = useRef();
     const light = useRef();
@@ -116,11 +135,14 @@ const DropdownMenu = () => {
                     <span>Tema </span><FontAwesomeIcon icon={faPalette} className="Navbar-dropdown-item-icon"/>
                 </div>
                 <div className="Navbar-dropdown-item-checkboxes">
-                    <input type="radio" className='theme-yellow' id={`${id}-yellow`} name="theme" value="yellow"/>
+                    <input type="radio" className='theme-yellow' id={`${id}-yellow`} name="theme" value="#FE921D" onClick={changeTheme}/>
+                    <label htmlFor={`${id}-yellow`}><FontAwesomeIcon icon={faCircle} className='theme-yellow-icon'/></label>
 
-                    <input type="radio" className='theme-green' id={`${id}-green`} name="theme" value="green"/>
+                    <input type="radio" className='theme-green' id={`${id}-green`} name="theme" value="#0DB14B" onClick={changeTheme}/>
+                    <label htmlFor={`${id}-green`}><FontAwesomeIcon icon={faCircle} className='theme-green-icon'/></label>
 
-                    <input type="radio" className='theme-red' id={`${id}-red`} name="theme" value="red"/>
+                    <input type="radio" className='theme-red' id={`${id}-red`} name="theme" value="#ED1A3B" onClick={changeTheme}/>
+                    <label htmlFor={`${id}-red`}><FontAwesomeIcon icon={faCircle} className='theme-red-icon'/></label>
                 </div>
             </li>
             <li className="Navbar-dropdown-item" onClick={handleLogout}>

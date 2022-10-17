@@ -1,0 +1,36 @@
+div.grid {
+    display: grid;
+    place-items: center;
+    /* height: 100vh;
+    width: 100vw; */
+    margin-top: 15rem;
+}
+
+div.logoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.logoContainer img.logo {
+    width: 13em;
+    height: 13em;
+    position: absolute;
+    top:6.5em;
+    z-index: 1;
+}
+
+.start {
+    background-color: hsl(0, 0%, 100%);
+    outline: solid var(--details);
+    padding: 6rem 5rem 3rem 5rem;
+    border-radius: 0.5rem;
+    /*height: max-content;
+    width: max-content;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    position: relative;
+}

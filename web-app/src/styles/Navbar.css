@@ -188,6 +188,18 @@ li.Navbar-item img {
     align-items: center;
 }
 
+input.theme-yellow + label > .theme-yellow-icon {
+    color: #FE921D;
+}
+
+input.theme-green + label > .theme-green-icon {
+    color: #0DB14B;
+}
+
+input.theme-red + label > .theme-red-icon {
+    color: #ED1A3B;
+}
+
 ul.Navbar-dropdown li.Navbar-dropdown-item:first-child {
     border-radius: 0.5rem 0.5rem 0 0;
     border-bottom: 1px solid var(--details);

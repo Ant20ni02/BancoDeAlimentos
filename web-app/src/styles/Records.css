@@ -33,4 +33,5 @@ div.buttons button, div.buttons input[type="number"] {
     /* transition: 0.3s; */
     font-size: 1.3rem;
     font-weight: bold;
+    position: relative;
 }

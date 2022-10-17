@@ -20,7 +20,8 @@ table.Table caption.Caption {
 }
 
 thead, tfoot:has(tr) {
-    background-color: var(--primary-color) /* hsl(0, 0%, 94%) */;
+    color: hsl(0, 0%, 100%);
+    background-color: var(--accent-color) /* hsl(0, 0%, 94%) */;
     /* background-color: hsl(0, 0%, 94%);
     color: hsl(0, 0%, 0%); */
     font-weight: bold;

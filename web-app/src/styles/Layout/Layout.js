@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Sidebar from '../../components/Sidebar';
 import Navbar from '../../components/Navbar';
-/* import NavbarSidebar from '../../components/NavbarSidebar'; */
 
 const Layout = () => {
     const [isOpenSidebar, setIsOpenSidebar] = useState(false);

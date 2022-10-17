@@ -3,6 +3,7 @@ import TextHeader from '../../../components/TextHeader';
 import Table from '../../../components/Table';
 import url from '../../../config/API';
 import '../../../styles/Records.css';
+import styles from '../../../styles/Tooltip.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight, faRotateLeft } from '@fortawesome/free-solid-svg-icons';
 import useMultiStep from '../../../custom-hooks/MultiStep';
@@ -38,13 +39,13 @@ function Records() {
             </div>
             <div className='steps'> {currentStepIndex + 1} / {steps.length} </div>
             <div className='buttons'>
-                {!isFirstStep && <button onClick={previous}><FontAwesomeIcon /* className="table-icon" */ icon={faArrowLeft} />{/* Anterior */}</button>}
+                {!isFirstStep && <button onClick={previous} className={styles.stepBtn} data-tooltip="Anterior"><FontAwesomeIcon /* className="table-icon" */ icon={faArrowLeft} />{/* Anterior */}</button>}
                 {/* <button onClick={previous} disabled={currentStepIndex === 0}>Previous</button> */}
 
-                {!isLastStep && <button onClick={next}><FontAwesomeIcon /* className="table-icon" */ icon={faArrowRight} />{/* Siguiente */}</button>}
+                {!isLastStep && <button onClick={next} className={styles.stepBtn} data-tooltip="Siguiente"><FontAwesomeIcon /* className="table-icon" */ icon={faArrowRight} />{/* Siguiente */}</button>}
                 {/* <button onClick={next} disabled={currentStepIndex === steps.length - 1}>Next</button> */}
                 
-                {!isFirstStep && <button onClick={reset}><FontAwesomeIcon /* className="table-icon" */ icon={faRotateLeft} />{/* Volver al principio */}</button>}
+                {!isFirstStep && <button onClick={reset} className={styles.stepBtn} data-tooltip="Reiniciar"><FontAwesomeIcon /* className="table-icon" */ icon={faRotateLeft} />{/* Volver al principio */}</button>}
                 {/* <button onClick={reset}>Reset</button> */}
 
                 {/* <button onClick={() => goTo(1)}>Ir a</button> */}

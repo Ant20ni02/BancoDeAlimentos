@@ -4,16 +4,15 @@
     padding: 1em;
     border-radius: 0.5em;
     text-align: center;
-    margin: 2em;
+    /* margin: 2em; */
     font-size: 1.5rem;
     color: hsl(0, 0%, 100%);
-    background-color: var(--primary-color);
-
-    display: block;
+    background-color: var(--tertiary-color);
 }
 
 .btn:hover {
-    color: var(--primary-color);
+    color: var(--tertiary-color);
+    outline: solid var(--tertiary-color);
     background-color: hsl(0, 0%, 100%);
     transition: all .3s ease-in-out;
     -webkit-transition: all .3s ease-in-out;

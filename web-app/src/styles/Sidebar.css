@@ -1,5 +1,5 @@
 .Sidebar {
-    width: 6vw;
+    width: 8vw;
     height: 100vh;
     top: 0;
     left: 0;
@@ -29,10 +29,23 @@
     align-items: center;
     justify-content: space-around;
     height: 100%;
+    padding: 0 .5rem;
 }
 
 .nav-item {
     width: 100%;
+}
+
+/* li.nav-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:calc(100% * 0.1);
+} */
+
+li.nav-item .nav-dot {
+    font-size: .5rem;
+    display: none;
 }
 
 /* .nav-item:last-child {
@@ -40,23 +53,43 @@
 } */
 
 .nav-link {
-    height: 10vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-decoration: none;
     color: var(--details);
+    padding: 1rem;
 }
 
-.nav-link:active {
-    background-color: #dadce1;
+.nav-link.active {
+    background-color: var(--accent-color);
+    color:hsl(0, 0%, 100%);
+    font-weight: bold;
+    border-radius: .5em;
 }
 
-/* ? @note: it can be do in another way? (navlink state) */
-/* .nav-link:hover {
-    color: #f1c40f;
-} */
+li.nav-item:has(.nav-link.active) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:calc(100% * 0.1);
+}
+
+li.nav-item:has(.nav-link.active) .nav-dot {
+    color: var(--accent-color);
+    display: block;
+}
+
+.nav-link:hover:not(.nav-link.active), .nav-link:focus:not(.nav-link.active) {
+    outline: none;
+    background-color: var(--bg-color-light);
+    border-radius: .5em;
+}
+
+.nav-link:focus:is(.nav-link.active) {
+    outline: none;
+}
 
 .nav-icon {
     font-size: 2.5rem;
@@ -98,8 +131,20 @@
         flex-direction: row;
     }
 
+    ul.Sidebar-container li.nav-item:first-child {
+        display: none;
+    }
+
+    ul.Sidebar-container li.nav-item .nav-dot-container {
+        display: none;
+    }
+
     .link-text {
         display: inline-block;
+    }
+
+    li.nav-item:has(.nav-link.active) {
+        flex-direction: column-reverse;
     }
 }
 

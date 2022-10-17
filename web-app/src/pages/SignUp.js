@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import url from '../config/API';
 import '../styles/SignUp.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faUser, faEnvelope, faPhone, faLock, faCircleCheck, faTimesCircle, faExclamationTriangle,  faVenusMars, faCalendar} from '@fortawesome/free-solid-svg-icons';
+import { faUser, faEnvelope, faPhone, faLock, faCircleCheck, faTimesCircle, faExclamationTriangle,  faVenusMars, faCalendar } from '@fortawesome/free-solid-svg-icons';
 import logo from '../images/recurso-4.png';
 import '../styles/TextHeader.css';
 import PortalModal from '../components/PortalModal';
@@ -164,7 +164,7 @@ function SignUp() {
                                 <FontAwesomeIcon icon={faLock} className="form-icon"/>
                             </label>
                             <div className="form-input">
-                                <input type="password" className="input-signup" id={`${id}-password`} name="password" placeholder="Contraseña" /* pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" */ onInvalid={e => e.target.setCustomValidity('Ingrese una contraseña valida')} onPaste={(e) => {e.preventDefault(); return false;}} onCopy={(e) => {e.preventDefault(); return false;}} /* onSelectStart={(e) => {e.preventDefault(); return false;}} */ autoComplete required/>
+                                <input type="password" className="input-signup" id={`${id}-password`} name="password" placeholder="Contraseña" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" onInvalid={e => e.target.setCustomValidity('Ingrese una contraseña valida')} onPaste={(e) => {e.preventDefault(); return false;}} onCopy={(e) => {e.preventDefault(); return false;}} /* onSelectStart={(e) => {e.preventDefault(); return false;}} */ autoComplete required/>
                                 <FontAwesomeIcon className="form-validation-status-success" icon={faCircleCheck} />
                                 <FontAwesomeIcon className="form-validation-status-error" icon={faTimesCircle} />
                             </div>
@@ -178,7 +178,7 @@ function SignUp() {
                                 <FontAwesomeIcon icon={faLock} className="form-icon"/>
                             </label>
                             <div className="form-input">
-                                <input type="password" className="input-signup" id={`${id}-passwordConfirm`} name="passwordConfirm" placeholder="Confirmar contraseña" /* pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" */ onInvalid={e => e.target.setCustomValidity('Confirme correctamente su contraseña valida')} onPaste={(e) => {e.preventDefault(); return false;}} onKeyUp={inputPasswordValidation} autoComplete required/>
+                                <input type="password" className="input-signup" id={`${id}-passwordConfirm`} name="passwordConfirm" placeholder="Confirmar contraseña" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" onInvalid={e => e.target.setCustomValidity('Confirme correctamente su contraseña valida')} onPaste={(e) => {e.preventDefault(); return false;}} onKeyUp={inputPasswordValidation} autoComplete required/>
                                 <FontAwesomeIcon className="form-validation-status-success" icon={faCircleCheck} />
                                 <FontAwesomeIcon className="form-validation-status-error" icon={faTimesCircle} />
                             </div>
