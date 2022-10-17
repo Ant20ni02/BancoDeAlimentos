@@ -63,6 +63,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/btn_orange"
         android:text="OK"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -75,7 +76,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
-        android:text="¡Encuesta terminada exitosamente¡"
+        android:text="¡Encuesta terminada exitosamente!"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -98,17 +99,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.448" />
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="236dp"
-        android:layout_height="428dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView9"
-        app:layout_constraintEnd_toEndOf="@+id/textView9"
-        app:layout_constraintHorizontal_bias="0.509"
-        app:layout_constraintStart_toStartOf="@+id/textView9"
-        app:layout_constraintTop_toTopOf="@+id/textView9"
-        app:layout_constraintVertical_bias="0.217"
-        app:srcCompat="@drawable/_4198_google_border_borders_frame_red_border_european_book_images_red" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

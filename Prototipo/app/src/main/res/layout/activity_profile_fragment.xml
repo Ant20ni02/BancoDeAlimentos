@@ -7,21 +7,38 @@
     android:layout_height="match_parent">
 
     <ScrollView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.39">
+        app:layout_constraintVertical_bias="0.25">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:gravity="center"
             android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="60dp"
+                android:fontFamily="sans-serif-black"
+                android:text="User"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                app:layout_constraintBottom_toTopOf="@id/imageView5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bancoDeAlimentos2" />
 
             <FrameLayout
                 android:id="@+id/frame_nombre"
@@ -29,22 +46,12 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center">
 
-                <ImageView
-                    android:id="@+id/ovalNombre"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="@id/txt_Nombre"
-                    app:layout_constraintEnd_toEndOf="@id/txt_Nombre"
-                    app:layout_constraintStart_toStartOf="@+id/txt_Nombre"
-                    app:layout_constraintTop_toTopOf="@+id/txt_Nombre"
-                    app:layout_constraintVertical_bias="0.52"
-                    app:srcCompat="@drawable/gray_text_input_oval" />
-
                 <TextView
                     android:id="@+id/idFamTV"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
+                    android:background="@drawable/gray_text_input_oval"
                     android:gravity="center"
                     android:text="Nombre"
                     android:textColor="#FFFFFF"
@@ -60,22 +67,12 @@
                 android:layout_height="match_parent"
                 android:paddingTop="20sp">
 
-                <ImageView
-                    android:id="@+id/ovalEdad"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="@+id/txt_Edad"
-                    app:layout_constraintEnd_toEndOf="@+id/txt_Edad"
-                    app:layout_constraintStart_toStartOf="@+id/txt_Edad"
-                    app:layout_constraintTop_toTopOf="@+id/txt_Edad"
-                    app:layout_constraintVertical_bias="0.52"
-                    app:srcCompat="@drawable/gray_text_input_oval" />
-
                 <TextView
                     android:id="@+id/txt_Edad"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
+                    android:background="@drawable/gray_text_input_oval"
                     android:gravity="center"
                     android:text="Edad"
                     android:textColor="#FFFFFF"
@@ -91,22 +88,12 @@
                 android:layout_height="match_parent"
                 android:paddingTop="20sp">
 
-                <ImageView
-                    android:id="@+id/ovalSexo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="@+id/spin_sexos"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/spin_sexos"
-                    app:layout_constraintTop_toTopOf="@+id/spin_sexos"
-                    app:layout_constraintVertical_bias="0.52"
-                    app:srcCompat="@drawable/gray_text_input_oval" />
-
                 <TextView
                     android:id="@+id/txt_Sexo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
+                    android:background="@drawable/gray_text_input_oval"
                     android:gravity="center"
                     android:text="Sexo"
                     android:textColor="#FFFFFF"
@@ -122,22 +109,12 @@
                 android:layout_height="match_parent"
                 android:paddingTop="20sp">
 
-                <ImageView
-                    android:id="@+id/ovalTelefono"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="@+id/txt_Num_Telefono"
-                    app:layout_constraintEnd_toEndOf="@+id/txt_Num_Telefono"
-                    app:layout_constraintStart_toStartOf="@+id/txt_Num_Telefono"
-                    app:layout_constraintTop_toTopOf="@+id/txt_Num_Telefono"
-                    app:layout_constraintVertical_bias="0.52"
-                    app:srcCompat="@drawable/gray_text_input_oval" />
-
                 <TextView
                     android:id="@+id/txt_Num"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
+                    android:background="@drawable/gray_text_input_oval"
                     android:gravity="center"
                     android:text="Teléfono"
                     android:textColor="#FFFFFF"
@@ -153,22 +130,12 @@
                 android:layout_height="match_parent"
                 android:paddingTop="20sp">
 
-                <ImageView
-                    android:id="@+id/ovalEmail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="@+id/txt_Email_Create"
-                    app:layout_constraintEnd_toEndOf="@+id/txt_Email_Create"
-                    app:layout_constraintStart_toStartOf="@+id/txt_Email_Create"
-                    app:layout_constraintTop_toTopOf="@+id/txt_Email_Create"
-                    app:layout_constraintVertical_bias="0.52"
-                    app:srcCompat="@drawable/gray_text_input_oval" />
-
                 <TextView
                     android:id="@+id/txt_Em"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
+                    android:background="@drawable/gray_text_input_oval"
                     android:gravity="center"
                     android:text="Email"
                     android:textColor="#FFFFFF"

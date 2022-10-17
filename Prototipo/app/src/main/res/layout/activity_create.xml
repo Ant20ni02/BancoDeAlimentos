@@ -83,22 +83,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
-                        <ImageView
-                            android:id="@+id/ovalNombre"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintBottom_toBottomOf="@id/txt_Nombre"
-                            app:layout_constraintEnd_toEndOf="@id/txt_Nombre"
-                            app:layout_constraintStart_toStartOf="@+id/txt_Nombre"
-                            app:layout_constraintTop_toTopOf="@+id/txt_Nombre"
-                            app:layout_constraintVertical_bias="0.52"
-                            app:srcCompat="@drawable/black_text_input_oval" />
-
                         <EditText
                             android:id="@+id/txt_Nombre"
                             android:layout_width="160dp"
                             android:layout_height="50dp"
-                            android:background="@null"
+                            android:background="@drawable/black_text_input_oval"
                             android:ems="10"
                             android:hint="Nombre"
                             android:inputType="textPersonName"
@@ -107,11 +96,6 @@
                             android:textColorHighlight="@color/black"
                             android:textColorHint="@color/black"
                             android:textColorLink="#FE921D"
-                            app:layout_constraintBottom_toBottomOf="@id/ovalNombre"
-                            app:layout_constraintEnd_toEndOf="@id/ovalNombre"
-                            app:layout_constraintHorizontal_bias="0.08"
-                            app:layout_constraintStart_toStartOf="@id/ovalNombre"
-                            app:layout_constraintTop_toTopOf="@id/ovalNombre"
                             app:layout_constraintVertical_bias="0.396" />
                     </FrameLayout>
 
@@ -120,22 +104,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
-                        <ImageView
-                            android:id="@+id/ovalApellido"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintBottom_toBottomOf="@+id/txt_Apellido"
-                            app:layout_constraintEnd_toEndOf="@+id/txt_Apellido"
-                            app:layout_constraintStart_toStartOf="@+id/txt_Apellido"
-                            app:layout_constraintTop_toTopOf="@+id/txt_Apellido"
-                            app:layout_constraintVertical_bias="0.52"
-                            app:srcCompat="@drawable/black_text_input_oval" />
-
                         <EditText
                             android:id="@+id/txt_Apellido"
                             android:layout_width="160dp"
                             android:layout_height="50dp"
-                            android:background="@null"
+                            android:background="@drawable/black_text_input_oval"
                             android:ems="10"
                             android:hint="Apellido"
                             android:inputType="textPersonName"
@@ -165,22 +138,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
-                        <ImageView
-                            android:id="@+id/ovalEdad"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintBottom_toBottomOf="@+id/txt_Edad"
-                            app:layout_constraintEnd_toEndOf="@+id/txt_Edad"
-                            app:layout_constraintStart_toStartOf="@+id/txt_Edad"
-                            app:layout_constraintTop_toTopOf="@+id/txt_Edad"
-                            app:layout_constraintVertical_bias="0.52"
-                            app:srcCompat="@drawable/black_text_input_oval" />
-
                         <EditText
                             android:id="@+id/txt_Edad"
                             android:layout_width="160dp"
                             android:layout_height="50dp"
-                            android:background="@null"
+                            android:background="@drawable/black_text_input_oval"
                             android:ems="10"
                             android:hint="Edad"
                             android:inputType="textPersonName"
@@ -201,22 +163,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
-                        <ImageView
-                            android:id="@+id/ovalEmail"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintBottom_toBottomOf="@+id/txt_Email_Create"
-                            app:layout_constraintEnd_toEndOf="@+id/txt_Email_Create"
-                            app:layout_constraintStart_toStartOf="@+id/txt_Email_Create"
-                            app:layout_constraintTop_toTopOf="@+id/txt_Email_Create"
-                            app:layout_constraintVertical_bias="0.52"
-                            app:srcCompat="@drawable/black_text_input_oval" />
-
                         <EditText
                             android:id="@+id/txt_Email_Create"
                             android:layout_width="160dp"
                             android:layout_height="50dp"
-                            android:background="@null"
+                            android:background="@drawable/black_text_input_oval"
                             android:ems="10"
                             android:hint="E-mail"
                             android:inputType="textPersonName|textEmailAddress"
@@ -248,7 +199,7 @@
                             android:id="@+id/txt_Num_Telefono"
                             android:layout_width="160dp"
                             android:layout_height="50dp"
-                            android:background="@null"
+                            android:background="@drawable/black_text_input_oval"
                             android:ems="10"
                             android:hint="Teléfono"
                             android:inputType="textPersonName"
@@ -265,16 +216,6 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="0.675" />
 
-                        <ImageView
-                            android:id="@+id/ovalTelefono"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintBottom_toBottomOf="@+id/txt_Num_Telefono"
-                            app:layout_constraintEnd_toEndOf="@+id/txt_Num_Telefono"
-                            app:layout_constraintStart_toStartOf="@+id/txt_Num_Telefono"
-                            app:layout_constraintTop_toTopOf="@+id/txt_Num_Telefono"
-                            app:layout_constraintVertical_bias="0.52"
-                            app:srcCompat="@drawable/black_text_input_oval" />
                     </FrameLayout>
 
                     <FrameLayout
@@ -286,6 +227,7 @@
                             android:id="@+id/spin_sexos"
                             android:layout_width="match_parent"
                             android:layout_height="48dp"
+                            android:background="@drawable/black_text_input_oval"
                             android:contentDescription="Sexo"
                             android:paddingLeft="30sp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -295,16 +237,6 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="0.675" />
 
-                        <ImageView
-                            android:id="@+id/ovalSexo"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintBottom_toBottomOf="@+id/spin_sexos"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="@+id/spin_sexos"
-                            app:layout_constraintTop_toTopOf="@+id/spin_sexos"
-                            app:layout_constraintVertical_bias="0.52"
-                            app:srcCompat="@drawable/black_text_input_oval" />
                     </FrameLayout>
                 </TableRow>
 
@@ -324,7 +256,7 @@
                             android:id="@+id/txt_Password_Create"
                             android:layout_width="160dp"
                             android:layout_height="50dp"
-                            android:background="@null"
+                            android:background="@drawable/black_text_input_oval"
                             android:ems="10"
                             android:hint="Contraseña"
                             android:inputType="textPersonName"
@@ -341,16 +273,6 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="0.808" />
 
-                        <ImageView
-                            android:id="@+id/ovalContraseña"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintBottom_toBottomOf="@+id/txt_Password_Create"
-                            app:layout_constraintEnd_toEndOf="@+id/txt_Password_Create"
-                            app:layout_constraintStart_toStartOf="@+id/txt_Password_Create"
-                            app:layout_constraintTop_toTopOf="@+id/txt_Password_Create"
-                            app:layout_constraintVertical_bias="0.52"
-                            app:srcCompat="@drawable/black_text_input_oval" />
                     </FrameLayout>
 
                     <FrameLayout
@@ -362,7 +284,7 @@
                             android:id="@+id/txt_Password_Create_Confirmar"
                             android:layout_width="160dp"
                             android:layout_height="50dp"
-                            android:background="@null"
+                            android:background="@drawable/black_text_input_oval"
                             android:ems="10"
                             android:hint="Confirmar"
                             android:inputType="textPersonName"
@@ -379,16 +301,6 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="0.808" />
 
-                        <ImageView
-                            android:id="@+id/ovalConfirmarContraseña"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintBottom_toBottomOf="@+id/txt_Password_Create_Confirmar"
-                            app:layout_constraintEnd_toEndOf="@+id/txt_Password_Create_Confirmar"
-                            app:layout_constraintStart_toStartOf="@+id/txt_Password_Create_Confirmar"
-                            app:layout_constraintTop_toTopOf="@+id/txt_Password_Create_Confirmar"
-                            app:layout_constraintVertical_bias="0.52"
-                            app:srcCompat="@drawable/black_text_input_oval" />
                     </FrameLayout>
                 </TableRow>
 
@@ -417,7 +329,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:paddingTop="0px"
-                android:paddingBottom="20px">
+                android:paddingBottom="20dp">
 
                 <FrameLayout
                     android:id="@+id/frame_boton_regresar"
@@ -427,9 +339,11 @@
 
                     <Button
                         android:id="@+id/btnRegresar"
-                        android:layout_width="350px"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/btn_orange"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
                         android:text="Iniciar sesión"
                         android:textAllCaps="true"
                         android:textColor="#FFFFFF" />
@@ -443,12 +357,14 @@
 
                     <Button
                         android:id="@+id/btnSiguiente"
-                        android:layout_width="350px"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/btn_orange"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
                         android:text="Crear cuenta"
                         android:textAllCaps="true"
-                        android:textColor="#FFFFFF"/>
+                        android:textColor="#FFFFFF" />
                 </FrameLayout>
             </TableRow>
 

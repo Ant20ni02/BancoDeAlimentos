@@ -15,29 +15,19 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.457">
+        app:layout_constraintVertical_bias="0.35000002">
 
         <FrameLayout
             android:id="@+id/frame_id_quest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/ovalNombre"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@id/txt_Nombre"
-                app:layout_constraintEnd_toEndOf="@id/txt_Nombre"
-                app:layout_constraintStart_toStartOf="@+id/txt_Nombre"
-                app:layout_constraintTop_toTopOf="@+id/txt_Nombre"
-                app:layout_constraintVertical_bias="0.52"
-                app:srcCompat="@drawable/gray_text_input_oval" />
-
             <TextView
                 android:id="@+id/idFamTV"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:background="@drawable/gray_text_input_oval"
                 android:gravity="center"
                 android:text="¿Cuál es su identificador familiar?"
                 android:textColor="#FFFFFF"
@@ -53,23 +43,11 @@
             android:layout_height="match_parent"
             android:paddingTop="15dp">
 
-            <ImageView
-                android:id="@+id/imageView22"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@+id/txt_id"
-                app:layout_constraintEnd_toEndOf="@+id/txt_id"
-                app:layout_constraintHorizontal_bias="0.485"
-                app:layout_constraintStart_toStartOf="@+id/txt_id"
-                app:layout_constraintTop_toTopOf="@+id/txt_id"
-                app:layout_constraintVertical_bias="0.52"
-                app:srcCompat="@drawable/black_text_input_oval" />
-
             <EditText
                 android:id="@+id/txt_id"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@null"
+                android:background="@drawable/black_text_input_oval"
                 android:ems="10"
                 android:hint="Identificador"
                 android:inputType="textPersonName"

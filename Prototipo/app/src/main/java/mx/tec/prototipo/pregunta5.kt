@@ -193,9 +193,17 @@ class pregunta5 : Fragment() {
         pregunta2.put("idSurvey", surveyStuff?.getString("idSurvey","#"))
         pregunta2.put("answer", sharedPreference?.getString("answer2","#"))
 
-        pregunta5.put("idQuestion", "5")
-        pregunta5.put("idSurvey", surveyStuff?.getString("idSurvey","#"))
-        pregunta5.put("answer", sharedPreference?.getString("answer5","#"))
+
+        if(sharedPreference?.getString("answer5","#") == "Sí"){
+            pregunta5.put("idQuestion", "5")
+            pregunta5.put("idSurvey", surveyStuff?.getString("idSurvey","#"))
+            pregunta5.put("answer", sharedPreference?.getString("answer5_suplemento","#"))
+        }
+        else{
+            pregunta5.put("idQuestion", "5")
+            pregunta5.put("idSurvey", surveyStuff?.getString("idSurvey","#"))
+            pregunta5.put("answer", "Ninguno")
+        }
 
         pregunta6.put("idQuestion", "6")
         pregunta6.put("idSurvey", surveyStuff?.getString("idSurvey","#"))
