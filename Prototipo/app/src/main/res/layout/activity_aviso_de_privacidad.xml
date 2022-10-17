@@ -100,16 +100,4 @@
         app:layout_constraintVertical_bias="0.68"
         app:srcCompat="@drawable/whatsapp_image_2022_10_07_at_10_55_51_am" />
 
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="236dp"
-        android:layout_height="428dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView9"
-        app:layout_constraintEnd_toEndOf="@+id/textView9"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="@+id/textView9"
-        app:layout_constraintTop_toTopOf="@+id/textView9"
-        app:layout_constraintVertical_bias="0.37"
-        app:srcCompat="@drawable/_4198_google_border_borders_frame_red_border_european_book_images_red" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

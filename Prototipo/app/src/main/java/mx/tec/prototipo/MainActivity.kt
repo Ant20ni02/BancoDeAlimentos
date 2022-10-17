@@ -19,6 +19,7 @@ import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
     lateinit var queue: RequestQueue
+    lateinit var queue2 : RequestQueue
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,10 +32,41 @@ class MainActivity : AppCompatActivity() {
         val signUpLink = findViewById<TextView>(R.id.signUpLink)
 
         val loginLogo = findViewById<ImageView>(R.id.loginLogo)
+        val sharedPreference = getSharedPreferences("profile", Context.MODE_PRIVATE)
+
 
         queue =  Volley.newRequestQueue(this@MainActivity)
+        queue2 =  Volley.newRequestQueue(this@MainActivity)
+
 
         //Si Tiene Cuenta the Voluntario o Familia
+
+        val error = Response.ErrorListener { error ->
+            Log.e("ERRORLISTENER", error.toString())
+        }
+
+        val listenerProfile = Response.Listener<JSONObject> { response ->
+            val mensaje = response.toString()
+
+            Log.e("ENDPOINTRESPONSE", mensaje)
+            Log.e("nombre",response.getString("firstName"))
+
+
+
+
+            with(sharedPreference.edit()){
+                putString("nombre", response.getString("firstName") + " " + response.getString("lastName"))
+                putString("edad", response.getString("age"))
+                putString("sexo", response.getString("sex"))
+                putString("telefono", response.getString("phoneNumber"))
+                apply()
+            }
+        }
+
+
+
+
+
 
         val listener = Response.Listener<JSONObject> { response ->
             val mensaje = response.toString()
@@ -42,15 +74,36 @@ class MainActivity : AppCompatActivity() {
 
             if(response.getString("mensaje") == "Usuario o contraseña autenticados"){
                 val intent = Intent(this@MainActivity,BottomNavigation::class.java)
-                val sharedPreference = getSharedPreferences("profile", Context.MODE_PRIVATE)
 
                 with(sharedPreference.edit()){
-                    putString("email", usernameTv.toString())
+                    putString("email", usernameTv.text.toString())
                     putString("idUser", response.getString("idUser"))
                     putString("x-access-token", response.getString("token"))
                     commit()
                 }
 
+                //request for fetching user's data and store into sharedpreferences
+
+                val getUserRequest : String = endpoint().globalLink + "getUsersData/" + response.getString("idUser")
+
+                val requestUsersData = object :
+                    JsonObjectRequest(Request.Method.GET, getUserRequest, null, listenerProfile, error){
+                    @Throws(AuthFailureError::class)
+                    override fun getHeaders(): MutableMap<String, String> {
+                        val hashMap = HashMap<String, String>()
+                        hashMap["Content-Type"] = "application/json; charset=UTF-8";
+                        //hashMap["User-Agent"] = "Mozilla/5.0"
+                        hashMap["x-access-token"] = response.getString("token")
+
+                        return hashMap
+                    }
+                }
+
+                queue2.add(requestUsersData)
+
+
+
+                //change Screen
                 startActivity(intent)
             }else{
                 Toast.makeText(this@MainActivity, response.getString("mensaje"), Toast.LENGTH_SHORT).show()
@@ -58,9 +111,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        val error = Response.ErrorListener { error ->
-            Log.e("ERRORLISTENER", error.toString())
-        }
+
 
         btnLogin.setOnClickListener{
 

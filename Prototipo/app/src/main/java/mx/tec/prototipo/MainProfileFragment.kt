@@ -40,55 +40,22 @@ class MainProfileFragment : Fragment() {
         telefono = view.findViewById<TextView>(R.id.txt_Num)
         email = view.findViewById<TextView>(R.id.txt_Em)
 
-        queue =  Volley.newRequestQueue(activity?.applicationContext)
-
-        val listener = Response.Listener<JSONObject> { response ->
-            val mensaje = response.toString()
-
-            Log.e("ENDPOINTRESPONSE", mensaje)
-
-
-            val parsedName = response.getString("firstName") + " " + response.getString("lastName")
-            nombre.text = parsedName
-            edad.text = response.getString("age")
-            sexo.text= response.getString("sex")
-            telefono.text = response.getString("phoneNumber")
-            email.text = response.getString("email")
-
-        }
-
-        val error = Response.ErrorListener { error ->
-            Log.e("ERRORLISTENER", error.toString())
-        }
-
         val shPreferences = context?.getSharedPreferences("profile", Context.MODE_PRIVATE)
+
+
+        nombre.text = shPreferences?.getString("nombre","#")
+        edad.text = shPreferences?.getString("edad","#")
+        sexo.text= shPreferences?.getString("sexo","#")
+        telefono.text = shPreferences?.getString("telefono","#")
+        email.text = shPreferences?.getString("email","#")
+
 
         val idUser = shPreferences?.getString("idUser","#")
         val xaccesstoken = shPreferences?.getString("x-access-token","#")
 
         Log.e("idUser", idUser.toString())
         Log.e("x-access-token", xaccesstoken.toString())
-
-
-        val getUser = endpoint()
-        val getUserRequest : String = (getUser.globalLink + "getUsersData/" + idUser)
-        val intent = Intent(view.context,MainActivity::class.java)
-
-        val request = object :
-            JsonObjectRequest(Request.Method.GET, getUserRequest, null, listener, error){
-            @Throws(AuthFailureError::class)
-            override fun getHeaders(): MutableMap<String, String> {
-                val hashMap = HashMap<String, String>()
-                hashMap["Content-Type"] = "application/json; charset=UTF-8";
-                //hashMap["User-Agent"] = "Mozilla/5.0"
-                hashMap["x-access-token"] = xaccesstoken.toString()
-
-                return hashMap
-            }
-        }
-
-        queue.add(request)
-
+        shPreferences?.getString("firstName","#")?.let { Log.e("NAME", it) }
 
 
 

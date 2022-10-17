@@ -34,6 +34,7 @@ class Create : AppCompatActivity() {
                 txtSexo = spin_sexos.selectedItem.toString()
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {
+                txtSexo = "Sexo"
             }
         }
 
