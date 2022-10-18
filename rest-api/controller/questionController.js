@@ -105,7 +105,7 @@ module.exports.getFoodQuantity = (req,res) =>{
 module.exports.getFoodFrequency = (req,res) =>{
     let foodNumber = req.params.foodNumber;
     
-    const query1 = `SELECT SUBSTRING(answer,6,1) AS answer, COUNT(*) AS freq FROM Question WHERE ((idQuestion = 11) AND ((SUBSTRING(answer,3,2 ) = ?  ))) GROUP BY answer`;
+    const query1 = `SELECT SUBSTRING(answer,6,1) AS freq, COUNT(*) AS cou FROM Question WHERE ((idQuestion = 11) AND ((SUBSTRING(answer,3,2 ) = ?  ))) GROUP BY freq`;
     
     if(foodNumber.length==1){
        foodNumber = '0'+foodNumber
