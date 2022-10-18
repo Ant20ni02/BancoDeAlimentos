@@ -145,6 +145,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
+                android:gravity="center"
                 android:paddingTop="0dp">
 
                 <CheckBox
@@ -167,19 +168,11 @@
                     android:layout_gravity="center"
                     android:paddingLeft="10dp">
 
-                    <ImageView
-                        android:id="@+id/infancia_red_iv"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-
-
-                        app:srcCompat="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095" />
-
                     <EditText
                         android:id="@+id/infancia_et"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@null"
+                        android:background="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095"
                         android:ems="10"
                         android:enabled="false"
                         android:gravity="center"
@@ -200,6 +193,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
+                android:gravity="center"
                 android:paddingTop="0dp">
 
                 <CheckBox
@@ -222,19 +216,11 @@
                     android:layout_gravity="center"
                     android:paddingLeft="10dp">
 
-                    <ImageView
-                        android:id="@+id/niñez_red_iv"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-
-
-                        app:srcCompat="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095" />
-
                     <EditText
                         android:id="@+id/niñez_et"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@null"
+                        android:background="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095"
                         android:ems="10"
                         android:enabled="false"
                         android:gravity="center"
@@ -255,6 +241,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
+                android:gravity="center"
                 android:paddingTop="0dp">
 
                 <CheckBox
@@ -277,19 +264,11 @@
                     android:layout_gravity="center"
                     android:paddingLeft="10dp">
 
-                    <ImageView
-                        android:id="@+id/adolescencia_red_iv"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-
-
-                        app:srcCompat="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095" />
-
                     <EditText
                         android:id="@+id/adolescencia_et"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@null"
+                        android:background="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095"
                         android:ems="10"
                         android:enabled="false"
                         android:gravity="center"
@@ -310,6 +289,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
+                android:gravity="center"
                 android:paddingTop="0dp">
 
                 <CheckBox
@@ -332,19 +312,11 @@
                     android:layout_gravity="center"
                     android:paddingLeft="10dp">
 
-                    <ImageView
-                        android:id="@+id/adultez_red_iv"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-
-
-                        app:srcCompat="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095" />
-
                     <EditText
                         android:id="@+id/adultez_et"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@null"
+                        android:background="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095"
                         android:ems="10"
                         android:enabled="false"
                         android:gravity="center"
@@ -365,6 +337,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
+                android:gravity="center"
                 android:paddingTop="0dp">
 
                 <CheckBox
@@ -387,19 +360,11 @@
                     android:layout_gravity="center"
                     android:paddingLeft="10dp">
 
-                    <ImageView
-                        android:id="@+id/may_red_iv"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-
-
-                        app:srcCompat="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095" />
-
                     <EditText
                         android:id="@+id/may_et"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@null"
+                        android:background="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095"
                         android:ems="10"
                         android:enabled="false"
                         android:gravity="center"
