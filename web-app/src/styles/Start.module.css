@@ -13,21 +13,25 @@ div.logoContainer {
 }
 
 div.logoContainer img.logo {
-    width: 13em;
-    height: 13em;
+    width: 11em;
+    height: 11em;
     position: absolute;
-    top:6.5em;
+    top: 8em;
     z-index: 1;
 }
 
 .start {
     background-color: hsl(0, 0%, 100%);
     outline: solid var(--details);
-    padding: 6rem 5rem 3rem 5rem;
+    padding: 5.5rem 5rem 3rem 5rem;
     border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
     /*height: max-content;
-    width: max-content;*/
-    display: flex;
+    width: max-content;
+    */display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;

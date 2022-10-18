@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
 import TextHeader from '../../components/TextHeader';
-import '../../styles/Volunteers.css'
+import { useEffect, useState } from "react";
+import '../../styles/Volunteers.css';
+import ContainerVolunteersView from './ContainerVolunteersView';
 import url from '../../config/API';
-import VolunteerCardRequest from '../../components/VolunteerCardRequest';
-import VolunteerCardApproved from '../../components/VolunteerCardApproved';
 
 function Volunteers() {
 	const [value, setValue] = useState('approved');
@@ -19,8 +18,6 @@ function Volunteers() {
         sex: "N/A",
     });
 
-	
-
 	const handleChange = (event) => {
 		setValue(event.target.value);
 
@@ -33,7 +30,6 @@ function Volunteers() {
 		console.log(user);
 
 	};
-	
 
 	const getActive = async (e) => {
     
@@ -55,7 +51,7 @@ function Volunteers() {
 
 	useEffect(() => {
 		getActive();
-	  }, []);
+	}, []);
 
 	return (
     	<>
@@ -67,14 +63,8 @@ function Volunteers() {
 					<option value="request">Solicitudes</option>
 				</select>
 			</div>
-      		<div className="Volunteers">
-			  	{value === "approved" && Object.entries(user).map(([key, { firstName, lastName, email, age, sex, phoneNumber, idUser}]) => (
-					<VolunteerCardApproved volunteer={{firstName: firstName, lastName: lastName, email: email, age: age, sex: sex, phoneNumber: phoneNumber, idUser: idUser}}/>
-				))}
-				{value === "request" && Object.entries(user).map(([key, { firstName, lastName, email, age, sex, phoneNumber, idUser}]) => (
-					<VolunteerCardRequest volunteer={{firstName: firstName, lastName: lastName, email: email, age: age, sex: sex, phoneNumber: phoneNumber, idUser: idUser}}/>
-				))}
-      		</div>
+
+			<ContainerVolunteersView value={value} user={user}/>
     	</>
   	);
 }

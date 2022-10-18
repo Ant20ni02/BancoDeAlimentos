@@ -8,7 +8,7 @@ div.logo-container img.logo-login {
     width: 10em;
     height: 10em;
     position: absolute;
-    top: 8.5em;
+    top: 4.5em;
     z-index: 100;
 }
 
@@ -20,7 +20,8 @@ form.form-login {
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 2.5em;
-    border: 3px solid var(--primary-color);
+    outline: solid var(--details);
+    background-color: hsl(0, 0%, 100%);
     border-radius: 0.5em;
     width: fit-content;
     height: fit-content;
@@ -139,7 +140,6 @@ form.form-login footer.form-footer-login {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--primary-color);
 }
 
 button.form-btn-submit-login {
@@ -153,7 +153,7 @@ button.form-btn-submit-login {
     margin: 1.5em;
     font-size: 1.5rem;
     /**@notechangedesign*/color: var(--primary-color);
-    background-color: hsl(0, 0%, 100%);
+    background-color: var(--tertiary-color);
     width: 50%;
     transition: all .3s ease-in-out;
     -webkit-transition: all .3s ease-in-out;
@@ -172,5 +172,5 @@ button.form-btn-submit-login:hover, button.form-btn-submit-login:focus {
 }
 
 button.form-btn-submit-login:focus {
-    outline: 2px solid var(--quaternary-color);
+    outline: none;
 }

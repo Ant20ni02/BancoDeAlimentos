@@ -277,8 +277,8 @@ function PieChart() {
         let freq = [];
 
         for (const dataObj of data){
-            answer.push(dataObj.answer);
-            freq.push(dataObj.freq);
+            answer.push(dataObj.freq);
+            freq.push(dataObj.cou);
         }
 
         let finalAnswer = []
