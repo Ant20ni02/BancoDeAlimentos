@@ -12,6 +12,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.MediaController
 import android.widget.Toast
@@ -24,6 +25,7 @@ import androidx.viewpager2.widget.ViewPager2
 class Inicio : AppCompatActivity(){
 
     lateinit var locationManager: LocationManager
+    lateinit var ontouchelistener : View.OnTouchListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +39,8 @@ class Inicio : AppCompatActivity(){
         val requestPermission = registerForActivityResult(ActivityResultContracts.RequestPermission()){
             isGranted ->
             when {
-            isGranted -> Toast.makeText(this@Inicio, "Permiso de GPS concedido", Toast.LENGTH_SHORT).show()
+            isGranted -> Log.e("GPS", "Permiso Concedido")
+
 
                 Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
                         shouldShowRequestPermissionRationale(android.Manifest.permission.ACCESS_FINE_LOCATION)->

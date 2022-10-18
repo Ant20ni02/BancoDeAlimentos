@@ -6,31 +6,51 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/orange_background2"
-        android:layout_width="553dp"
-        android:layout_height="245dp"
-        android:background="@drawable/btn_orange"
-        app:layout_constraintBottom_toBottomOf="@+id/BancoDeAlimentos"
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/loginLogo"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.90999997"
-        app:srcCompat="@drawable/orange"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/BancoDeAlimentos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@drawable/top_background"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="Iniciar sesión"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.039" />
+    </FrameLayout>
 
     <EditText
         android:id="@+id/txtEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
         android:ems="10"
         android:fontFamily="sans-serif"
+        android:foregroundTint="@color/black"
         android:hint="Email"
         android:inputType="textEmailAddress"
-        android:textColor="@color/black"
+        android:textColor="#000000"
         android:textColorHighlight="@color/black"
-        android:textColorHint="@color/black"
+        android:textColorHint="#58595B"
         android:textColorLink="@color/black"
+        android:textCursorDrawable="@drawable/orange_cursor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias=".5"
@@ -42,13 +62,16 @@
         android:id="@+id/txtPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
         android:ems="10"
         android:fontFamily="sans-serif"
+        android:foregroundTint="@color/black"
         android:hint="Contraseña"
         android:inputType="textPassword|textEmailAddress"
         android:password="true"
         android:textColor="@color/black"
-        android:textColorHint="@color/black"
+        android:textColorHint="#58595B"
+        android:textCursorDrawable="@drawable/orange_cursor"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,10 +82,11 @@
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="400px"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_orange"
-        android:shadowColor="#FF5722"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
         android:text="Iniciar sesión"
         android:textColor="#FFFFFF"
         android:textColorHighlight="#000000"
@@ -70,12 +94,10 @@
         android:textColorLink="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.673"
-        app:rippleColor="@color/teal_200"
-        app:strokeColor="#FF5722" />
+        app:layout_constraintVertical_bias=".69" />
 
     <TextView
         android:id="@+id/signUpLink"
@@ -86,26 +108,11 @@
         android:textColor="@color/purple_500"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/txtPassword"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/txtPassword"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin"
         app:layout_constraintVertical_bias="0.137" />
-
-    <TextView
-        android:id="@+id/BancoDeAlimentos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Iniciar sesión"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.039" />
 
     <ImageView
         android:id="@+id/loginLogo"
