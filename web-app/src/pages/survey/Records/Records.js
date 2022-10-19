@@ -1,5 +1,6 @@
 import "../../../styles/Records.css";
 import React, { useEffect, useState } from "react";
+import { useNavigate} from 'react-router-dom';
 import Table from "../../../components/Table";
 import TextHeader from "../../../components/TextHeader";
 import styles from "../../../styles/Tooltip.module.css";
@@ -9,6 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight, faRotateLeft } from "@fortawesome/free-solid-svg-icons";
 
 function Records() {
+	const navigate = useNavigate();
 	const recordsPerPage = 5;
 	const [surveys, setSurveys] = useState({ data: [] });
 	const { maxPage, page, isFirstStep, isLastStep, next, previous, reset, goTo, pageValues } = useMultiStep({
@@ -26,6 +28,11 @@ function Records() {
 			headers: { "x-access-token": localStorage.getItem("token") },
 		});
 		const data = await response.json();
+		if(data.mensaje !== undefined && data.mensaje === "Token inválido"){
+			localStorage.removeItem("token");
+        	localStorage.removeItem("idUser");
+        	navigate("/inicio-de-sesion", { replace: true });
+		}
 		setSurveys({ data });
 	};
 	

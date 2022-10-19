@@ -1,5 +1,6 @@
 import TextHeader from '../../components/TextHeader';
 import { useEffect, useState } from "react";
+import { useNavigate} from 'react-router-dom';
 import '../../styles/Volunteers.css';
 import url from '../../config/API';
 import styles from '../../styles/Tooltip.module.css';
@@ -10,6 +11,7 @@ import VolunteerCardApproved from '../../components/VolunteerCardApproved';
 import VolunteerCardRequest from '../../components/VolunteerCardRequest';
 
 function Volunteers() {
+	const navigate = useNavigate();
 	const volunteersPerPage = 5;
 	
 	const [value, setValue] = useState('approved');
@@ -61,6 +63,11 @@ function Volunteers() {
         const response = await fetch(url+`getActiveVolunteers`,{method: 'GET',
                                 headers: {'x-access-token' : localStorage.getItem('token')} });
         const data = await response.json();
+		if(data.mensaje !== undefined && data.mensaje === "Token inválido"){
+			localStorage.removeItem("token");
+        	localStorage.removeItem("idUser");
+        	navigate("/inicio-de-sesion", { replace: true });
+		}
         setUser({data});
 		console.log(data);
     }
@@ -70,6 +77,11 @@ function Volunteers() {
         const response = await fetch(url+`getInactiveVolunteers`,{method: 'GET',
                                 headers: {'x-access-token' : localStorage.getItem('token')} });
         const data = await response.json();
+		if(data.mensaje != undefined && data.mensaje === "Token inválido"){
+			localStorage.removeItem("token");
+        	localStorage.removeItem("idUser");
+        	navigate("/inicio-de-sesion", { replace: true });
+		}
         setUser({data});
 		console.log(data);
     }
