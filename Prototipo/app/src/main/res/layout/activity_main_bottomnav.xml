@@ -16,7 +16,7 @@
 
     <LinearLayout
         android:id="@+id/bnvlayout"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
@@ -28,7 +28,7 @@
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bnv_main"
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="match_parent"
             android:layout_marginBottom="20dp"
             android:background="@drawable/btn_orange"
             android:radius="0dp"

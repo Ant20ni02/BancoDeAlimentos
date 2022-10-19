@@ -15,6 +15,7 @@ class BottomNavigation: AppCompatActivity() {
 
         val mainEncuestaFragment = MainEncuestaFragment()
         val mainProfileFragment = MainProfileFragment()
+        val settingsFrament = MainSettingsFragment()
         val bottomNav =findViewById<BottomNavigationView>(R.id.bnv_main)
         val imageView = findViewById<ImageView>(R.id.imageView)
 
@@ -35,6 +36,10 @@ class BottomNavigation: AppCompatActivity() {
                 }
                 R.id.nav_Profile ->{
                     loadFragment(mainProfileFragment)
+                    true
+                }
+                R.id.nav_settings ->{
+                    loadFragment(settingsFrament)
                     true
                 }
                 else -> false

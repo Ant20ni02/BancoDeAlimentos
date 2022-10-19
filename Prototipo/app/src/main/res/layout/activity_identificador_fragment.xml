@@ -24,12 +24,13 @@
 
             <TextView
                 android:id="@+id/idFamTV"
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="@drawable/gray_text_input_oval"
                 android:gravity="center"
-                android:text="¿Cuál es su identificador familiar?"
+                android:padding="20dp"
+                android:text="¿Cuál es su Folio familiar?"
                 android:textColor="#FFFFFF"
                 android:textColorHint="#FFFFFF"
                 android:textColorLink="#FE921D"

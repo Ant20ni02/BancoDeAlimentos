@@ -7,6 +7,7 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="80dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -14,27 +15,23 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.36">
 
-        <FrameLayout
+        <VideoView
+            android:id="@+id/fragment_video"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="300dp" />
 
-            <VideoView
-                android:id="@+id/videoView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <Button
-                android:id="@+id/btn_realizar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:alpha=".5"
-                android:background="@drawable/btn_orange"
-                android:padding="25dp"
-                android:text="Realizar encuesta"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold" />
-        </FrameLayout>
+        <Button
+            android:id="@+id/btn_realizar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="120dp"
+            android:alpha=".5"
+            android:background="@drawable/btn_orange"
+            android:padding="25dp"
+            android:text="Realizar encuesta"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

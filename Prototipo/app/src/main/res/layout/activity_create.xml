@@ -7,19 +7,6 @@
     tools:context=".Create">
 
     <ImageView
-        android:id="@+id/orange_background2"
-        android:layout_width="553dp"
-        android:layout_height="245dp"
-        android:background="@drawable/btn_orange"
-        app:layout_constraintBottom_toBottomOf="@+id/registrateTitle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.90999997"
-        app:srcCompat="@drawable/orange"
-        tools:ignore="MissingConstraints"/>
-
-    <ImageView
         android:id="@+id/signUpLogo"
         android:layout_width="wrap_content"
         android:layout_height="90dp"
@@ -30,20 +17,33 @@
         app:layout_constraintVertical_bias="0.199"
         app:srcCompat="@drawable/_e8827daba0aa_logo" />
 
-    <TextView
-        android:id="@+id/registrateTitle"
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:id="@+id/frame_registrate"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Registrate"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/signUpLogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.039" />
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/registrateTitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/top_background"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="Registrate"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </FrameLayout>
 
     <ScrollView
         android:id="@+id/scrollView2"
