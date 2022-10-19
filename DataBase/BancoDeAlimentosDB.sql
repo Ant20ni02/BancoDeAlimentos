@@ -73,6 +73,19 @@ CREATE TABLE FoodSuggested(
 			FOREIGN KEY (idFoodAvailable) REFERENCES FoodAvailable(idFoodAvailable)
 );
 
+CREATE TABLE ProfilePictures(
+ idProfilePicture INT AUTO_INCREMENT,
+ idUser int NOT NULL,
+ `type` varchar(20),
+ name varchar(200),
+ `data` BLOB,
+ createdAt varchar(10), 
+ updatedAt varchar(10),
+ CONSTRAINT fk_User_ProfilePictures1
+			FOREIGN KEY (idUser) REFERENCES User_(idUser),
+ primary key (idProfilePicture)
+);
+
 
 
 

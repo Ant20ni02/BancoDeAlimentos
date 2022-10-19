@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import '../styles/Table.css';
 
-const Table = ({ data, newSurveys }) => {
+const Table = ({ data }) => {
 
     return (
         <table className="Table">
@@ -20,15 +20,15 @@ const Table = ({ data, newSurveys }) => {
             </thead>
 
             <tbody>
-                {Object.entries(newSurveys).map(([key, { familyLastName, idFamily, date_, latitude, longitude, idSurvey}]) => (
+                {Object.entries(data).map(([key, { familyLastName, idFamily, date_, latitude, longitude, idSurvey}]) => (
                     <tr key = {key}>
                         <th className="counterCell"></th>
-                        <td>{/* <Link> */}{familyLastName}{/* </Link> */}</td>
-                        <td>{idFamily}</td>
-                        <td>{date_}</td>
-                        <td>{latitude}</td>
-                        <td>{longitude}</td>
-                        <td> <Link to={`/bamx/encuestas/registros/detalles/${idSurvey}`}>{idSurvey} </Link></td>
+                        <td> {familyLastName}</td>
+                        <td> <Link to={`/bamx/encuestas/registros/detalles/${idSurvey}`}>{idFamily}</Link></td>
+                        <td> <Link to={`/bamx/encuestas/registros/detalles/${idSurvey}`}>{date_}</Link></td>
+                        <td> <Link to={`/bamx/encuestas/registros/detalles/${idSurvey}`}>{latitude}</Link></td>
+                        <td> <Link to={`/bamx/encuestas/registros/detalles/${idSurvey}`}>{longitude}</Link></td>
+                        <td> <Link to={`/bamx/encuestas/registros/detalles/${idSurvey}`}>{idSurvey}</Link></td>
                     </tr>
                 ))}
             </tbody>

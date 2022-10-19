@@ -13,6 +13,16 @@ table.Table {
     content: counter(records); 
 }
 
+a {
+    color: hsl(0, 0%, 0%);
+    text-decoration: none;
+}
+
+/* a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+} */
+
 table.Table caption.Caption {
     font-size: 1.5em;
     font-weight: bold;
@@ -57,9 +67,9 @@ tbody tr:nth-child(even) {
     color: hsl(0, 0%, 0%);
 }
 
-/* tbody tr:hover {
-    color: var(--primary-color);
-} */
+tbody tr:hover {
+    color: var(--accent-color);
+}
 
 tbody th {
     border-radius: .50rem 0 0 .50rem;
