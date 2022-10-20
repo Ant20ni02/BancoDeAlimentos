@@ -1,5 +1,6 @@
 package mx.tec.prototipo
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -12,6 +13,8 @@ class BottomNavigation: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_bottomnav)
+
+
 
         val mainEncuestaFragment = MainEncuestaFragment()
         val mainProfileFragment = MainProfileFragment()
@@ -31,14 +34,86 @@ class BottomNavigation: AppCompatActivity() {
         bottomNav.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.nav_menu ->{
+                    val phantom = endpoint().stillToken()
+
+                    if(phantom == "Token inválido"){
+
+                        val profile = getSharedPreferences("profile", Context.MODE_PRIVATE)
+                        val answers = getSharedPreferences("ANSWERS", Context.MODE_PRIVATE)
+                        val currentFragment = getSharedPreferences("currentFragment", Context.MODE_PRIVATE)
+
+                        val prEdit = profile?.edit()
+                        prEdit?.clear()
+                        prEdit?.apply()
+
+                        val ansEd = answers?.edit()
+                        ansEd?.clear()
+                        ansEd?.apply()
+
+                        val currEd = currentFragment?.edit()
+                        currEd?.clear()
+                        currEd?.apply()
+
+                        val intent = Intent(this@BottomNavigation, Inicio::class.java)
+                        startActivity(intent)
+
+                    }
+
+
                     loadFragment(mainEncuestaFragment)
                     true
                 }
                 R.id.nav_Profile ->{
+                    val phantom = endpoint().stillToken()
+
+                    if(phantom == "Token inválido"){
+                        val profile = getSharedPreferences("profile", Context.MODE_PRIVATE)
+                        val answers = getSharedPreferences("ANSWERS", Context.MODE_PRIVATE)
+                        val currentFragment = getSharedPreferences("currentFragment", Context.MODE_PRIVATE)
+
+                        val prEdit = profile?.edit()
+                        prEdit?.clear()
+                        prEdit?.apply()
+
+                        val ansEd = answers?.edit()
+                        ansEd?.clear()
+                        ansEd?.apply()
+
+                        val currEd = currentFragment?.edit()
+                        currEd?.clear()
+                        currEd?.apply()
+
+                        val intent = Intent(this@BottomNavigation, Inicio::class.java)
+                        startActivity(intent)
+                    }
+
                     loadFragment(mainProfileFragment)
                     true
                 }
                 R.id.nav_settings ->{
+                    val phantom = endpoint().stillToken()
+
+                    if(phantom == "Token inválido"){
+                        val profile = getSharedPreferences("profile", Context.MODE_PRIVATE)
+                        val answers = getSharedPreferences("ANSWERS", Context.MODE_PRIVATE)
+                        val currentFragment = getSharedPreferences("currentFragment", Context.MODE_PRIVATE)
+
+                        val prEdit = profile?.edit()
+                        prEdit?.clear()
+                        prEdit?.apply()
+
+                        val ansEd = answers?.edit()
+                        ansEd?.clear()
+                        ansEd?.apply()
+
+                        val currEd = currentFragment?.edit()
+                        currEd?.clear()
+                        currEd?.apply()
+
+                        val intent = Intent(this@BottomNavigation, Inicio::class.java)
+                        startActivity(intent)
+                    }
+
                     loadFragment(settingsFrament)
                     true
                 }

@@ -43,7 +43,6 @@ class Inicio : AppCompatActivity(){
             startActivity(intent)
         }
 
-
         val requestPermission = registerForActivityResult(ActivityResultContracts.RequestPermission()){
             isGranted ->
             when {

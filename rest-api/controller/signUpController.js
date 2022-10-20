@@ -93,3 +93,12 @@ module.exports.getIdUsuario = (req,res) =>{
 
     })
 }
+
+module.exports.phantomEndpoint = (req, res) =>{
+    const mensaje = "Token válido"
+
+    res.json({
+        mensaje
+    })
+
+}

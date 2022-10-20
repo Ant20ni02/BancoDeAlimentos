@@ -51,6 +51,30 @@ class EncuestaContainer : AppCompatActivity (){
 
 
         btnRegresar.setOnClickListener {
+            val phantom = endpoint().stillToken()
+
+            if(phantom == "Token inválido"){
+
+                val profile = getSharedPreferences("profile", Context.MODE_PRIVATE)
+                val answers = getSharedPreferences("ANSWERS", Context.MODE_PRIVATE)
+                val currentFragment = getSharedPreferences("currentFragment", Context.MODE_PRIVATE)
+
+                val prEdit = profile?.edit()
+                prEdit?.clear()
+                prEdit?.apply()
+
+                val ansEd = answers?.edit()
+                ansEd?.clear()
+                ansEd?.apply()
+
+                val currEd = currentFragment?.edit()
+                currEd?.clear()
+                currEd?.apply()
+
+                val intent = Intent(this@EncuestaContainer, Inicio::class.java)
+                startActivity(intent)
+            }
+
             curr = sharedPreference?.getString("currentFragment","#").toString()
             if(curr == "0"){
                 val intent = Intent(this@EncuestaContainer,BottomNavigation::class.java)
@@ -58,6 +82,29 @@ class EncuestaContainer : AppCompatActivity (){
             }
         }
         btnSiguiente.setOnClickListener {
+            val phantom = endpoint().stillToken()
+
+            if(phantom == "Token inválido"){
+                val profile = getSharedPreferences("profile", Context.MODE_PRIVATE)
+                val answers = getSharedPreferences("ANSWERS", Context.MODE_PRIVATE)
+                val currentFragment = getSharedPreferences("currentFragment", Context.MODE_PRIVATE)
+
+                val prEdit = profile?.edit()
+                prEdit?.clear()
+                prEdit?.apply()
+
+                val ansEd = answers?.edit()
+                ansEd?.clear()
+                ansEd?.apply()
+
+                val currEd = currentFragment?.edit()
+                currEd?.clear()
+                currEd?.apply()
+
+                val intent = Intent(this@EncuestaContainer, Inicio::class.java)
+                startActivity(intent)
+            }
+
             curr = sharedPreference?.getString("currentFragment","#").toString()
             if (curr != null) {
                 buttonPressed(curr)
