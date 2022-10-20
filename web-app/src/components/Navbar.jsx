@@ -9,6 +9,7 @@ import logo from '../images/recurso-4.png';
 /* import Sidebar from '../components/Sidebar'; */
 
 const Navbar = ({isOpenSidebar, toggleSidebar, ...props}) => {
+    const navigate = useNavigate();
     const [showMenu, setShowMenu] = useState(false);
     const [user, setUser] = useState({
         firstName: "",
@@ -25,6 +26,11 @@ const Navbar = ({isOpenSidebar, toggleSidebar, ...props}) => {
                 }
             });
             const data = await response.json();
+            if(data.mensaje !== undefined && data.mensaje === "Token inválido"){
+                localStorage.removeItem("token");
+                localStorage.removeItem("idUser");
+                navigate("/inicio-de-sesion", { replace: true });
+            }
             setUser(data);
         }
         getUser();

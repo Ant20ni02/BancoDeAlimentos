@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import url from '../config/API';
+import { useNavigate} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faEnvelope, faPhone, faLock, faVenusMars, faCalendar } from '@fortawesome/free-solid-svg-icons';
 import '../styles/ProfileCard.css';
 import Profile from '../images/profile.png';
 
 const ProfileCard = () => {
+
+    const navigate = useNavigate();
 
     const [user, setUser] = useState({
         age: 0,
@@ -30,6 +33,11 @@ const ProfileCard = () => {
         const response = await fetch(url+`getUsersData/${idUser}`,{method: 'GET',
                                 headers: {'x-access-token' : localStorage.getItem('token')} });
         const data = await response.json();
+        if(data.mensaje !== undefined && data.mensaje === "Token inválido"){
+			localStorage.removeItem("token");
+        	localStorage.removeItem("idUser");
+        	navigate("/inicio-de-sesion", { replace: true });
+		}
         setUser(data);
     }
 

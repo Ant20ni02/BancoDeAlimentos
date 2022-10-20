@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate} from 'react-router-dom';
 import TextQuestion from "../../../components/Records/TextQuestion";
 import CheckboxQuestion from "../../../components/Records/CheckboxQuestion";
 import CheckboxQuestionSpecial from "../../../components/Records/CheckboxQuestionSpecial";
@@ -7,6 +8,9 @@ import '../../../styles/Details.css';
 import url from '../../../config/API';
 
 function Details() {
+
+    const navigate = useNavigate();
+
     const {idSurvey} = useParams();
 
     const [value, setValue] = useState('1');
@@ -99,6 +103,11 @@ function Details() {
         const response = await fetch(url+`getFamilyById/${idSurvey}`,{method: 'GET',
                                 headers: {'x-access-token' : localStorage.getItem('token')} });
         const data = await response.json();
+        if(data.mensaje !== undefined && data.mensaje === "Token inválido"){
+			localStorage.removeItem("token");
+        	localStorage.removeItem("idUser");
+        	navigate("/inicio-de-sesion", { replace: true });
+		}
         setSurveyData(data);
     }
 

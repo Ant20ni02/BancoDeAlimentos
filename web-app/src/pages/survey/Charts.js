@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate} from 'react-router-dom';
 import TextHeader from '../../components/TextHeader';
 import PieChart from "../../components/PieChart";
 import PieChartFrequency from "../../components/PieChartFrequency";
@@ -145,6 +146,8 @@ const chartOptions10 = {
 
 function Charts() {
 
+    const navigate = useNavigate();
+
     const [chartData1, setChartData1] = useState({
         labels: defaultAnswer,
         datasets: [
@@ -282,6 +285,11 @@ function Charts() {
         const response = await fetch(url+`getFrequency/${1}`,{method: 'GET',
                                 headers: {'x-access-token' : localStorage.getItem('token')} });
         const data = await response.json();
+        if(data.mensaje !== undefined && data.mensaje === "Token inválido"){
+			localStorage.removeItem("token");
+        	localStorage.removeItem("idUser");
+        	navigate("/inicio-de-sesion", { replace: true });
+		}
         let answer = [];
         let freq = [];
         for (const dataObj of data){
