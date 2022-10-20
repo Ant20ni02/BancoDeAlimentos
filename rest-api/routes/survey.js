@@ -5,5 +5,6 @@ const middleware = require('../middleware/jwt-middleware');
 
 router.post('/addSurvey', middleware, surveyController.addSurvey);
 router.get('/getSurveyById/:idSurvey', middleware, surveyController.getSurveyById);
+router.get('/countVolunteersSurveys', middleware, surveyController.countVolunteersSurveys)
 
 module.exports = router;

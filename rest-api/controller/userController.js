@@ -143,3 +143,16 @@ module.exports.updateProfilePicture = (req, res) =>{
         }
     })
 }
+
+module.exports.getNamePhoto = (req, res) =>{
+    const idUser = req.params.idUser;
+    const sql = `SELECT firstName, lastname, img from User_ WHERE idUser = ?  `;
+
+    conexion.query(sql, [idUser],(error,results,fields)=>{
+        if(error)
+            res.send(error)
+        else{
+            res.json(results)
+        }
+    })
+}
