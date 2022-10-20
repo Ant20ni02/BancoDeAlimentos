@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import {useNavigate} from "react-router-dom"
 import url from '../config/API';
 
@@ -16,7 +15,7 @@ function UploadImage() {
 
     const addUserData = async(base64_data)=> {
         const formData = JSON.stringify({ idUser: localStorage.getItem('idUser'), img: base64_data});
-        const response = await fetch(url+'updateProfilePicture',{ method: 'POST',headers: {
+        const response = await fetch(url+'updateProfilePicture',{ method: 'PUT',headers: {
             "Content-Type": "application/json",
             'x-access-token' : localStorage.getItem('token'),
             }, body: formData});
