@@ -44,7 +44,7 @@ const ProfileCard = () => {
     return (
         <div className="Profile-card">
             <header>
-                <img src={'data:image/png;base64,'+ user.img} alt={user.firstName} />
+                <img src={user.img} alt={user.firstName} />
                 <h2>{user.firstName} {user.lastName}</h2>
             </header>
 
@@ -69,10 +69,10 @@ const ProfileCard = () => {
                     <span>{user.phoneNumber}</span>
                 </div>
             </div>
-
             <footer>
                 <span>Admin</span>
             </footer>
+            {/*<div align="center">Hola empresa de Banco de Alimentos: <br/>de parte de los ITC de 5to semestre <br/> le pide de favor tener misericordia y <br/> pornerles 100 en todo, se han <br/> esforzado mucho :) atte: 진실 </div>*/}
         </div>
     );
 }

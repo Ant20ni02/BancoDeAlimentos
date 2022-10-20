@@ -6,42 +6,31 @@ import url from '../config/API';
 
 function UploadImage() {
     const navigate = useNavigate();
-    const [file,setFile] = useState("");
 
-    const setimgfile = (e)=>{
-        setFile(e.target.files[0])
-    }
+    const convert2base64 = e => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            addUserData(reader.result.toString());
+        };
+        reader.readAsDataURL(file);
+    };
 
-    const addUserData = async(e)=>{
-        e.preventDefault();
-
-        var formData = new FormData();
-        formData.append("img",file)
-        //formData.append("idUser",localStorage.getItem('idUser'));
-
-        const response = await fetch(url+'upload-image',{ method: 'POST',headers: {
-            "Content-Type":"multipart/form-data",
+    const addUserData = async(base64_data)=> {
+        const formData = JSON.stringify({ idUser: localStorage.getItem('idUser'), img: base64_data});
+        const response = await fetch(url+'updateProfilePicture',{ method: 'POST',headers: {
+            "Content-Type": "application/json",
             'x-access-token' : localStorage.getItem('token'),
             }, body: formData});
         const data = await response.json();
-        
+        navigate("/bamx/perfil", { replace: true });
     }
-    
-
     return (
         <>
-            <div className='container mt-3'>
-                <h1>Upload Your Img Here</h1>
+            <div>
 
-                <Form>
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label>Select Your Image</Form.Label>
-                        <Form.Control type="file" name='photo' onChange={setimgfile} />
-                    </Form.Group>
-                    <Button variant="primary" type="submit" onClick={addUserData}>
-                        Submit
-                    </Button>
-                </Form>
+                <input id="fileupload" className="hidden" type="file" onChange={e => convert2base64 (e)} />
+                <label htmlFor="fileupload">Upload file</label>
             </div>
         </>
     );

@@ -9,5 +9,6 @@ router.get('/getAllVolunteers', middleware, userController.getAllVolunteers);
 router.get('/getActiveVolunteers', middleware, userController.getActiveVolunteers);
 router.get('/getInactiveVolunteers', middleware, userController.getInactiveVolunteers);
 router.delete('/deleteUser/:idUser', middleware, userController.deleteUser);
+router.post('/updateProfilePicture', middleware, userController.updateProfilePicture);
 
 module.exports = router;

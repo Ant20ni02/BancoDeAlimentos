@@ -77,7 +77,7 @@ function Volunteers() {
         const response = await fetch(url+`getInactiveVolunteers`,{method: 'GET',
                                 headers: {'x-access-token' : localStorage.getItem('token')} });
         const data = await response.json();
-		if(data.mensaje != undefined && data.mensaje === "Token inválido"){
+		if(data.mensaje !== undefined && data.mensaje === "Token inválido"){
 			localStorage.removeItem("token");
         	localStorage.removeItem("idUser");
         	navigate("/inicio-de-sesion", { replace: true });
