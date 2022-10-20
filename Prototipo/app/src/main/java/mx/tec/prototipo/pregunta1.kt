@@ -54,6 +54,7 @@ class pregunta1 : Fragment() {
             var next = ""
             var pregunta1: Boolean = false
             var pregunta2: Boolean = false
+            var pregunta2_is_integer : Boolean = false
 
             val questionSP = context?.getSharedPreferences("ANSWERS", Context.MODE_PRIVATE)
 
@@ -126,6 +127,7 @@ class pregunta1 : Fragment() {
             checkedNumber4 = "0"
             checkedNumber5 = "0"
 
+
             mainString = ""
 
 
@@ -147,95 +149,141 @@ class pregunta1 : Fragment() {
 
                 if(edit1.text.toString() != "")
                 {
-                    pregunta2 = edit1.text.toString() != ""
-                    checkedBoxNumber++
-                    checkbox1 = "a"
+                    if(isNumericAndPositive(edit1.text.toString())){
+                        pregunta2 = edit1.text.toString() != ""
+                        checkedBoxNumber++
+                        checkbox1 = "a"
 
-                    if(edit1.text.toString().length == 1)
-                    {
-                        checkedNumber1 += edit1.text.toString()
+                        if(edit1.text.toString().length == 1)
+                        {
+                            checkedNumber1 += edit1.text.toString()
+                        }
+                        else{
+                            checkedNumber1 = edit1.text.toString()
+                        }
+                        Log.e("checkedNumber1", checkedNumber1)
+
+                        pregunta2_is_integer = true
+                        Log.e("HEREEEEEEEE", edit1.text.toString())
+
                     }
                     else{
-                        checkedNumber1 = edit1.text.toString()
+                        pregunta2 = edit1.text.toString() != ""
+                        pregunta2_is_integer = false
+                        Log.e("checkedNumber1", checkedNumber1)
+
                     }
-                    Log.e("checkedNumber1", checkedNumber1)
 
                 }
             }
             if(check2.isChecked){
                 if(edit2.text.toString() != "")
                 {
-                    pregunta2 = edit2.text.toString() != ""
-                    checkedBoxNumber++
-                    checkbox2 = "b"
+                    if(isNumericAndPositive(edit2.text.toString())){
+                        pregunta2 = edit2.text.toString() != ""
+                        checkedBoxNumber++
+                        checkbox2 = "b"
 
-                    if(edit2.text.toString().length == 1)
-                    {
-                        checkedNumber2 += edit2.text.toString()
+                        if(edit2.text.toString().length == 1)
+                        {
+                            checkedNumber2 += edit2.text.toString()
+                        }
+                        else{
+                            checkedNumber2 = edit2.text.toString()
+                        }
+                        Log.e("checkedNumber2", checkedNumber2)
+                        pregunta2_is_integer = true
                     }
                     else{
-                        checkedNumber2 = edit2.text.toString()
+                        pregunta2 = edit2.text.toString() != ""
+                        pregunta2_is_integer = false
                     }
-                    Log.e("checkedNumber2", checkedNumber2)
                 }
             }
             if(check3.isChecked){
                 if(edit3.text.toString() != "")
                 {
-                    pregunta2 = edit3.text.toString() != ""
-                    checkedBoxNumber++
-                    checkbox3 = "c"
+                    if(isNumericAndPositive(edit3.text.toString())){
+                        pregunta2 = edit3.text.toString() != ""
+                        checkedBoxNumber++
+                        checkbox3 = "c"
 
-                    if(edit3.text.toString().length == 1)
-                    {
-                        checkedNumber3 += edit3.text.toString()
+                        if(edit3.text.toString().length == 1)
+                        {
+                            checkedNumber3 += edit3.text.toString()
+                        }
+                        else{
+                            checkedNumber3 = edit3.text.toString()
+                        }
+                        Log.e("checkedNumber3", checkedNumber3)
+                        pregunta2_is_integer = true
                     }
                     else{
-                        checkedNumber3 = edit3.text.toString()
+                        pregunta2 = edit3.text.toString() != ""
+                        pregunta2_is_integer = false
                     }
-                    Log.e("checkedNumber3", checkedNumber3)
                 }
             }
             if(check4.isChecked){
                 if(edit4.text.toString() != "")
                 {
-                    pregunta2 = edit4.text.toString() != ""
-                    checkedBoxNumber++
-                    checkbox4 = "d"
+                    if(isNumericAndPositive(edit4.text.toString())){
+                        pregunta2 = edit4.text.toString() != ""
+                        checkedBoxNumber++
+                        checkbox4 = "d"
 
-                    if(edit4.text.toString().length == 1)
-                    {
-                        checkedNumber4 += edit4.text.toString()
+                        if(edit4.text.toString().length == 1)
+                        {
+                            checkedNumber4 += edit4.text.toString()
+                        }
+                        else{
+                            checkedNumber4 = edit4.text.toString()
+                        }
+                        Log.e("checkedNumber4", checkedNumber4)
+                        pregunta2_is_integer = true
                     }
                     else{
-                        checkedNumber4 = edit4.text.toString()
+                        pregunta2 = edit4.text.toString() != ""
+                        pregunta2_is_integer = false
                     }
-                    Log.e("checkedNumber4", checkedNumber4)
+
                 }
             }
             if(check5.isChecked){
                 if(edit5.text.toString() != "")
                 {
-                    pregunta2 = edit5.text.toString() != ""
-                    checkedBoxNumber++
-                    checkbox5 = "a"
+                    if(isNumericAndPositive(edit5.text.toString())){
+                        pregunta2 = edit5.text.toString() != ""
+                        checkedBoxNumber++
+                        checkbox5 = "a"
 
-                    if(edit5.text.toString().length == 1)
-                    {
-                        checkedNumber5 += edit5.text.toString()
+                        if(edit5.text.toString().length == 1)
+                        {
+                            checkedNumber5 += edit5.text.toString()
+                        }
+                        else{
+                            checkedNumber5 = edit5.text.toString()
+                        }
+                        Log.e("checkedNumber5", checkedNumber5)
+                        pregunta2_is_integer = true
                     }
                     else{
-                        checkedNumber5 = edit5.text.toString()
+                        pregunta2 = edit5.text.toString() != ""
+                        pregunta2_is_integer = false
                     }
-                    Log.e("checkedNumber5", checkedNumber5)
+
                 }
             }
 
             // check if both answers were answered
 
             Log.e("checkedBoxNumber", checkedBoxNumber.toString())
+            Log.e("pregunta1", pregunta1.toString())
+            Log.e("pregunta2", pregunta2.toString())
+            Log.e("pregunta3", pregunta2_is_integer.toString())
 
-            if(pregunta1 && pregunta2){
+
+            if(pregunta1 && pregunta2 && pregunta2_is_integer){
                 Log.e("entered mainString","pregunta1 && pregunta2")
                 var total: Int = 0
 
@@ -311,6 +359,15 @@ class pregunta1 : Fragment() {
                 else{
                     Toast.makeText(context,"Las cantidades no coinciden", Toast.LENGTH_SHORT).show()
                 }
+            }
+            else if(!pregunta2){
+                Toast.makeText(context,"Porfavor, complete todos los campos", Toast.LENGTH_SHORT).show()
+            }
+
+            if(!pregunta2_is_integer){
+                Toast.makeText(context,"Cantidad inválida", Toast.LENGTH_SHORT).show()
+                Log.e("pregunta2_is_integer", pregunta2_is_integer.toString())
+
             }
         }
 

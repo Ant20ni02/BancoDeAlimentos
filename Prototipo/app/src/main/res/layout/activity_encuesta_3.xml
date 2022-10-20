@@ -75,6 +75,7 @@
                         android:id="@+id/si_suplemento_cb"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:buttonTint="#FB0328"
                         android:gravity="center"
                         android:text="Sí (especificar)" />
 
@@ -82,6 +83,7 @@
                         android:id="@+id/no_suplemento_cb"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:buttonTint="#FB0328"
                         android:text="No" />
 
                 </RadioGroup>
@@ -102,10 +104,6 @@
                         android:paddingTop="5dp"
                         android:enabled="false"
                         android:visibility="invisible"
-                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
-                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
-                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
-                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
                         app:layout_constraintVertical_bias="0.574" />
 
                 </TableRow>
@@ -172,6 +170,7 @@
                         android:id="@+id/si_lactancia_cb"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:buttonTint="#FB0328"
                         android:gravity="center"
                         android:text="Sí" />
 
@@ -179,6 +178,7 @@
                         android:id="@+id/no_lactancia_cb"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:buttonTint="#FB0328"
                         android:text="No" />
 
                 </RadioGroup>
@@ -245,6 +245,7 @@
                         android:id="@+id/opcion1_comidas"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:buttonTint="#FB0328"
                         android:gravity="center"
                         android:text="De 1 a 2 comidas" />
 
@@ -252,6 +253,7 @@
                         android:id="@+id/opcion2_comidas"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:buttonTint="#FB0328"
                         android:text="     De 3 a más comidas" />
 
                 </RadioGroup>

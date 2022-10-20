@@ -75,6 +75,7 @@
                         android:id="@+id/si_sal_cb"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:buttonTint="#FB0328"
                         android:gravity="center"
                         android:text="Sí" />
 
@@ -82,6 +83,7 @@
                         android:id="@+id/no_sal_cb"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:buttonTint="#FB0328"
                         android:text="No" />
 
                 </RadioGroup>
@@ -148,6 +150,7 @@
                         android:id="@+id/ingreso1_cb"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:buttonTint="#FB0328"
                         android:gravity="center"
                         android:text="Menos de $5,255 MXN" />
 
@@ -155,6 +158,7 @@
                         android:id="@+id/ingreso2_cb"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:buttonTint="#FB0328"
                         android:text="Más de $5,255 MXN" />
 
                 </RadioGroup>
@@ -221,6 +225,7 @@
                         android:id="@+id/porcentaje1_rb"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:buttonTint="#FB0328"
                         android:gravity="center"
                         android:text="20% aproximadamente" />
 
@@ -228,12 +233,14 @@
                         android:id="@+id/porcentaje2_rb"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:buttonTint="#FB0328"
                         android:text="35% aproximadamente" />
 
                     <RadioButton
                         android:id="@+id/porcentaje3_rb"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:buttonTint="#FB0328"
                         android:text="50% aproximadamente" />
 
                 </RadioGroup>

@@ -69,6 +69,7 @@
                     android:id="@+id/diabetes_cb"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:buttonTint="#FB0328"
                     android:fontFamily="sans-serif-black"
                     android:text="Diabetes Mellitus"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -84,29 +85,17 @@
                     android:layout_gravity="center"
                     android:paddingLeft="10dp">
 
-                    <ImageView
-                        android:id="@+id/diabetes_red_iv"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-
-
-                        app:srcCompat="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095" />
-
                     <EditText
                         android:id="@+id/diabetes_et"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@null"
+                        android:background="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095"
                         android:ems="10"
+                        android:enabled="false"
                         android:gravity="center"
                         android:hint="##"
                         android:inputType="textPersonName"
-                        android:enabled="false"
                         android:visibility="invisible"
-                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
-                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
-                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
-                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
                         app:layout_constraintVertical_bias="0.574" />
 
                 </FrameLayout>
@@ -123,6 +112,7 @@
                     android:id="@+id/hip_cb"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:buttonTint="#FB0328"
                     android:fontFamily="sans-serif-black"
                     android:text="Hipertensión arterial"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -138,29 +128,17 @@
                     android:layout_gravity="center"
                     android:paddingLeft="10dp">
 
-                    <ImageView
-                        android:id="@+id/hip_red_iv"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-
-
-                        app:srcCompat="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095" />
-
                     <EditText
                         android:id="@+id/hip_et"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@null"
+                        android:background="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095"
                         android:ems="10"
+                        android:enabled="false"
                         android:gravity="center"
                         android:hint="##"
                         android:inputType="textPersonName"
-                        android:enabled="false"
                         android:visibility="invisible"
-                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
-                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
-                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
-                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
                         app:layout_constraintVertical_bias="0.574" />
 
                 </FrameLayout>
@@ -177,6 +155,7 @@
                     android:id="@+id/obe_cb"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:buttonTint="#FB0328"
                     android:fontFamily="sans-serif-black"
                     android:text="Obesidad"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -192,29 +171,17 @@
                     android:layout_gravity="center"
                     android:paddingLeft="10dp">
 
-                    <ImageView
-                        android:id="@+id/obe_red_iv"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-
-
-                        app:srcCompat="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095" />
-
                     <EditText
                         android:id="@+id/obe_et"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@null"
+                        android:background="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095"
                         android:ems="10"
+                        android:enabled="false"
                         android:gravity="center"
                         android:hint="##"
                         android:inputType="textPersonName"
-                        android:enabled="false"
                         android:visibility="invisible"
-                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
-                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
-                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
-                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
                         app:layout_constraintVertical_bias="0.574" />
 
                 </FrameLayout>
@@ -232,6 +199,7 @@
                     android:id="@+id/otra_cb"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:buttonTint="#FB0328"
                     android:fontFamily="sans-serif-black"
                     android:text=" Otra (especificar)"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -252,10 +220,6 @@
                     android:inputType="textPersonName"
                     android:enabled="false"
                     android:visibility="invisible"
-                    app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
-                    app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
-                    app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
-                    app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
                     app:layout_constraintVertical_bias="0.574" />
 
                 <FrameLayout
@@ -264,29 +228,17 @@
                     android:layout_gravity="center"
                     android:paddingLeft="10dp">
 
-                    <ImageView
-                        android:id="@+id/otra_red_iv"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-
-
-                        app:srcCompat="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095" />
-
                     <EditText
                         android:id="@+id/otra_et"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:background="@null"
+                        android:background="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095"
                         android:ems="10"
+                        android:enabled="false"
                         android:gravity="center"
                         android:hint="##"
                         android:inputType="textPersonName"
-                        android:enabled="false"
                         android:visibility="invisible"
-                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
-                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
-                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
-                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
                         app:layout_constraintVertical_bias="0.574" />
 
                 </FrameLayout>
@@ -353,6 +305,7 @@
                         android:id="@+id/si_embarazo_cb"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:buttonTint="#FB0328"
                         android:gravity="center"
                         android:text="Sí (especificar)" />
 
@@ -360,6 +313,7 @@
                         android:id="@+id/no_embarazo_cb"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:buttonTint="#FB0328"
                         android:text="No" />
 
                 </RadioGroup>
@@ -374,29 +328,17 @@
                         android:layout_gravity="center"
                         android:paddingLeft="10dp">
 
-                        <ImageView
-                            android:id="@+id/si_embarazo_cb_red_iv"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-
-
-                            app:srcCompat="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095" />
-
                         <EditText
                             android:id="@+id/si_embarazo_cb_et"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
-                            android:background="@null"
+                            android:background="@drawable/_citypng_com_hd_red_neon_square_frame_border_png___4460x4095"
                             android:ems="10"
+                            android:enabled="false"
                             android:gravity="center"
                             android:hint="##"
                             android:inputType="textPersonName"
-                            android:enabled="false"
                             android:visibility="invisible"
-                            app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
-                            app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
-                            app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
-                            app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
                             app:layout_constraintVertical_bias="0.574" />
 
                     </FrameLayout>

@@ -7,8 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import java.lang.NumberFormatException
 
 class pregunta2 : Fragment(){
 
@@ -107,10 +109,13 @@ class pregunta2 : Fragment(){
 
         var allcorrect : Boolean
 
+        var congruentNumber : Int = 0
+
 
         btnSiguiente?.setOnClickListener {
             //pregnancy
 
+            congruentNumber = 0
             allcorrect = true //control variable for checkbox edit texts
             meses = view.findViewById(R.id.si_embarazo_cb_et)
 
@@ -144,12 +149,18 @@ class pregunta2 : Fragment(){
             {
                 diabetes = true
                 if(enf_et_1.text.toString() == ""){
-                    Toast.makeText(context,"Ingrese todos los campos", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context,"Porfavor, complete todos los campos", Toast.LENGTH_SHORT).show()
                     allcorrect = false
                 }
-
                 else{
-                    diabetesCantidad = enf_et_1.text.toString().toInt()
+                    if(isNumericAndPositive(enf_et_1.text.toString())){
+                        diabetesCantidad = enf_et_1.text.toString().toInt()
+                        congruentNumber += diabetesCantidad
+                    }
+                    else{
+                        Toast.makeText(context,"Cantidad inválida", Toast.LENGTH_SHORT).show()
+                        allcorrect = false
+                    }
                 }
             }
 
@@ -158,12 +169,19 @@ class pregunta2 : Fragment(){
                 hipertension = true
 
                 if(enf_et_2.text.toString() == ""){
-                    Toast.makeText(context,"Ingrese todos los campos", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context,"Porfavor, complete todos los campos", Toast.LENGTH_SHORT).show()
                     allcorrect = false
                 }
 
                 else{
-                    hipertensionCantidad = enf_et_2.text.toString().toInt()
+                    if(isNumericAndPositive(enf_et_2.text.toString())) {
+                        hipertensionCantidad = enf_et_2.text.toString().toInt()
+                        congruentNumber += hipertensionCantidad
+                    }
+                    else{
+                        Toast.makeText(context,"Cantidad inválida", Toast.LENGTH_SHORT).show()
+                        allcorrect = false
+                    }
                 }
             }
 
@@ -175,7 +193,14 @@ class pregunta2 : Fragment(){
                     allcorrect = false
                 }
                 else{
-                    obesidadCantidad = enf_et_3.text.toString().toInt()
+                    if(isNumericAndPositive(enf_et_3.text.toString())) {
+                        obesidadCantidad = enf_et_3.text.toString().toInt()
+                        congruentNumber += obesidadCantidad
+                    }
+                    else{
+                        Toast.makeText(context,"Cantidad inválida", Toast.LENGTH_SHORT).show()
+                        allcorrect = false
+                    }
                 }
             }
 
@@ -183,18 +208,25 @@ class pregunta2 : Fragment(){
             {
                 otra = true
                 if(enf_et_4.text.toString() == "" || otra_enf.text.toString() == ""){
-                    Toast.makeText(context,"Ingrese todos los campos", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context,"Porfavor, complete todos los campos", Toast.LENGTH_SHORT).show()
                     allcorrect = false
                 }
                 else{
-                    otraCantidad = enf_et_4.text.toString().toInt()
+                    if(isNumericAndPositive(enf_et_4.text.toString())) {
+                        otraCantidad = enf_et_4.text.toString().toInt()
+                        congruentNumber += otraCantidad
+                    }
+                    else{
+                        Toast.makeText(context,"Cantidad inválida", Toast.LENGTH_SHORT).show()
+                        allcorrect = false
+                    }
                 }
 
             }
 
             //guardar enfermedades
             if (sharedPreference != null) {
-                with(sharedPreference?.edit()){
+                with(sharedPreference?.edit()) {
                     this?.putString("answer4_diabetes", diabetes.toString())
                     this?.putString("answer4_diabetesCantidad", diabetesCantidad.toString())
 
@@ -205,25 +237,67 @@ class pregunta2 : Fragment(){
                     this?.putString("answer4_obesidadCantidad", obesidadCantidad.toString())
 
                     this?.putString("answer4_otra", otra.toString())
-                    this?.putString("answer4_otra_nombre", otra_enf.text.toString()) //nombre de la nueva enfermedad
+                    this?.putString(
+                        "answer4_otra_nombre",
+                        otra_enf.text.toString()
+                    ) //nombre de la nueva enfermedad
                     this?.putString("answer4_otraCantidad", otraCantidad.toString())
 
                     this?.commit()
                 }
 
-                //request
-                next = (curr.toString().toInt() + 1).toString()
-                with(currentFragment?.edit()){
-                    this?.putString("currentFragment",next)
-                    this?.commit()
-                }
-                //go to the next fragment
-                Log.e("next: ", next)
 
-                if(pregunta2 && allcorrect)
+
+                val answer1_integrantes = sharedPreference.getString("answer1", "#")?.toInt()
+
+                Log.e("pregunta2: ", pregunta2.toString())
+                Log.e("allcorrect: ", allcorrect.toString())
+                Log.e("c <= a: ", (congruentNumber <= answer1_integrantes!!).toString())
+                Log.e("congruentNumber: ", congruentNumber.toString())
+                Log.e("answer1_integrantes: ", answer1_integrantes.toString())
+
+                //comprobar que los meses de pregnancy sean >0 y menores a 12
+
+                if(pregunta2){
+                    if(meses.text.toString().toInt() < 0 && meses.text.toString().toInt() > 12){
+                        var builder = AlertDialog.Builder(view.context)
+
+                        builder.setTitle("Advertencia")
+                            .setMessage("Los meses deben ser entre el rango 0-12")
+                            .setNegativeButton("Cerrar",{dialog, button -> dialog.dismiss()})
+                            .show()
+                    }
+                }
+
+                if (pregunta2 && allcorrect && congruentNumber <= answer1_integrantes!!){
+
+                    //request
+                    next = (curr.toString().toInt() + 1).toString()
+                    with(currentFragment?.edit()) {
+                        this?.putString("currentFragment", next)
+                        this?.commit()
+                    }
+                    //go to the next fragment
+                    Log.e("next: ", next)
+
+                    Log.e("congruentNumber", congruentNumber.toString())
+                    Log.e("answer1_integrantes", answer1_integrantes.toString())
+
                     (activity as EncuestaContainer?)!!.buttonPressed(next)
-                else{
-                    Toast.makeText(context, "Porfavor, complete todos los campos", Toast.LENGTH_SHORT).show()
+
+                }
+                else {
+                    if(congruentNumber > answer1_integrantes){
+                        //Toast.makeText(context, "El número total de personas con enfermedades debe coincidir con el número de inegrantes", Toast.LENGTH_SHORT).show()
+
+                        var builder = AlertDialog.Builder(view.context)
+
+                        builder.setTitle("Advertencia")
+                            .setMessage("El número total de personas con enfermedades debe coincidir con el número de integrantes")
+                            .setNegativeButton("Cerrar",{dialog, button -> dialog.dismiss()})
+                            .show()
+
+                    }
                 }
 
             }
@@ -246,4 +320,15 @@ class pregunta2 : Fragment(){
 
         return view
     }
+
+    private fun isNumericAndPositive(s: String): Boolean{
+        return try {
+            s.toDouble()>0
+            true
+        }
+        catch (e: NumberFormatException){
+            false
+        }
+    }
 }
+

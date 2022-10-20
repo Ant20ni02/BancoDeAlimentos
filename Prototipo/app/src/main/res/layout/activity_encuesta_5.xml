@@ -166,10 +166,6 @@
                         android:paddingTop="5dp"
                         android:textColor="@color/white"
                         android:textColorHint="@color/white"
-                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
-                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
-                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
-                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
                         app:layout_constraintVertical_bias="0.574" />
                 </FrameLayout>
 
@@ -260,10 +256,6 @@
                         android:hint="____"
                         android:inputType="textPersonName"
                         android:paddingTop="5dp"
-                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
-                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
-                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
-                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
                         app:layout_constraintVertical_bias="0.574" />
                 </FrameLayout>
 
@@ -351,10 +343,6 @@
                         android:paddingTop="5dp"
                         android:textColor="@color/white"
                         android:textColorHint="@color/white"
-                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
-                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
-                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
-                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
                         app:layout_constraintVertical_bias="0.574" />
                 </FrameLayout>
 
@@ -446,10 +434,6 @@
                         android:paddingTop="5dp"
                         android:textColor="@color/white"
                         android:textColorHint="@color/white"
-                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
-                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
-                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
-                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
                         app:layout_constraintVertical_bias="0.574" />
                 </FrameLayout>
 
@@ -537,10 +521,6 @@
                         android:hint="____"
                         android:inputType="textPersonName"
                         android:paddingTop="5dp"
-                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
-                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
-                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
-                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
                         app:layout_constraintVertical_bias="0.574" />
                 </FrameLayout>
 
@@ -628,10 +608,6 @@
                         android:paddingTop="5dp"
                         android:textColor="@color/white"
                         android:textColorHint="@color/white"
-                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
-                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
-                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
-                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
                         app:layout_constraintVertical_bias="0.574" />
                 </FrameLayout>
 
@@ -723,10 +699,6 @@
                         android:paddingTop="5dp"
                         android:textColor="@color/white"
                         android:textColorHint="@color/white"
-                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
-                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
-                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
-                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
                         app:layout_constraintVertical_bias="0.574" />
                 </FrameLayout>
 
@@ -815,10 +787,6 @@
                         android:hint="____"
                         android:inputType="textPersonName"
                         android:paddingTop="5dp"
-                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
-                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
-                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
-                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
                         app:layout_constraintVertical_bias="0.574" />
                 </FrameLayout>
 
@@ -907,10 +875,6 @@
                         android:paddingTop="5dp"
                         android:textColor="@color/white"
                         android:textColorHint="@color/white"
-                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
-                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
-                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
-                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
                         app:layout_constraintVertical_bias="0.574" />
                 </FrameLayout>
 
@@ -1002,10 +966,6 @@
                         android:paddingTop="5dp"
                         android:textColor="@color/white"
                         android:textColorHint="@color/white"
-                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
-                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
-                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
-                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
                         app:layout_constraintVertical_bias="0.574" />
                 </FrameLayout>
 
@@ -1093,10 +1053,6 @@
                         android:hint="____"
                         android:inputType="textPersonName"
                         android:paddingTop="5dp"
-                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
-                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
-                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
-                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
                         app:layout_constraintVertical_bias="0.574" />
                 </FrameLayout>
 
@@ -1184,10 +1140,6 @@
                         android:paddingTop="5dp"
                         android:textColor="@color/white"
                         android:textColorHint="@color/white"
-                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
-                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
-                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
-                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
                         app:layout_constraintVertical_bias="0.574" />
                 </FrameLayout>
 
@@ -1280,10 +1232,6 @@
                         android:paddingTop="5dp"
                         android:textColor="@color/white"
                         android:textColorHint="@color/white"
-                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
-                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
-                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
-                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
                         app:layout_constraintVertical_bias="0.574" />
                 </FrameLayout>
 
@@ -1372,10 +1320,6 @@
                         android:hint="____"
                         android:inputType="textPersonName"
                         android:paddingTop="5dp"
-                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
-                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
-                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
-                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
                         app:layout_constraintVertical_bias="0.574" />
                 </FrameLayout>
 
@@ -1463,10 +1407,6 @@
                         android:paddingTop="5dp"
                         android:textColor="@color/white"
                         android:textColorHint="@color/white"
-                        app:layout_constraintBottom_toBottomOf="@id/diabetes_red_iv"
-                        app:layout_constraintEnd_toEndOf="@id/diabetes_red_iv"
-                        app:layout_constraintStart_toStartOf="@id/diabetes_red_iv"
-                        app:layout_constraintTop_toTopOf="@id/diabetes_red_iv"
                         app:layout_constraintVertical_bias="0.574" />
                 </FrameLayout>
 

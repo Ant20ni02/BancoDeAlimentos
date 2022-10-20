@@ -36,6 +36,14 @@ class Inicio : AppCompatActivity(){
         val btnLogin = findViewById<Button>(R.id.btn_Inicio_Login)
         val btnCreate = findViewById<Button>(R.id.btn_Inicio_Crear_Cuenta)
 
+        val sharedPreferences = getSharedPreferences("profile",Context.MODE_PRIVATE)
+
+        if(sharedPreferences.contains("idUser") && sharedPreferences.contains("x-access-token")){
+            val intent = Intent(this@Inicio,BottomNavigation::class.java)
+            startActivity(intent)
+        }
+
+
         val requestPermission = registerForActivityResult(ActivityResultContracts.RequestPermission()){
             isGranted ->
             when {
