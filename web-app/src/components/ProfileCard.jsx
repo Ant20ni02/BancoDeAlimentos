@@ -4,7 +4,6 @@ import { useNavigate} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faEnvelope, faPhone, faLock, faVenusMars, faCalendar } from '@fortawesome/free-solid-svg-icons';
 import '../styles/ProfileCard.css';
-import Profile from '../images/profile.png';
 
 const ProfileCard = () => {
 
@@ -14,6 +13,7 @@ const ProfileCard = () => {
         age: 0,
         email: "No hay datos",
         firstName: "No hay datos",
+        img: '',
         idUser: 0,
         isActive: 0,
         lastName: "No hay datos",
@@ -44,7 +44,7 @@ const ProfileCard = () => {
     return (
         <div className="Profile-card">
             <header>
-                <img src={Profile} alt={user.name} />
+                <img src={'data:image/png;base64,'+ user.img} alt={user.firstName} />
                 <h2>{user.firstName} {user.lastName}</h2>
             </header>
 
