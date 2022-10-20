@@ -200,13 +200,28 @@ input.theme-red + label > .theme-red-icon {
     color: #ED1A3B;
 }
 
+ul.Navbar-dropdown li.Navbar-dropdown-item:is(:first-child, :nth-child(2)){
+    border-bottom: 1px solid var(--details);
+}
+
 ul.Navbar-dropdown li.Navbar-dropdown-item:first-child {
     border-radius: 0.5rem 0.5rem 0 0;
-    border-bottom: 1px solid var(--details);
 }
 
 ul.Navbar-dropdown li.Navbar-dropdown-item:last-child {
     border-radius: 0 0 0.5rem 0.5rem;
+}
+
+input.appearance-light + label > .appearance-light-icon {
+    color: hsl(0, 0%, 100%);
+    outline: thin solid var(--details);
+    border-radius: 50%;
+}
+
+input.appearance-dark + label > .appearance-dark-icon {
+    color: hsl(0, 0%, 0%);
+    outline: thin solid var(--details);
+    border-radius: 50%;
 }
 
 .Navbar-dropdown-item-checkboxes input, .Navbar-dropdown-item-checkboxes label {

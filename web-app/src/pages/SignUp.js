@@ -1,14 +1,16 @@
-import React, { useRef, useId, useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import url from '../config/API';
-import '../styles/SignUp.css';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faUser, faEnvelope, faPhone, faLock, faCircleCheck, faTimesCircle, faExclamationTriangle,  faVenusMars, faCalendar } from '@fortawesome/free-solid-svg-icons';
-import logo from '../images/recurso-4.png';
 import '../styles/TextHeader.css';
 import PortalModal from '../components/PortalModal';
+import React, { useRef, useId, useState } from 'react';
+import icon from '../images/icons/icon.png';
+import signup from '../styles/SignUp.module.css';
+import url from '../config/API';
+import { faUser, faEnvelope, faPhone, faLock, faCircleCheck, faTimesCircle, faExclamationTriangle,  faVenusMars, faCalendar } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate, Link } from 'react-router-dom';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import useTabTitle from '../custom-hooks/useTabTitle';
 
 function SignUp() {
+    useTabTitle('BAMX - Registro');
     const form = useRef();
     const id = useId();
     const navigate = useNavigate();
@@ -62,159 +64,181 @@ function SignUp() {
             setShowInvalidInputPassword(false);
         }
     }
+
+    /* const [name, setName] = useState('');
+ 
+    const validName = e => {
+        const { value } = e.target;
+        const regex = /^[A-Z][a-z]*\s?[A-Z]*[a-z]*$/;
+        if (value === "" || regex.test(value)) {
+            setName(value);
+        }
+    } */
+
+    /* const [age, setAge] = useState('');
+ 
+    const validAge = (e) => {
+        const { value } = e.target;
+        const regex = /^[0-9]+$/;
+        if (value === "" || regex.test(value)) {
+            setAge(value);
+        }
+    } */
+
     return (
         <>
-            <header className="form-header">
-                <h1>Regístrate</h1>
-            </header>
-            <div className="grid">
-                <div className="logo-container-signup">
-                    <Link to="/"><img className="logo-signup" src={logo} alt="Logo"/></Link>
+            <div className={signup.grid}>
+
+                <header className={signup.formHeader}>
+                    <h1>Regístrate</h1>
+                </header>
+
+                <div className={signup.iconContainerSignup}>
+                    <Link to="/"><img className={signup.iconSignup} src={icon} alt="Icon"/></Link>
                 </div>
-                <form className="form" ref={form} onSubmit={handleSubmit}>
-                    <div className="form-container">
-                        <fieldset className="form-group">
-                            <label className="form-label" htmlFor={`${id}-firstName`}>
-                                <FontAwesomeIcon icon={faUser} className="form-icon"/>
-                            </label>
-                            <div className="form-input">
-                                <input className="input-signup" id={`${id}-firstName`} name="firstName" placeholder="Nombres" /* pattern="/^[a-zA-ZÀ-ÿ\s]{1,40}$/" */ autoComplete autoFocus required/>
-                                <FontAwesomeIcon className="form-validation-status-success" icon={faCircleCheck} />
-                                <FontAwesomeIcon className="form-validation-status-error" icon={faTimesCircle} />
-                            </div>
+                
+                <form className={signup.form} ref={form} onSubmit={handleSubmit}>
+                    <fieldset className={signup.formGroup}>
+                        <label className={signup.formLabel} htmlFor={`${id}-firstName`}>
+                            <FontAwesomeIcon icon={faUser} />
+                        </label>
+                        <div className={signup.formInput}>
+                            <input className={signup.inputSignup} id={`${id}-firstName`} name="firstName" placeholder="Nombres" title='Ingrese su nombre.' /* value={name}
+        onChange={validName} */ pattern="^[A-Z][a-z]+(\s[A-Z][a-z]+)?$" onInvalid={e => e.target.setCustomValidity('Por favor, ingrese aquí el o los nombres suyos que sean válidos.')} /* size={16} */ minLength={3} maxLength={16} autoComplete autoFocus required/>
+                            <FontAwesomeIcon className={signup.formValidationStatusSuccess} icon={faCircleCheck} />
+                            <FontAwesomeIcon className={signup.formValidationStatusError} icon={faTimesCircle} />
+                        </div>
 
-                            <span className="form-input-error">El nombre solo puede contener<br/> letras.</span>
-                        </fieldset>
+                        <span className={signup.formInputError}>El o los nombres solo pueden <b>contener letras</b>, deben tener la <b>primera letra en mayúscula</b> y estar <b>separados por un espacio en blanco</b> entre ellos{/* , tener por lo menos 3 letras de longitud y máximo 16 */}.</span>
+                    </fieldset>
 
-                        <fieldset className="form-group">
-                            <label className="form-label" htmlFor={`${id}-lastName`}>
-                                <FontAwesomeIcon icon={faUser} className="form-icon"/>
-                            </label>
-                            <div className="form-input">
-                                <input className="input-signup" id={`${id}-lastName`} name="lastName" placeholder="Apellidos" /* pattern="/^[a-zA-ZÀ-ÿ\s]{1,40}$/" */ autoComplete required/>
-                                <FontAwesomeIcon className="form-validation-status-success" icon={faCircleCheck} />
-                                <FontAwesomeIcon className="form-validation-status-error" icon={faTimesCircle} />
-                            </div>
+                    <fieldset className={signup.formGroup}>
+                        <label className={signup.formLabel} htmlFor={`${id}-lastName`}>
+                            <FontAwesomeIcon icon={faUser} />
+                        </label>
+                        <div className={signup.formInput}>
+                            <input className={signup.inputSignup} id={`${id}-lastName`} name="lastName" placeholder="Apellidos" title='Ingrese sus apellidos.' onInvalid={e => e.target.setCustomValidity('Por favor, ingrese aquí sus apellidos válidos.')} pattern="^[A-Z][a-z]+(\s[A-Z][a-z]+)?$" /* size={32} */ minLength={3} maxLength={32} autoComplete required/>
+                            <FontAwesomeIcon className={signup.formValidationStatusSuccess} icon={faCircleCheck} />
+                            <FontAwesomeIcon className={signup.formValidationStatusError} icon={faTimesCircle} />
+                        </div>
 
-                            <span className="form-input-error">El apellido solo puede contener<br/> letras.</span>
-                        </fieldset>
+                        <span className={signup.formInputError}>El o los apellidos solo pueden <b>contener letras</b>, deben tener la <b>primera letra en mayúscula</b> y estar <b>separados por un espacio en blanco</b> entre ellos{/* , tener por lo menos 3 letras de longitud y máximo 16 */}.</span>
+                    </fieldset>
 
-                        <fieldset className="form-group">
-                            <label className="form-label" htmlFor={`${id}-age`}>
-                                {/* Edad */}
-                                <FontAwesomeIcon icon={faCalendar} className="form-icon"/>
-                            </label>
-                            <div className="form-input">
-                                <input className="input-signup" id={`${id}-age`} name="age" placeholder="Edad" maxLength="2" /* pattern="/^\d{7,14}$/" */ required/>
-                                <FontAwesomeIcon className="form-validation-status-success" icon={faCircleCheck} />
-                                <FontAwesomeIcon className="form-validation-status-error" icon={faTimesCircle} />
-                            </div>
+                    <fieldset className={signup.formGroup}>
+                        <label className={signup.formLabel} htmlFor={`${id}-age`}>
+                            {/* Edad */}
+                            <FontAwesomeIcon icon={faCalendar} />
+                        </label>
+                        <div className={signup.formInput}>
+                            <input className={signup.inputSignup} id={`${id}-age`} name="age" placeholder="Edad" title='Ingrese su edad.' /* value={age}
+        onInput={validAge} */ onInvalid={e => e.target.setCustomValidity('Por favor, ingrese aquí su edad que sea válida.')} minLength={1} maxLength="2" pattern="^(1[89]|[2-9][0-9])$" required/>
+                            <FontAwesomeIcon className={signup.formValidationStatusSuccess} icon={faCircleCheck} />
+                            <FontAwesomeIcon className={signup.formValidationStatusError} icon={faTimesCircle} />
+                        </div>
 
-                            <span className="form-input-error">La edad solo puede contener<br/> números.</span>
-                        </fieldset>
+                        <span className={signup.formInputError}>La edad solo puede <b>contener números positivos</b> y debe estar entre los 18 y 99 años.</span>
+                    </fieldset>
 
-                        {/* <input type="number" name="age" size="2" min="1" max="100" data-maxlength="2" pattern="[0-9]{1,100}" onInput={this.value=this.value.slice(0,this.dataset.maxlength);} onInvalid={e => e.target.setCustomValidity('Ingrese una edad valida')} required/> */}
+                    {/* <input type="number" name="age" size="2" min="1" max="100" data-maxlength="2" pattern="[0-9]{1,100}" onInput={this.value=this.value.slice(0,this.dataset.maxlength);} onInvalid={e => e.target.setCustomValidity('Ingrese una edad valida')} required/> */}
 
-                        <fieldset className="form-group">
-                            <label className="form-label" htmlFor={`${id}-email`}>
-                                {/* Correo electrónico */}
-                                <FontAwesomeIcon icon={faEnvelope} className="form-icon"/>
-                            </label>
-                            <div className="form-input">
-                                <input type="email" className="input-signup" id={`${id}-email`} name="email" placeholder="Correo electrónico" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" /* onInvalid={e => e.target.setCustomValidity('Ingrese un correo e')} */ autoComplete required/>
-                                <FontAwesomeIcon className="form-validation-status-success" icon={faCircleCheck} />
-                                <FontAwesomeIcon className="form-validation-status-error" icon={faTimesCircle} />
-                            </div>
+                    <fieldset className={signup.formGroup}>
+                        <label className={signup.formLabel} htmlFor={`${id}-email`}>
+                            {/* Correo electrónico */}
+                            <FontAwesomeIcon icon={faEnvelope} />
+                        </label>
+                        <div className={signup.formInput}>
+                            <input type="email" className={signup.inputSignup} id={`${id}-email`} name="email" placeholder="Correo electrónico" title='Ingrese su correo electrónico institucional.' onInvalid={e => e.target.setCustomValidity('Por favor, ingrese aquí un correo electrónico institucional suyo válido.')} pattern="^[a-z0-9._-]+@bamorelos.org$" autoComplete required/>
+                            <FontAwesomeIcon className={signup.formValidationStatusSuccess} icon={faCircleCheck} />
+                            <FontAwesomeIcon className={signup.formValidationStatusError} icon={faTimesCircle} />
+                        </div>
 
-                            <span className="form-input-error">El correo institucional solo puede <br/>contener letras, números, puntos,<br/> guiones y guión bajo.</span>
-                        </fieldset>
+                        <span className={signup.formInputError}>El correo electrónico institucional solo puede <b>contener letras, números, puntos, guiones, guión bajo</b> y debe terminar en el dominio <b>'@bamorelos.org'</b>.</span>
+                    </fieldset>
 
-                        <fieldset className="form-group">
-                            <label className="form-label" htmlFor={`${id}-phoneNumber`}>
-                                {/* Número de teléfono */}
-                                <FontAwesomeIcon icon={faPhone} className="form-icon"/>
-                            </label>
-                            <div className="form-input">
-                                <input type="tel" className="input-signup" id={`${id}-phoneNumber`} name="phoneNumber" placeholder="Número de teléfono" maxLength="10" /* pattern="[0-9]{10}" */ onInvalid={e => e.target.setCustomValidity('Ingrese un número de teléfono válido')} autoComplete required/>
-                                <FontAwesomeIcon className="form-validation-status-success" icon={faCircleCheck} />
-                                <FontAwesomeIcon className="form-validation-status-error" icon={faTimesCircle} />
-                            </div>
+                    <fieldset className={signup.formGroup}>
+                        <label className={signup.formLabel} htmlFor={`${id}-phoneNumber`}>
+                            {/* Número de teléfono */}
+                            <FontAwesomeIcon icon={faPhone} />
+                        </label>
+                        <div className={signup.formInput}>
+                            <input type="tel" className={signup.inputSignup} id={`${id}-phoneNumber`} name="phoneNumber" placeholder="Número de teléfono" title='Ingrese su número de teléfono.' minLength={10} maxLength={10} pattern='^[0-9]+$' onInvalid={e => e.target.setCustomValidity('Por favor, ingrese aquí un número de teléfono suyo válido.')} autoComplete required/>
+                            <FontAwesomeIcon className={signup.formValidationStatusSuccess} icon={faCircleCheck} />
+                            <FontAwesomeIcon className={signup.formValidationStatusError} icon={faTimesCircle} />
+                        </div>
 
-                            <span className="form-input-error">El número de teléfono <br/> solo puede contener números <br/> y máximo 10 digitos.</span>
-                        </fieldset>
+                        <span className={signup.formInputError}>El número de teléfono solo puede <b>contener números</b> y debe ser de <b>10 digitos</b>.</span>
+                    </fieldset>
 
-                        {/* Identity */}
-                        <fieldset className="form-group">
-                            <label className="form-label" htmlFor={`${id}-phoneNumber`}>
-                                {/* Sexo*/}
-                                <FontAwesomeIcon icon={faVenusMars} className="form-icon"/>
-                            </label>
-                            <select className='sex' name="sex" required>
-                                <option selected disabled hidden>Sexo</option>
-                                <option value="Masculino">Masculino</option>
-                                <option value="Femenino">Femenino</option>
-                                <option value="Otro">Otro</option>
-                            </select>
-                        </fieldset>
+                    <fieldset className={signup.formGroup}>
+                        <label className={signup.formLabel} htmlFor={`${id}-phoneNumber`}>
+                            {/* Sexo*/}
+                            <FontAwesomeIcon icon={faVenusMars} />
+                        </label>
+                        <select className={signup.sex} name="sex" title='Seleccione su sexo.' onInvalid={e => e.target.setCustomValidity('Por favor, seleccione aquí su sexo.')} required>
+                            <option selected disabled hidden>Sexo</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </fieldset>
                         
 
-                        <fieldset className="form-group" id={`${id}-formGroupPassword`}>
-                            <label className="form-label" htmlFor={`${id}-password`}>
-                                {/* Contraseña */}
-                                <FontAwesomeIcon icon={faLock} className="form-icon"/>
-                            </label>
-                            <div className="form-input">
-                                <input type="password" className="input-signup" id={`${id}-password`} name="password" placeholder="Contraseña" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" onInvalid={e => e.target.setCustomValidity('Ingrese una contraseña valida')} onPaste={(e) => {e.preventDefault(); return false;}} onCopy={(e) => {e.preventDefault(); return false;}} /* onSelectStart={(e) => {e.preventDefault(); return false;}} */ autoComplete required/>
-                                <FontAwesomeIcon className="form-validation-status-success" icon={faCircleCheck} />
-                                <FontAwesomeIcon className="form-validation-status-error" icon={faTimesCircle} />
-                            </div>
+                    <fieldset className={signup.formGroup} id={`${id}-formGroupPassword`}>
+                        <label className={signup.formLabel} htmlFor={`${id}-password`}>
+                            {/* Contraseña */}
+                            <FontAwesomeIcon icon={faLock} />
+                        </label>
+                        <div className={signup.formInput}>
+                            <input type="password" className={signup.inputSignup} id={`${id}-password`} name="password" placeholder="Contraseña" title='Ingrese su contraseña.' minLength={8} maxLength={16} pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" onInvalid={e => e.target.setCustomValidity('Por favor, ingrese aquí una contraseña valida')} onPaste={(e) => {e.preventDefault(); return false;}} onCopy={(e) => {e.preventDefault(); return false;}} /* onSelectStart={(e) => {e.preventDefault(); return false;}} */ autoComplete required/>
+                            <FontAwesomeIcon className={signup.formValidationStatusSuccess} icon={faCircleCheck} />
+                            <FontAwesomeIcon className={signup.formValidationStatusError} icon={faTimesCircle} />
+                        </div>
 
-                            <span className="form-input-error">La contraseña tiene que ser de<br/> 4 a 12 dígitos.</span>
-                        </fieldset>
+                        <span className={signup.formInputError}>La contraseña tiene que ser de entre <b>8 a 16 dígitos</b>, debe contener <b>Mayúsculas, minisculas, simbolos y números</b>.</span>
+                    </fieldset>
                         
-                        <fieldset className="form-group">
-                            <label className="form-label" htmlFor={`${id}-passwordConfirm`}>
-                                {/* Confirmar contraseña */}
-                                <FontAwesomeIcon icon={faLock} className="form-icon"/>
+                    <fieldset className={signup.formGroup}>
+                        <label className={signup.formLabel} htmlFor={`${id}-passwordConfirm`}>
+                            {/* Confirmar contraseña */}
+                            <FontAwesomeIcon icon={faLock} />
+                        </label>
+                        <div className={signup.formInput}>
+                            <input type="password" className={signup.inputSignup} id={`${id}-passwordConfirm`} name="passwordConfirm" placeholder="Confirmar contraseña" title='Ingrese la confirmación de su contraseña.' pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" onInvalid={e => e.target.setCustomValidity('Por favor, confirme aquí correctamente su contraseña valida.')} onPaste={(e) => {e.preventDefault(); return false;}} onInput={inputPasswordValidation} autoComplete required/>
+                            <FontAwesomeIcon className={signup.formValidationStatusSuccess} icon={faCircleCheck} />
+                            <FontAwesomeIcon className={signup.formValidationStatusError} icon={faTimesCircle} />
+                        </div>
+                        {
+                            showInvalidInputPassword &&
+                            <span className={signup.formInputErrorUseState}>Las contraseñas no coinciden.</span>
+                        }
+                    </fieldset>
+
+                    <fieldset className={signup.termsAndConditionsAndPrivacyPolicyFormGroup}>
+                        <div>
+                            <label className={signup.termsAndConditionsAndPrivacyPolicyLabel}>
+                                <input type="checkbox" name="termsAndConditions" onInvalid={e => e.target.setCustomValidity('Por favor, acepte los términos y condiciones.')} required/> Acepto los <a href="#">términos y condiciones ↗</a>.
                             </label>
-                            <div className="form-input">
-                                <input type="password" className="input-signup" id={`${id}-passwordConfirm`} name="passwordConfirm" placeholder="Confirmar contraseña" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" onInvalid={e => e.target.setCustomValidity('Confirme correctamente su contraseña valida')} onPaste={(e) => {e.preventDefault(); return false;}} onKeyUp={inputPasswordValidation} autoComplete required/>
-                                <FontAwesomeIcon className="form-validation-status-success" icon={faCircleCheck} />
-                                <FontAwesomeIcon className="form-validation-status-error" icon={faTimesCircle} />
-                            </div>
-                            {
-                                showInvalidInputPassword && <span className="form-input-error-useState">Las contraseñas no coinciden.</span>
-                            }
-                        </fieldset>
+                            {/* <FontAwesomeIcon className={signup.formValidationStatusError} icon={faTimesCircle} />
+                            <span className={signup.formInputError}>Debe aceptar los términos y condiciones.</span> */}
+                        </div>
 
-                        {/* <hr/> */}
+                        <div>
+                            <label className={signup.termsAndConditionsAndPrivacyPolicyLabel}>
+                                <input type="checkbox" name="privacyPolicy" onInvalid={e => e.target.setCustomValidity('Por favor, acepete la poítica de privacidad.')} required/>  Acepto la <a href="#">política de privacidad ↗</a>.
+                            </label>
+                            {/* <FontAwesomeIcon className={signup.formValidationStatusError} icon={faTimesCircle} />
+                            <span className={signup.formInputError}>Debe aceptar la política de privacidad.</span> */}
+                        </div>
+                    </fieldset>
 
-                        <fieldset className="form-group terms-and-conditions-and-privacy-policy">
-                            <div>
-                                    <label className="terms-and-conditions-and-privacy-policy-label">
-                                        <input type="checkbox" name="termsAndConditions" required/>Acepto los <a href="#">términos y condiciones</a>.
-                                    </label>
-                                    {/* <FontAwesomeIcon className="form-validation-status-error" icon={faTimesCircle} />
-                                    <span className="form-input-error">Debe aceptar los términos y condiciones.</span> */}
-                                </div>
-
-                                <div>
-                                    <label className="terms-and-conditions-and-privacy-policy-label">
-                                        <input type="checkbox" name="privacyPolicy" required/>Acepto la <a href="#">política de privacidad</a>.
-                                    </label>
-                                    {/* <FontAwesomeIcon className="form-validation-status-error" icon={faTimesCircle} />
-                                    <span className="form-input-error">Debe aceptar la política de privacidad.</span> */}
-                                </div>
-                        </fieldset>
-                    </div>
-
-                    <footer className="form-footer">
-                        <div className="form-invalid-submit-message" id={`${id}-formInvalidSubmitMessage`}>
+                    <footer className={signup.formFooter}>
+                        <div className={signup.formInvalidSubmitMessage} id={`${id}-formInvalidSubmitMessage`}>
                             <FontAwesomeIcon icon={faExclamationTriangle} />
                             <span> <b>Error:</b> Por favor, revise los campos marcados en rojo.</span>
                         </div>
 
-                        <button className="form-btn-submit" type="submit">Continuar</button>
+                        <button className={signup.formBtnSubmit} type="submit">Continuar</button>
                     </footer>                
                 </form>
             </div>
@@ -234,8 +258,6 @@ function SignUp() {
             <PortalModal onShow={showModalInvalidPassword} label="Error" onClose={() => setShowModalInvalidPassword(false)} title="¡Las contraseñas no coinciden!" > 
                 <p>Por favor, <b>verifiqué</b> que sus <u>contraseñas</u> <b>coincidan</b> e intenta de nuevo.</p>
             </PortalModal>
-
-
         </>
     );
 }

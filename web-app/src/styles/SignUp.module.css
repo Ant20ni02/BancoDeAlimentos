@@ -1,0 +1,325 @@
+div.grid {
+    display: grid;
+    place-items: center;
+    grid-gap: 4rem;
+    margin-bottom: 2.5em;
+}
+
+header.formHeader {
+    font-size: 1.5em;
+    font-weight: 700;
+    text-align: center;
+}
+
+div.iconContainerSignup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.iconContainerSignup a {
+    margin-right: 11em;
+}
+
+div.iconContainerSignup img.iconSignup {
+    width: 11em;
+    height: 11em;
+    position: absolute;
+    top: 4.5em;
+    z-index: 1;
+    cursor: pointer;
+}
+
+form.form {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(1fr, 2fr));
+    grid-gap: 2.5em;
+    padding: 4em 3em 3em 3em;
+    outline: solid var(--details);
+    background-color: hsl(0, 0%, 100%);
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+    border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    -ms-border-radius: 0.5em;
+    -o-border-radius: 0.5em;
+}
+
+/* * @note: form content */
+form.form > fieldset.formGroup {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+}
+
+fieldset.termsAndConditionsAndPrivacyPolicyFormGroup {
+    border: none;
+    grid-column: span 2;
+    gap: 0.5em;
+}
+
+label.formLabel {
+    display: block;
+    font-size: 1.5em;
+    font-weight: 550;
+    color: var(--quaternary-color);
+    text-align: center;
+    cursor: pointer;
+}
+
+label.termsAndConditionsAndPrivacyPolicyLabel {
+    display: block;
+    font-size: 1.35em;
+    text-align: center;
+    cursor: pointer;
+}
+
+div.formInput {
+    position: relative;
+}
+
+input.inputSignup {
+    border: 2px solid var(--quaternary-color);
+    padding: 1em 1.5em;
+    font-size: 1.5rem;
+    text-align: center;
+    display: inline-block;
+    border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    -ms-border-radius: 0.5em;
+    -o-border-radius: 0.5em;
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+}
+
+input.inputSignup:focus {
+    outline: none;
+    caret-color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+select.sex {
+    cursor: pointer;
+    font-size: 1.5rem;
+    border: 3px solid var(--primary-color);
+    border-radius: 0.5em;
+    padding: 1em 4.5em;
+    /* display: block; */
+    text-align-last: center;
+    caret-color: var(--quaternary-color);
+    background-color: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+select.sex:focus/* , select:active */ {
+    outline: none;
+    /* box-shadow: none; */
+    border: 1px solid var(--quaternary-color);
+}
+
+select.sex:focus-visible {
+    /* outline: 5px solid green; */
+    border: 1px solid var(--secondary-color);
+}
+
+select.sex:has(option:checked)/* :is(:not(first-child)) */ {
+    border: 1px solid var(--secondary-color);
+}
+
+span.formInputError {
+    font-size: 1.2em;
+    color: var(--tertiary-color);
+    font-weight: 500;
+    text-align: center;
+    inline-size: 25ch;
+    overflow-wrap: break-word;
+    display: none;
+}
+
+span.formInputErrorUseState {
+    font-size: 1.2em;
+    color: var(--tertiary-color);
+    font-weight: 500;
+    margin-top: 0.5em;
+    text-align: center;
+}
+
+.formValidationStatusSuccess, .formValidationStatusError {
+    position: absolute;
+    right: 1em;
+    top: 1.65em;
+    font-size: 1.2em;
+    color: var(--tertiary-color);
+    z-index: 1;
+    opacity: 0;
+    /* display: none; */
+}
+
+/* /////////////////////////////////////////////////////////// */
+
+/* VALIDATION SECTION */
+
+/* ! @note: don't work properly */
+/* fieldset:is(:not(:placeholder-shown):valid) > label {
+    color: var(--secondary-color);
+}
+
+fieldset:is(:not(:placeholder-shown):invalid) > label {
+    color: var(--tertiary-color);
+} */
+
+input.inputSignup:is(:not(:placeholder-shown):valid) + .formValidationStatusSuccess {
+    opacity: 1;
+    color: var(--secondary-color);
+}
+
+input.inputSignup:is(:not(:placeholder-shown):invalid) ~ .formValidationStatusError {
+    opacity: 1;
+    color: var(--tertiary-color);
+}
+
+@supports selector(:has(*)) {
+    fieldset:has(input.inputSignup:focus) label {
+        color: var(--primary-color);
+    }
+    
+    fieldset:has(input.inputSignup:is(:not(:placeholder-shown):valid)) > label {
+        color: var(--secondary-color);
+    }
+    
+    fieldset:has(input.inputSignup:is(:not(:placeholder-shown):invalid)) > label {
+        color: var(--tertiary-color);
+    }
+    
+    div.formInput:has(input.inputSignup:is(:not(:focus)):invalid:not(:placeholder-shown)) + span.formInputError {
+        display: block;
+    }
+}
+
+/* ? @note: is there any way to go up in selectors */
+/* input:is(:not(:placeholder-shown):invalid) + span.formInput-error {
+    display: block;
+} */
+
+input.inputSignup:is(:not(:placeholder-shown):valid) {
+    border: 2px solid var(--secondary-color);
+    caret-color: var(--secondary-color);
+}
+
+input.inputSignup:is(:not(:placeholder-shown):invalid) {
+    border: 2px solid var(--tertiary-color);
+    caret-color: var(--tertiary-color);
+}
+
+/* * @note: shake after deselect an input */
+input.inputSignup:is(:not(:focus)):invalid:not(:placeholder-shown) {
+    border: 2px solid var(--tertiary-color);
+    caret-color: var(--tertiary-color);
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    25% {
+        transform: translateX(4px);
+    }
+    50% {
+        transform: translateX(-4px);
+    }
+    75% {
+        transform: translateX(4px);
+    }
+}
+
+footer.formFooter div.formInvalidSubmitMessage {
+    font-size: 1.2em;
+    color: hsl(0, 0%, 100%);
+    background-color: var(--tertiary-color);
+    font-weight: 500;
+    border-radius: 0.5em;
+    padding: 1em 0.5em;
+    display: none;
+}
+
+footer.formFooter  div.formInvalidSubmitMessageShow {
+    display: inline-block;
+}
+
+/* /////////////////////////////////////////////////////////// */
+
+form.form footer.formFooter {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+fieldset.termsAndConditionsAndPrivacyPolicyFormGroup a {
+    text-decoration: none;
+    color: var(--tertiary-color);
+    font-weight: 600;
+}
+
+fieldset.termsAndConditionsAndPrivacyPolicyFormGroup a:is(:hover, :active) {
+    text-decoration: underline;
+}
+
+button.formBtnSubmit {
+    border: none;
+    color: hsl(0, 0%, 100%);
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 1em;
+    border-radius: 0.5em;
+    font-size: 1.5rem;
+    background-color: var(--tertiary-color);
+    width: 60%;
+    transition: all .3s ease-out;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -ms-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+}
+
+button.formBtnSubmit:hover {
+    transform: scale(1.01);
+    -webkit-transform: scale(1.01);
+    -moz-transform: scale(1.01);
+    -ms-transform: scale(1.01);
+    -o-transform: scale(1.01);
+}
+
+/* /////////////////////////////////////////////////////////// */
+
+/* RESPONSIVE DESIGN */
+
+@media only screen and (max-width: 900px) {
+
+    div.iconContainerSignup img.iconSignup {
+        width: 10em;
+        height: 10em;
+    }
+
+    fieldset.termsAndConditionsAndPrivacyPolicyFormGroup {
+        grid-column: span 1;
+    }
+    
+    form.form footer.formFooter {
+        grid-column: span 1;
+    }
+
+    button.formbBtnSubmit {
+        width: 50%;
+    }
+}

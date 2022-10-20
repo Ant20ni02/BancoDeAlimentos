@@ -6,11 +6,13 @@ import CheckboxQuestionSpecial from "../../../components/Records/CheckboxQuestio
 import {Link, useParams} from "react-router-dom";
 import '../../../styles/Details.css';
 import url from '../../../config/API';
+import useTabTitle from '../../../custom-hooks/useTabTitle';
 
 function Details() {
 
     const navigate = useNavigate();
 
+    useTabTitle("BAMX - Registros / Detalles");
     const {idSurvey} = useParams();
 
     const [value, setValue] = useState('1');

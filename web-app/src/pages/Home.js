@@ -1,7 +1,10 @@
 import TextHeader from '../components/TextHeader';
 import React, {useEffect, useState} from 'react';
+import {useHistory} from 'react-router-dom';
+import useTabTitle from '../custom-hooks/useTabTitle';
 
 function Home() {
+    useTabTitle("BAMX - Inicio");
 
     /* const useTheme = () => {
         const initialTheme = auto;

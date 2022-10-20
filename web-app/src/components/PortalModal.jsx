@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import '../styles/PortalModal.css';
-import logo from '../images/recurso-4.png';
+import icon from '../images/icons/icon.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
-const PortalModal = ({ onShow, label="Aviso", img={logo}, title, children, onClose }) => {
+const PortalModal = ({ onShow, label="Aviso", img={icon}, title, children, onClose }) => {
     if (!onShow ) return null;
     return ReactDOM.createPortal (
         <>
@@ -17,7 +17,7 @@ const PortalModal = ({ onShow, label="Aviso", img={logo}, title, children, onClo
                         <span>{label}</span>
                         <button className="Portal-modal-close" onClick={onClose}><FontAwesomeIcon icon={faXmark} className="close-icon"/></button>
                     </div>
-                    <img src={logo} alt="logo"/>
+                    <img src={icon} alt="Icon"/>
                     <div className="Portal-modal-header-title">
                         <h1>{title}</h1>
                     </div>

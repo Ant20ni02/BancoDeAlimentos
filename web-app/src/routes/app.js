@@ -11,7 +11,7 @@ import Survey from '../pages/survey/Survey';
 import Records from '../pages/survey/Records/Records';
 import Details from '../pages/survey/Records/Details';
 import Charts from '../pages/survey/Charts';
-import Volunteers from '../pages/Volunteers/Volunteers';
+import Volunteers from '../pages/Volunteers';
 import PageNotFound from '../pages/PageNotFound';
 import UploadImage from '../pages/UploadImage';
 
