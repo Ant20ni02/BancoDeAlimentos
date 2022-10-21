@@ -125,7 +125,7 @@ li.nav-item:has(.nav-link.active) .nav-dot {
         bottom: 0;
         width: 100vw;
         height: 13vh;
-    } 
+}
     
     .Sidebar > ul.Sidebar-container {
         flex-direction: row;
@@ -143,8 +143,8 @@ li.nav-item:has(.nav-link.active) .nav-dot {
         display: inline-block;
     }
 
-    li.nav-item:has(.nav-link.active) {
+    /* li.nav-item:has(.nav-link.active) {
         flex-direction: column-reverse;
-    }
+    } */
 }
 
