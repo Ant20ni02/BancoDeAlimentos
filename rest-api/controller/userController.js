@@ -129,3 +129,30 @@ module.exports.deleteUser = (req,res) =>{
         }
     })
 }
+
+module.exports.updateProfilePicture = (req, res) =>{
+    const idUser = req.body.idUser;
+    const img = req.body.img;
+    const sql = `UPDATE User_ SET img = ?  WHERE idUser = ?  `;
+
+    conexion.query(sql, [img, idUser],(error,results,fields)=>{
+        if(error)
+            res.send(error)
+        else{
+            res.json(results)
+        }
+    })
+}
+
+module.exports.getNamePhoto = (req, res) =>{
+    const idUser = req.params.idUser;
+    const sql = `SELECT firstName, lastName, img from User_ WHERE idUser = ?  `;
+
+    conexion.query(sql, [idUser],(error,results,fields)=>{
+        if(error)
+            res.send(error)
+        else{
+            res.json(results)
+        }
+    })
+}

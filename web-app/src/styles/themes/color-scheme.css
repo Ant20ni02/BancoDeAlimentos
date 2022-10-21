@@ -2,22 +2,26 @@
     --primary-color: #FE921D;
     --secondary-color: #0DB14B;
     --tertiary-color: #ED1A3B;
-    --quaternary-color: #AE3C06;
-    --quinary-color: #58595B;
-    --bg-color-light: #f5f5f5;
-    --bg-color-dark: #1e1e1e;
+    --quaternary-color: #58595B;
+
+    --bg-color-light: #f5f5f5 /* #dadce1 */;
+    --main-color-light: #ffffff;
+    --text-color-light: #000000;
+
+    --bg-color-dark: #181a1b /* #1e1e1e */ /* #1a1a1a */;
+    --main-color-dark: #1e2021;
+    --text-color-dark: #ffffff;
+
     --details: #c0c0c0;
-    --accent-color: #FE921D /* transparent */;
-    /* --bg-color-dark: #1a1a1a;
-    --text-color-light: #dadce1;
-    --text-color-dark: #fff; */
+    --accent-color: /* var(--tertiary-color) */ /* transparent */;
+
     color-scheme: light dark;
     accent-color: var(--accent-color);
 }
 
 /* * @note: prefers-color-scheme: dark */
 ::selection {
-    background-color: var(--tertiary-color);
+    background-color: var(--accent-color);
 }
 
 @media (prefers-color-scheme: light) {
@@ -26,7 +30,7 @@
     }
 
     ::selection {
-        background-color: var(--tertiary-color);
+        background-color: var(--accent-color);
         color: hsl(0, 0%, 100%);
     }
 }

@@ -4,8 +4,10 @@ import TextHeader from '../../components/TextHeader';
 import Card from '../../components/Card';
 import '../../styles/Survey.css';
 import { faChartPie, faSquarePollHorizontal } from '@fortawesome/free-solid-svg-icons';
+import useTabTitle from '../../custom-hooks/useTabTitle';
 
 function Survey() {
+    useTabTitle("BAMX - Encuestas");
     return (
         <>
             <TextHeader text="Encuestas" />

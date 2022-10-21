@@ -19,7 +19,7 @@ div.Card:hover {
 }
 
 header.Card__header {
-    background-color: var(--quinary-color);
+    background-color: var(--quaternary-color);
     border-radius: 1rem 1rem 0 0;
     padding: 3rem;
     display: flex;

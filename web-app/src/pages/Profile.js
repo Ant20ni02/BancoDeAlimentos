@@ -1,8 +1,10 @@
 import TextHeader from '../components/TextHeader';
 import ProfileCard from '../components/ProfileCard';
 import '../styles/Profile.css';
+import useTabTitle from '../custom-hooks/useTabTitle';
 
 function Profile() {
+    useTabTitle("BAMX - Perfil");
 
     return (
         <>

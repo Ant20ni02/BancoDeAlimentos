@@ -11,8 +11,9 @@ import Survey from '../pages/survey/Survey';
 import Records from '../pages/survey/Records/Records';
 import Details from '../pages/survey/Records/Details';
 import Charts from '../pages/survey/Charts';
-import Volunteers from '../pages/Volunteers/Volunteers';
+import Volunteers from '../pages/Volunteers';
 import PageNotFound from '../pages/PageNotFound';
+import UploadImage from '../pages/UploadImage';
 
 function AppRouter() {
     return (
@@ -28,6 +29,7 @@ function AppRouter() {
                         <Route path="perfil" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
                         <Route path="encuestas" element={<ProtectedRoute><Survey /></ProtectedRoute>} />
                         <Route path="voluntarios" element={<ProtectedRoute><Volunteers /></ProtectedRoute>} />
+                        <Route path="subir-imagen" element={<ProtectedRoute><UploadImage/></ProtectedRoute>} />
                         <Route path="encuestas/graficas" element={<ProtectedRoute><Charts /></ProtectedRoute>} />
                         <Route path="encuestas/registros" element={<ProtectedRoute><Records /></ProtectedRoute>} /> 
                         <Route path="encuestas/registros/detalles/:idSurvey" element={<ProtectedRoute><Details /></ProtectedRoute>} />

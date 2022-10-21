@@ -33,6 +33,8 @@ export default function useMultiStep({ values: values_, pageSize }) {
 	return {
 		maxPage,
 		page,
+		isDataGreaterThanZero: values.length > 0,
+		isDataGreaterThanPageSize: values.length > pageSize,
 		isFirstStep: page === 0,
 		isLastStep: page === maxPage - 1,
 		next,

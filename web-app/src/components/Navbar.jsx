@@ -2,11 +2,9 @@ import '../styles/Navbar.css';
 import { useState, useEffect, useRef, useId } from "react";
 import { useNavigate, NavLink } from 'react-router-dom';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faBars, faCaretDown, faPalette, faCircle, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faCaretDown, faBrush, faPalette, faCircle, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import url from '../config/API';
-import logo from '../images/recurso-4.png';
-
-/* import Sidebar from '../components/Sidebar'; */
+import icon from '../images/icons/icon.png';
 
 const Navbar = ({isOpenSidebar, toggleSidebar, ...props}) => {
     const navigate = useNavigate();
@@ -19,7 +17,7 @@ const Navbar = ({isOpenSidebar, toggleSidebar, ...props}) => {
     useEffect(() => {
         const getUser = async () => {
             const idUser = localStorage.getItem("idUser");
-            const response = await fetch(url+`getUsersData/${idUser}`, {
+            const response = await fetch(url+`getNamePhoto/${idUser}`, {
                 method: "GET",
                 headers: {
                     'x-access-token' : localStorage.getItem('token')
@@ -31,7 +29,19 @@ const Navbar = ({isOpenSidebar, toggleSidebar, ...props}) => {
                 localStorage.removeItem("idUser");
                 navigate("/inicio-de-sesion", { replace: true });
             }
-            setUser(data);
+            setUser(data[0]);
+        }
+        let color = localStorage.getItem("theme")
+        document.documentElement.style.setProperty('--accent-color', color);
+        let apparenceRadio = localStorage.getItem("appearance")
+        if (apparenceRadio === "dark") {
+            document.documentElement.style.setProperty('--bg-color-light', "#181a1b");
+            document.documentElement.style.setProperty('--main-color-light', "#1e2021");
+            document.documentElement.style.setProperty('--text-color-light', "#FFFFFF");
+        } else if (apparenceRadio === "light") {
+            document.documentElement.style.setProperty('--bg-color-light', "#f5f5f5");
+            document.documentElement.style.setProperty('--main-color-light', "#FFFFFF");
+            document.documentElement.style.setProperty('--text-color-dark', "#000000");
         }
         getUser();
     }, []);
@@ -50,7 +60,7 @@ const Navbar = ({isOpenSidebar, toggleSidebar, ...props}) => {
                     </li>
                     <li className="Navbar-item">
                         <NavLink to="/bamx/pagina-principal" accessKey='P'>
-                            <img src={logo} alt="logo" className="Navbar-logo"/>
+                            <img src={icon} alt="icon" className="Navbar-logo"/>
                         </NavLink>
                     </li>
                     <li className="Navbar-item">
@@ -66,10 +76,6 @@ const Navbar = ({isOpenSidebar, toggleSidebar, ...props}) => {
                     </li>
                 </ul>
             </nav>
-            {/* {
-                isOpenSidebar &&
-                <Sidebar show={isOpenSidebar}/>
-            } */}
         </>
     );
 }
@@ -77,43 +83,59 @@ const Navbar = ({isOpenSidebar, toggleSidebar, ...props}) => {
 const DropdownMenu = () => {
     const navigate = useNavigate();
     const id = useId();
+    let theme = localStorage.getItem('theme');
+
+    if (theme === "#FE921D") {
+        localStorage.setItem("theme", "#FE921D");
+        theme = localStorage.getItem('theme');
+    } else if (theme === "#0DB14B") {
+        localStorage.setItem("theme", "#0DB14B");
+        theme = localStorage.getItem('theme');
+    } else if (theme === "#ED1A3B") {
+        localStorage.setItem("theme", "#ED1A3B");
+        theme = localStorage.getItem('theme');
+    }
 
     const changeTheme = (e) => {
-        const theme = e.target.value;
+        const themeRadio = e.target.value;
 
-        if (theme === "#FE921D") {
+        if (themeRadio === "#FE921D") {
             document.documentElement.style.setProperty('--accent-color', "#FE921D");
             localStorage.setItem("theme", "#FE921D");
+            theme = localStorage.getItem('theme');
             /* theme = "#FE921D"; */
-        } else if (theme === "#0DB14B") {
+        } else if (themeRadio === "#0DB14B") {
             document.documentElement.style.setProperty('--accent-color', "#0DB14B");
             localStorage.setItem("theme", "#0DB14B");
+            theme = localStorage.getItem('theme');
             /* theme = "#0DB14B"; */
-        } else if (theme === "#ED1A3B") {
+        } else if (themeRadio === "#ED1A3B") {
             document.documentElement.style.setProperty('--accent-color', "#ED1A3B");
             localStorage.setItem("theme", "#ED1A3B");
+            theme = localStorage.getItem('theme');
             /* theme = "#ED1A3B"; */
         }
     }
-    
-    /* let theme = localStorage.getItem('theme');
-    const auto = useRef();
-    const light = useRef();
-    const dark = useRef();
 
-    const changeTheme = (e) => {
-        if(e.target === auto.current){
-            localStorage.setItem('theme', 'auto');
-            theme = 'auto';
-        }else if(e.target === light.current){
-            localStorage.setItem('theme', 'light');
-            console.log(localStorage.getItem('theme'));
-            theme = 'light';
-        }else if(e.target === dark.current){
-            localStorage.setItem('theme', 'dark');
-            theme = 'dark';
+    let appearance = localStorage.getItem('appearance');
+
+    const changeAppearance = (e) => {
+        const appearanceRadio = e.target.value;
+
+        if (appearanceRadio === "light") {
+            document.documentElement.style.setProperty('--bg-color-light', "#181a1b");
+            document.documentElement.style.setProperty('--main-color-light', "#1e2021");
+            document.documentElement.style.setProperty('--text-color-light', "#FFFFFF");
+            localStorage.setItem("appearance", "dark");
+            appearance = localStorage.getItem('appearance');
+        } else if (appearance === "dark") {
+            document.documentElement.style.setProperty('--bg-color-light', "#f5f5f5");
+            document.documentElement.style.setProperty('--main-color-light', "#FFFFFF");
+            document.documentElement.style.setProperty('--text-color-dark', "#000000");
+            localStorage.setItem("appearance", "light");
+            appearance = localStorage.getItem('appearance');
         }
-    } */
+    }   
 
     const handleLogout = () => {
         localStorage.removeItem("token");
@@ -123,19 +145,19 @@ const DropdownMenu = () => {
     
     return (
         <ul className="Navbar-dropdown">
-            {/* <li className="Navbar-dropdown-item">
+            <li className="Navbar-dropdown-item">
                 <div className="Navbar-dropdown-item-legend">
-                    <span>Apariencia </span><FontAwesomeIcon icon={faPalette} className="Navbar-dropdown-item-icon"/>
+                    <span>Apariencia </span><FontAwesomeIcon icon={faBrush} className="Navbar-dropdown-item-icon"/>
                 </div>
-                <div className="Navbar-dropdown-item-checkboxs">
-                    <input type="radio" ref={auto} id={`${id}-auto`} name="theme" value="auto" checked/>
-                    <label htmlFor={`${id}-auto`}>Automático</label>
-                    <input type="radio" ref={light} id={`${id}-light`} name="theme" value="light" onClick={changeTheme}/>
-                    <label htmlFor={`${id}-light`}>Claro</label>
-                    <input type="radio" ref={dark} id={`${id}-dark`} name="theme" value="dark"/>
-                    <label htmlFor={`${id}-dark`}>Oscuro</label>
+                <div className="Navbar-dropdown-item-checkboxes">
+                    {/* <input type="radio" id={`${id}-auto`} name="appearance" value="auto" checked/>
+                    <label htmlFor={`${id}-auto`}>Automático</label> */}
+                    <input type="radio" className='appearance-light' id={`${id}-light`} name="appearance" value="light" onClick={changeAppearance}/>
+                    <label htmlFor={`${id}-light`}  ><FontAwesomeIcon icon={faCircle} className='appearance-light-icon'/></label>
+                    <input type="radio" className='appearance-dark' id={`${id}-dark`} name="appearance" value="dark" onClick={changeAppearance}/>
+                    <label htmlFor={`${id}-dark`} ><FontAwesomeIcon icon={faCircle} className='appearance-dark-icon'/></label>
                 </div>
-            </li> */}
+            </li>
             <li className="Navbar-dropdown-item">
                 <div className="Navbar-dropdown-item-legend">
                     <span>Tema </span><FontAwesomeIcon icon={faPalette} className="Navbar-dropdown-item-icon"/>

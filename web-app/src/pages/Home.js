@@ -1,21 +1,18 @@
 import TextHeader from '../components/TextHeader';
 import React, {useEffect, useState} from 'react';
+import {useHistory} from 'react-router-dom';
+import useTabTitle from '../custom-hooks/useTabTitle';
 
 function Home() {
-
-    /* const useTheme = () => {
-        const initialTheme = auto;
-        const [theme, setTheme] = useState(initialTheme);
-        useEffect(() => {
-            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => e.matches && setTheme(darkTheme));
-            window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => e.matches && setTheme(lightTheme));
-        }, []);
-        return theme;
-    }; */
+    useTabTitle("BAMX - Inicio");
 
     return (
         <>
             <TextHeader text="Página principal" />
+            <div>
+                <h1>¡Bienvenido a BAMX!</h1>
+                
+            </div>
         </>
     );
 }
