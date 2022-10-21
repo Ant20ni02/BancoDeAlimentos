@@ -12,9 +12,9 @@ class AvisoPrivacidad: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_aviso_de_privacidad)
 
-        val phantom = endpoint().stillToken()
+        //val phantom = endpoint().stillToken()
 
-        if(phantom == "Token inválido"){
+        /*if(phantom == "Token inválido"){
 
             val profile = getSharedPreferences("profile", Context.MODE_PRIVATE)
             val answers = getSharedPreferences("ANSWERS", Context.MODE_PRIVATE)
@@ -35,7 +35,7 @@ class AvisoPrivacidad: AppCompatActivity() {
             val intent = Intent(this@AvisoPrivacidad, Inicio::class.java)
             startActivity(intent)
 
-        }
+        }*/
 
         val btnRealizar = findViewById<Button>(R.id.btn_aviso_realizar)
         val btnRegresar = findViewById<Button>(R.id.btn_aviso_regresar)

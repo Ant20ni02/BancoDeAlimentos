@@ -51,9 +51,9 @@ class EncuestaContainer : AppCompatActivity (){
 
 
         btnRegresar.setOnClickListener {
-            val phantom = endpoint().stillToken()
+            //val phantom = endpoint().stillToken()
 
-            if(phantom == "Token inválido"){
+            /*if(phantom == "Token inválido"){
 
                 val profile = getSharedPreferences("profile", Context.MODE_PRIVATE)
                 val answers = getSharedPreferences("ANSWERS", Context.MODE_PRIVATE)
@@ -73,7 +73,7 @@ class EncuestaContainer : AppCompatActivity (){
 
                 val intent = Intent(this@EncuestaContainer, Inicio::class.java)
                 startActivity(intent)
-            }
+            }*/
 
             curr = sharedPreference?.getString("currentFragment","#").toString()
             if(curr == "0"){
@@ -82,9 +82,9 @@ class EncuestaContainer : AppCompatActivity (){
             }
         }
         btnSiguiente.setOnClickListener {
-            val phantom = endpoint().stillToken()
+            //val phantom = endpoint().stillToken()
 
-            if(phantom == "Token inválido"){
+            /*if(phantom == "Token inválido"){
                 val profile = getSharedPreferences("profile", Context.MODE_PRIVATE)
                 val answers = getSharedPreferences("ANSWERS", Context.MODE_PRIVATE)
                 val currentFragment = getSharedPreferences("currentFragment", Context.MODE_PRIVATE)
@@ -103,7 +103,7 @@ class EncuestaContainer : AppCompatActivity (){
 
                 val intent = Intent(this@EncuestaContainer, Inicio::class.java)
                 startActivity(intent)
-            }
+            }*/
 
             curr = sharedPreference?.getString("currentFragment","#").toString()
             if (curr != null) {

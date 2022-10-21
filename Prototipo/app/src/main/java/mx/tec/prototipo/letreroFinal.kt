@@ -11,9 +11,9 @@ class letreroFinal : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_encuesta_fin)
-        val phantom = endpoint().stillToken()
+        //val phantom = endpoint().stillToken()
 
-        if(phantom == "Token inválido"){
+        /*if(phantom == "Token inválido"){
             val profile = getSharedPreferences("profile", Context.MODE_PRIVATE)
             val answers = getSharedPreferences("ANSWERS", Context.MODE_PRIVATE)
             val currentFragment = getSharedPreferences("currentFragment", Context.MODE_PRIVATE)
@@ -32,7 +32,7 @@ class letreroFinal : AppCompatActivity() {
 
             val intent = Intent(this@letreroFinal, Inicio::class.java)
             startActivity(intent)
-        }
+        }*/
 
     }
 }

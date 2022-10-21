@@ -39,15 +39,16 @@ class Inicio : AppCompatActivity(){
         val sharedPreferences = getSharedPreferences("profile",Context.MODE_PRIVATE)
 
         if(sharedPreferences.contains("idUser") && sharedPreferences.contains("x-access-token")){
+            Log.e("Exists", "enters")
             val intent = Intent(this@Inicio,BottomNavigation::class.java)
             startActivity(intent)
+
         }
 
         val requestPermission = registerForActivityResult(ActivityResultContracts.RequestPermission()){
             isGranted ->
             when {
             isGranted -> Log.e("GPS", "Permiso Concedido")
-
 
                 Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
                         shouldShowRequestPermissionRationale(android.Manifest.permission.ACCESS_FINE_LOCATION)->
