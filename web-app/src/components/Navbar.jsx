@@ -6,8 +6,6 @@ import { faBars, faCaretDown, faBrush, faPalette, faCircle, faRightFromBracket }
 import url from '../config/API';
 import icon from '../images/icons/icon.png';
 
-/* import Sidebar from '../components/Sidebar'; */
-
 const Navbar = ({isOpenSidebar, toggleSidebar, ...props}) => {
     const navigate = useNavigate();
     const [showMenu, setShowMenu] = useState(false);
@@ -35,6 +33,16 @@ const Navbar = ({isOpenSidebar, toggleSidebar, ...props}) => {
         }
         let color = localStorage.getItem("theme")
         document.documentElement.style.setProperty('--accent-color', color);
+        let apparenceRadio = localStorage.getItem("appearance")
+        if (apparenceRadio === "dark") {
+            document.documentElement.style.setProperty('--bg-color-light', "#181a1b");
+            document.documentElement.style.setProperty('--main-color-light', "#1e2021");
+            document.documentElement.style.setProperty('--text-color-light', "#FFFFFF");
+        } else if (apparenceRadio === "light") {
+            document.documentElement.style.setProperty('--bg-color-light', "#f5f5f5");
+            document.documentElement.style.setProperty('--main-color-light', "#FFFFFF");
+            document.documentElement.style.setProperty('--text-color-dark', "#000000");
+        }
         getUser();
     }, []);
 
