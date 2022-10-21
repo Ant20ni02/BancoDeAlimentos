@@ -76,7 +76,7 @@ module.exports.login = (req, res) => {
                                             console.log(resultPassword);
             
                                             if (resultPassword === pwd) {
-                                                token = jwt.sign(payload, config.key, { expiresIn: 7200 })
+                                                token = jwt.sign(payload, config.key, { expiresIn: 432000 })
                                                 mensaje = 'Usuario o contraseña autenticados'
             
                                             }
