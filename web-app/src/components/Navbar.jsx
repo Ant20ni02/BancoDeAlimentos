@@ -17,7 +17,7 @@ const Navbar = ({isOpenSidebar, toggleSidebar, ...props}) => {
     useEffect(() => {
         const getUser = async () => {
             const idUser = localStorage.getItem("idUser");
-            const response = await fetch(url+`getUsersData/${idUser}`, {
+            const response = await fetch(url+`getNamePhoto/${idUser}`, {
                 method: "GET",
                 headers: {
                     'x-access-token' : localStorage.getItem('token')
@@ -29,7 +29,7 @@ const Navbar = ({isOpenSidebar, toggleSidebar, ...props}) => {
                 localStorage.removeItem("idUser");
                 navigate("/inicio-de-sesion", { replace: true });
             }
-            setUser(data);
+            setUser(data[0]);
         }
         let color = localStorage.getItem("theme")
         document.documentElement.style.setProperty('--accent-color', color);
