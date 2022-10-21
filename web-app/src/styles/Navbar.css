@@ -79,6 +79,15 @@ li.Navbar-item img {
     width: 100%;
 }
 
+.imgProfile {
+    max-width: 10px;
+    max-height: 10px;
+    aspect-ratio: 1/1;
+    border-radius: 75%;
+    object-fit: cover;
+
+}
+
 .Navbar-item:nth-child(3)> span {
     max-width: 70ch;
     background-color: var(--bg-color-light);

@@ -64,7 +64,10 @@ const Navbar = ({isOpenSidebar, toggleSidebar, ...props}) => {
                         </NavLink>
                     </li>
                     <li className="Navbar-item">
-                        <span>{user.firstName} {user.lastName}</span>
+                        <span>
+                            <img className="imgProfile" src={user.img} alt={user.firstName} />
+                            {user.firstName} {user.lastName}
+                        </span>
                     </li>
                     <li className="Navbar-item">
                         <div className="Navbar-item-circle" onClick={() => setShowMenu(!showMenu)}><FontAwesomeIcon icon={faCaretDown} className="Navbar-icon"/></div>
