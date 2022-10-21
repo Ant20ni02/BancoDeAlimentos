@@ -5,6 +5,7 @@ import useTabTitle from '../custom-hooks/useTabTitle';
 import DasboardCard from '../components/DashboardCard';
 import family from '../images/icons/family.png';
 import volunteers from '../images/icons/volunteers.png';
+import surveys from '../images/icons/surveys.png';
 import home from '../styles/Home.module.css';
 import url from '../config/API';
 
@@ -46,7 +47,7 @@ function Home() {
 
                     <DasboardCard img={family} title="Familias" count={data.familiesCount} />
 
-                    <DasboardCard img={family} title="Encuestas" count={data.surveysCount} />
+                    <DasboardCard img={surveys} title="Encuestas" count={data.surveysCount} />
                 </div>
             </div>
         </>

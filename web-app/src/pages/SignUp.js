@@ -219,7 +219,7 @@ function SignUp() {
                     <fieldset className={signup.termsAndConditionsAndPrivacyPolicyFormGroup}>
                         <div>
                             <label className={signup.termsAndConditionsAndPrivacyPolicyLabel}>
-                                <input type="checkbox" name="termsAndConditions" /* onInvalid={e => e.target.setCustomValidity('Por favor, acepte los términos y condiciones.')} */ required/> Acepto los <a href="#">términos y condiciones ↗</a>.
+                                <input type="checkbox" name="termsAndConditions" /* onInvalid={e => e.target.setCustomValidity('Por favor, acepte los términos y condiciones.')} */ required/> Acepto los <Link to='/terminos-y-condiciones'>términos y condiciones ↗</Link>.
                             </label>
                             {/* <FontAwesomeIcon className={signup.formValidationStatusError} icon={faTimesCircle} />
                             <span className={signup.formInputError}>Debe aceptar los términos y condiciones.</span> */}
@@ -227,7 +227,7 @@ function SignUp() {
 
                         <div>
                             <label className={signup.termsAndConditionsAndPrivacyPolicyLabel}>
-                                <input type="checkbox" name="privacyPolicy" /* onInvalid={e => e.target.setCustomValidity('Por favor, acepete la poítica de privacidad.')} */ required/>  Acepto la <a href="#">política de privacidad ↗</a>.
+                                <input type="checkbox" name="privacyPolicy" /* onInvalid={e => e.target.setCustomValidity('Por favor, acepete la poítica de privacidad.')} */ required/>  Acepto la <Link to='/politica-de-privacidad'>política de privacidad ↗</Link>.
                             </label>
                             {/* <FontAwesomeIcon className={signup.formValidationStatusError} icon={faTimesCircle} />
                             <span className={signup.formInputError}>Debe aceptar la política de privacidad.</span> */}
