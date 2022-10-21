@@ -14,6 +14,8 @@ import Charts from '../pages/survey/Charts';
 import Volunteers from '../pages/Volunteers';
 import PageNotFound from '../pages/PageNotFound';
 import UploadImage from '../pages/UploadImage';
+import TermsAndConditions from '../pages/TermsAndConditions';
+import PrivacyPolicy from '../pages/PrivacyPolicy';
 
 function AppRouter() {
     return (
@@ -23,6 +25,8 @@ function AppRouter() {
                     <Route index path="/" element={<Start />} />
                     <Route path="registro-de-cuenta" element={<SignUp />} />
                     <Route path="inicio-de-sesion" element={<LogIn />} />
+                    <Route path="terminos-y-condiciones" element={<TermsAndConditions />} />
+                    <Route path="politica-de-privacidad" element={<PrivacyPolicy />} />
 
                     <Route path="bamx" element={<Layout />}>
                         <Route index path="pagina-principal" element={<ProtectedRoute><Home /></ProtectedRoute>}/>
