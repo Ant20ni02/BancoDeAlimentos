@@ -59,6 +59,7 @@ class MainActivity : AppCompatActivity() {
                 putString("edad", response.getString("age"))
                 putString("sexo", response.getString("sex"))
                 putString("telefono", response.getString("phoneNumber"))
+                putString("image", response.getString("img"))
                 apply()
             }
         }
@@ -74,6 +75,7 @@ class MainActivity : AppCompatActivity() {
 
             if(response.getString("mensaje") == "Usuario o contraseña autenticados"){
                 val intent = Intent(this@MainActivity,BottomNavigation::class.java)
+
 
                 with(sharedPreference.edit()){
                     putString("email", usernameTv.text.toString())
@@ -92,7 +94,6 @@ class MainActivity : AppCompatActivity() {
                     override fun getHeaders(): MutableMap<String, String> {
                         val hashMap = HashMap<String, String>()
                         hashMap["Content-Type"] = "application/json; charset=UTF-8";
-                        //hashMap["User-Agent"] = "Mozilla/5.0"
                         hashMap["x-access-token"] = response.getString("token")
 
                         return hashMap
@@ -100,7 +101,6 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 queue2.add(requestUsersData)
-
 
 
                 //change Screen
@@ -128,6 +128,7 @@ class MainActivity : AppCompatActivity() {
                 val jsonBody = JSONObject()
                 jsonBody.put("email",usernameTv.text.toString())
                 jsonBody.put("password_",passwordTv.text.toString())
+
 
                 val request = JsonObjectRequest(Request.Method.POST, loginUrl, jsonBody, listener, error)
                 @Throws(AuthFailureError::class)

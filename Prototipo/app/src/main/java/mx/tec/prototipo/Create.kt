@@ -83,26 +83,32 @@ class Create : AppCompatActivity() {
                 )
                 Toast.makeText(this@Create,"Por favor, complete todos los campos", Toast.LENGTH_SHORT).show()
             else{
-                val jsonBody = JSONObject()
+                if(txtContrasena.text.toString() == txtContConfirmation.text.toString()){
+                    val jsonBody = JSONObject()
 
-                jsonBody.put("firstName",txtNombre.text.toString())
-                jsonBody.put("lastName",txtApellidos.text.toString())
-                jsonBody.put("email", txtCorreo.text.toString())
-                jsonBody.put("password_", txtContrasena.text.toString())
-                jsonBody.put("age", txtEdad.text.toString())
-                jsonBody.put("sex", txtSexo)
-                jsonBody.put("phoneNumber", txtTelefono.text.toString())
-                jsonBody.put("userType", "Voluntario")
-                jsonBody.put("isActive", 0)
+                    jsonBody.put("firstName",txtNombre.text.toString())
+                    jsonBody.put("lastName",txtApellidos.text.toString())
+                    jsonBody.put("email", txtCorreo.text.toString())
+                    jsonBody.put("password_", txtContrasena.text.toString())
+                    jsonBody.put("age", txtEdad.text.toString())
+                    jsonBody.put("sex", txtSexo)
+                    jsonBody.put("phoneNumber", txtTelefono.text.toString())
+                    jsonBody.put("userType", "Voluntario")
+                    jsonBody.put("isActive", 0)
 
-                val request = JsonObjectRequest(Request.Method.POST, signUpUrl, jsonBody, listener, error)
-                /*
-                @Throws(AuthFailureError::class)
+                    val request = JsonObjectRequest(Request.Method.POST, signUpUrl, jsonBody, listener, error)
+                    /*
+                    @Throws(AuthFailureError::class)
 
-                fun getBodyContentType(): String {
-                    return "application/json"
-                }*/
-                queue.add(request)
+                    fun getBodyContentType(): String {
+                        return "application/json"
+                    }*/
+                    queue.add(request)
+                }
+                else{
+                    Toast.makeText(this@Create,"Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()
+                }
+
             }
         }
 
