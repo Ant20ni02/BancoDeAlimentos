@@ -49,7 +49,7 @@ function BarChartQuantity() {
             },
             title: {
             display: true,
-            text: 'Cantidad de consumo de alimentos (g)'
+            text: 'Cantidad de consumo de alimentos (puño)'
             }
         }
       });
@@ -65,6 +65,21 @@ function BarChartQuantity() {
             title: {
             display: true,
             text: 'Cantidad de consumo de alimentos (pieza)'
+            }
+        }
+      });
+      getDataQuantity(event.target.value);
+    }
+    else if(event.target.value === 'd'){
+      setChartOptions({
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+            display: true,
+            text: 'Cantidad de consumo de alimentos (taza)'
             }
         }
       });
@@ -95,10 +110,13 @@ function BarChartQuantity() {
 
     let answer = [];
     if(foodType === 'b'){
-      answer = ['Carne de res', 'Carne de cerdo', 'Arroz', 'Verduras crudas o cocidas', 'Frutas enteras', 'Frijol, lenteja o garbanzo', 'Nuez, cacahuate, pistaches'];
+      answer = ['Carne de res', 'Carne de cerdo'];
     }
     else if (foodType === 'c'){
-      answer = ['Pollo', 'Atún', 'Huevo', 'Tortilla, pan, galletas', 'Verdura enlatada o en jugo', 'Frutas enlatadas o en jugo'];
+      answer = ['Pollo', 'Atún', 'Huevo', 'Tortilla, pan, galletas', 'Verduras crudas o cocidas','Verdura enlatada o en jugo', 'Frutas enteras','Frutas enlatadas o en jugo'];
+    }
+    else if (foodType === 'd'){
+      answer = ['Arroz', 'Frijol, lenteja o garbanzo', 'Nuez, cacahuate, pistaches']
     }
     else{
       answer = ['Leche', 'Refresco'];
@@ -144,8 +162,9 @@ useEffect(() => {
       <label>Elija el sistema métrico de los alimentos a visualizar:  </label>
         <select value={value} onChange={handleChange}>
           <option value="a">Mililitro</option>
-          <option value="b">Gramo</option>
+          <option value="b">Puño</option>
           <option value="c">Pieza</option>
+          <option value="d">Taza</option>
         </select>
         <div className="containerChart">
           <div style={{ width: "80%" }}>
