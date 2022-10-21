@@ -37,6 +37,15 @@
     cursor: pointer;
 }
 
+.Navbar-icon-menu-hamburger:hover {
+    background-color: var(--bg-color);
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+}
+
 /* div.menu-hamburger {
     display: flex;
     flex-direction: column;
@@ -80,15 +89,18 @@ li.Navbar-item img {
 }
 
 .imgProfile {
-    max-width: 10px;
-    max-height: 10px;
+    max-width: 1.5em;
+    max-height: 1.5em;
     aspect-ratio: 1/1;
     border-radius: 75%;
     object-fit: cover;
-
 }
 
 .Navbar-item:nth-child(3)> span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
     max-width: 70ch;
     background-color: var(--bg-color);
     border: 0.5px solid var(--details);

@@ -125,7 +125,11 @@ li.nav-item:has(.nav-link.active) .nav-dot {
         bottom: 0;
         width: 100vw;
         height: 13vh;
-}
+    }
+
+    .Sidebar:hover {
+        width: 100vw;
+    }
     
     .Sidebar > ul.Sidebar-container {
         flex-direction: row;
