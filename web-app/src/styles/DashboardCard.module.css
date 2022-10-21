@@ -2,15 +2,34 @@ div.container {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0.5rem 1rem;
-    gap: 1rem;
+    justify-content: center;
     outline: solid var(--details);
+    background-color: var(--main-color-light);
+    max-width: max-content;
+    padding: 1rem;
+    gap: 1rem;
     border-radius: 0.5rem;
     -webkit-border-radius: 0.5rem;
     -moz-border-radius: 0.5rem;
     -ms-border-radius: 0.5rem;
     -o-border-radius: 0.5rem;
-    background-color: var(--main-color-light);
+    transition: all 0.2s ease-in-out;
+}
+
+div.container:hover {
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+    -o-transform: scale(1.02);
+}
+
+div.container hr {
+    display: inline-block;
+    border: none;
+    width: 2px;
+    height: 7.5rem;
+    background-color: var(--details);
 }
 
 header.header {
@@ -22,12 +41,12 @@ header.header {
 }
 
 header.header img {
-    width: 25%;
+    width: 15rem;
     aspect-ratio: 16/9;
-}
-
-header.header h3.title {
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: var(--quaternary-color);
+    object-fit: cover;
+    border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    -ms-border-radius: 0.5em;
+    -o-border-radius: 0.5em;
 }

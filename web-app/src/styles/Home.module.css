@@ -2,7 +2,22 @@ div.container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    place-items: center;
-    padding: 0.5rem 1rem;
+    justify-content: center;
+    height: 70vh;
+    gap: 1rem;
+}
+
+h1.h1 {
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--quaternary-color);
+}
+
+div.grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 900px;
     gap: 1rem;
 }

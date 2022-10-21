@@ -39,10 +39,15 @@ function Home() {
         <>
             <TextHeader text="Página principal" />
             <div className={home.container}>
-                <h1>¡Bienvenido a BAMX!</h1>
-                <DasboardCard img={volunteers} title="Voluntarios" count={data.volunteersCount} text="Este es el número actual de voluntarios" />
+                <h1 className={home.h1}>Actualizaciones</h1>
 
-                <DasboardCard img={family} title="Familia" count={data.familiesCount} text="Este es el número actual de familias" />
+                <div className={home.grid}>
+                    <DasboardCard img={volunteers} title="Voluntarios" count={data.volunteersCount} text="Este es el número actual de voluntarios" />
+
+                    <DasboardCard img={family} title="Familias" count={data.familiesCount} />
+
+                    <DasboardCard img={family} title="Encuestas" count={data.surveysCount} />
+                </div>
             </div>
         </>
     );
