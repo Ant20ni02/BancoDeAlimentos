@@ -94,7 +94,7 @@
                         android:enabled="false"
                         android:gravity="center"
                         android:hint="##"
-                        android:inputType="textPersonName"
+                        android:inputType="number"
                         android:visibility="invisible"
                         app:layout_constraintVertical_bias="0.574" />
 
@@ -137,7 +137,7 @@
                         android:enabled="false"
                         android:gravity="center"
                         android:hint="##"
-                        android:inputType="textPersonName"
+                        android:inputType="number"
                         android:visibility="invisible"
                         app:layout_constraintVertical_bias="0.574" />
 
@@ -180,7 +180,7 @@
                         android:enabled="false"
                         android:gravity="center"
                         android:hint="##"
-                        android:inputType="textPersonName"
+                        android:inputType="number"
                         android:visibility="invisible"
                         app:layout_constraintVertical_bias="0.574" />
 
@@ -237,7 +237,7 @@
                         android:enabled="false"
                         android:gravity="center"
                         android:hint="##"
-                        android:inputType="textPersonName"
+                        android:inputType="number"
                         android:visibility="invisible"
                         app:layout_constraintVertical_bias="0.574" />
 
@@ -337,7 +337,7 @@
                             android:enabled="false"
                             android:gravity="center"
                             android:hint="##"
-                            android:inputType="textPersonName"
+                            android:inputType="number"
                             android:visibility="invisible"
                             app:layout_constraintVertical_bias="0.574" />
 

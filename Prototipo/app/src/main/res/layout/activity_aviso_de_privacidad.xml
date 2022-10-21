@@ -5,45 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/loginLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/bancoDeAlimentos2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.75"
-        app:srcCompat="@drawable/solid_green_background" />
-
     <TextView
         android:id="@+id/bancoDeAlimentos2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:background="@drawable/encuesta_background"
         android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:text="Encuesta"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.039" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_aviso_realizar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/btn_orange"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:text="Realizar Encuesta"
         android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@id/btn_aviso_regresar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btn_aviso_regresar"
         app:layout_constraintTop_toBottomOf="@id/textView9" />
 
     <Button
@@ -67,7 +60,8 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
         android:fontFamily="sans-serif-black"
         android:text="Aviso de Privacidad"
         android:textAlignment="center"
@@ -75,7 +69,8 @@
         app:layout_constraintBottom_toTopOf="@id/imageView5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bancoDeAlimentos2" />
+        app:layout_constraintTop_toBottomOf="@id/bancoDeAlimentos2"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView9"
@@ -83,9 +78,11 @@
         android:layout_height="wrap_content"
         android:background="@drawable/red_border"
         android:fontFamily="sans-serif-black"
+        android:paddingLeft="20dp"
         android:paddingTop="10dp"
+        android:paddingRight="20dp"
         android:paddingBottom="10dp"
-        android:text="Este encuesta tiene como proposito mejorar la experiencia con el Banco de Alimentos,  en ningún momento haremos mal  uso de esta información y  puede estar seguro de que sus datos están protegidos."
+        android:text="Es importante entender que la información que proporcionará será para el mejor uso de parte de Banco de Alimentos de México, y dicha información no será discutida, criticada, juzgada ni expuesta por ningún miembro de la organización y es por el único propósito de ayudar al usuario a proporcionarle el servicio que el Banco de Alimentos ofrece. También es importante que el usuario entienda que sus respuestas a la encuesta sean la verdad para proporcionar un servicio justo y poder mantener la integridad del Banco de Alimentos de México, por favor responder las preguntas con la mayor seriedad posibles."
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintBottom_toTopOf="@id/btn_aviso_realizar"
@@ -96,12 +93,13 @@
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="wrap_content"
-        android:layout_height="175dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="100dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@id/textView9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView8"
         app:layout_constraintVertical_bias="0.33"
         app:srcCompat="@drawable/whatsapp_image_2022_10_07_at_10_55_51_am" />
 

@@ -6,14 +6,19 @@
     android:layout_height="match_parent">
 
     <ScrollView
+        android:id="@+id/scrollView3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:layout_marginBottom="30dp"
+        android:scrollbarSize="7dp"
+        android:scrollbarStyle="outsideInset"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,13 +26,14 @@
             android:orientation="vertical">
 
             <TableRow
+                android:id="@+id/header"
                 android:layout_width="match_parent"
-                android:layout_height="90dp">
+                android:layout_height="110dp">
 
                 <FrameLayout
                     android:layout_width="80dp"
                     android:layout_height="match_parent"
-                    android:background="@drawable/layout_border"
+                    android:background="@drawable/layout_border_red"
                     android:paddingRight="5dp">
 
                     <TextView
@@ -49,7 +55,7 @@
                         android:id="@+id/textView2"
                         android:layout_width="70dp"
                         android:layout_height="match_parent"
-                        android:background="@drawable/layout_border"
+                        android:background="@drawable/layout_border_red"
                         android:gravity="center"
                         android:text="Cantidad"
                         android:textColor="@color/white"
@@ -64,7 +70,7 @@
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="35dp"
-                        android:background="@drawable/layout_border"
+                        android:background="@drawable/layout_border_red"
                         android:gravity="center">
 
                         <TextView
@@ -87,7 +93,7 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:background="@drawable/layout_border"
+                            android:background="@drawable/layout_border_red"
                             android:gravity="center"
                             android:text="Diario"
                             android:textAlignment="center"
@@ -98,18 +104,19 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:background="@drawable/layout_border"
+                            android:background="@drawable/layout_border_red"
                             android:gravity="center"
                             android:text="2-3 veces por semana"
                             android:textAlignment="center"
-                            android:textColor="@color/white" />
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
 
                         <TextView
                             android:id="@+id/textView6"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:background="@drawable/layout_border"
+                            android:background="@drawable/layout_border_red"
                             android:gravity="center"
                             android:text="Casi nunca"
                             android:textColor="@color/white" />
@@ -119,7 +126,7 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:background="@drawable/layout_border"
+                            android:background="@drawable/layout_border_red"
                             android:gravity="center"
                             android:paddingLeft="0dp"
                             android:text="Nunca"
@@ -132,7 +139,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/layout_border_black"
+                android:background="@drawable/table_background"
                 android:paddingTop="10dp"
                 android:paddingBottom="15dp">
 
@@ -146,7 +153,8 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="Leche"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
                 </FrameLayout>
 
                 <FrameLayout
@@ -161,11 +169,11 @@
                         android:ems="10"
                         android:enabled="true"
                         android:gravity="center"
-                        android:hint="____"
-                        android:inputType="textPersonName"
+                        android:hint="ml"
+                        android:inputType="number"
                         android:paddingTop="5dp"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/white"
+                        android:textColor="@color/black"
+                        android:textColorHint="#FB0328"
                         app:layout_constraintVertical_bias="0.574" />
                 </FrameLayout>
 
@@ -184,7 +192,7 @@
                         android:layout_gravity="fill_horizontal"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:gravity="center"
                         android:textAlignment="center"
                         android:textColor="@color/white"
@@ -198,7 +206,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
 
                     <RadioButton
@@ -207,7 +215,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
 
                     <RadioButton
@@ -216,7 +224,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
                 </RadioGroup>
 
@@ -238,7 +246,8 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="Pollo"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
                 </FrameLayout>
 
                 <FrameLayout
@@ -253,9 +262,10 @@
                         android:ems="10"
                         android:enabled="true"
                         android:gravity="center"
-                        android:hint="____"
-                        android:inputType="textPersonName"
+                        android:hint="pieza"
+                        android:inputType="number"
                         android:paddingTop="5dp"
+                        android:textColorHint="#FB0328"
                         app:layout_constraintVertical_bias="0.574" />
                 </FrameLayout>
 
@@ -274,6 +284,7 @@
                         android:layout_gravity="fill_horizontal"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/black"
                         android:gravity="center"
                         android:textAlignment="center"
                         android:textColor="@color/black" />
@@ -284,6 +295,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
 
                     <RadioButton
@@ -292,6 +304,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
 
                     <RadioButton
@@ -300,6 +313,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
                 </RadioGroup>
 
@@ -308,7 +322,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/layout_border"
+                android:background="@drawable/table_background"
                 android:paddingTop="10dp"
                 android:paddingBottom="15dp">
 
@@ -322,8 +336,9 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="Atún"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/white" />
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/white"
+                        android:textSize="16sp" />
                 </FrameLayout>
 
                 <FrameLayout
@@ -338,11 +353,11 @@
                         android:ems="10"
                         android:enabled="true"
                         android:gravity="center"
-                        android:hint="____"
-                        android:inputType="textPersonName"
+                        android:hint="pieza"
+                        android:inputType="number"
                         android:paddingTop="5dp"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/white"
+                        android:textColor="@color/black"
+                        android:textColorHint="#FB0328"
                         app:layout_constraintVertical_bias="0.574" />
                 </FrameLayout>
 
@@ -361,7 +376,7 @@
                         android:layout_gravity="fill_horizontal"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:gravity="center"
                         android:textAlignment="center"
                         android:textColor="@color/black" />
@@ -372,7 +387,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
 
                     <RadioButton
@@ -381,7 +396,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
 
                     <RadioButton
@@ -390,7 +405,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
                 </RadioGroup>
 
@@ -399,7 +414,6 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/layout_border_black"
                 android:paddingTop="10dp"
                 android:paddingBottom="15dp">
 
@@ -413,7 +427,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="Carne de res"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textColorHint="@color/white" />
                 </FrameLayout>
 
@@ -429,11 +443,11 @@
                         android:ems="10"
                         android:enabled="true"
                         android:gravity="center"
-                        android:hint="____"
-                        android:inputType="textPersonName"
+                        android:hint="puño"
+                        android:inputType="number"
                         android:paddingTop="5dp"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/white"
+                        android:textColor="@color/black"
+                        android:textColorHint="#FB0328"
                         app:layout_constraintVertical_bias="0.574" />
                 </FrameLayout>
 
@@ -452,7 +466,7 @@
                         android:layout_gravity="fill_horizontal"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:gravity="center"
                         android:textAlignment="center"
                         android:textColor="@color/black" />
@@ -463,7 +477,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
 
                     <RadioButton
@@ -472,7 +486,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
 
                     <RadioButton
@@ -481,7 +495,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
                 </RadioGroup>
 
@@ -490,6 +504,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/table_background"
                 android:paddingTop="10dp"
                 android:paddingBottom="15dp">
 
@@ -500,7 +515,7 @@
                     <TextView
                         android:id="@+id/carneCerdo_tv"
                         android:layout_width="80dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Carne de cerdo"
                         android:textColor="@color/black" />
@@ -518,9 +533,10 @@
                         android:ems="10"
                         android:enabled="true"
                         android:gravity="center"
-                        android:hint="____"
-                        android:inputType="textPersonName"
+                        android:hint="puño"
+                        android:inputType="number"
                         android:paddingTop="5dp"
+                        android:textColorHint="#FB0328"
                         app:layout_constraintVertical_bias="0.574" />
                 </FrameLayout>
 
@@ -539,6 +555,7 @@
                         android:layout_gravity="fill_horizontal"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/black"
                         android:gravity="center"
                         android:textAlignment="center"
                         android:textColor="@color/black" />
@@ -549,6 +566,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
 
                     <RadioButton
@@ -557,6 +575,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
 
                     <RadioButton
@@ -565,6 +584,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
                 </RadioGroup>
 
@@ -573,7 +593,6 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/layout_border"
                 android:paddingTop="10dp"
                 android:paddingBottom="15dp">
 
@@ -587,8 +606,9 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="Huevo"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/white" />
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/white"
+                        android:textSize="16sp" />
                 </FrameLayout>
 
                 <FrameLayout
@@ -603,11 +623,11 @@
                         android:ems="10"
                         android:enabled="true"
                         android:gravity="center"
-                        android:hint="____"
-                        android:inputType="textPersonName"
+                        android:hint="pieza"
+                        android:inputType="number"
                         android:paddingTop="5dp"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/white"
+                        android:textColor="@color/black"
+                        android:textColorHint="#FB0328"
                         app:layout_constraintVertical_bias="0.574" />
                 </FrameLayout>
 
@@ -626,7 +646,7 @@
                         android:layout_gravity="fill_horizontal"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:gravity="center"
                         android:textAlignment="center"
                         android:textColor="@color/black" />
@@ -637,7 +657,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
 
                     <RadioButton
@@ -646,7 +666,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
 
                     <RadioButton
@@ -655,7 +675,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
                 </RadioGroup>
 
@@ -664,7 +684,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/layout_border_black"
+                android:background="@drawable/table_background"
                 android:paddingTop="10dp"
                 android:paddingBottom="15dp">
 
@@ -678,8 +698,9 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="Arroz"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/white" />
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/white"
+                        android:textSize="16sp" />
                 </FrameLayout>
 
                 <FrameLayout
@@ -694,11 +715,11 @@
                         android:ems="10"
                         android:enabled="true"
                         android:gravity="center"
-                        android:hint="____"
-                        android:inputType="textPersonName"
+                        android:hint="taza"
+                        android:inputType="number"
                         android:paddingTop="5dp"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/white"
+                        android:textColor="@color/black"
+                        android:textColorHint="#FB0328"
                         app:layout_constraintVertical_bias="0.574" />
                 </FrameLayout>
 
@@ -717,7 +738,7 @@
                         android:layout_gravity="fill_horizontal"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:gravity="center"
                         android:textAlignment="center"
                         android:textColor="@color/black" />
@@ -728,7 +749,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
 
                     <RadioButton
@@ -737,7 +758,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
 
                     <RadioButton
@@ -746,7 +767,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
                 </RadioGroup>
 
@@ -784,9 +805,10 @@
                         android:ems="10"
                         android:enabled="true"
                         android:gravity="center"
-                        android:hint="____"
-                        android:inputType="textPersonName"
+                        android:hint="pieza"
+                        android:inputType="number"
                         android:paddingTop="5dp"
+                        android:textColorHint="#FB0328"
                         app:layout_constraintVertical_bias="0.574" />
                 </FrameLayout>
 
@@ -805,6 +827,7 @@
                         android:layout_gravity="fill_horizontal"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/black"
                         android:gravity="center"
                         android:textAlignment="center"
                         android:textColor="@color/black" />
@@ -815,6 +838,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
 
                     <RadioButton
@@ -823,6 +847,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
 
                     <RadioButton
@@ -831,6 +856,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
                 </RadioGroup>
 
@@ -839,7 +865,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/layout_border"
+                android:background="@drawable/table_background"
                 android:paddingTop="10dp"
                 android:paddingBottom="15dp">
 
@@ -853,7 +879,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="Verduras crudas o cocidas"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textColorHint="@color/white"
                         android:textSize="10sp" />
                 </FrameLayout>
@@ -870,11 +896,11 @@
                         android:ems="10"
                         android:enabled="true"
                         android:gravity="center"
-                        android:hint="____"
-                        android:inputType="textPersonName"
+                        android:hint="pieza"
+                        android:inputType="number"
                         android:paddingTop="5dp"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/white"
+                        android:textColor="@color/black"
+                        android:textColorHint="#FB0328"
                         app:layout_constraintVertical_bias="0.574" />
                 </FrameLayout>
 
@@ -893,7 +919,7 @@
                         android:layout_gravity="fill_horizontal"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:gravity="center"
                         android:textAlignment="center"
                         android:textColor="@color/black" />
@@ -904,7 +930,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
 
                     <RadioButton
@@ -913,7 +939,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
 
                     <RadioButton
@@ -922,7 +948,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
                 </RadioGroup>
 
@@ -931,7 +957,6 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/layout_border_black"
                 android:paddingTop="10dp"
                 android:paddingBottom="15dp">
 
@@ -945,7 +970,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="Verduras enlatadas"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textColorHint="@color/white" />
                 </FrameLayout>
 
@@ -961,11 +986,11 @@
                         android:ems="10"
                         android:enabled="true"
                         android:gravity="center"
-                        android:hint="____"
-                        android:inputType="textPersonName"
+                        android:hint="pieza"
+                        android:inputType="number"
                         android:paddingTop="5dp"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/white"
+                        android:textColor="@color/black"
+                        android:textColorHint="#FB0328"
                         app:layout_constraintVertical_bias="0.574" />
                 </FrameLayout>
 
@@ -984,7 +1009,7 @@
                         android:layout_gravity="fill_horizontal"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:gravity="center"
                         android:textAlignment="center"
                         android:textColor="@color/black" />
@@ -995,7 +1020,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
 
                     <RadioButton
@@ -1004,7 +1029,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
 
                     <RadioButton
@@ -1013,7 +1038,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
                 </RadioGroup>
 
@@ -1022,6 +1047,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/table_background"
                 android:paddingTop="10dp"
                 android:paddingBottom="15dp">
 
@@ -1050,9 +1076,10 @@
                         android:ems="10"
                         android:enabled="true"
                         android:gravity="center"
-                        android:hint="____"
-                        android:inputType="textPersonName"
+                        android:hint="pieza"
+                        android:inputType="number"
                         android:paddingTop="5dp"
+                        android:textColorHint="#FB0328"
                         app:layout_constraintVertical_bias="0.574" />
                 </FrameLayout>
 
@@ -1071,6 +1098,7 @@
                         android:layout_gravity="fill_horizontal"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/black"
                         android:gravity="center"
                         android:textAlignment="center"
                         android:textColor="@color/black" />
@@ -1081,6 +1109,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
 
                     <RadioButton
@@ -1089,6 +1118,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
 
                     <RadioButton
@@ -1097,6 +1127,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
                 </RadioGroup>
 
@@ -1105,7 +1136,6 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/layout_border"
                 android:paddingTop="10dp"
                 android:paddingBottom="15dp">
 
@@ -1119,7 +1149,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="Frutas enlatadas"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textColorHint="@color/white" />
                 </FrameLayout>
 
@@ -1135,11 +1165,11 @@
                         android:ems="10"
                         android:enabled="true"
                         android:gravity="center"
-                        android:hint="____"
-                        android:inputType="textPersonName"
+                        android:hint="pieza"
+                        android:inputType="number"
                         android:paddingTop="5dp"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/white"
+                        android:textColor="@color/black"
+                        android:textColorHint="#FB0328"
                         app:layout_constraintVertical_bias="0.574" />
                 </FrameLayout>
 
@@ -1158,7 +1188,7 @@
                         android:layout_gravity="fill_horizontal"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:gravity="center"
                         android:textAlignment="center"
                         android:textColor="@color/black" />
@@ -1169,7 +1199,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
 
                     <RadioButton
@@ -1178,7 +1208,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
 
                     <RadioButton
@@ -1187,7 +1217,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
                 </RadioGroup>
 
@@ -1196,7 +1226,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/layout_border_black"
+                android:background="@drawable/table_background"
                 android:paddingTop="10dp"
                 android:paddingBottom="15dp">
 
@@ -1210,7 +1240,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="Frijol, lenteja, garbanzo"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textColorHint="@color/white"
                         android:textSize="10sp" />
                 </FrameLayout>
@@ -1227,11 +1257,11 @@
                         android:ems="10"
                         android:enabled="true"
                         android:gravity="center"
-                        android:hint="____"
-                        android:inputType="textPersonName"
+                        android:hint="taza"
+                        android:inputType="number"
                         android:paddingTop="5dp"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/white"
+                        android:textColor="@color/black"
+                        android:textColorHint="#FB0328"
                         app:layout_constraintVertical_bias="0.574" />
                 </FrameLayout>
 
@@ -1250,7 +1280,7 @@
                         android:layout_gravity="fill_horizontal"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:gravity="center"
                         android:textAlignment="center"
                         android:textColor="@color/black" />
@@ -1261,7 +1291,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
 
                     <RadioButton
@@ -1270,7 +1300,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
 
                     <RadioButton
@@ -1279,7 +1309,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
                 </RadioGroup>
 
@@ -1317,9 +1347,10 @@
                         android:ems="10"
                         android:enabled="true"
                         android:gravity="center"
-                        android:hint="____"
-                        android:inputType="textPersonName"
+                        android:hint="taza"
+                        android:inputType="number"
                         android:paddingTop="5dp"
+                        android:textColorHint="#FB0328"
                         app:layout_constraintVertical_bias="0.574" />
                 </FrameLayout>
 
@@ -1338,6 +1369,7 @@
                         android:layout_gravity="fill_horizontal"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/black"
                         android:gravity="center"
                         android:textAlignment="center"
                         android:textColor="@color/black" />
@@ -1348,6 +1380,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
 
                     <RadioButton
@@ -1356,6 +1389,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
 
                     <RadioButton
@@ -1364,6 +1398,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
                 </RadioGroup>
 
@@ -1372,7 +1407,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/layout_border"
+                android:background="@drawable/table_background"
                 android:paddingTop="10dp"
                 android:paddingBottom="15dp">
 
@@ -1386,8 +1421,9 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="Refresco"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/white" />
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/white"
+                        android:textSize="16sp" />
                 </FrameLayout>
 
                 <FrameLayout
@@ -1402,11 +1438,11 @@
                         android:ems="10"
                         android:enabled="true"
                         android:gravity="center"
-                        android:hint="____"
-                        android:inputType="textPersonName"
+                        android:hint="ml"
+                        android:inputType="number"
                         android:paddingTop="5dp"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/white"
+                        android:textColor="@color/black"
+                        android:textColorHint="#FB0328"
                         app:layout_constraintVertical_bias="0.574" />
                 </FrameLayout>
 
@@ -1425,7 +1461,7 @@
                         android:layout_gravity="fill_horizontal"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:gravity="center"
                         android:textAlignment="center"
                         android:textColor="@color/black" />
@@ -1436,7 +1472,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
 
                     <RadioButton
@@ -1445,7 +1481,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
 
                     <RadioButton
@@ -1454,7 +1490,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="2"
-                        android:buttonTint="@color/white"
+                        android:buttonTint="@color/black"
                         android:textColor="@color/black" />
                 </RadioGroup>
 
