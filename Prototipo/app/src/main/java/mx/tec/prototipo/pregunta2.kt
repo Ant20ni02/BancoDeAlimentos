@@ -76,6 +76,7 @@ class pregunta2 : Fragment(){
         var otraCantidad = 0
 
         var pregunta2 : Boolean = false
+        var isPregnant : Boolean = false
 
         val sharedPreference = activity?.getSharedPreferences("ANSWERS", Context.MODE_PRIVATE)
 
@@ -127,6 +128,7 @@ class pregunta2 : Fragment(){
                         this?.commit()
                     }
                     pregunta2 = true
+                    isPregnant = true
                 }
 
                 else{
@@ -258,14 +260,16 @@ class pregunta2 : Fragment(){
 
                 //comprobar que los meses de pregnancy sean >0 y menores a 12
 
-                if(pregunta2){
-                    if(meses.text.toString().toInt() < 0 && meses.text.toString().toInt() > 12){
+                if(pregunta2 && isPregnant){
+
+                    if((meses.text.toString().toInt() < 0) || (meses.text.toString().toInt() > 12)){
                         var builder = AlertDialog.Builder(view.context)
 
                         builder.setTitle("Advertencia")
-                            .setMessage("Los meses deben ser entre el rango 0-12")
+                            .setMessage("Los meses de embarazo deben encontrarse entre el rango 0-12")
                             .setNegativeButton("Cerrar",{dialog, button -> dialog.dismiss()})
                             .show()
+                        pregunta2 = false
                     }
                 }
 

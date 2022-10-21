@@ -48,8 +48,6 @@ class IdentificadorFragment : Fragment(), LocationListener{
         savedInstanceState: Bundle?
     ): View {
 
-        //val phantom = endpoint().stillToken()
-
         val view: View = layoutInflater.inflate(R.layout.activity_identificador_fragment,container, false)
         val btnSiguiente = activity?.findViewById<Button>(R.id.btnSiguiente)
         val btnRegresar = activity?.findViewById<Button>(R.id.btnRegresar)

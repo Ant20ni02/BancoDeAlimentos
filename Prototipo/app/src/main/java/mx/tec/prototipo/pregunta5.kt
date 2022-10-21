@@ -55,10 +55,7 @@ class pregunta5 : Fragment() {
             val mensaje = response.toString()
             Log.e("listenerDis RESPONSE", mensaje)
 
-            //final request, next fragment
 
-            val intent = Intent(context,letreroFinal::class.java)
-            startActivity(intent)
 
         }
 
@@ -167,11 +164,6 @@ class pregunta5 : Fragment() {
         }
 
 
-
-
-
-
-
         var mainJsonObject = JSONObject()
         var jsonArray = JSONArray()
         //build json array
@@ -254,6 +246,8 @@ class pregunta5 : Fragment() {
             currentFrequencyId = ""
             currentQuestion = ""
             currentType = ""
+            allCantidadesFilled = false
+            allFrequencysSelected = false
 
             //retrieve tables data
             var RadioSelectedButton : RadioButton
@@ -347,7 +341,18 @@ class pregunta5 : Fragment() {
                 }
             }
             queue = Volley.newRequestQueue(activity?.applicationContext)
-            queue.add(requestAddAnswers)
+
+            //final request, next fragment
+
+
+            if(allCantidadesFilled && allFrequencysSelected){
+                queue.add(requestAddAnswers)
+                val intent = Intent(context,letreroFinal::class.java)
+                startActivity(intent)
+            }
+            else{
+                Log.e("something not selected", "conditional works")
+            }
 
 
 
