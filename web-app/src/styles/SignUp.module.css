@@ -274,6 +274,22 @@ fieldset.termsAndConditionsAndPrivacyPolicyFormGroup a:is(:hover, :active) {
     text-decoration: underline;
 }
 
+span.oldAccount {
+    grid-column: span 2;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+span.oldAccount a {
+    color: var(--tertiary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+span.oldAccount a:is(:hover, :active) {
+    text-decoration: underline;
+}
+
 button.formBtnSubmit {
     border: none;
     color: hsl(0, 0%, 100%);
@@ -312,6 +328,10 @@ button.formBtnSubmit:hover {
     }
 
     fieldset.termsAndConditionsAndPrivacyPolicyFormGroup {
+        grid-column: span 1;
+    }
+
+    span.oldAccount {
         grid-column: span 1;
     }
     

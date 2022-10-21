@@ -42,7 +42,9 @@ function SignUp() {
             const data = await response.json();
             if(data.mensaje === 'Usuario insertado correctamente'){
                 setShowModalCreatedUserSuccess(true);
-                navigate('/inicio-de-sesion', { replace: true });
+                setTimeout(() => {
+                    navigate('/inicio-de-sesion', { replace: true });
+                }, 4000);
             } else if(data.mensaje === "El usuario ya se encuentra registrado"){
                 setShowModalCreatedUserEmailTakenError(true);
             } else{
@@ -217,7 +219,7 @@ function SignUp() {
                     <fieldset className={signup.termsAndConditionsAndPrivacyPolicyFormGroup}>
                         <div>
                             <label className={signup.termsAndConditionsAndPrivacyPolicyLabel}>
-                                <input type="checkbox" name="termsAndConditions" onInvalid={e => e.target.setCustomValidity('Por favor, acepte los términos y condiciones.')} required/> Acepto los <a href="#">términos y condiciones ↗</a>.
+                                <input type="checkbox" name="termsAndConditions" /* onInvalid={e => e.target.setCustomValidity('Por favor, acepte los términos y condiciones.')} */ required/> Acepto los <a href="#">términos y condiciones ↗</a>.
                             </label>
                             {/* <FontAwesomeIcon className={signup.formValidationStatusError} icon={faTimesCircle} />
                             <span className={signup.formInputError}>Debe aceptar los términos y condiciones.</span> */}
@@ -225,12 +227,14 @@ function SignUp() {
 
                         <div>
                             <label className={signup.termsAndConditionsAndPrivacyPolicyLabel}>
-                                <input type="checkbox" name="privacyPolicy" onInvalid={e => e.target.setCustomValidity('Por favor, acepete la poítica de privacidad.')} required/>  Acepto la <a href="#">política de privacidad ↗</a>.
+                                <input type="checkbox" name="privacyPolicy" /* onInvalid={e => e.target.setCustomValidity('Por favor, acepete la poítica de privacidad.')} */ required/>  Acepto la <a href="#">política de privacidad ↗</a>.
                             </label>
                             {/* <FontAwesomeIcon className={signup.formValidationStatusError} icon={faTimesCircle} />
                             <span className={signup.formInputError}>Debe aceptar la política de privacidad.</span> */}
                         </div>
                     </fieldset>
+
+                    <span className={signup.oldAccount}>Ya tienes cuenta?, inicia sesión <br/> <Link to="/registro-de-cuenta">aquí &gt;</Link>.</span>
 
                     <footer className={signup.formFooter}>
                         <div className={signup.formInvalidSubmitMessage} id={`${id}-formInvalidSubmitMessage`}>
@@ -244,7 +248,7 @@ function SignUp() {
             </div>
 
             <PortalModal onShow={showModalCreatedUserSuccess} onClose={() => setShowModalCreatedUserSuccess(false)} title="¡Cuenta creada exitosamente!" > 
-                <p><b>¡Ya casi!</b>, ahora solamente <u>inicia sesión</u> con tu <b>cuenta nueva.</b></p>
+                <p><b>¡Ya casi!</b>, a continuación serás redirigiado para que <u>inicies sesión</u> con tu <b>cuenta nueva.</b></p>
             </PortalModal>
 
             <PortalModal onShow={showModalCreatedUserEmailTakenError} label="Error" onClose={() => setShowModalCreatedUserEmailTakenError(false)} title="¡Usuario ya registrado!" >
