@@ -13,11 +13,6 @@ table.Table {
     content: counter(records); 
 }
 
-a {
-    color: hsl(0, 0%, 0%);
-    text-decoration: none;
-}
-
 /* a:hover {
     color: var(--accent-color);
     text-decoration: underline;
@@ -27,13 +22,12 @@ table.Table caption.Caption {
     font-size: 1.5em;
     font-weight: bold;
     margin: 0.5em 0 0.75em;
+    color: var(--text-color);
 }
 
 thead, tfoot:has(tr) {
     color: hsl(0, 0%, 100%);
-    background-color: var(--accent-color) /* hsl(0, 0%, 94%) */;
-    /* background-color: hsl(0, 0%, 94%);
-    color: hsl(0, 0%, 0%); */
+    background-color: var(--accent-color);
     font-weight: bold;
 }
 
@@ -62,9 +56,23 @@ th, td {
     color: hsl(0, 0%, 0%);
 } */
 
+tbody tr {
+    color: var(--text-color);
+}
+
 tbody tr:nth-child(even) {
-    background-color: white;
-    color: hsl(0, 0%, 0%);
+    background-color: var(--main-color);
+    color: var(--text-color);
+}
+
+tbody a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+tbody a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
 }
 
 tbody tr:hover {

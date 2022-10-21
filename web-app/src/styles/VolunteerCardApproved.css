@@ -6,7 +6,7 @@
     max-width: max-content;
     padding: 1rem;
     border-radius: 0.5rem;
-    background-color: #fff;
+    background-color: var(--main-color);
     outline: solid var(--details);
     transition: all 0.2s ease-in-out;
 }
@@ -16,6 +16,7 @@
 }
 
 .volunteer-card-info {
+    color: var(--text-color);
     display: flex;
     flex-direction: column;
     align-items: center;

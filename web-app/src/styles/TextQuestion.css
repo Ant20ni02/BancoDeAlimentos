@@ -5,7 +5,7 @@ div.text-question {
     *//*justify-content: center;
     */padding: 2em;
     border-radius: .5em;
-    background-color: white;
+    background-color: var(--main-color);
     gap: 1em;
 }
 
@@ -17,11 +17,13 @@ span.question-text, p.answer-text {
 
 span.question-text {
     font-weight: bold;
-    background-color: var(--bg-color-light);
+    color: var(--text-color);
+    background-color: var(--bg-color);
     max-width: max-content;
 }
 
 p.answer-text {
     background-color: var(--details);
+    color: var(--text-color);
     max-width: max-content;
 }

@@ -234,7 +234,7 @@ function SignUp() {
                         </div>
                     </fieldset>
 
-                    <span className={signup.oldAccount}>Ya tienes cuenta?, inicia sesión <br/> <Link to="/registro-de-cuenta">aquí &gt;</Link>.</span>
+                    <span className={signup.oldAccount}>Ya tienes cuenta?, inicia sesión <br/> <Link to="/inicio-de-sesion">aquí &gt;</Link>.</span>
 
                     <footer className={signup.formFooter}>
                         <div className={signup.formInvalidSubmitMessage} id={`${id}-formInvalidSubmitMessage`}>

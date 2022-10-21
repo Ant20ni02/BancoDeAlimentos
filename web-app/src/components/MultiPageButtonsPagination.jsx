@@ -38,7 +38,7 @@ const MultiPageButtonsPagination = ({ maxPage, page, isDataGreaterThanPageSize, 
 
                 {
                     isDataGreaterThanPageSize && (
-                        <input type="number" min="1" max={maxPage} value={page + 1} onChange={(e) => goTo(e.target.value - 1)}/>
+                        <input type="number" min="1" max={maxPage} value={page + 1} onInput={(e) => goTo(e.target.value - 1)}/>
                     )
                 }
             </div>

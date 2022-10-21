@@ -9,6 +9,7 @@ header.formHeader {
     font-size: 1.5em;
     font-weight: 700;
     text-align: center;
+    color: var(--text-color);
 }
 
 div.iconContainerSignup {
@@ -36,7 +37,7 @@ form.form {
     grid-gap: 2.5em;
     padding: 4em 3em 3em 3em;
     outline: solid var(--details);
-    background-color: hsl(0, 0%, 100%);
+    background-color: var(--main-color);
     width: fit-content;
     height: fit-content;
     position: relative;
@@ -119,6 +120,7 @@ select.sex {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    color: var(--text-color);
 }
 
 select.sex:focus/* , select:active */ {
@@ -256,12 +258,8 @@ footer.formFooter  div.formInvalidSubmitMessageShow {
 
 /* /////////////////////////////////////////////////////////// */
 
-form.form footer.formFooter {
-    grid-column: span 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+fieldset.termsAndConditionsAndPrivacyPolicyFormGroup {
+    color: var(--text-color);
 }
 
 fieldset.termsAndConditionsAndPrivacyPolicyFormGroup a {
@@ -275,6 +273,7 @@ fieldset.termsAndConditionsAndPrivacyPolicyFormGroup a:is(:hover, :active) {
 }
 
 span.oldAccount {
+    color: var(--text-color);
     grid-column: span 2;
     text-align: center;
     font-size: 1.2rem;
@@ -288,6 +287,14 @@ span.oldAccount a {
 
 span.oldAccount a:is(:hover, :active) {
     text-decoration: underline;
+}
+
+form.form footer.formFooter {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 button.formBtnSubmit {

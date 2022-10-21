@@ -5,11 +5,12 @@ div.checkbox-question {
     *//*justify-content: center;
     */padding: 2em;
     border-radius: .5em;
-    background-color: white;
+    background-color: var(--main-color);
     gap: 1em;
 }
 
 span.question-checkbox, p.answer-checkbox {
+    color: var(--text-color);
     font-size: 1.5em;
     padding: 1em;
     border-radius: .5em;
@@ -23,26 +24,28 @@ div.checkbox-answer {
 
 span.question-checkbox {
     font-weight: bold;
-    background-color: var(--bg-color-light);
+    background-color: var(--bg-color);
     max-width: max-content;
 }
 
 input.checkbox-value[type="checkbox"] {
     width: 1.5em;
     height: 1.5em;
-    border: 1px solid var(--bg-color-light);
+    border: 1px solid var(--bg-color);
     border-radius: .5em;
 }
 
 label.answer-label {
     font-weight: bold;
-    background-color: var(--bg-color-light);
+    color: var(--text-color);
+    background-color: var(--bg-color);
     padding: 1em;
     border-radius: .5em;
     max-width: max-content;
 }
 
 p.answer-checkbox {
+    color: var(--text-color);
     background-color: var(--details);
     max-width: max-content;
 }

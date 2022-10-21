@@ -4,8 +4,8 @@
     top: 0;
     left: 0;
     position: fixed;
-    background-color: hsl(0, 0%, 100%);
-    border-right: 1px solid var(--bg-color-light);
+    background-color: var(--main-color);
+    border-right: 1px solid var(--bg-color);
     /* box-shadow: 0 0 10px 0 black; */
     /* background-color: #1a1a1a; */
     /*z-index: 1;
@@ -83,7 +83,7 @@ li.nav-item:has(.nav-link.active) .nav-dot {
 
 .nav-link:hover:not(.nav-link.active), .nav-link:focus:not(.nav-link.active) {
     outline: none;
-    background-color: var(--bg-color-light);
+    background-color: var(--bg-color);
     border-radius: .5em;
 }
 

@@ -10,6 +10,8 @@ const Card = ({ icon, title/* , description */ }) => {
                 <FontAwesomeIcon icon={icon} className="Card__header-icon" />
             </header>
 
+            <hr/>
+
             {/* <div className="card-body">
                 <p>{description}</p>
             </div> */}

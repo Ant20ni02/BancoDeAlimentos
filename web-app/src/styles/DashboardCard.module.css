@@ -4,7 +4,7 @@ div.container {
     align-items: center;
     justify-content: center;
     outline: solid var(--details);
-    background-color: var(--main-color-light);
+    background-color: var(--main-color);
     max-width: max-content;
     padding: 1rem;
     gap: 1rem;
@@ -50,3 +50,30 @@ header.header img {
     -ms-border-radius: 0.5em;
     -o-border-radius: 0.5em;
 }
+
+div.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-color);
+}
+
+div.content span {
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}
+
+/* div.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: hsl(0, 0%, 100%);
+    background-color: var(--accent-color);
+    border-radius: 0.5rem;
+    padding: 1rem;
+} */

@@ -1,13 +1,25 @@
 div.Card {
-    color: hsl(0, 0%, 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-color);
+    outline: solid var(--details);
     border-radius: 1rem 1rem 1rem 1rem;
-    /*box-shadow: rgba(100,100,111, 0.2) 0px 7px 29px 0px;
-    */width: 20rem;
+    /*box-shadow: rgba(100,100,111, 0.2) 0px 7px 29px 0px;*/
+    width: 20rem;
     transition: .3s transform ease-in-out;
     -webkit-transition: .3s transform ease-in-out;
     -moz-transition: .3s transform ease-in-out;
     -ms-transition: .3s transform ease-in-out;
     -o-transition: .3s transform ease-in-out;
+    overflow: hidden;
+}
+
+div.Card hr {
+    border:none;
+    width: 80%;
+    outline: thin solid var(--details);
 }
 
 div.Card:hover {
@@ -19,15 +31,17 @@ div.Card:hover {
 }
 
 header.Card__header {
-    background-color: var(--quaternary-color);
-    border-radius: 1rem 1rem 0 0;
     padding: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    /* border-top: solid var(--details);
+    border-left: solid var(--details);
+    border-right: solid var(--details); */
 }
 
 header.Card__header .Card__header-icon {
+    color: var(--accent-color);
     font-size: 10rem;
     transition: .3s transform ease-in-out;
     -webkit-transition: .3s transform ease-in-out;
@@ -44,9 +58,17 @@ div.Card:hover .Card__header-icon {
     -o-transform: scale(1.03);
 }
 
-footer.Card__footer {
+/* footer.Card__footer {
     background-color: var(--accent-color);
     border-radius: 0 0 1rem 1rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+footer.Card__footer {
+    color: var(--quaternary-color);
     padding: 2rem;
     display: flex;
     justify-content: center;
@@ -57,4 +79,9 @@ footer.Card__footer {
 
 footer.Card__footer h3.Card__footer-heading {
     font-size: 2.5rem;
+
+    /* color: hsl(0, 0%, 100%);
+    background-color: var(--accent-color);
+    border-radius: 0.5rem;
+    padding: 0.5rem; */
 }

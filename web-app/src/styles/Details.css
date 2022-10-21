@@ -9,7 +9,7 @@
 
 div.Question-header {
     width: 100%;
-    background-color: hsl(0, 0%, 100%);
+    background-color: var(--main-color);
     border-radius: .5em;
     padding: 1em;
 }
@@ -17,23 +17,31 @@ div.Question-header {
 div.Question-header h1.title {
     font-size: 2em;
     font-weight: bold;
+    color: var(--text-color);
 }
 
-div.Question-header > h3.date, div.Question-header h3.location {
+div.Question-header h3.date, div.Question-header h3.location {
     font-size: 1.5em;
     color: var(--details);
 }
 
 .mapContainer {
+    overflow: hidden;
     float: right;
-  }
+    border-radius: 1em;
+    -webkit-border-radius: 1em;
+    -moz-border-radius: 1em;
+    -ms-border-radius: 1em;
+    -o-border-radius: 1em;
+}
   
-  /* Then style the iframe to fit in the container div with full height and width */
-  .responsive-iframe {
+/* Then style the iframe to fit in the container div with full height and width */
+.responsive-iframe {
+    border: none;
     height: auto; 
     width: 500px;
     max-width: 100%;
-  }
+}
 
 /* div.Details a {
     font-weight: bold;

@@ -3,7 +3,8 @@ div.pages {
     border-radius: .50rem;
     margin: 1rem auto;
     width: fit-content;
-    background-color: hsl(0, 0%, 100%);
+    background-color: var(--main-color);
+    color: var(--text-color);
 }
 
 div.paginationButtons {
@@ -18,11 +19,8 @@ div.paginationButtons button, div.paginationButtons input[type="number"] {
     cursor: pointer;
     padding: 0.6rem;
     border-radius: .50rem;
-    /* background-color: var(--details);
-    color: hsl(0, 0%, 100%); */
-    /* outline: 0.5px solid var(--details);
-    background-color: var(--bg-color-light); */
-    /* transition: 0.3s; */
+    background-color: var(--main-color);
+    color: var(--text-color);
     font-size: 1.3rem;
     font-weight: bold;
     position: relative;

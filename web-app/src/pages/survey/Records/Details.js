@@ -1,12 +1,15 @@
-import { useState, useEffect } from 'react';
-import { useNavigate} from 'react-router-dom';
-import TextQuestion from "../../../components/Records/TextQuestion";
+import '../../../styles/Details.css';
 import CheckboxQuestion from "../../../components/Records/CheckboxQuestion";
 import CheckboxQuestionSpecial from "../../../components/Records/CheckboxQuestionSpecial";
-import {Link, useParams} from "react-router-dom";
-import '../../../styles/Details.css';
+import LinkButton from '../../../components/LinkButton';
+import TextQuestion from "../../../components/Records/TextQuestion";
 import url from '../../../config/API';
 import useTabTitle from '../../../custom-hooks/useTabTitle';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSquarePollHorizontal, faLocationDot, faCalendar } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate} from 'react-router-dom';
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from 'react';
 
 function Details() {
 
@@ -655,16 +658,18 @@ function Details() {
         <div className="Details">
             <div className="Question-header">
                 <div style={{float: "left"}} >
-                    <h1 className="title">Encuesta: {surveyData.familyLastName + '-' + surveyData.idFamily + '-' + surveyData.idSurvey}</h1>          
-                    <h3 className="date">Fecha: {surveyData.date_}</h3>
-                    <h3 className="location">Ubicación: {surveyData.latitude+ ", " + surveyData.longitude}</h3>
+                    <h1 className="title">{/* <FontAwesomeIcon icon={faSquarePollHorizontal} />  */}Encuesta: {surveyData.familyLastName + '-' + surveyData.idFamily + '-' + surveyData.idSurvey}</h1>          
+                    <h3 className="date"><FontAwesomeIcon icon={faCalendar} /> Fecha: {surveyData.date_}</h3>
+                    <h3 className="location"><FontAwesomeIcon icon={faLocationDot} /> Ubicación: {surveyData.latitude+ ", " + surveyData.longitude}</h3>
                 </div>
                 <div className="mapContainer">
                     <iframe className="responsive-iframe" src={`https://maps.google.com/maps?q=${surveyData.latitude},${surveyData.longitude}&hl=es;&output=embed`}  />
                 </div>
             </div>
 
-            <Link to="/bamx/encuestas/registros">Regresar</Link>
+            <div className='detailsBackBtn'>
+                <LinkButton path="/bamx/encuestas/registros" text={"Regresar"} />
+            </div>
 
             <TextQuestion question={question1}/>
             <CheckboxQuestion question={question2} />

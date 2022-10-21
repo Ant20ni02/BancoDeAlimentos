@@ -23,12 +23,12 @@ const Table = ({ data }) => {
                 {Object.entries(data).map(([key, { familyLastName, idFamily, date_, latitude, longitude, idSurvey}]) => (
                     <tr key = {key}>
                         <th className="counterCell"></th>
-                        <td> {familyLastName}</td>
-                        <td> <Link to={`/bamx/encuestas/registros/detalles/${idSurvey}`}>{idFamily}</Link></td>
-                        <td> <Link to={`/bamx/encuestas/registros/detalles/${idSurvey}`}>{date_}</Link></td>
-                        <td> <Link to={`/bamx/encuestas/registros/detalles/${idSurvey}`}>{latitude}</Link></td>
-                        <td> <Link to={`/bamx/encuestas/registros/detalles/${idSurvey}`}>{longitude}</Link></td>
-                        <td> <Link to={`/bamx/encuestas/registros/detalles/${idSurvey}`}>{idSurvey}</Link></td>
+                        <td><Link to={`/bamx/encuestas/registros/detalles/${idSurvey}`}>{idFamily}{familyLastName}</Link></td>
+                        <td><Link to={`/bamx/encuestas/registros/detalles/${idSurvey}`}>{idFamily}</Link></td>
+                        <td><Link to={`/bamx/encuestas/registros/detalles/${idSurvey}`}>{date_}</Link></td>
+                        <td><Link to={`/bamx/encuestas/registros/detalles/${idSurvey}`}>{latitude}</Link></td>
+                        <td><Link to={`/bamx/encuestas/registros/detalles/${idSurvey}`}>{longitude}</Link></td>
+                        <td><Link to={`/bamx/encuestas/registros/detalles/${idSurvey}`}>{idSurvey}</Link></td>
                     </tr>
                 ))}
             </tbody>

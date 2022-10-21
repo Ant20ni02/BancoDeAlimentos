@@ -12,6 +12,8 @@ div.filter select.sort {
     border-radius: 0.5rem;
     padding: 0.5rem;
     font-size: 1.2rem;
+    background-color: var(--main-color);
+    color: var(--text-color);
 }
 
 div.volunteers {

@@ -35,13 +35,15 @@ const Navbar = ({isOpenSidebar, toggleSidebar, ...props}) => {
         document.documentElement.style.setProperty('--accent-color', color);
         let apparenceRadio = localStorage.getItem("appearance")
         if (apparenceRadio === "dark") {
-            document.documentElement.style.setProperty('--bg-color-light', "#181a1b");
-            document.documentElement.style.setProperty('--main-color-light', "#1e2021");
-            document.documentElement.style.setProperty('--text-color-light', "#FFFFFF");
+            document.documentElement.style.setProperty('--bg-color', "#1e2021");
+            document.documentElement.style.setProperty('--main-color', "#181a1b");
+            document.documentElement.style.setProperty('--text-color', "#e8e6e3");
+            document.documentElement.style.setProperty('--details', "#42474a");
         } else if (apparenceRadio === "light") {
-            document.documentElement.style.setProperty('--bg-color-light', "#f5f5f5");
-            document.documentElement.style.setProperty('--main-color-light', "#FFFFFF");
-            document.documentElement.style.setProperty('--text-color-dark', "#000000");
+            document.documentElement.style.setProperty('--bg-color', "#f5f5f5");
+            document.documentElement.style.setProperty('--main-color', "#FFFFFF");
+            document.documentElement.style.setProperty('--text-color', "#131516");
+            document.documentElement.style.setProperty('--details', "#c0c0c0");
         }
         getUser();
     }, []);
@@ -126,15 +128,15 @@ const DropdownMenu = () => {
         const appearanceRadio = e.target.value;
 
         if (appearanceRadio === "light") {
-            document.documentElement.style.setProperty('--bg-color-light', "#181a1b");
-            document.documentElement.style.setProperty('--main-color-light', "#1e2021");
-            document.documentElement.style.setProperty('--text-color-light', "#FFFFFF");
+            document.documentElement.style.setProperty('--bg-color', "#181a1b");
+            document.documentElement.style.setProperty('--main-color', "#1e2021");
+            document.documentElement.style.setProperty('--text-color', "#FFFFFF");
             localStorage.setItem("appearance", "dark");
             appearance = localStorage.getItem('appearance');
         } else if (appearance === "dark") {
-            document.documentElement.style.setProperty('--bg-color-light', "#f5f5f5");
-            document.documentElement.style.setProperty('--main-color-light', "#FFFFFF");
-            document.documentElement.style.setProperty('--text-color-dark', "#000000");
+            document.documentElement.style.setProperty('--bg-color', "#f5f5f5");
+            document.documentElement.style.setProperty('--main-color', "#FFFFFF");
+            document.documentElement.style.setProperty('--text-color', "#000000");
             localStorage.setItem("appearance", "light");
             appearance = localStorage.getItem('appearance');
         }

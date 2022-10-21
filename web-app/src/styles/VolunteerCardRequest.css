@@ -6,7 +6,7 @@
     max-width: max-content;
     padding: 1rem;
     border-radius: 0.5rem;
-    background-color: hsl(0, 0%, 100%);
+    background-color: var(--main-color);
     outline: solid var(--details);
     transition: all 0.2s ease-in-out;
 }
@@ -21,6 +21,7 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    color: var(--text-color);
 }
 
 div.volunteer-card-info span {

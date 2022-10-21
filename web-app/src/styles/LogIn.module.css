@@ -9,6 +9,7 @@ header.formHeader {
     font-size: 1.5em;
     font-weight: 700;
     text-align: center;
+    color: var(--text-color);
 }
 
 div.iconContainer {
@@ -34,7 +35,7 @@ form.form {
     grid-template-columns: 1fr;
     grid-gap: 2.5em;
     outline: solid var(--details);
-    background-color: hsl(0, 0%, 100%);
+    background-color: var(--main-color);
     width: fit-content;
     height: fit-content;
     padding: 4.5em 0 2.5em 0;
@@ -183,6 +184,7 @@ input.inputLogin[type=email]:is(:not(:focus)):invalid:not(:placeholder-shown) {
 span.newAccount {
     text-align: center;
     font-size: 1.2rem;
+    color: var(--text-color);
 }
 
 span.newAccount a {

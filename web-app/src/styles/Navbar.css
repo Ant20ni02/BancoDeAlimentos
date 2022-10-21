@@ -1,8 +1,8 @@
 .Navbar {
     height: 8vh;
     padding: 1rem;
-    background-color: hsl(0, 0%, 100%);
-    /* border-bottom: 1px solid var(--bg-color-light);
+    background-color: var(--main-color);
+    /* border-bottom: 1px solid var(--bg-color);
     position: relative;
     z-index: 10;
     position: fixed;
@@ -90,10 +90,11 @@ li.Navbar-item img {
 
 .Navbar-item:nth-child(3)> span {
     max-width: 70ch;
-    background-color: var(--bg-color-light);
+    background-color: var(--bg-color);
     border: 0.5px solid var(--details);
     padding: 0.5rem 0.8rem;
     border-radius: 1.5rem;
+    color: var(--text-color);
 }
 
 .Navbar-item-circle {
@@ -103,7 +104,7 @@ li.Navbar-item img {
     cursor: pointer;
     border: 1px solid var(--details);
     color: var(--details);
-    background-color: var(--bg-color-light);
+    background-color: var(--bg-color);
     border-radius: 50%;
     padding: 0.5rem;
     margin: 0.5rem;
@@ -134,7 +135,7 @@ li.Navbar-item img {
     top: 7vh;
     width: 15vw;
     transform: translateX(-35%);
-    background-color: hsl(0, 0%, 100%);
+    background-color: var(--main-color);
     border: 1px solid var(--details);
     border-radius: 0.5rem;
     padding: 0.5rem;
@@ -156,11 +157,11 @@ li.Navbar-item img {
 .Navbar-dropdown-item-legend {
     /* font-size: 1.2rem;
     font-weight: 500; */
-    color: var(--bg-color-dark);
+    color: var(--text-color);
 }
 
 .Navbar-dropdown-item:hover {
-    background-color: var(--bg-color-light);
+    background-color: var(--bg-color);
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -222,13 +223,15 @@ ul.Navbar-dropdown li.Navbar-dropdown-item:last-child {
 }
 
 input.appearance-light + label > .appearance-light-icon {
-    color: hsl(0, 0%, 100%);
+    /* color: hsl(0, 0%, 100%); */
+    color: hsl(0, 0%, 0%);
     outline: thin solid var(--details);
     border-radius: 50%;
 }
 
 input.appearance-dark + label > .appearance-dark-icon {
-    color: hsl(0, 0%, 0%);
+    /* color: hsl(0, 0%, 0%); */
+    color: hsl(0, 0%, 100%);
     outline: thin solid var(--details);
     border-radius: 50%;
 }

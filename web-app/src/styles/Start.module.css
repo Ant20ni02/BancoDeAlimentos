@@ -21,7 +21,7 @@ div.logoContainer img.logo {
 }
 
 .start {
-    background-color: hsl(0, 0%, 100%);
+    background-color: var(--main-color);
     outline: solid var(--details);
     padding: 5.5rem 5rem 3rem 5rem;
     border-radius: 0.5rem;

@@ -1,5 +1,5 @@
 .Profile-card {
-    background-color: hsl(0, 0%, 100%);
+    background-color: var(--main-color);
     outline: solid var(--details);
     padding: 1rem;
     border-radius: 0.5rem;
@@ -58,9 +58,28 @@
 
 .Profile-card__main span {
     font-weight: 500;
+    color: var(--text-color);
 }
 
 .Profile-card footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Profile-card footer span {
     color: var(--details);
     font-weight: bold;
 }
+
+/* .Profile-card footer span {
+    color: hsl(0, 0%, 100%);
+    font-weight: bold;
+    background-color: var(--accent-color);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+} */
