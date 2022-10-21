@@ -49,21 +49,33 @@ module.exports.getSurveyById = (req,res) =>{
 module.exports.countVolunteersSurveys = (req,res) =>{
     const sql1 = `SELECT COUNT(*) AS surveysCount FROM Survey`;
     const sql2 = `SELECT COUNT(*) AS volunteersCount FROM User_ WHERE userType = "voluntario"`;
-    let finalResult = {surveysCount: 0, volunteersCount: 0};
+    const sql3 = `SELECT COUNT(*) AS familiesCount FROM Family`;
+    let finalResult = {surveysCount: 0, familiesCount:0, volunteersCount: 0,};
 
     conexion.query(sql1 ,(error,results,fields)=>{
         if(error)
             res.send(error)
         else{
             finalResult.surveysCount = results[0].surveysCount;
+            conexion.query(sql2,(error,results,fields)=>{
+                if(error)
+                    res.send(error)
+                else{
+                    finalResult.volunteersCount = results[0].volunteersCount;
+                    conexion.query(sql3,(error,results,fields)=>{
+                        if(error)
+                            res.send(error)
+                        else{
+                            finalResult.familiesCount = results[0].familiesCount;
+                            res.json(finalResult);
+                        }
+                    })
+                }
+            })
         }
     })
-    conexion.query(sql2,(error,results,fields)=>{
-        if(error)
-            res.send(error)
-        else{
-            finalResult.volunteersCount = results[0].volunteersCount;
-        }
-    })
-    res.json(finalResult);
+    
+    
+    
+    
 }
