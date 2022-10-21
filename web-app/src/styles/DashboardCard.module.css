@@ -1,0 +1,33 @@
+div.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    gap: 1rem;
+    outline: solid var(--details);
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+    background-color: var(--main-color-light);
+}
+
+header.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+header.header img {
+    width: 25%;
+    aspect-ratio: 16/9;
+}
+
+header.header h3.title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--quaternary-color);
+}
