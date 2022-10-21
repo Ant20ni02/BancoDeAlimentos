@@ -42,6 +42,27 @@ class letreroFinal : AppCompatActivity() {
 
         val error = Response.ErrorListener { error ->
             Log.e("ERRORLISTENER", error.toString())
+
+
+            val profile = getSharedPreferences("profile", Context.MODE_PRIVATE)
+            val answers = getSharedPreferences("ANSWERS", Context.MODE_PRIVATE)
+            val currentFragment = getSharedPreferences("currentFragment", Context.MODE_PRIVATE)
+
+            val prEdit = profile?.edit()
+            prEdit?.clear()
+            prEdit?.apply()
+
+            val ansEd = answers?.edit()
+            ansEd?.clear()
+            ansEd?.apply()
+
+            val currEd = currentFragment?.edit()
+            currEd?.clear()
+            currEd?.apply()
+
+            val intent = Intent(this@letreroFinal, Inicio::class.java)
+            startActivity(intent)
+
         }
 
         val shPreferenceToken = applicationContext.getSharedPreferences("profile", Context.MODE_PRIVATE)
@@ -66,29 +87,6 @@ class letreroFinal : AppCompatActivity() {
 
 
         Log.e("middleware phantom", phantomresp)
-
-        if(phantomresp == "Token inválido"){
-
-            val profile = getSharedPreferences("profile", Context.MODE_PRIVATE)
-            val answers = getSharedPreferences("ANSWERS", Context.MODE_PRIVATE)
-            val currentFragment = getSharedPreferences("currentFragment", Context.MODE_PRIVATE)
-
-            val prEdit = profile?.edit()
-            prEdit?.clear()
-            prEdit?.apply()
-
-            val ansEd = answers?.edit()
-            ansEd?.clear()
-            ansEd?.apply()
-
-            val currEd = currentFragment?.edit()
-            currEd?.clear()
-            currEd?.apply()
-
-            val intent = Intent(this@letreroFinal, Inicio::class.java)
-            startActivity(intent)
-
-        }
 
         //////////////////////////////
 

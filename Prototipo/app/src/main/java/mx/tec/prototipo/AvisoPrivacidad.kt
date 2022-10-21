@@ -36,32 +36,6 @@ class AvisoPrivacidad: AppCompatActivity() {
 
         val error = Response.ErrorListener { error ->
             Log.e("ERRORLISTENER", error.toString())
-        }
-
-        val shPreferenceToken = applicationContext.getSharedPreferences("profile", Context.MODE_PRIVATE)
-        val xaccesstoken = shPreferenceToken.getString("x-access-token", "#")
-
-        val requestAddSurvey = object :
-            JsonObjectRequest(Method.GET, phantom, null, listener, error){
-            @Throws(AuthFailureError::class)
-            override fun getHeaders(): MutableMap<String, String> {
-                val hashMap = HashMap<String, String>()
-                hashMap["Content-Type"] = "application/json; charset=UTF-8";
-                //hashMap["User-Agent"] = "Mozilla/5.0"
-                hashMap["x-access-token"] = xaccesstoken.toString()
-
-                return hashMap
-            }
-        }
-
-        queue = Volley.newRequestQueue(this@AvisoPrivacidad)
-
-        queue.add(requestAddSurvey) //stores variable
-
-
-        Log.e("middleware phantom", phantomresp)
-
-        if(phantomresp == "Token inválido"){
 
             val profile = getSharedPreferences("profile", Context.MODE_PRIVATE)
             val answers = getSharedPreferences("ANSWERS", Context.MODE_PRIVATE)
@@ -84,9 +58,34 @@ class AvisoPrivacidad: AppCompatActivity() {
 
         }
 
+        val shPreferenceToken = getSharedPreferences("profile", Context.MODE_PRIVATE)
+        val xaccesstoken = shPreferenceToken.getString("x-access-token", "#")
+        Log.e("TOKEN PRE REQUEST: ", xaccesstoken.toString())
+
+
+        val requestAddSurvey = object :
+            JsonObjectRequest(Method.GET, phantom, null, listener, error){
+            override fun getHeaders(): MutableMap<String, String> {
+                val hashMap = HashMap<String, String>()
+                hashMap["Content-Type"] = "application/json; charset=UTF-8";
+                //hashMap["User-Agent"] = "Mozilla/5.0"
+                hashMap["x-access-token"] = xaccesstoken.toString()
+
+                return hashMap
+            }
+        }
+
+        queue = Volley.newRequestQueue(this@AvisoPrivacidad)
+        queue.add(requestAddSurvey) //stores variable
+
+
+        Log.e("middleware phantom", phantomresp)
+
+        /*
+        if(phantomresp == "Token inválido"){
+        }*/
+
         //////////////////////////////
-
-
 
         val btnRealizar = findViewById<Button>(R.id.btn_aviso_realizar)
         val btnRegresar = findViewById<Button>(R.id.btn_aviso_regresar)
@@ -101,7 +100,5 @@ class AvisoPrivacidad: AppCompatActivity() {
         }
 
         //       startActivity(intent)
-
-
     }
 }
