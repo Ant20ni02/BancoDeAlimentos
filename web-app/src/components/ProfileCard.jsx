@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import url from '../config/API';
-import { useNavigate} from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faEnvelope, faPhone, faLock, faVenusMars, faCalendar } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faPhone, faVenusMars, faCalendar } from '@fortawesome/free-solid-svg-icons';
 import '../styles/ProfileCard.css';
+import tooltip from '../styles/Tooltip.module.css';
 
 const ProfileCard = () => {
 
@@ -44,7 +45,11 @@ const ProfileCard = () => {
     return (
         <div className="Profile-card">
             <header>
-                <img src={user.img} alt={user.firstName} />
+                <div  className={tooltip.stepBtn} data-tooltip="Subir o cambiar foto" >
+                    <Link to="/bamx/subir-imagen">
+                        <img src={user.img} alt={user.firstName} />
+                    </Link>
+                </div>
                 <h2>{user.firstName} {user.lastName}</h2>
             </header>
 

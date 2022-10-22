@@ -7,21 +7,21 @@ VALUES ("F01", 4, "Gardida Santos", 13);
 INSERT INTO Family(idFamily, familyMembers, familyLastName, pregnancy)
 VALUES ("F02", 3, "Jiménez García", 2);
 INSERT INTO Family(idFamily, familyMembers, familyLastName, pregnancy)
-VALUES ("F03", 3, "Xatruch Adame", 13);
+VALUES ("F03", 3, "Xatruch Adame", 4);
 INSERT INTO Family(idFamily, familyMembers, familyLastName, pregnancy)
-VALUES ("F04", 4, "Hernández", 3);
+VALUES ("F04", 4, "Hernández González", 3);
 INSERT INTO Family(idFamily, familyMembers, familyLastName, pregnancy)
-VALUES ("F05", 3, "Martínez", 3);
+VALUES ("F05", 3, "Martínez Padilla", 3);
 INSERT INTO Family(idFamily, familyMembers, familyLastName, pregnancy)
-VALUES ("F06", 3, "López", 0);
+VALUES ("F06", 3, "Cortés López", 0);
 INSERT INTO Family(idFamily, familyMembers, familyLastName, pregnancy)
-VALUES ("F07", 4, "González", 0);
+VALUES ("F07", 4, "González Prieto", 0);
 INSERT INTO Family(idFamily, familyMembers, familyLastName, pregnancy)
-VALUES ("F08", 3, "Pérez", 9);
+VALUES ("F08", 3, "Pérez Rivera", 9);
 INSERT INTO Family(idFamily, familyMembers, familyLastName, pregnancy)
-VALUES ("F09", 3, "Rodríguez", 13);
+VALUES ("F09", 3, "Rodríguez Estrada", 13);
 INSERT INTO Family(idFamily, familyMembers, familyLastName, pregnancy)
-VALUES ("F10", 4, "Sánchez", 7);
+VALUES ("F10", 4, "Sánchez Cordero", 7);
 
 -- Encuesta
 

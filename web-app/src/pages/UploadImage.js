@@ -1,5 +1,6 @@
 import {useNavigate} from "react-router-dom"
 import url from '../config/API';
+import uploadImage from './styles/uploadImage.module.css';
 
 function UploadImage() {
     const navigate = useNavigate();
@@ -23,13 +24,12 @@ function UploadImage() {
         navigate("/bamx/perfil", { replace: true });
     }
     return (
-        <>
-            <div>
-
+        <div className={uploadImage.grid}>
+            <div className={uploadImage.flex}>
                 <input id="fileupload" className="hidden" type="file" onChange={e => convert2base64 (e)} />
-                <label htmlFor="fileupload">Upload file</label>
+                <label htmlFor="fileupload">Subir o cambiar imagen</label>
             </div>
-        </>
+        </div>
     );
 }
 
