@@ -354,8 +354,6 @@ class pregunta5 : Fragment() {
                 Log.e("something not selected", "conditional works")
             }
 
-
-
         }
 
         btnRegresar?.setOnClickListener {

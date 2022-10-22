@@ -12,7 +12,7 @@ import org.json.JSONObject
 
 class endpoint : Application() {
 
-    var globalLink = "http://bamxapi3-env.eba-j9sdi2k3.us-east-1.elasticbeanstalk.com/"
+    var globalLink = "http://bamxrestapi-env.eba-zn7ggggu.us-east-1.elasticbeanstalk.com/"
     var phantomResponse = ""
 
 }

@@ -82,9 +82,9 @@ class MainProfileFragment : Fragment() {
         profilePicture = view.findViewById(R.id.profile_picture)
 
 
-        val imageBytes = Base64.decode(base64_photo, Base64.DEFAULT)
-        val decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
-        profilePicture.setImageBitmap(decodedImage)
+        //val imageBytes = Base64.decode(base64_photo, Base64.DEFAULT)
+        //val decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
+        //profilePicture.setImageBitmap(decodedImage)
 
 
 
